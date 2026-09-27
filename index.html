@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Fieldwork Studio — Websites & brand goods</title>
+<meta name="description" content="Editable website templates, brand kits, and custom design for small businesses. Canva, Squarespace, and HTML releases are in the works.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anybody:wdth,wght@50..150,300..900&family=Hanken+Grotesk:wght@400;500;700&family=Caveat:wght@600&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='13' cy='16' r='10' fill='%23FF48B0'/><circle cx='19' cy='16' r='10' fill='%23FFE800' style='mix-blend-mode:multiply'/></svg>">
+<style>
+/* ============================================================
+   EDIT YOUR COLORS HERE (riso-print inks)
+   ============================================================ */
+:root {
+  --paper: #E5E7EA;     /* newsprint background */
+  --sheet: #FAFAF7;     /* cards and paper sheets */
+  --blue: #1D3FB0;      /* riso blue: text, borders, shadows */
+  --pink: #FF48B0;      /* fluorescent pink */
+  --yellow: #FFE800;    /* riso yellow */
+  --soft: #5A6BA8;      /* secondary text */
+
+  --display: "Anybody", "Arial Black", system-ui, sans-serif;
+  --body: "Hanken Grotesk", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --hand: "Caveat", "Comic Sans MS", cursive;
+  --ease: cubic-bezier(.2, .8, .2, 1);
+  --bounce: cubic-bezier(.34, 1.56, .64, 1);
+
+  box-sizing: border-box;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+  color-scheme: light;
+}
+*, *::before, *::after { box-sizing: inherit; }
+html { overflow-x: clip; scroll-behavior: smooth; scroll-padding-top: calc(env(safe-area-inset-top, 0px) + 84px); background: var(--paper); }
+body {
+  margin: 0; background: var(--paper); color: var(--blue); overflow-x: clip;
+  font-family: var(--body); font-size: 1.0625rem; line-height: 1.6; -webkit-font-smoothing: antialiased;
+}
+::selection { background: var(--yellow); color: var(--blue); }
+img, svg { max-width: 100%; display: block; }
+a { color: inherit; }
+:focus-visible { outline: 3px dashed var(--pink); outline-offset: 4px; }
+.wrap { width: min(1240px, 100% - 2.5rem); margin-inline: auto; }
+
+/* Paper texture: printed-grain overlay */
+.paper {
+  position: fixed; inset: 0; z-index: 90; pointer-events: none; mix-blend-mode: multiply; opacity: .55;
+  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='300'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 .55  0 0 0 0 .55  0 0 0 0 .6  0 0 0 .35 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+}
+
+/* ---------- Tactile buttons ---------- */
+.btn {
+  display: inline-flex; align-items: center; gap: .5rem; cursor: pointer; text-decoration: none;
+  padding: .9rem 1.4rem; border: 2.5px solid var(--blue); border-radius: 14px;
+  font: 800 1rem/1 var(--body); color: var(--blue);
+  background: linear-gradient(180deg, rgba(255,255,255,.45), rgba(255,255,255,0) 55%), var(--pink);
+  box-shadow: 4px 4px 0 var(--blue), inset 0 -3px 0 rgba(0,0,0,.12);
+  transition: transform .15s var(--ease), box-shadow .15s var(--ease);
+}
+.btn:hover { transform: translate(-2px, -2px); box-shadow: 6px 6px 0 var(--blue), inset 0 -3px 0 rgba(0,0,0,.12); }
+.btn:active { transform: translate(4px, 4px) scale(.98, .96); box-shadow: 0 0 0 var(--blue), inset 0 3px 0 rgba(0,0,0,.12); }
+.btn.alt { background: linear-gradient(180deg, rgba(255,255,255,.55), rgba(255,255,255,0) 55%), var(--yellow); }
+.btn.plain { background: var(--sheet); }
+.btn.small { padding: .65rem 1rem; font-size: .9rem; border-radius: 11px; }
+
+/* ---------- Nav ---------- */
+.nav { position: fixed; inset: 0 0 auto; z-index: 50; padding-top: env(safe-area-inset-top, 0px); transition: background .3s; }
+.nav.scrolled { background: rgba(229, 231, 234, .85); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 2.5px solid var(--blue); }
+.nav .wrap { display: flex; justify-content: space-between; align-items: center; height: 74px; gap: 1rem; }
+.brand { display: flex; align-items: center; gap: .55rem; text-decoration: none; font: 800 1.3rem/1 var(--display); font-variation-settings: "wdth" 115; }
+.brand .dots { position: relative; width: 30px; height: 20px; }
+.brand .dots i { position: absolute; top: 0; width: 20px; height: 20px; border-radius: 50%; mix-blend-mode: multiply; }
+.brand .dots i:first-child { left: 0; background: var(--pink); }
+.brand .dots i:last-child { left: 10px; background: var(--yellow); }
+.nav ul { display: flex; gap: 1.9rem; list-style: none; margin: 0; padding: 0; }
+.nav ul a { text-decoration: none; font-weight: 700; position: relative; }
+.nav ul a::after { content: ""; position: absolute; left: -4px; right: -4px; bottom: 1px; height: 9px; background: var(--yellow); z-index: -1; transform: scaleX(0); transform-origin: left; transition: transform .3s var(--ease); }
+.nav ul a:hover::after { transform: scaleX(1); }
+@media (max-width: 760px) { .nav ul { display: none; } }
+
+/* ---------- Hero with elastic riso type ---------- */
+.hero { padding: 118px 0 3rem; position: relative; }
+.headline { margin: 0; --wdth: 125; --wght: 800; font-family: var(--display); text-transform: uppercase; line-height: .84; letter-spacing: -.01em; }
+.headline .fit { display: block; white-space: nowrap; font-variation-settings: "wdth" var(--wdth), "wght" var(--wght); }
+.riso { display: inline-grid; }
+.riso > span { grid-area: 1 / 1; }
+.riso .ink-p { color: var(--pink); mix-blend-mode: multiply; transform: translate(.035em, .03em); }
+.riso .ink-b { color: var(--blue); }
+.hero .under { display: grid; grid-template-columns: 1fr auto; gap: 2rem; align-items: end; margin-top: 2.25rem; }
+.hero .lede { font-size: 1.25rem; max-width: 40ch; margin: 0 0 1.75rem; font-weight: 500; }
+.hero .actions { display: flex; flex-wrap: wrap; gap: 1rem; }
+.note { font: 600 1.7rem/1.1 var(--hand); color: var(--pink); transform: rotate(-4deg); text-align: center; }
+.note svg { width: 90px; margin: .3rem auto 0; }
+@media (max-width: 700px) { .hero .under { grid-template-columns: 1fr; } .note { display: none; } }
+
+/* Stickers slapped on the hero */
+.sticker {
+  position: absolute; z-index: 3; display: grid; place-items: center; text-align: center; pointer-events: auto;
+  font: 800 1rem/1.05 var(--display); font-variation-settings: "wdth" 90; text-transform: uppercase;
+  transition: transform .4s var(--bounce);
+}
+.sticker.round { width: 124px; height: 124px; border-radius: 50%; background: var(--yellow); border: 2.5px solid var(--blue); box-shadow: 3px 3px 0 var(--blue); bottom: 130px; right: 24%; transform: rotate(12deg); }
+.sticker.round:hover { transform: rotate(-4deg) scale(1.08); }
+.sticker.round .spin { position: absolute; inset: 6px; }
+.sticker.tape {
+  width: 170px; aspect-ratio: 4 / 3; right: 20%; top: 46%; transform: rotate(-8deg);
+  background: var(--sheet); border: 2.5px solid var(--blue); box-shadow: 4px 4px 0 var(--blue); border-radius: 6px; overflow: visible;
+}
+.sticker.tape:hover { transform: rotate(0deg) scale(1.05); }
+.sticker.tape svg { width: 100%; height: 100%; border-radius: 4px; }
+.sticker.tape::before { content: ""; position: absolute; width: 70px; height: 24px; top: -14px; left: 50%; margin-left: -35px; background: rgba(255, 232, 0, .7); transform: rotate(4deg); }
+@media (max-width: 900px) { .sticker.tape { display: none; } .sticker.round { width: 96px; height: 96px; font-size: .8rem; top: auto; bottom: -30px; right: 1rem; } }
+
+@media (prefers-reduced-motion: no-preference) {
+  .sticker.round .spin { animation: spin 16s linear infinite; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .riso .ink-p { animation: register 1.1s var(--ease) both; }
+  @keyframes register { from { transform: translate(.25em, -.12em); opacity: 0; } }
+  .riso .ink-b { animation: ink 0.8s var(--ease) both; }
+  @keyframes ink { from { opacity: 0; } }
+  .slap { animation: slap .6s var(--bounce) both; animation-delay: var(--d, .9s); }
+  @keyframes slap { from { transform: scale(1.8) rotate(-30deg); opacity: 0; } }
+}
+
+/* ---------- Tape strip ---------- */
+.strip { background: var(--yellow); border-block: 2.5px solid var(--blue); transform: rotate(-1.5deg); overflow: hidden; margin: 2.5rem -1rem 0; }
+.strip .track { display: flex; width: max-content; }
+.strip span { font: 800 1.35rem/1 var(--display); font-variation-settings: "wdth" 130; text-transform: uppercase; padding: .9rem 0; white-space: nowrap; }
+.strip b { color: var(--pink); padding: 0 1.2rem; font-weight: 800; }
+@media (prefers-reduced-motion: no-preference) {
+  .strip .track { animation: slide 30s linear infinite; }
+  @keyframes slide { to { transform: translateX(-50%); } }
+}
+
+/* ---------- Section heads ---------- */
+section { padding: clamp(4rem, 9vw, 7rem) 0; }
+.head { display: flex; justify-content: space-between; align-items: end; flex-wrap: wrap; gap: 1.5rem; margin-bottom: 2.5rem; }
+h2 {
+  margin: 0; font-family: var(--display); font-weight: 850; text-transform: uppercase; line-height: .9;
+  font-size: clamp(2.8rem, 7.5vw, 6rem); font-variation-settings: "wdth" var(--w, 60);
+  transition: font-variation-settings .9s var(--ease);
+}
+h2.in { --w: 130; }
+.head p { max-width: 42ch; margin: .8rem 0 0; color: var(--soft); font-weight: 500; }
+.scribble { display: block; width: min(260px, 60%); height: 22px; margin-top: .5rem; overflow: visible; }
+.scribble path { fill: none; stroke: var(--pink); stroke-width: 5; stroke-linecap: round; stroke-dasharray: 1; stroke-dashoffset: 1; transition: stroke-dashoffset 1s var(--ease) .3s; }
+.in .scribble path, .scribble.in path { stroke-dashoffset: 0; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .reveal { opacity: 0; transform: translateY(40px) rotate(var(--rr, 0deg)); transition: opacity .8s var(--ease), transform .8s var(--ease); transition-delay: var(--d, 0s); }
+  .reveal.in { opacity: 1; transform: none; }
+}
+@media (prefers-reduced-motion: reduce) { h2 { --w: 110; } .scribble path { stroke-dashoffset: 0; } }
+
+/* ---------- Bento ---------- */
+.bento { display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: repeat(2, minmax(210px, auto)); gap: 1rem; }
+.block {
+  position: relative; overflow: hidden; border: 2.5px solid var(--blue); border-radius: 22px; padding: 1.4rem;
+  background: var(--sheet); box-shadow: 5px 5px 0 var(--blue); text-decoration: none; cursor: pointer;
+  display: flex; flex-direction: column; justify-content: space-between; min-height: 210px;
+  transition: transform .25s var(--ease), box-shadow .25s var(--ease);
+  font: inherit; text-align: left; color: inherit;
+}
+.block:hover { transform: translate(-3px, -3px) rotate(-.6deg); box-shadow: 8px 8px 0 var(--blue); }
+.block:active { transform: translate(3px, 3px); box-shadow: 2px 2px 0 var(--blue); }
+.block h3 { margin: 0; font: 850 clamp(1.6rem, 3vw, 2.4rem)/.95 var(--display); font-variation-settings: "wdth" 110; text-transform: uppercase; position: relative; z-index: 1; }
+.block p { margin: .4rem 0 0; font-weight: 500; position: relative; z-index: 1; max-width: 28ch; }
+.block .count { font: 600 1.5rem/1 var(--hand); color: var(--pink); position: relative; z-index: 1; }
+.block .art { position: absolute; inset: auto -2% -4% auto; width: 62%; opacity: .95; transition: transform .5s var(--bounce); }
+.block:hover .art { transform: rotate(-6deg) scale(1.06); }
+.b1 { grid-column: span 2; grid-row: span 2; background: var(--pink); }
+.b1 .art { width: 60%; right: -3%; bottom: -3%; transform: rotate(-4deg); }
+.b1:hover .art { transform: rotate(-9deg) scale(1.05); }
+.b2 { background: var(--yellow); }
+.b4 { grid-column: span 2; background: var(--blue); color: var(--sheet); }
+.b4 .count { color: var(--yellow); }
+@media (max-width: 860px) {
+  .bento { grid-template-columns: 1fr 1fr; grid-template-rows: none; }
+  .b1 { grid-column: span 2; grid-row: auto; min-height: 300px; }
+  .b4 { grid-column: span 2; }
+}
+
+/* ---------- Shop ---------- */
+.filters { display: flex; flex-wrap: wrap; gap: .6rem; }
+.filters button {
+  font: 700 .95rem/1 var(--body); color: var(--blue); cursor: pointer; padding: .7rem 1.1rem; border-radius: 999px;
+  background: var(--sheet); border: 2.5px solid var(--blue); box-shadow: 3px 3px 0 var(--blue);
+  transition: transform .15s var(--ease), box-shadow .15s var(--ease), background .2s;
+}
+.filters button:active { transform: translate(3px, 3px); box-shadow: 0 0 0 var(--blue); }
+.filters button[aria-pressed="true"] { background: var(--yellow); transform: translate(2px, 2px); box-shadow: 1px 1px 0 var(--blue); }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); gap: 2.25rem 1.5rem; }
+.card { position: relative; transition: transform .35s var(--bounce); transform: rotate(var(--tilt, 0deg)); }
+.card:hover { transform: rotate(0deg) translateY(-6px); }
+.card .thumb { aspect-ratio: 4 / 3; border: 2.5px solid var(--blue); border-radius: 18px; overflow: hidden; background: var(--sheet); box-shadow: 5px 5px 0 var(--blue); }
+.card .thumb svg { width: 100%; height: 100%; transition: transform .6s var(--ease); }
+.card:hover .thumb svg { transform: scale(1.05); }
+.card .price {
+  position: absolute; top: -14px; right: 14px; z-index: 2; padding: .45rem .8rem; transform: rotate(6deg);
+  background: var(--yellow); border: 2.5px solid var(--blue); border-radius: 8px;
+  font: 850 1.2rem/1 var(--display); font-variation-settings: "wdth" 120;
+  transition: transform .35s var(--bounce);
+}
+.card:hover .price { transform: rotate(-4deg) scale(1.12); }
+.card .kind { font: 600 1.25rem/1 var(--hand); color: var(--pink); margin: 1.1rem 0 .2rem; }
+.card h3 { margin: 0; font: 800 1.35rem/1.1 var(--display); font-variation-settings: "wdth" 100; }
+.card p { color: var(--soft); margin: .35rem 0 1rem; font-size: .96rem; }
+.empty { font: 600 1.5rem/1.3 var(--hand); color: var(--pink); }
+.launch-card { background: var(--sheet); border: 2.5px solid var(--blue); border-radius: 18px; padding: 1.5rem; box-shadow: 5px 5px 0 var(--blue); min-height: 215px; display: flex; flex-direction: column; align-items: start; }
+.launch-card:nth-child(2) { background: var(--yellow); }
+.launch-card:nth-child(3) { background: #fbd5e9; }
+.launch-card h3 { font: 850 1.55rem/1.05 var(--display); text-transform: uppercase; margin: .8rem 0 .5rem; }
+.launch-card p { margin: 0 0 1rem; }
+.launch-card .tag { font: 700 .88rem/1 var(--body); border: 2px solid var(--blue); border-radius: 999px; padding: .45rem .7rem; background: var(--sheet); }
+.launch-card a { margin-top: auto; font-weight: 700; text-underline-offset: .25em; }
+
+/* ---------- Custom work: receipt ---------- */
+.custom-grid { display: grid; grid-template-columns: minmax(0, 420px) 1fr; gap: clamp(2rem, 6vw, 5rem); align-items: start; }
+.receipt {
+  background: var(--sheet); padding: 2rem 1.75rem 2.75rem;
+  --zig: conic-gradient(from -45deg at bottom, #0000, #000 1deg 89deg, #0000 90deg) 50% / 22px 100%;
+  -webkit-mask: var(--zig); mask: var(--zig);
+  font-variant-numeric: tabular-nums;
+}
+.receipt-rot { transform: rotate(-2deg); filter: drop-shadow(5px 5px 0 var(--blue)); transition: transform .5s var(--bounce); }
+.receipt-rot:hover { transform: rotate(0deg); }
+.receipt .rt { font: 850 1.8rem/1 var(--display); font-variation-settings: "wdth" 130; text-transform: uppercase; text-align: center; margin: 0 0 .25rem; }
+.receipt .rs { text-align: center; color: var(--soft); font-size: .9rem; margin: 0 0 1.25rem; }
+.receipt hr { border: 0; border-top: 2.5px dashed var(--blue); margin: 1rem 0; }
+.item { display: flex; align-items: baseline; gap: .5rem; text-decoration: none; padding: .55rem 0; font-weight: 700; }
+.item .dots { flex: 1; border-bottom: 2.5px dotted var(--blue); transform: translateY(-4px); }
+.item small { display: block; font-weight: 500; color: var(--soft); font-size: .88rem; }
+.item:hover { color: var(--pink); }
+.receipt .total { display: flex; justify-content: space-between; font: 850 1.3rem/1 var(--display); text-transform: uppercase; }
+.receipt .thanks { font: 600 1.7rem/1 var(--hand); color: var(--pink); text-align: center; margin: 1.25rem 0 0; transform: rotate(-3deg); }
+.steps { list-style: none; padding: 0; margin: 0; display: grid; gap: 1.25rem; counter-reset: s; }
+.steps li { counter-increment: s; display: grid; grid-template-columns: 64px 1fr; gap: 1rem; align-items: start; }
+.steps li::before {
+  content: counter(s); display: grid; place-items: center; width: 56px; height: 56px; border-radius: 50%;
+  background: var(--yellow); border: 2.5px solid var(--blue); box-shadow: 3px 3px 0 var(--blue);
+  font: 850 1.5rem/1 var(--display);
+}
+.steps li:nth-child(2)::before { background: var(--pink); }
+.steps li:nth-child(3)::before { background: var(--sheet); }
+.steps strong { display: block; font: 800 1.3rem/1.2 var(--display); font-variation-settings: "wdth" 105; margin-top: .3rem; }
+.steps span { color: var(--soft); }
+.custom-grid .btn { margin-top: 2rem; }
+@media (max-width: 820px) { .custom-grid { grid-template-columns: 1fr; } .receipt-wrap { max-width: 440px; } }
+
+/* ---------- FAQ ---------- */
+.faq-list { max-width: 820px; display: grid; gap: .9rem; }
+details { background: var(--sheet); border: 2.5px solid var(--blue); border-radius: 16px; box-shadow: 4px 4px 0 var(--blue); transition: box-shadow .2s; }
+details[open] { box-shadow: 6px 6px 0 var(--pink); }
+summary { list-style: none; cursor: pointer; padding: 1.1rem 1.3rem; display: flex; justify-content: space-between; gap: 1rem; font: 800 1.15rem/1.3 var(--display); font-variation-settings: "wdth" 100; }
+summary::-webkit-details-marker { display: none; }
+summary::after { content: "+"; font-size: 1.7rem; line-height: .8; transition: transform .35s var(--bounce); color: var(--pink); }
+details[open] summary::after { transform: rotate(135deg); }
+details p { margin: 0; padding: 0 1.3rem 1.2rem; color: var(--soft); max-width: 62ch; }
+
+/* ---------- Contact ---------- */
+.contact-grid { display: grid; grid-template-columns: 1fr 1.15fr; gap: clamp(2rem, 5vw, 4rem); align-items: start; }
+.contact-grid .mail { display: inline-block; margin-top: 1rem; font: 850 clamp(1.2rem, 2.5vw, 1.7rem)/1.2 var(--display); font-variation-settings: "wdth" 110; word-break: break-all; background: linear-gradient(var(--yellow), var(--yellow)) 0 88% / 100% 40% no-repeat; }
+form {
+  position: relative; display: grid; gap: 1rem; background: var(--sheet); padding: clamp(1.4rem, 3vw, 2.2rem);
+  border: 2.5px solid var(--blue); box-shadow: 6px 6px 0 var(--blue); border-radius: 6px; transform: rotate(1deg);
+}
+form::before, form::after { content: ""; position: absolute; width: 84px; height: 26px; background: rgba(255, 72, 176, .55); top: -13px; }
+form::before { left: -18px; transform: rotate(-30deg); }
+form::after { right: -18px; transform: rotate(28deg); }
+label { display: grid; gap: .4rem; font-weight: 700; font-size: .93rem; }
+input, select, textarea {
+  width: 100%; font: 500 1rem/1.4 var(--body); color: var(--blue); background: var(--paper);
+  border: 2.5px solid var(--blue); border-radius: 10px; padding: .8rem .95rem; transition: box-shadow .15s;
+}
+input:focus, select:focus, textarea:focus { outline: none; box-shadow: 4px 4px 0 var(--pink); }
+textarea { min-height: 140px; resize: vertical; }
+.row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+form .btn { justify-self: start; }
+.status { margin: 0; min-height: 1.4em; font-weight: 700; font-size: .93rem; }
+@media (max-width: 760px) { .contact-grid, .row2 { grid-template-columns: 1fr; } form { transform: none; } }
+
+/* ---------- Footer ---------- */
+footer { border-top: 2.5px solid var(--blue); padding: 2.5rem 0 1.5rem; overflow: hidden; }
+footer .top { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; font-weight: 700; }
+footer nav { display: flex; gap: 1.5rem; }
+footer nav a { text-decoration: none; }
+footer nav a:hover { color: var(--pink); }
+.wordmark { margin-top: 2rem; font-family: var(--display); font-weight: 900; text-transform: uppercase; line-height: .8; white-space: nowrap; user-select: none; touch-action: pan-y; }
+.wordmark span { display: inline-block; font-variation-settings: "wdth" var(--w, 125), "wght" 900; transition: font-variation-settings .25s var(--ease); }
+.wordmark span:nth-child(3n+1) { color: var(--pink); }
+.hint { font: 600 1.3rem/1 var(--hand); color: var(--soft); margin-top: .75rem; }
+</style>
+</head>
+<body>
+<div class="paper" aria-hidden="true"></div>
+
+<!-- Shared halftone patterns for the preview art -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <pattern id="ht-pink" width="9" height="9" patternUnits="userSpaceOnUse" patternTransform="rotate(30)"><circle cx="4.5" cy="4.5" r="2.4" fill="#FF48B0"/></pattern>
+    <pattern id="ht-blue" width="9" height="9" patternUnits="userSpaceOnUse" patternTransform="rotate(15)"><circle cx="4.5" cy="4.5" r="2" fill="#1D3FB0"/></pattern>
+    <pattern id="ht-yellow" width="9" height="9" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><circle cx="4.5" cy="4.5" r="2.8" fill="#FFE800"/></pattern>
+  </defs>
+</svg>
+
+<header class="nav" id="nav">
+  <div class="wrap">
+    <a class="brand" href="#top"><span class="dots"><i></i><i></i></span>Fieldwork</a>
+    <ul>
+      <li><a href="#shop">What's coming</a></li>
+      <li><a href="#custom">Custom work</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ul>
+    <a class="btn small alt" href="#contact">Hire me</a>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero" style="padding-top:118px">
+    <div class="wrap">
+      <h1 class="headline" id="headline" aria-label="Websites and brand goods, made by a human.">
+        <span class="fit" data-text="Websites +"></span>
+        <span class="fit" data-text="brand goods"></span>
+        <span class="fit" data-text="made for you."></span>
+      </h1>
+      <div class="under">
+        <div>
+          <p class="lede">Editable websites and visual identities for small businesses with their own point of view. New templates are on the way; custom projects are open now.</p>
+          <div class="actions">
+            <a class="btn" href="#shop">Explore what's coming</a>
+            <a class="btn plain" href="#custom">Ask about custom work</a>
+          </div>
+        </div>
+        <div class="note" aria-hidden="true">the good stuff
+          <svg viewBox="0 0 90 70"><path d="M20 5c-8 20 0 45 50 52M62 44l10 13-15 6" fill="none" stroke="#FF48B0" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+      </div>
+    </div>
+    <a class="sticker round slap" href="#shop" style="--d:1s" aria-label="Explore upcoming releases">
+      <svg class="spin" viewBox="0 0 120 120" aria-hidden="true"><defs><path id="c" d="M60,60 m-46,0 a46,46 0 1,1 92,0 a46,46 0 1,1 -92,0"/></defs><text font-family="Anybody,sans-serif" font-weight="800" font-size="11" fill="#1D3FB0"><textPath textLength="286" lengthAdjust="spacingAndGlyphs" href="#c">COMING SOON ✦ COMING SOON ✦</textPath></text></svg>
+      <span aria-hidden="true" style="font-size:1.6rem">✦</span>
+    </a>
+    <div class="sticker tape slap" style="--d:1.2s" aria-hidden="true" id="hero-tape"></div>
+    <div class="strip" aria-hidden="true"><div class="track" data-strip="Made by a human,Canva websites,Brand kits,Squarespace templates,HTML templates,Custom design"></div></div>
+  </section>
+
+  <section id="browse" style="padding-top:2rem;padding-bottom:0">
+    <div class="wrap">
+      <div class="bento">
+        <a class="block b1 reveal" href="#shop"><div><span class="count">editable by you</span><h3>Canva<br>websites</h3><p>Sites and matching brand kits built to make your own.</p></div><div class="art" data-art="template-big"></div></a>
+        <a class="block b2 reveal" style="--d:.08s" href="#shop"><div><span class="count">in the works</span><h3>Squarespace</h3><p>Website designs you can update with its visual editor.</p></div><div class="art" data-art="icons-small"></div></a>
+        <a class="block b3 reveal" style="--d:.16s" href="#shop"><div><span class="count">download &amp; launch</span><h3>HTML sites</h3><p>Original code you can host in your own account.</p></div><div class="art" data-art="logo-small"></div></a>
+        <a class="block b4 reveal" style="--d:.24s" href="#custom"><div><span class="count">available now</span><h3>Custom work</h3><p>Branding, websites, and illustrated assets made for your business.</p></div></a>
+      </div>
+    </div>
+  </section>
+
+  <section id="shop">
+    <div class="wrap">
+      <div class="head">
+        <div class="reveal">
+          <h2>On the way</h2>
+          <svg class="scribble" viewBox="0 0 260 22" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M3 14c40-9 80-10 120-6s90 5 134-4"/></svg>
+          <p>First releases are in progress. See what I'm making, or get in touch about a custom version.</p>
+        </div>
+      </div>
+      <div class="grid">
+        <article class="launch-card reveal"><span class="tag">In development</span><h3>Canva websites &amp; brand kits</h3><p>Editable site layouts and matching graphics for a consistent launch.</p><a href="#contact">Ask about the first release</a></article>
+        <article class="launch-card reveal" style="--d:.08s"><span class="tag">In development</span><h3>Squarespace templates</h3><p>Original site designs, rebuilt for editing in Squarespace.</p><a href="#contact">Ask about the first release</a></article>
+        <article class="launch-card reveal" style="--d:.16s"><span class="tag">In development</span><h3>HTML templates</h3><p>Downloadable website files for people who want their own hosting.</p><a href="#contact">Ask about the first release</a></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="custom">
+    <div class="wrap">
+      <div class="head reveal">
+        <div>
+          <h2>Custom work</h2>
+          <svg class="scribble" viewBox="0 0 260 22" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M3 8c50 10 110 12 160 6s70-8 94-2"/></svg>
+          <p>Have a business that needs its own look? Tell me what you're making.</p>
+        </div>
+      </div>
+      <div class="custom-grid">
+        <div class="receipt-wrap reveal" style="--rr:-6deg"><div class="receipt-rot"><div class="receipt">
+          <p class="rt">Fieldwork</p>
+          <p class="rs">Ways we can work together</p>
+          <hr>
+          <a class="item" href="#contact" data-type="Brand identity"><span>Brand identity<small>Logo, colors and useful brand assets</small></span><span class="dots"></span><span>Ask</span></a>
+          <a class="item" href="#contact" data-type="Website design"><span>Website design<small>Canva, Squarespace or custom HTML</small></span><span class="dots"></span><span>Ask</span></a>
+          <a class="item" href="#contact" data-type="Brand and website package"><span>Brand + website<small>A coordinated set made for your business</small></span><span class="dots"></span><span>Ask</span></a>
+          <hr>
+          <div class="total"><span>Start with</span><span>A note</span></div>
+          <p class="thanks">thanks for shopping small!</p>
+        </div></div></div>
+        <div>
+          <ol class="steps">
+            <li class="reveal"><div><strong>Tell me about it</strong><span>What your business does, what you need, and what's missing today.</span></div></li>
+            <li class="reveal" style="--d:.1s"><div><strong>Make a plan</strong><span>We'll agree on the scope, timeline and price before work begins.</span></div></li>
+            <li class="reveal" style="--d:.2s"><div><strong>Make it yours</strong><span>You'll get the agreed files and instructions for using them.</span></div></li>
+          </ol>
+          <a class="btn" href="#contact">Request a quote</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="wrap">
+      <div class="head reveal"><div><h2>Questions</h2></div></div>
+      <div class="faq-list">
+        <details class="reveal"><summary>Can I edit a Canva website myself?</summary><p>Yes. A Canva website template opens in your Canva account so you can edit the content and publish your version. You'll need a Canva account; some publishing options require a paid plan.</p></details>
+        <details class="reveal" style="--d:.06s"><summary>How will Squarespace templates work?</summary><p>I'll build the editable site in Squarespace. After purchase, I can make you a copy and transfer it to your Squarespace account. You'll choose and pay for your own Squarespace site plan.</p></details>
+        <details class="reveal" style="--d:.12s"><summary>What do I get with an HTML template?</summary><p>Website files you can upload to your own hosting account. You can edit the files yourself or ask about installation help.</p></details>
+        <details class="reveal" style="--d:.18s"><summary>When can I buy a template?</summary><p>The first products are being made now. Send me a note if you'd like to hear when a specific collection is ready.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap contact-grid">
+      <div class="reveal">
+        <h2>Say hi</h2>
+        <svg class="scribble" viewBox="0 0 260 22" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M3 12c30-8 60 6 90-2s60-8 90 0 50 4 74-4"/></svg>
+        <p style="color:var(--soft);font-weight:500;max-width:36ch">Ask about a custom project or an upcoming template. This form opens a draft in your email app.</p>
+        <a class="mail" href="mailto:design@marcosuriel.com">design@marcosuriel.com</a>
+      </div>
+      <form id="contact-form" class="reveal" style="--d:.12s" novalidate>
+        <div class="row2">
+          <label>Name<input name="name" autocomplete="name" required></label>
+          <label>Email<input name="email" type="email" autocomplete="email" required></label>
+        </div>
+        <label>What do you need?
+          <select name="type" id="type">
+            <option>Brand identity</option>
+            <option>Website design</option>
+            <option>Brand and website package</option>
+            <option>Upcoming template</option>
+            <option>Something else</option>
+          </select>
+        </label>
+        <label>Project details<textarea name="details" placeholder="What it's for, your timeline, and your budget if you have one." required></textarea></label>
+        <button class="btn" type="submit">Write email</button>
+        <p class="status" id="form-status" role="status"></p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="top">
+      <span>© <span id="year"></span> Fieldwork Studio</span>
+      <a href="#top">Back to top ↑</a>
+    </div>
+    <div class="wordmark" id="wordmark" aria-hidden="true" data-text="Fieldwork"></div>
+    <p class="hint" aria-hidden="true">↑ drag across me</p>
+  </div>
+</footer>
+
+<script>
+/* Confirm this address before publishing. The form opens a draft in the visitor's email app. */
+const EMAIL = "design@marcosuriel.com";
+
+/* ============================================================ */
+const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+const B = "#1D3FB0", P = "#FF48B0", Y = "#FFE800", W = "#FAFAF7";
+
+/* ---------- Riso-style preview art ---------- */
+function artTemplate(c) {
+  const ht = c === P ? "ht-pink" : c === Y ? "ht-yellow" : "ht-blue";
+  return `<svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+  <rect width="400" height="300" fill="${W}"/>
+  <circle cx="300" cy="170" r="95" fill="url(#${ht})"/>
+  <rect x="220" y="92" width="150" height="160" rx="12" fill="${c}" style="mix-blend-mode:multiply"/>
+  <rect x="0" y="0" width="400" height="30" fill="none" stroke="${B}" stroke-width="3"/>
+  <circle cx="18" cy="15" r="5" fill="${P}"/><circle cx="34" cy="15" r="5" fill="${Y}" stroke="${B}" stroke-width="1.5"/>
+  <text x="28" y="118" font-family="Anybody,sans-serif" font-weight="900" font-size="54" fill="${B}" style="font-variation-settings:'wdth' 130">BOLD</text>
+  <text x="31" y="170" font-family="Anybody,sans-serif" font-weight="900" font-size="54" fill="${P}" style="mix-blend-mode:multiply;font-variation-settings:'wdth' 60">ideas</text>
+  <rect x="28" y="190" width="150" height="8" rx="4" fill="${B}" opacity=".35"/><rect x="28" y="206" width="110" height="8" rx="4" fill="${B}" opacity=".35"/>
+  <rect x="28" y="228" width="96" height="30" rx="8" fill="${Y}" stroke="${B}" stroke-width="3"/>
+  </svg>`;
+}
+function glyphs() {
+  const a = `fill="none" stroke="${B}" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"`;
+  return [
+    `<path ${a} d="M13 2L4 14h7l-1 8 9-12h-7z"/>`, `<circle ${a} cx="11" cy="11" r="6"/><path ${a} d="M20 20l-4.5-4.5"/>`,
+    `<path ${a} d="M12 20s-7-4.4-7-10a4 4 0 017-2.6A4 4 0 0119 10c0 5.6-7 10-7 10z"/>`, `<path ${a} d="M12 3l2.6 5.6 6 .7-4.5 4.1 1.2 6-5.3-3-5.3 3 1.2-6L3.4 9.3l6-.7z"/>`,
+    `<circle ${a} cx="12" cy="12" r="9"/><path ${a} d="M8 14s1.5 2 4 2 4-2 4-2M9 9h.01M15 9h.01"/>`, `<path ${a} d="M12 3v12M7 10l5 5 5-5M4 20h16"/>`,
+    `<path ${a} d="M5 12h14M12 5l7 7-7 7"/>`, `<rect ${a} x="4" y="4" width="16" height="16" rx="3"/><path ${a} d="M8 12l3 3 5-6"/>`,
+    `<path ${a} d="M8.5 14.5A4 4 0 0012 20a4 4 0 004-4c0-3-4-5-4-10-3 2-6 5-6 10"/>`,
+  ];
+}
+function artIcons(c) {
+  return `<svg viewBox="0 0 400 300" aria-hidden="true"><rect width="400" height="300" fill="${W}"/>
+  ${glyphs().map((p, i) => {
+    const x = 72 + (i % 3) * 92, y = 36 + Math.floor(i / 3) * 82;
+    return `<circle cx="${x + 30}" cy="${y + 30}" r="24" fill="${c}" style="mix-blend-mode:multiply"/><g transform="translate(${x} ${y}) scale(2.3)">${p}</g>`;
+  }).join("")}</svg>`;
+}
+function artLogo(c, n) {
+  const marks = [
+    `<circle cx="170" cy="150" r="70" fill="url(#ht-blue)"/><circle cx="190" cy="150" r="64" fill="${c}" style="mix-blend-mode:multiply"/><path d="M160 200V100h70M160 150h52" stroke="${B}" stroke-width="18" fill="none"/>`,
+    `<rect x="120" y="80" width="120" height="140" rx="60" fill="${c}" style="mix-blend-mode:multiply"/><rect x="170" y="100" width="110" height="110" fill="url(#ht-pink)"/><circle cx="200" cy="150" r="26" fill="${W}" stroke="${B}" stroke-width="6"/>`,
+    `<path d="M200 70l85 150H115z" fill="${c}" style="mix-blend-mode:multiply"/><path d="M200 105l58 100H142z" fill="url(#ht-blue)"/><circle cx="200" cy="178" r="16" fill="${B}"/>`,
+  ];
+  return `<svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect width="400" height="300" fill="${W}"/>${marks[n % 3]}</svg>`;
+}
+document.getElementById("hero-tape").innerHTML = artTemplate(Y);
+const bentoArt = {
+  "template-big": () => artTemplate(Y).replace(`<rect width="400" height="300" fill="${W}"/>`, `<rect width="400" height="300" rx="16" fill="${W}" stroke="${B}" stroke-width="5"/>`),
+  "icons-small": () => `<svg viewBox="0 0 120 90" aria-hidden="true"><circle cx="70" cy="50" r="32" fill="${P}" style="mix-blend-mode:multiply"/><g transform="translate(46 26) scale(2)">${glyphs()[3]}</g></svg>`,
+  "logo-small": () => `<svg viewBox="0 0 120 90" aria-hidden="true"><circle cx="58" cy="52" r="30" fill="${Y}" style="mix-blend-mode:multiply"/><circle cx="80" cy="52" r="30" fill="${P}" style="mix-blend-mode:multiply"/></svg>`,
+};
+document.querySelectorAll("[data-art]").forEach(el => el.innerHTML = bentoArt[el.dataset.art]());
+
+/* ---------- Elastic riso headline ---------- */
+const h1 = document.getElementById("headline");
+const lines = [...h1.querySelectorAll(".fit")];
+lines.forEach(l => {
+  const t = l.dataset.text;
+  l.setAttribute("aria-hidden", "true");
+  l.innerHTML = `<span class="riso"><span class="ink-b">${t}</span><span class="ink-p">${t}</span></span>`;
+});
+const MAXW = 125;
+function fitHeadline() {
+  const cur = h1.style.cssText;
+  h1.style.setProperty("--wdth", MAXW); h1.style.setProperty("--wght", 800);
+  const avail = h1.clientWidth;
+  lines.forEach(l => {
+    l.style.fontSize = "100px";
+    const w = l.firstElementChild.getBoundingClientRect().width;
+    l.style.fontSize = Math.min(100 * avail / w, 260) + "px";
+  });
+  h1.style.cssText = cur;
+  onScroll();
+}
+/* Scroll squeezes the letters narrower and heavier */
+function onScroll() {
+  document.getElementById("nav").classList.toggle("scrolled", scrollY > 30);
+  if (reduce) return;
+  const p = Math.min(Math.max(scrollY / (innerHeight * .7), 0), 1);
+  h1.style.setProperty("--wdth", (MAXW - 60 * p).toFixed(1));
+  h1.style.setProperty("--wght", (800 + 100 * p).toFixed(0));
+}
+addEventListener("scroll", onScroll, { passive: true });
+addEventListener("resize", () => { fitHeadline(); fitWordmark(); });
+
+/* ---------- Tape strip ---------- */
+document.querySelectorAll("[data-strip]").forEach(t => {
+  const run = t.dataset.strip.split(",").map(w => `${w}<b>✦</b>`).join("");
+  t.innerHTML = `<span>${run.repeat(2)}</span><span>${run.repeat(2)}</span>`;
+});
+
+/* ---------- Reveal on scroll ---------- */
+const io = "IntersectionObserver" in window ? new IntersectionObserver(es => es.forEach(e => {
+  if (!e.isIntersecting) return;
+  e.target.classList.add("in");
+  e.target.querySelectorAll("h2, .scribble").forEach(x => x.classList.add("in"));
+  io.unobserve(e.target);
+}), { threshold: .15 }) : null;
+const watch = root => root.querySelectorAll(".reveal:not(.in)").forEach(el => io ? io.observe(el) : el.classList.add("in", ...[]));
+
+/* Receipt items preselect the form */
+document.querySelectorAll(".item").forEach(a => a.addEventListener("click", () => { document.getElementById("type").value = a.dataset.type; }));
+
+/* ---------- Stretchy footer wordmark ---------- */
+const wm = document.getElementById("wordmark");
+wm.innerHTML = [...wm.dataset.text].map(c => `<span>${c}</span>`).join("");
+const wmChars = [...wm.children];
+function fitWordmark() {
+  wmChars.forEach(s => s.style.setProperty("--w", 125));
+  wm.style.fontSize = "100px";
+  const w = wm.scrollWidth;
+  wm.style.fontSize = (100 * wm.clientWidth / w * .99) + "px";
+}
+function stretch(x) {
+  if (reduce) return;
+  wmChars.forEach(s => {
+    const r = s.getBoundingClientRect();
+    const d = Math.abs(r.left + r.width / 2 - x);
+    s.style.setProperty("--w", (50 + 75 * Math.exp(-((d / 140) ** 2))).toFixed(1));
+  });
+}
+wm.addEventListener("pointermove", e => stretch(e.clientX));
+wm.addEventListener("touchmove", e => stretch(e.touches[0].clientX), { passive: true });
+const relax = () => wmChars.forEach(s => s.style.setProperty("--w", 125));
+wm.addEventListener("pointerleave", relax);
+wm.addEventListener("touchend", relax);
+
+/* ---------- Contact form ---------- */
+const form = document.getElementById("contact-form"), status = document.getElementById("form-status");
+form.addEventListener("submit", async e => {
+  e.preventDefault();
+  const d = Object.fromEntries(new FormData(form));
+  if (!d.name || !d.email || !d.details) { status.textContent = "Add your name, email and project details to send."; return; }
+  if (!/^\S+@\S+\.\S+$/.test(d.email)) { status.textContent = "Check your email address. It should look like name@example.com."; return; }
+  location.href = `mailto:${EMAIL}?subject=${encodeURIComponent("Project request: " + d.type)}&body=${encodeURIComponent(`Name: ${d.name}\nEmail: ${d.email}\nProject: ${d.type}\n\n${d.details}`)}`;
+  status.textContent = "Your email app should open with the request ready to send.";
+});
+
+/* ---------- Start ---------- */
+document.getElementById("year").textContent = new Date().getFullYear();
+watch(document);
+fitHeadline(); fitWordmark();
+(document.fonts ? document.fonts.ready : Promise.resolve()).then(() => { fitHeadline(); fitWordmark(); });
+</script>
+</body>
+</html>
