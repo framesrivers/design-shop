@@ -69,11 +69,9 @@ a { color: inherit; }
 .nav { position: fixed; inset: 0 0 auto; z-index: 50; padding-top: env(safe-area-inset-top, 0px); transition: background .3s; }
 .nav.scrolled { background: rgba(229, 231, 234, .85); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 2.5px solid var(--blue); }
 .nav .wrap { display: flex; justify-content: space-between; align-items: center; height: 74px; gap: 1rem; }
-.brand { display: flex; align-items: center; gap: .55rem; text-decoration: none; font: 800 1.3rem/1 var(--display); font-variation-settings: "wdth" 115; }
-.brand .dots { position: relative; width: 30px; height: 20px; }
-.brand .dots i { position: absolute; top: 0; width: 20px; height: 20px; border-radius: 50%; mix-blend-mode: multiply; }
-.brand .dots i:first-child { left: 0; background: var(--pink); }
-.brand .dots i:last-child { left: 10px; background: var(--yellow); }
+.brand { display: flex; align-items: center; text-decoration: none; line-height: 0; }
+.brand-logo { display: block; width: 154px; height: auto; max-height: 52px; object-fit: contain; }
+@media (max-width: 760px) { .brand-logo { width: 132px; max-height: 46px; } }
 .nav ul { display: flex; gap: 1.9rem; list-style: none; margin: 0; padding: 0; }
 .nav ul a { text-decoration: none; font-weight: 700; position: relative; }
 .nav ul a::after { content: ""; position: absolute; left: -4px; right: -4px; bottom: 1px; height: 9px; background: var(--yellow); z-index: -1; transform: scaleX(0); transform-origin: left; transition: transform .3s var(--ease); }
@@ -88,6 +86,14 @@ a { color: inherit; }
 .riso > span { grid-area: 1 / 1; }
 .riso .ink-p { color: var(--pink); mix-blend-mode: multiply; transform: translate(.035em, .03em); }
 .riso .ink-b { color: var(--blue); }
+.headline .riso { display: inline-flex; }
+.headline .glyph { display: inline-block; position: relative; transform-origin: 50% 82%; transition: transform .2s var(--bounce), filter .2s var(--ease); }
+.headline .glyph .ink-b, .headline .glyph .ink-p { display: block; }
+.headline .glyph .ink-p { position: absolute; inset: 0; }
+@media (prefers-reduced-motion: no-preference) {
+  .headline .glyph:hover { z-index: 2; transform: translateY(-.14em) rotate(var(--r)) scale(1.08); filter: drop-shadow(.035em .04em 0 var(--yellow)); }
+  .headline .glyph:hover .ink-p { transform: translate(.07em, .05em); }
+}
 .hero .under { display: grid; grid-template-columns: 1fr auto; gap: 2rem; align-items: end; margin-top: 2.25rem; }
 .hero .lede { font-size: 1.25rem; max-width: 40ch; margin: 0 0 1.75rem; font-weight: 500; }
 .hero .actions { display: flex; flex-wrap: wrap; gap: 1rem; }
@@ -307,7 +313,7 @@ footer nav a:hover { color: var(--pink); }
 
 <header class="nav" id="nav">
   <div class="wrap">
-    <a class="brand" href="#top"><span class="dots"><i></i><i></i></span>Fieldwork</a>
+    <a class="brand" href="#top" aria-label="Hello Rivers home"><img class="brand-logo" src="hello-rivers-logo-blue.png" alt="Hello Rivers"></a>
     <ul>
       <li><a href="#shop">What's coming</a></li>
       <li><a href="#custom">Custom work</a></li>
@@ -392,7 +398,7 @@ footer nav a:hover { color: var(--pink); }
           <a class="item" href="#contact" data-type="Website design"><span>Website design<small>Canva, Squarespace or custom HTML</small></span><span class="dots"></span><span>Ask</span></a>
           <a class="item" href="#contact" data-type="Brand and website package"><span>Brand + website<small>A coordinated set made for your business</small></span><span class="dots"></span><span>Ask</span></a>
           <hr>
-          <div class="total"><span>Start with</span><span>A note</span></div>
+          <div class="total"><span>Start with a note</span></div>
           <p class="thanks">thanks for shopping small!</p>
         </div></div></div>
         <div>
@@ -522,7 +528,12 @@ const lines = [...h1.querySelectorAll(".fit")];
 lines.forEach(l => {
   const t = l.dataset.text;
   l.setAttribute("aria-hidden", "true");
-  l.innerHTML = `<span class="riso"><span class="ink-b">${t}</span><span class="ink-p">${t}</span></span>`;
+  const glyphs = [...t].map((char, i) => {
+    const c = char === " " ? "&nbsp;" : char;
+    const r = i % 2 ? "3deg" : "-3deg";
+    return `<span class="glyph" style="--r:${r}"><span class="ink-b">${c}</span><span class="ink-p">${c}</span></span>`;
+  }).join("");
+  l.innerHTML = `<span class="riso">${glyphs}</span>`;
 });
 const MAXW = 125;
 function fitHeadline() {
