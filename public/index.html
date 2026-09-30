@@ -178,17 +178,18 @@ h2.in { --w: 130; }
 .block .count { font: 600 1.5rem/1 var(--hand); color: var(--pink); position: relative; z-index: 1; }
 .block .art { position: absolute; inset: auto -2% -4% auto; width: 62%; opacity: .95; transition: transform .5s var(--bounce); }
 .block:hover .art { transform: rotate(-6deg) scale(1.06); }
-.b1 { grid-column: span 2; grid-row: span 2; background: var(--pink); }
-.b1 .art { width: 60%; right: -3%; bottom: -3%; transform: rotate(-4deg); }
-.b1:hover .art { transform: rotate(-9deg) scale(1.05); }
+.b1 { grid-column: span 2; background: var(--pink); }
 .b2 { background: var(--yellow); }
 .b4 { background: var(--blue); color: var(--sheet); }
 .b4 .count { color: var(--yellow); }
 .b5 { background: var(--sheet); }
 .b4 .card-cta { background: var(--yellow); }
+.b6 { grid-column: span 2; background: #fbd5e9; }
+.b6 .art { width: 60%; right: -3%; bottom: -3%; transform: rotate(-4deg); }
+.b6:hover .art { transform: rotate(-9deg) scale(1.05); }
 @media (max-width: 860px) {
   .bento { grid-template-columns: 1fr 1fr; grid-template-rows: none; }
-  .b1 { grid-column: span 2; grid-row: auto; min-height: 300px; }
+  .b1, .b6 { grid-column: span 2; min-height: 300px; }
   .b4, .b5 { grid-column: span 2; }
 }
 
@@ -376,9 +377,10 @@ footer nav a:hover { color: var(--pink); }
   <section id="browse" style="padding-top:2rem;padding-bottom:0">
     <div class="wrap">
       <div class="bento">
-        <a class="block b1 reveal" href="#contact" data-type="Brand and website package"><div><span class="count">available now</span><h3>Custom<br>work</h3><p>Websites, branding, business photography, and a fresh look for your social media. Made around your business.</p><span class="card-cta">Request a quote</span></div><div class="art" data-art="template-big"></div></a>
+        <a class="block b1 reveal" href="#contact" data-type="Brand and website package"><div><span class="count">available now</span><h3>Custom<br>work</h3><p>A website or brand identity made around your business.</p><span class="card-cta">Request a quote</span></div></a>
         <a class="block b2 reveal" style="--d:.08s" href="#contact" data-type="Website design"><div><span class="count">by request</span><h3>Squarespace<br>site setup</h3><p>Choose a design. I’ll personalize the site for your business and hand it over for you to edit.</p><span class="card-cta">Ask about a site</span></div><div class="art" data-art="icons-small"></div></a>
         <a class="block b3 reveal" style="--d:.16s" href="#contact" data-type="Upcoming template"><div><span class="count">download &amp; launch</span><h3>HTML website<br>templates</h3><p>Download the files, change the text and photos, and host the site in your own account.</p><span class="card-cta">Explore templates</span></div><div class="art" data-art="logo-small"></div></a>
+        <a class="block b6 reveal" style="--d:.08s" href="#contact" data-type="Photos &amp; social content"><div><span class="count">fresh content</span><h3>Photos + social<br>content</h3><p>Fresh photos of your business, plus graphics and a cohesive look for your social media.</p><span class="card-cta">Ask about photos &amp; social</span></div><div class="art" data-art="template-big"></div></a>
         <a class="block b4 reveal" style="--d:.24s" href="#contact" data-type="Monthly creative support"><div><span class="count">ongoing support</span><h3>Monthly creative<br>support</h3><p>Ongoing photos, social graphics, and small website updates, planned around what you need each month.</p><span class="card-cta">Ask about a monthly plan</span></div></a>
         <a class="block b5 reveal" style="--d:.32s" href="#contact" data-type="Wix &amp; WordPress updates"><div><span class="count">in development</span><h3>Wix &amp;<br>WordPress</h3><p>New designs are in development.</p><span class="card-cta">Get in touch for updates</span></div></a>
       </div>
@@ -497,6 +499,7 @@ footer nav a:hover { color: var(--pink); }
             <option>Website design</option>
             <option>Business photography</option>
             <option>Social media rebrand</option>
+            <option>Photos &amp; social content</option>
             <option>Brand and website package</option>
             <option>Monthly creative support</option>
             <option>Wix &amp; WordPress updates</option>
