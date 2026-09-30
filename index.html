@@ -182,12 +182,16 @@ h2.in { --w: 130; }
 .b2 { background: var(--yellow); }
 .b2 .template-list { display: grid; gap: .2rem; margin: .8rem 0 0; padding: 0; list-style: none; font-size: clamp(1.05rem, 1.6vw, 1.45rem); font-weight: 700; }
 .b2 .template-list li::before { content: "— "; }
-.b4 { grid-column: span 2; background: var(--blue); color: var(--sheet); }
+.b4 { background: var(--blue); color: var(--sheet); }
 .b4 .count { color: var(--yellow); }
+.b5 { background: var(--sheet); }
+.b5 .goods-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .18rem .8rem; margin: .7rem 0 0; padding: 0; list-style: none; font-size: clamp(.88rem, 1.2vw, 1.1rem); font-weight: 700; }
+.b5 .goods-list li::before { content: "— "; color: var(--pink); }
+.b5 .goods-list li:last-child { grid-column: 1 / -1; color: var(--pink); }
 @media (max-width: 860px) {
   .bento { grid-template-columns: 1fr 1fr; grid-template-rows: none; }
   .b1 { grid-column: span 2; grid-row: auto; min-height: 300px; }
-  .b4 { grid-column: span 2; }
+  .b4, .b5 { grid-column: span 2; }
 }
 
 /* ---------- Shop ---------- */
@@ -367,6 +371,7 @@ footer nav a:hover { color: var(--pink); }
         <a class="block b2 reveal" style="--d:.08s" href="#shop"><div><span class="count">in the works</span><h3>Templates</h3><ul class="template-list" aria-label="Template platforms"><li>Squarespace</li><li>WordPress</li><li>Wix</li></ul></div><div class="art" data-art="icons-small"></div></a>
         <a class="block b3 reveal" style="--d:.16s" href="#shop"><div><span class="count">download &amp; launch</span><h3>HTML sites</h3><p>Original code you can host in your own account.</p></div><div class="art" data-art="logo-small"></div></a>
         <a class="block b4 reveal" style="--d:.24s" href="#custom"><div><span class="count">available now</span><h3>Custom work</h3><p>Branding, websites, and illustrated assets made for your business.</p></div></a>
+        <a class="block b5 reveal" style="--d:.32s" href="#custom"><div><span class="count">available now</span><h3>Branding<br>goods</h3><ul class="goods-list" aria-label="Branding goods"><li>Logos</li><li>Branding kits</li><li>Brand re-design</li><li>Icons</li><li>Flyers</li><li>Business cards</li><li>And much more</li></ul></div></a>
       </div>
     </div>
   </section>
