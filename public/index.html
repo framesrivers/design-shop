@@ -253,7 +253,13 @@ h2.in { --w: 130; }
 .steps strong { display: block; font: 800 1.3rem/1.2 var(--display); font-variation-settings: "wdth" 105; margin-top: .3rem; }
 .steps span { color: var(--soft); }
 .custom-grid .btn { margin-top: 2rem; }
+.monthly-support { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 2rem; align-items: center; margin-top: 2.75rem; padding: 1.5rem 1.75rem; background: var(--blue); color: var(--sheet); border: 2.5px solid var(--blue); border-radius: 18px; box-shadow: 5px 5px 0 var(--pink); }
+.monthly-support .tag { display: inline-block; color: var(--blue); background: var(--yellow); border: 2px solid var(--blue); border-radius: 999px; padding: .45rem .7rem; font: 700 .88rem/1 var(--body); }
+.monthly-support h3 { margin: .8rem 0 .45rem; font: 850 clamp(1.7rem, 3vw, 2.5rem)/.95 var(--display); font-variation-settings: "wdth" 105; text-transform: uppercase; }
+.monthly-support p { max-width: 58ch; margin: 0; color: var(--sheet); }
+.monthly-support .btn { margin: 0; white-space: nowrap; }
 @media (max-width: 820px) { .custom-grid { grid-template-columns: 1fr; } .receipt-wrap { max-width: 440px; } }
+@media (max-width: 640px) { .monthly-support { grid-template-columns: 1fr; gap: 1.25rem; } .monthly-support .btn { justify-self: start; } }
 
 /* ---------- FAQ ---------- */
 .faq-list { max-width: 820px; display: grid; gap: .9rem; }
@@ -376,6 +382,7 @@ footer nav a:hover { color: var(--pink); }
         <article class="launch-card reveal"><span class="tag">In development</span><h3>Canva websites &amp; brand kits</h3><p>Editable site layouts and matching graphics for a consistent launch.</p><a href="#contact">Ask about the first release</a></article>
         <article class="launch-card reveal" style="--d:.08s"><span class="tag">In development</span><h3>Squarespace templates</h3><p>Original site designs, rebuilt for editing in Squarespace.</p><a href="#contact">Ask about the first release</a></article>
         <article class="launch-card reveal" style="--d:.16s"><span class="tag">In development</span><h3>HTML templates</h3><p>Downloadable website files for people who want their own hosting.</p><a href="#contact">Ask about the first release</a></article>
+        <article class="launch-card reveal" style="--d:.24s"><span class="tag">In development</span><h3>WordPress themes</h3><p>Flexible theme designs for businesses building on WordPress.</p><a href="#contact">Ask about the first release</a></article>
       </div>
     </div>
   </section>
@@ -396,6 +403,8 @@ footer nav a:hover { color: var(--pink); }
           <hr>
           <a class="item" href="#contact" data-type="Brand identity"><span>Brand identity<small>Logo, colors and useful brand assets</small></span><span class="dots"></span><span>Ask</span></a>
           <a class="item" href="#contact" data-type="Website design"><span>Website design<small>Canva, Squarespace or custom HTML</small></span><span class="dots"></span><span>Ask</span></a>
+          <a class="item" href="#contact" data-type="Business photography"><span>Business photography<small>Space, products, team, or work for your site and socials</small></span><span class="dots"></span><span>Ask</span></a>
+          <a class="item" href="#contact" data-type="Social media rebrand"><span>Social media rebrand<small>Profile refresh, post templates, and matching graphics</small></span><span class="dots"></span><span>Ask</span></a>
           <a class="item" href="#contact" data-type="Brand and website package"><span>Brand + website<small>A coordinated set made for your business</small></span><span class="dots"></span><span>Ask</span></a>
           <hr>
           <div class="total"><span>Start with a note</span></div>
@@ -409,6 +418,14 @@ footer nav a:hover { color: var(--pink); }
           </ol>
           <a class="btn" href="#contact">Request a quote</a>
         </div>
+      </div>
+      <div class="monthly-support reveal" style="--d:.12s">
+        <div>
+          <span class="tag">Flexible ongoing support</span>
+          <h3>Monthly Creative Support</h3>
+          <p>Get an agreed monthly mix of new photos, social media graphics, and small website updates—shaped around what your business needs next.</p>
+        </div>
+        <a class="btn alt" href="#contact" data-type="Monthly creative support">Ask about a monthly plan</a>
       </div>
     </div>
   </section>
@@ -442,7 +459,10 @@ footer nav a:hover { color: var(--pink); }
           <select name="type" id="type">
             <option>Brand identity</option>
             <option>Website design</option>
+            <option>Business photography</option>
+            <option>Social media rebrand</option>
             <option>Brand and website package</option>
+            <option>Monthly creative support</option>
             <option>Upcoming template</option>
             <option>Something else</option>
           </select>
@@ -575,7 +595,10 @@ const io = "IntersectionObserver" in window ? new IntersectionObserver(es => es.
 const watch = root => root.querySelectorAll(".reveal:not(.in)").forEach(el => io ? io.observe(el) : el.classList.add("in", ...[]));
 
 /* Receipt items preselect the form */
-document.querySelectorAll(".item").forEach(a => a.addEventListener("click", () => { document.getElementById("type").value = a.dataset.type; }));
+document.querySelectorAll("[data-type]").forEach(a => a.addEventListener("click", () => {
+  const type = document.getElementById("type");
+  if (type && [...type.options].some(o => o.value === a.dataset.type)) type.value = a.dataset.type;
+}));
 
 /* ---------- Stretchy footer wordmark ---------- */
 const wm = document.getElementById("wordmark");
