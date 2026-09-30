@@ -266,16 +266,6 @@ h2.in { --w: 130; }
 @media (max-width: 820px) { .custom-grid { grid-template-columns: 1fr; } .receipt-wrap { max-width: 440px; } }
 @media (max-width: 640px) { .monthly-support { grid-template-columns: 1fr; gap: 1.25rem; } .monthly-support .btn { justify-self: start; } }
 
-/* ---------- Branding goods ---------- */
-.goods-panel { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 2rem; align-items: center; padding: 1.5rem 1.75rem; background: var(--yellow); border: 2.5px solid var(--blue); border-radius: 18px; box-shadow: 5px 5px 0 var(--blue); }
-.goods-panel .tag { display: inline-block; color: var(--blue); background: var(--sheet); border: 2px solid var(--blue); border-radius: 999px; padding: .45rem .7rem; font: 700 .88rem/1 var(--body); }
-.goods-panel h3 { margin: .8rem 0 .45rem; font: 850 clamp(1.7rem, 3vw, 2.5rem)/.95 var(--display); font-variation-settings: "wdth" 105; text-transform: uppercase; }
-.goods-panel p { max-width: 58ch; margin: 0; }
-.goods-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .2rem .8rem; margin: .9rem 0 0; padding: 0; list-style: none; font-weight: 700; }
-.goods-list li::before { content: "— "; color: var(--pink); }
-.goods-list li:last-child { grid-column: 1 / -1; color: var(--pink); }
-@media (max-width: 640px) { .goods-panel { grid-template-columns: 1fr; gap: 1.25rem; } .goods-panel .btn { justify-self: start; } }
-
 /* ---------- FAQ ---------- */
 .faq-list { max-width: 820px; display: grid; gap: .9rem; }
 details { background: var(--sheet); border: 2.5px solid var(--blue); border-radius: 16px; box-shadow: 4px 4px 0 var(--blue); transition: box-shadow .2s; }
@@ -338,7 +328,6 @@ footer nav a:hover { color: var(--pink); }
     <ul>
       <li><a href="#shop">What's coming</a></li>
       <li><a href="#custom">Custom work</a></li>
-      <li><a href="#goods">Branding goods</a></li>
       <li><a href="#faq">FAQ</a></li>
     </ul>
     <a class="btn small alt" href="#contact">Hire me</a>
@@ -448,26 +437,6 @@ footer nav a:hover { color: var(--pink); }
     </div>
   </section>
 
-  <section id="goods">
-    <div class="wrap">
-      <div class="head reveal">
-        <div>
-          <h2>Branding goods</h2>
-          <svg class="scribble" viewBox="0 0 260 22" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M3 8c50 10 110 12 160 6s70-8 94-2"/></svg>
-          <p>Custom brand pieces made around your business—not downloadable products.</p>
-        </div>
-      </div>
-      <div class="goods-panel reveal">
-        <div>
-          <span class="tag">Custom services</span>
-          <h3>Make it recognizable</h3>
-          <ul class="goods-list" aria-label="Branding goods services"><li>Logos</li><li>Branding kits</li><li>Brand re-design</li><li>Icons</li><li>Flyers</li><li>Business cards</li><li>And much more</li></ul>
-        </div>
-        <a class="btn alt" href="#contact" data-type="Branding goods">Ask about branding goods</a>
-      </div>
-    </div>
-  </section>
-
   <section id="faq">
     <div class="wrap">
       <div class="head reveal"><div><h2>Questions</h2></div></div>
@@ -503,7 +472,6 @@ footer nav a:hover { color: var(--pink); }
             <option>Brand and website package</option>
             <option>Monthly creative support</option>
             <option>Wix &amp; WordPress updates</option>
-            <option>Branding goods</option>
             <option>Upcoming template</option>
             <option>Something else</option>
           </select>
