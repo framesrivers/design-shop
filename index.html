@@ -230,10 +230,27 @@ h2.in { --w: 130; }
 /* ---------- Featured template ---------- */
 .template-feature { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: clamp(1.5rem, 4vw, 3rem); align-items: start; margin-bottom: 3.5rem; }
 .template-preview { margin: 0; overflow: hidden; border: 2.5px solid var(--blue); border-radius: 18px; background: var(--sheet); box-shadow: 5px 5px 0 var(--blue); }
-.template-preview img { width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; object-position: top; }
-.template-poster { display: grid; place-content: center; aspect-ratio: 4 / 3; padding: 2rem; text-align: center; background: #fbd5e9; }
-.template-poster strong { font: 850 clamp(2rem, 4vw, 4rem)/.98 var(--display); text-transform: uppercase; }
-.template-poster span { margin-top: 1.2rem; font-weight: 700; }
+.template-preview-link { display: block; color: var(--blue); text-decoration: none; }
+.template-preview-link:focus-visible { outline: 4px solid var(--pink); outline-offset: -4px; }
+.template-browser-bar { display: flex; align-items: center; gap: .75rem; padding: .65rem .85rem; border-bottom: 2px solid var(--blue); background: var(--sheet); font: 700 .7rem/1.2 var(--body); letter-spacing: .07em; text-transform: uppercase; }
+.template-browser-dots { display: flex; gap: .3rem; flex-shrink: 0; }
+.template-browser-dots i { width: .5rem; height: .5rem; border: 1.5px solid var(--blue); border-radius: 50%; background: var(--pink); }
+.template-browser-dots i:nth-child(2) { background: var(--yellow); }
+.template-browser-dots i:nth-child(3) { background: var(--paper); }
+.template-browser-bar > span:last-child { margin-left: auto; }
+.template-screen { display: block; aspect-ratio: 6 / 5; overflow: hidden; background: #141311; }
+.template-preview .template-screen img { width: 100%; height: 100%; object-fit: cover; object-position: center top; transition: object-position .8s var(--ease); }
+.template-hint { display: block; padding: .6rem .85rem; border-top: 2px solid var(--blue); background: var(--yellow); font: 700 .82rem/1.3 var(--body); text-align: center; }
+.template-hint-hover { display: none; }
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .template-preview-link:hover .template-screen img { object-position: center bottom; transition-duration: 16s; transition-timing-function: linear; }
+  .template-hint-hover { display: inline; }
+  .template-hint-open { display: none; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .template-preview-link:focus-visible .template-screen img { object-position: center bottom; transition-duration: 16s; transition-timing-function: linear; }
+}
+@media (prefers-reduced-motion: reduce) { .template-preview .template-screen img { transition: none; } }
 .template-preview figcaption { padding: .8rem 1.1rem; border-top: 2.5px solid var(--blue); font-size: .9rem; line-height: 1.4; }
 .template-copy h3 { margin: 0 0 1rem; font: 850 clamp(2.15rem, 4vw, 3.6rem)/.95 var(--display); font-variation-settings: "wdth" 100; text-transform: uppercase; }
 .template-copy > p { max-width: 49ch; margin: 0 0 1.2rem; }
@@ -414,8 +431,12 @@ footer nav a:hover { color: var(--pink); }
       </div>
       <article class="template-feature" id="luxury-real-estate" aria-labelledby="luxury-title">
         <figure class="template-preview">
-          <div class="template-poster" aria-hidden="true"><strong>Luxury<br>Real Estate</strong><span>HTML Website Template</span></div>
-          <figcaption>Product overview: single-page HTML template with a built-in text and photo editor. <a href="/demos/luxury-real-estate/">View the live demo →</a></figcaption>
+          <a class="template-preview-link" href="/demos/luxury-real-estate/" aria-label="Open the Luxury Real Estate live demo" aria-describedby="template-preview-caption">
+            <span class="template-browser-bar" aria-hidden="true"><span class="template-browser-dots"><i></i><i></i><i></i></span><span>Luxury Real Estate</span><span>Live demo ↗</span></span>
+            <span class="template-screen"><img src="/luxury-real-estate-preview.webp" width="1165" height="6065" loading="lazy" decoding="async" alt="Full-page screenshot of the Luxury Real Estate demo, from its home-page hero through properties, services, and contact"></span>
+            <span class="template-hint" aria-hidden="true"><span class="template-hint-hover">Hover to scroll · Click to open the demo ↗</span><span class="template-hint-open">Open the live demo ↗</span></span>
+          </a>
+          <figcaption id="template-preview-caption">A screenshot of the full design. Open the live demo to explore. Demo photos aren’t included in the download.</figcaption>
         </figure>
         <div class="template-copy">
           <h3 id="luxury-title">Luxury Real Estate</h3>
@@ -714,4 +735,3 @@ fitHeadline(); fitWordmark();
 </script>
 </body>
 </html>
-
