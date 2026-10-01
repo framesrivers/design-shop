@@ -276,6 +276,21 @@ h2.in { --w: 130; }
 .template-eyebrow { color: var(--soft); font-size: .9rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
 .template-feature + .template-feature { padding-top: 3.5rem; border-top: 2px dashed var(--blue); }
 
+/* ---------- Optional website setup ---------- */
+.setup-card { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, .95fr); gap: clamp(2rem, 5vw, 4rem); padding: clamp(1.4rem, 4vw, 3rem); border: 2.5px solid var(--blue); border-radius: 18px; background: var(--yellow); box-shadow: 6px 6px 0 var(--blue); }
+.setup-tag { display: inline-block; margin: 0 0 1.25rem; padding: .45rem .7rem; border: 2px solid var(--blue); border-radius: 999px; background: var(--sheet); font: 700 .88rem/1.2 var(--body); }
+.setup-card h2 { font-size: clamp(2rem, 4.4vw, 3.6rem); line-height: .98; max-width: 12ch; margin: 0 0 1.1rem; }
+.setup-intro { max-width: 43ch; margin: 0 0 1.5rem; font-size: 1.1rem; }
+.setup-card .btn { background: var(--sheet); line-height: 1.25; }
+.setup-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 1rem; }
+.setup-list li { border-bottom: 2px dashed var(--blue); padding-bottom: 1rem; }
+.setup-list strong { display: block; margin-bottom: .3rem; font: 800 1.15rem/1.2 var(--body); }
+.setup-list p { margin: 0; font-size: .98rem; }
+.setup-terms { margin: 1.1rem 0 0; font-size: .9rem; line-height: 1.5; }
+.template-copy .setup-callout { margin-top: 1rem; font-size: .95rem; }
+.setup-callout a { font-weight: 700; text-underline-offset: .2em; }
+@media (max-width: 760px) { .setup-card { grid-template-columns: 1fr; } .setup-card h2 { max-width: 15ch; } }
+
 /* ---------- Custom work: receipt ---------- */
 .custom-grid { display: grid; grid-template-columns: minmax(0, 420px) 1fr; gap: clamp(2rem, 6vw, 5rem); align-items: start; }
 .receipt {
@@ -376,6 +391,7 @@ footer nav a:hover { color: var(--pink); }
     <a class="brand" href="#top" aria-label="Hello Rivers home"><img class="brand-logo" src="hello-rivers-logo-blue.png" alt="Hello Rivers"></a>
     <ul>
       <li><a href="#shop">Shop</a></li>
+      <li><a href="#installation">Setup help</a></li>
       <li><a href="#custom">Custom work</a></li>
       <li><a href="#faq">FAQ</a></li>
     </ul>
@@ -472,6 +488,7 @@ footer nav a:hover { color: var(--pink); }
             <p class="purchase-note" id="northside-purchase-note">Checkout and your ZIP download are handled by Payhip. Hosting, domain, installation, and customization cost extra.</p>
             <a class="template-question" href="#contact" data-type="Northside barbershop template">Ask about this template</a>
           </div>
+          <p class="setup-callout">Want help getting online? <a href="#installation">Optional installation &amp; hosting help</a></p>
         </div>
       </article>
       <article class="template-feature" id="vanity-beauty-salon" aria-labelledby="vanity-title">
@@ -512,6 +529,7 @@ footer nav a:hover { color: var(--pink); }
             <p class="purchase-note" id="vanity-purchase-note">Checkout and your ZIP download are handled by Payhip. Hosting, domain, installation, and customization cost extra.</p>
             <a class="template-question" href="#contact" data-type="Vanity beauty and salon template">Ask about this template</a>
           </div>
+          <p class="setup-callout">Want help getting online? <a href="#installation">Optional installation &amp; hosting help</a></p>
         </div>
       </article>
       <article class="template-feature" id="velour-beauty-studio" aria-labelledby="velour-title">
@@ -587,6 +605,7 @@ footer nav a:hover { color: var(--pink); }
             <p class="purchase-note" id="luxury-purchase-note">Checkout opens on Payhip. Installation and customization cost extra.</p>
             <a class="template-question" href="#contact" data-type="Luxury Real Estate template">Ask about this template</a>
           </div>
+          <p class="setup-callout">Want help getting online? <a href="#installation">Optional installation &amp; hosting help</a></p>
         </div>
       </article>
       <h3 class="upcoming-heading">More from the studio</h3>
@@ -594,6 +613,27 @@ footer nav a:hover { color: var(--pink); }
         <article class="launch-card reveal"><span class="tag">Available now</span><h3>Canva websites &amp; brand kits</h3><p>Meet Velour: a website and matching brand graphics for beauty businesses.</p><a href="#velour-beauty-studio">Explore the Velour collection</a></article>
         <article class="launch-card reveal" style="--d:.08s"><span class="tag">By request</span><h3>Squarespace site setup</h3><p>Choose a design and I’ll personalize it for your business before handing it over for you to edit.</p><a href="#contact" data-type="Website design">Ask about a site</a></article>
         <article class="launch-card reveal" style="--d:.24s"><span class="tag">In development</span><h3>Wix &amp; WordPress</h3><p>New designs are in development. Get in touch for updates.</p><a href="#contact" data-type="Wix &amp; WordPress updates">Get in touch for updates</a></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="installation" aria-labelledby="installation-title">
+    <div class="wrap">
+      <div class="setup-card">
+        <div>
+          <span class="setup-tag">Optional website installation</span>
+          <h2 id="installation-title">Love the template? I can set it up.</h2>
+          <p class="setup-intro">I can take care of getting your HTML website online, connect your domain, and help you find hosting that fits your budget.</p>
+          <a class="btn" href="#contact" data-type="Website installation &amp; hosting help">Get a setup quote <span aria-hidden="true">↗</span></a>
+        </div>
+        <div>
+          <ul class="setup-list">
+            <li><strong>Template installation</strong><p>I'll upload your ready-to-publish HTML website to a compatible hosting account and check it on desktop and mobile.</p></li>
+            <li><strong>Your domain, connected</strong><p>I'll help point your domain to your new website. You keep ownership of your domain and hosting accounts.</p></li>
+            <li><strong>Affordable hosting options</strong><p>We'll look at options based on what your site needs and what you want to spend. HTML templates can use standalone hosting without a website-builder subscription.</p></li>
+          </ul>
+          <p class="setup-terms">Setup is quoted individually and isn't included in the template price. Domain and hosting charges are separate, paid directly to your providers. We'll agree on the work and price before getting started.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -647,7 +687,8 @@ footer nav a:hover { color: var(--pink); }
       <div class="faq-list">
         <details class="reveal"><summary>Can I edit a Canva website myself?</summary><p>Yes. A Canva website template opens in your Canva account so you can edit the content and publish your version. You'll need a Canva account; some publishing options require a paid plan.</p></details>
         <details class="reveal" style="--d:.06s"><summary>How will Squarespace templates work?</summary><p>I'll build the editable site in Squarespace. After purchase, I can make you a copy and transfer it to your Squarespace account. You'll choose and pay for your own Squarespace site plan.</p></details>
-        <details class="reveal" style="--d:.12s"><summary>What do I get with an HTML template?</summary><p>Website files you can upload to your own hosting account. You can edit the files yourself or ask about installation help.</p></details>
+        <details class="reveal" style="--d:.12s"><summary>What do I get with an HTML template?</summary><p>Website files you can upload to your own hosting account. You can edit the files yourself or <a href="#installation">ask about optional installation help</a>.</p></details>
+        <details class="reveal"><summary>Can you install my website and help with hosting?</summary><p>Yes. Optional setup can include uploading your HTML website, connecting your domain, and helping you choose hosting for your needs and budget. You'll own the accounts and pay any domain and hosting charges directly. Installation is quoted separately from the template; customization or moving an existing site needs its own agreed scope. <a href="#contact" data-type="Website installation &amp; hosting help">Ask for a setup quote.</a></p></details>
         <details class="reveal" style="--d:.18s"><summary>How do I buy the HTML template?</summary><p>The Luxury Real Estate HTML template is $79 USD before applicable taxes. Choose Buy template above to continue to Payhip. Your download includes the website file, browser editor, instructions, and a license for one website for yourself or one client. Demo photos aren't included; add your own photos to the placeholders.</p></details>
         <details class="reveal"><summary>What do I get with the Northside barbershop template?</summary><p>For $79 USD before applicable taxes, you&#x27;ll receive a ZIP with the private text/photo editor, instructions, neutral media placeholders, and a license for one business or one client website. Demo stock photos and video are excluded; source links are supplied. Host an optional hero video separately, connect your own booking page, and upload the exported HTML to your own hosting. <a href="#northside-barbershop">See the template details.</a></p></details>
         <details class="reveal"><summary>What do I get with the Vanity salon template?</summary><p>For $79 USD before applicable taxes, you&#x27;ll receive a ZIP with the private browser editor, instructions, and a license for one business or one client website. Edit text, nine photos, links, and page details, then export your website and upload it to your own hosting. A booking provider and its setup are separate. Three AI-generated sample images are included. <a href="#vanity-beauty-salon">See the template details.</a></p></details>
@@ -661,7 +702,7 @@ footer nav a:hover { color: var(--pink); }
       <div class="reveal">
         <h2>Say hi</h2>
         <svg class="scribble" viewBox="0 0 260 22" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M3 12c30-8 60 6 90-2s60-8 90 0 50 4 74-4"/></svg>
-        <p style="color:var(--soft);font-weight:500;max-width:36ch">Ask about a custom project or an upcoming template. This form opens a draft in your email app.</p>
+        <p style="color:var(--soft);font-weight:500;max-width:36ch">Ask about a custom project, website setup, or a template. This form opens a draft in your email app.</p>
         <a class="mail" href="mailto:design@marcosuriel.com">design@marcosuriel.com</a>
       </div>
       <form id="contact-form" class="reveal" style="--d:.12s" novalidate>
@@ -673,6 +714,7 @@ footer nav a:hover { color: var(--pink); }
           <select name="type" id="type">
             <option>Brand identity</option>
             <option>Website design</option>
+            <option>Website installation &amp; hosting help</option>
             <option>Business photography</option>
             <option>Social media rebrand</option>
             <option>Photos &amp; social content</option>
@@ -863,3 +905,4 @@ fitHeadline(); fitWordmark();
 </script>
 </body>
 </html>
+
