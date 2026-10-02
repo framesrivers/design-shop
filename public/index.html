@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Hello River - Websites and Brand Goods</title>
-<meta name="description" content="Editable website templates, brand kits, and custom design for small businesses. Canva, Squarespace, and HTML releases are in the works.">
+<title>Hello Rivers - Websites and Brand Goods</title>
+<meta name="description" content="Shop editable HTML website templates and Canva brand kits from Hello Rivers, plus custom websites and visual identities.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anybody:wdth,wght@50..150,300..900&family=Hanken+Grotesk:wght@400;500;700&family=Caveat:wght@600&display=swap" rel="stylesheet">
@@ -218,6 +218,78 @@ h2.in { --w: 130; }
 .card h3 { margin: 0; font: 800 1.35rem/1.1 var(--display); font-variation-settings: "wdth" 100; }
 .card p { color: var(--soft); margin: .35rem 0 1rem; font-size: .96rem; }
 .empty { font: 600 1.5rem/1.3 var(--hand); color: var(--pink); }
+.launch-card { background: var(--sheet); border: 2.5px solid var(--blue); border-radius: 18px; padding: 1.5rem; box-shadow: 5px 5px 0 var(--blue); min-height: 215px; display: flex; flex-direction: column; align-items: start; }
+.launch-card:nth-child(2) { background: var(--yellow); }
+.launch-card:nth-child(3) { background: #fbd5e9; }
+.launch-card h3 { font: 850 1.55rem/1.05 var(--display); text-transform: uppercase; margin: .8rem 0 .5rem; }
+.launch-card p { margin: 0 0 1rem; }
+.launch-card .tag { font: 700 .88rem/1 var(--body); border: 2px solid var(--blue); border-radius: 999px; padding: .45rem .7rem; background: var(--sheet); }
+.launch-card a { margin-top: auto; font-weight: 700; text-underline-offset: .25em; }
+
+/* ---------- Featured template ---------- */
+.template-feature { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: clamp(1.5rem, 4vw, 3rem); align-items: start; margin-bottom: 3.5rem; }
+.template-preview { margin: 0; overflow: hidden; border: 2.5px solid var(--blue); border-radius: 18px; background: var(--sheet); box-shadow: 5px 5px 0 var(--blue); }
+.template-preview-link { display: block; color: var(--blue); text-decoration: none; }
+.template-preview-link:focus-visible { outline: 4px solid var(--pink); outline-offset: -4px; }
+.template-browser-bar { display: flex; align-items: center; gap: .75rem; padding: .65rem .85rem; border-bottom: 2px solid var(--blue); background: var(--sheet); font: 700 .7rem/1.2 var(--body); letter-spacing: .07em; text-transform: uppercase; }
+.template-browser-dots { display: flex; gap: .3rem; flex-shrink: 0; }
+.template-browser-dots i { width: .5rem; height: .5rem; border: 1.5px solid var(--blue); border-radius: 50%; background: var(--pink); }
+.template-browser-dots i:nth-child(2) { background: var(--yellow); }
+.template-browser-dots i:nth-child(3) { background: var(--paper); }
+.template-browser-bar > span:last-child { margin-left: auto; }
+.template-screen { display: block; aspect-ratio: 6 / 5; overflow: hidden; background: #141311; }
+.template-preview .template-screen img { width: 100%; height: 100%; object-fit: cover; object-position: center top; transition: object-position .8s var(--ease); }
+.template-hint { display: block; padding: .6rem .85rem; border-top: 2px solid var(--blue); background: var(--yellow); font: 700 .82rem/1.3 var(--body); text-align: center; }
+.template-hint-hover { display: none; }
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .template-preview-link:hover .template-screen img { object-position: center bottom; transition-duration: 16s; transition-timing-function: linear; }
+  .template-hint-hover { display: inline; }
+  .template-hint-open { display: none; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .template-preview-link:focus-visible .template-screen img { object-position: center bottom; transition-duration: 16s; transition-timing-function: linear; }
+}
+@media (prefers-reduced-motion: reduce) { .template-preview .template-screen img { transition: none; } }
+.template-preview figcaption { padding: .8rem 1.1rem; border-top: 2.5px solid var(--blue); font-size: .9rem; line-height: 1.4; }
+.template-copy h3 { margin: 0 0 1rem; font: 850 clamp(2.15rem, 4vw, 3.6rem)/.95 var(--display); font-variation-settings: "wdth" 100; text-transform: uppercase; }
+.template-copy > p { max-width: 49ch; margin: 0 0 1.2rem; }
+.template-facts { display: flex; gap: .5rem; flex-wrap: wrap; list-style: none; padding: 0; margin: 0 0 1.4rem; }
+.template-facts li { padding: .4rem .65rem; border: 2px solid var(--blue); border-radius: 999px; background: var(--yellow); font-size: .85rem; font-weight: 700; line-height: 1.2; }
+.template-copy h4 { font: 800 1.15rem/1.2 var(--body); margin: 1.4rem 0 .6rem; }
+.template-includes { padding-left: 1.25rem; margin: 0 0 1.3rem; }
+.template-includes li { padding-left: .15rem; margin-bottom: .35rem; }
+.template-setup { margin: 0 0 1.4rem; border-block: 2px dashed var(--blue); padding: .15rem 0; }
+.template-setup summary { font-family: var(--body); font-size: 1rem; font-variation-settings: normal; }
+.template-setup p { color: var(--blue); font-size: .95rem; margin: 0 0 1rem; padding: 0; max-width: 52ch; }
+.template-purchase { padding-top: .4rem; }
+.template-price { margin: 0 0 .75rem; font-weight: 800; font-size: 1.15rem; }
+.template-purchase .btn:disabled { cursor: not-allowed; background: var(--paper); color: var(--blue); box-shadow: none; transform: none; opacity: 1; }
+.template-purchase .purchase-note { margin: .75rem 0 1rem; font-size: .9rem; max-width: 48ch; }
+.template-question { font-weight: 700; text-underline-offset: .25em; }
+.upcoming-heading { margin: 0 0 1.25rem; font: 800 1.4rem/1.15 var(--display); text-transform: uppercase; }
+@media (max-width: 800px) { .template-feature { grid-template-columns: 1fr; gap: 2rem; } .template-preview { max-width: 640px; } }
+@media (max-width: 400px) { .template-copy h3 { font-size: 2rem; } .template-purchase .btn { width: 100%; justify-content: center; padding-inline: .8rem; } }
+
+/* ---------- Canva collection ---------- */
+.velour-preview-image { width: 100%; height: auto; background: #f7f1e8; }
+.template-eyebrow { color: var(--soft); font-size: .9rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
+.template-feature + .template-feature { padding-top: 3.5rem; border-top: 2px dashed var(--blue); }
+
+/* ---------- Optional website setup ---------- */
+.setup-card { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, .95fr); gap: clamp(2rem, 5vw, 4rem); padding: clamp(1.4rem, 4vw, 3rem); border: 2.5px solid var(--blue); border-radius: 18px; background: var(--yellow); box-shadow: 6px 6px 0 var(--blue); }
+.setup-tag { display: inline-block; margin: 0 0 1.25rem; padding: .45rem .7rem; border: 2px solid var(--blue); border-radius: 999px; background: var(--sheet); font: 700 .88rem/1.2 var(--body); }
+.setup-card h2 { font-size: clamp(2rem, 4.4vw, 3.6rem); line-height: .98; max-width: 12ch; margin: 0 0 1.1rem; }
+.setup-intro { max-width: 43ch; margin: 0 0 1.5rem; font-size: 1.1rem; }
+.setup-card .btn { background: var(--sheet); line-height: 1.25; }
+.setup-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 1rem; }
+.setup-list li { border-bottom: 2px dashed var(--blue); padding-bottom: 1rem; }
+.setup-list strong { display: block; margin-bottom: .3rem; font: 800 1.15rem/1.2 var(--body); }
+.setup-list p { margin: 0; font-size: .98rem; }
+.setup-terms { margin: 1.1rem 0 0; font-size: .9rem; line-height: 1.5; }
+.template-copy .setup-callout { margin-top: 1rem; font-size: .95rem; }
+.setup-callout a { font-weight: 700; text-underline-offset: .2em; }
+@media (max-width: 760px) { .setup-card { grid-template-columns: 1fr; } .setup-card h2 { max-width: 15ch; } }
+
 /* ---------- Custom work: receipt ---------- */
 .custom-grid { display: grid; grid-template-columns: minmax(0, 420px) 1fr; gap: clamp(2rem, 6vw, 5rem); align-items: start; }
 .receipt {
@@ -317,6 +389,8 @@ footer nav a:hover { color: var(--pink); }
   <div class="wrap">
     <a class="brand" href="#top" aria-label="Hello Rivers home"><img class="brand-logo" src="hello-rivers-logo-blue.png" alt="Hello Rivers"></a>
     <ul>
+      <li><a href="#shop">Shop</a></li>
+      <li><a href="#installation">Setup help</a></li>
       <li><a href="#custom">Custom work</a></li>
       <li><a href="#faq">FAQ</a></li>
     </ul>
@@ -334,9 +408,9 @@ footer nav a:hover { color: var(--pink); }
       </h1>
       <div class="under">
         <div>
-          <p class="lede">Editable websites and visual identities for small businesses with their own point of view. Explore the offers below, or ask about a custom project.</p>
+          <p class="lede">Editable websites and visual identities for small businesses with their own point of view. Explore the Canva brand kit and HTML template, or ask about a custom project.</p>
           <div class="actions">
-            <a class="btn" href="#browse">Explore services</a>
+            <a class="btn" href="#shop">Explore templates</a>
             <a class="btn plain" href="#custom">Ask about custom work</a>
           </div>
         </div>
@@ -345,6 +419,10 @@ footer nav a:hover { color: var(--pink); }
         </div>
       </div>
     </div>
+    <a class="sticker round slap" href="#shop" style="--d:1s" aria-label="Explore the template shop">
+      <svg class="spin" viewBox="0 0 120 120" aria-hidden="true"><defs><path id="c" d="M60,60 m-46,0 a46,46 0 1,1 92,0 a46,46 0 1,1 -92,0"/></defs><text font-family="Anybody,sans-serif" font-weight="800" font-size="11" fill="#1D3FB0"><textPath textLength="286" lengthAdjust="spacingAndGlyphs" href="#c">TEMPLATE SHOP ✦ TEMPLATE SHOP ✦</textPath></text></svg>
+      <span aria-hidden="true" style="font-size:1.6rem">✦</span>
+    </a>
     <div class="sticker tape slap" style="--d:1.2s" aria-hidden="true" id="hero-tape"></div>
     <div class="strip" aria-hidden="true"><div class="track" data-strip="Made by a human,Custom work,Squarespace site setup,HTML templates,Monthly support,Wix + WordPress"></div></div>
   </section>
@@ -354,10 +432,207 @@ footer nav a:hover { color: var(--pink); }
       <div class="bento">
         <a class="block b1 reveal" href="#contact" data-type="Brand and website package"><div><span class="count">available now</span><h3>Custom<br>work</h3><p>A website or brand identity made around your business.</p><span class="card-cta">Request a quote</span></div></a>
         <a class="block b2 reveal" style="--d:.08s" href="#contact" data-type="Website design"><div><span class="count">by request</span><h3>Squarespace<br>site setup</h3><p>Choose a design. I’ll personalize the site for your business and hand it over for you to edit.</p><span class="card-cta">Ask about a site</span></div><div class="art" data-art="icons-small"></div></a>
-        <a class="block b3 reveal" style="--d:.16s" href="#contact" data-type="Upcoming template"><div><span class="count">download &amp; launch</span><h3>HTML website<br>templates</h3><p>Download the files, change the text and photos, and host the site in your own account.</p><span class="card-cta">Explore templates</span></div><div class="art" data-art="logo-small"></div></a>
+        <a class="block b3 reveal" style="--d:.16s" href="#northside-barbershop"><div><span class="count">download &amp; launch</span><h3>HTML website<br>templates</h3><p>Change the text and photos, then host the site in your own account. Explore the designs.</p><span class="card-cta">Explore the templates</span></div><div class="art" data-art="logo-small"></div></a>
         <a class="block b6 reveal" style="--d:.08s" href="#contact" data-type="Photos &amp; social content"><div><span class="count">fresh content</span><h3>Photos + social<br>content</h3><p>Fresh photos of your business, plus graphics and a cohesive look for your social media.</p><span class="card-cta">Ask about photos &amp; social</span></div><div class="art" data-art="template-big"></div></a>
         <a class="block b4 reveal" style="--d:.24s" href="#contact" data-type="Monthly creative support"><div><span class="count">ongoing support</span><h3>Monthly creative<br>support</h3><p>Ongoing photos, social graphics, and small website updates, planned around what you need each month.</p><span class="card-cta">Ask about a monthly plan</span></div></a>
         <a class="block b5 reveal" style="--d:.32s" href="#contact" data-type="Wix &amp; WordPress updates"><div><span class="count">in development</span><h3>Wix &amp;<br>WordPress</h3><p>New designs are in development.</p><span class="card-cta">Get in touch for updates</span></div></a>
+      </div>
+    </div>
+  </section>
+
+  <section id="shop">
+    <div class="wrap">
+      <div class="head">
+        <div class="reveal">
+          <h2>Template shop</h2>
+          <svg class="scribble" viewBox="0 0 260 22" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M3 14c40-9 80-10 120-6s90 5 134-4"/></svg>
+          <p>Editable designs for your next chapter. Choose a Canva brand kit or an HTML website template.</p>
+        </div>
+      </div>
+      <article class="template-feature" id="northside-barbershop" aria-labelledby="northside-title">
+        <figure class="template-preview">
+          <a class="template-preview-link" href="/demos/northside/" aria-label="Open the Northside barbershop live demo" aria-describedby="northside-preview-caption">
+            <span class="template-browser-bar" aria-hidden="true"><span class="template-browser-dots"><i></i><i></i><i></i></span><span>Northside</span><span>Live demo ↗</span></span>
+            <span class="template-screen"><img src="/northside-full-preview.webp" width="1180" height="4480" loading="lazy" decoding="async" alt="Full-page screenshot of the Northside barbershop demo, from its haircut-video hero through services, studio details, shop notes, and footer"></span>
+            <span class="template-hint" aria-hidden="true"><span class="template-hint-hover">Hover to scroll · Click to open the demo ↗</span><span class="template-hint-open">Open the live demo ↗</span></span>
+          </a>
+          <figcaption id="northside-preview-caption">A full-page screenshot of the actual Northside demo. Open the live demo to explore. Stock photos and video are for the preview only; the buyer download contains neutral placeholders and media source links.</figcaption>
+        </figure>
+        <div class="template-copy">
+          <p class="template-eyebrow">Barbershop HTML website template</p>
+          <h3 id="northside-title">Northside</h3>
+          <p>A charcoal-and-coral website template for barbershops, with a video-ready hero, a four-service menu, studio details, shop notes, and links to your booking provider.</p>
+          <ul class="template-facts" aria-label="Template format">
+            <li>HTML download</li><li>Single page</li><li>Responsive layout</li>
+          </ul>
+          <h4>In the download</h4>
+          <ul class="template-includes">
+            <li>A private browser editor for marked text, three photo areas, alt text, and two-axis crops</li>
+            <li>Settings for booking, email and map links, page title, description, and an optional hosted hero video</li>
+            <li>Save an editable copy and export a clean website HTML file with your photos, styles, and fonts embedded</li>
+            <li>Neutral media placeholders, getting-started guide, launch checklist, media source notes, and a single-website license</li>
+          </ul>
+          <h4>One website, made yours</h4>
+          <p>Use the template for one website for your own business or one client, including commercial use. Reselling, redistributing, or sharing the template files isn't included.</p>
+          <details class="template-setup">
+            <summary>What you'll need to set up</summary>
+            <p>Edit in a desktop browser and save your editable copy after each session. There is no autosave, CMS, or automatic publishing. Upload your exported index.html to your own static website hosting.</p>
+            <p>Demo photos and video are not included. Add media you own or are allowed to use. An optional hero video must be hosted separately and connected by HTTPS URL; a still image works without a video. Arrange your own booking provider, hosting, and domain.</p>
+            <p>Changing layout, colors, fonts, spacing, or the number of service cards requires HTML/CSS/JavaScript edits. Replace all fictional business details before launch. This is an HTML template, not an installable WordPress theme. It does not create appointments, process forms or email, or take payments.</p>
+          </details>
+          <div class="template-purchase">
+            <p class="template-price" id="northside-price">$79 USD <small>+ applicable tax</small></p>
+            <a class="btn" href="https://payhip.com/b/jL5G9" aria-describedby="northside-purchase-note">Buy template</a>
+            <a class="btn plain" href="/demos/northside/">View demo ↗</a>
+            <p class="purchase-note" id="northside-purchase-note">Checkout and your ZIP download are handled by Payhip. Hosting, domain, installation, and customization cost extra.</p>
+            <a class="template-question" href="#contact" data-type="Northside barbershop template">Ask about this template</a>
+          </div>
+          <p class="setup-callout">Want help getting online? <a href="#installation">Optional installation &amp; hosting help</a></p>
+        </div>
+      </article>
+      <article class="template-feature" id="vanity-beauty-salon" aria-labelledby="vanity-title">
+        <figure class="template-preview">
+          <a class="template-preview-link" href="/demos/vanity/" aria-label="Open the Vanity beauty and salon live demo" aria-describedby="vanity-preview-caption">
+            <span class="template-browser-bar" aria-hidden="true"><span class="template-browser-dots"><i></i><i></i><i></i></span><span>Vanity</span><span>Live demo ↗</span></span>
+            <span class="template-screen"><img src="/vanity-beauty-salon-preview.webp" width="1163" height="3759" loading="lazy" decoding="async" alt="Full-page screenshot of the Vanity salon demo with blush and burgundy styling, circular hero photos, a service menu, studio story, and booking and contact sections"></span>
+            <span class="template-hint" aria-hidden="true"><span class="template-hint-hover">Hover to scroll · Click to open the demo ↗</span><span class="template-hint-open">Open the live demo ↗</span></span>
+          </a>
+          <figcaption id="vanity-preview-caption">The actual Vanity demo, with fictional Rosé Atelier branding and AI-generated example images included in the download.</figcaption>
+        </figure>
+        <div class="template-copy">
+          <p class="template-eyebrow">Beauty &amp; salon HTML template</p>
+          <h3 id="vanity-title">Vanity</h3>
+          <p>A blush-and-burgundy website template for salons and beauty studios, with a service menu, space for your studio story, and booking links and contact details.</p>
+          <ul class="template-facts" aria-label="Template format">
+            <li>HTML download</li><li>Single page</li><li>Responsive layout</li>
+          </ul>
+          <h4>In the download</h4>
+          <ul class="template-includes">
+            <li>A private browser editor for marked text, nine photo areas, links, page title, and description</li>
+            <li>Save an editable copy and export a clean, self-contained website HTML file</li>
+            <li>Six service cards and four working service filters in a fixed one-page layout</li>
+            <li>Getting-started guide, launch checklist, license, and three original AI-generated example images</li>
+          </ul>
+          <h4>One website, made yours</h4>
+          <p>Use the template for one website for your own business or one client, including commercial use. Reselling, redistributing, or sharing the template files isn't included.</p>
+          <details class="template-setup">
+            <summary>What you'll need to set up</summary>
+            <p>Use a desktop browser to edit, and save your editable copy after each session. There is no autosave or cloud account. The finished website adapts to phones and desktops.</p>
+            <p>Add a real HTTPS booking-page URL before exporting. You arrange your booking provider, hosting, and domain separately. The template does not process appointments, forms, email, or payments, and has no CMS.</p>
+            <p>Replace the fictional business details and review the illustrative AI-generated images. Changing colors, fonts, layout, service count, or filter categories requires HTML/CSS/JavaScript edits. Publish only the exported website; keep your editor private.</p>
+          </details>
+          <div class="template-purchase">
+            <p class="template-price" id="vanity-price">$79 USD <small>+ applicable tax</small></p>
+            <a class="btn" href="https://payhip.com/b/DKGV0" aria-describedby="vanity-purchase-note">Buy template</a>
+            <a class="btn plain" href="/demos/vanity/">View demo ↗</a>
+            <p class="purchase-note" id="vanity-purchase-note">Checkout and your ZIP download are handled by Payhip. Hosting, domain, installation, and customization cost extra.</p>
+            <a class="template-question" href="#contact" data-type="Vanity beauty and salon template">Ask about this template</a>
+          </div>
+          <p class="setup-callout">Want help getting online? <a href="#installation">Optional installation &amp; hosting help</a></p>
+        </div>
+      </article>
+      <article class="template-feature" id="velour-beauty-studio" aria-labelledby="velour-title">
+        <figure class="template-preview">
+          <a class="template-preview-link" href="https://payhip.com/b/NcEVy" aria-label="View the Velour Beauty Studio Canva brand kit on Payhip" aria-describedby="velour-preview-caption">
+            <img class="velour-preview-image" src="/velour-beauty-studio-preview.webp" width="1200" height="1060" loading="lazy" decoding="async" alt="Selected Velour designs in cream, peach, and espresso: opening flyer, Instagram post and story, business card, gift card, and Facebook cover">
+            <span class="template-hint" aria-hidden="true">Explore the collection on Payhip ↗</span>
+          </a>
+          <figcaption id="velour-preview-caption">A look inside the collection, using the actual designs. Customize the sample branding and content for your business.</figcaption>
+        </figure>
+        <div class="template-copy">
+          <p class="template-eyebrow">Canva brand kit</p>
+          <h3 id="velour-title">Velour Beauty Studio</h3>
+          <p>A warm, coordinated identity for salons and beauty studios. Make the website, social graphics, and print designs your own in Canva.</p>
+          <ul class="template-facts" aria-label="Collection format">
+            <li>9 Canva designs</li><li>23 pages</li><li>Digital download</li>
+          </ul>
+          <h4>Inside the collection</h4>
+          <ul class="template-includes">
+            <li>Logo set (3 pages) and a one-page website</li>
+            <li>6 Instagram stories and 6 Instagram posts</li>
+            <li>Service menu, gift card (2 pages), and Facebook cover</li>
+            <li>Business card (2 pages) and grand-opening flyer</li>
+          </ul>
+          <h4>One business, made yours</h4>
+          <p>Use the collection for one business of your own or one client. Template resale, redistribution, and sharing the access links aren't included.</p>
+          <details class="template-setup">
+            <summary>How it works</summary>
+            <p>Download the HTML collection file after checkout and open it in your browser. It includes the previews and links to all 9 Canva designs. You can browse the file offline; opening and editing templates requires internet access and a Canva account.</p>
+            <p>Personalize the sample text, images, and contact details. The website's booking and map areas are demos to replace or connect yourself. Custom setup isn't included. Canva asset and publishing costs depend on your account and choices.</p>
+          </details>
+          <div class="template-purchase">
+            <p class="template-price" id="velour-price">$100 USD <small>+ applicable tax</small></p>
+            <a class="btn" href="https://payhip.com/b/NcEVy" aria-describedby="velour-purchase-note">Buy brand kit</a>
+            <p class="purchase-note" id="velour-purchase-note">Checkout and your collection download are handled by Payhip.</p>
+            <a class="template-question" href="#contact" data-type="Velour Beauty Studio brand kit">Ask about this collection</a>
+          </div>
+        </div>
+      </article>
+      <article class="template-feature" id="luxury-real-estate" aria-labelledby="luxury-title">
+        <figure class="template-preview">
+          <a class="template-preview-link" href="/demos/luxury-real-estate/" aria-label="Open the Luxury Real Estate live demo" aria-describedby="template-preview-caption">
+            <span class="template-browser-bar" aria-hidden="true"><span class="template-browser-dots"><i></i><i></i><i></i></span><span>Luxury Real Estate</span><span>Live demo ↗</span></span>
+            <span class="template-screen"><img src="/luxury-real-estate-preview.webp" width="1165" height="6065" loading="lazy" decoding="async" alt="Full-page screenshot of the Luxury Real Estate demo, from its home-page hero through properties, services, and contact"></span>
+            <span class="template-hint" aria-hidden="true"><span class="template-hint-hover">Hover to scroll · Click to open the demo ↗</span><span class="template-hint-open">Open the live demo ↗</span></span>
+          </a>
+          <figcaption id="template-preview-caption">A screenshot of the full design. Open the live demo to explore. Demo photos aren’t included in the download.</figcaption>
+        </figure>
+        <div class="template-copy">
+          <h3 id="luxury-title">Luxury Real Estate</h3>
+          <p>A single-page website template for an agent or a small real estate business, with space for your introduction, featured properties, services, and contact details.</p>
+          <ul class="template-facts" aria-label="Template format">
+            <li>HTML download</li><li>Single page</li><li>Responsive layout</li>
+          </ul>
+          <h4>In the download</h4>
+          <ul class="template-includes">
+            <li>One HTML file, a getting-started guide, and a license</li>
+            <li>A browser editor for visible text and five image areas</li>
+            <li>Neutral image placeholders for your own photos; demo photos aren't included</li>
+            <li>Save an editable copy and export a public website file</li>
+          </ul>
+          <h4>One website, made yours</h4>
+          <p>Use the template for one website for yourself or one client, including commercial use. Reselling, redistributing, or sharing the template files isn't included. Installation and customization cost extra.</p>
+          <details class="template-setup">
+            <summary>What you'll need to set up</summary>
+            <p>Your own static website hosting and a Formspree endpoint for working inquiries. The included form is a demo until you connect it. Some details, including the page title, search description, and link destinations, need HTML edits. Fonts load from Google Fonts.</p>
+            <p>This is an HTML template. It isn't a WordPress, Squarespace, or Wix theme, and it doesn't include a live property feed.</p>
+          </details>
+          <div class="template-purchase">
+            <p class="template-price" id="luxury-price">$79 USD <small>+ applicable tax</small></p>
+            <a class="btn" href="https://payhip.com/b/TLhH9" aria-describedby="luxury-purchase-note">Buy template</a>
+            <a class="btn plain" href="/demos/luxury-real-estate/">View demo ↗</a>
+            <p class="purchase-note" id="luxury-purchase-note">Checkout opens on Payhip. Installation and customization cost extra.</p>
+            <a class="template-question" href="#contact" data-type="Luxury Real Estate template">Ask about this template</a>
+          </div>
+          <p class="setup-callout">Want help getting online? <a href="#installation">Optional installation &amp; hosting help</a></p>
+        </div>
+      </article>
+      <h3 class="upcoming-heading">More from the studio</h3>
+      <div class="grid">
+        <article class="launch-card reveal"><span class="tag">Available now</span><h3>Canva websites &amp; brand kits</h3><p>Meet Velour: a website and matching brand graphics for beauty businesses.</p><a href="#velour-beauty-studio">Explore the Velour collection</a></article>
+        <article class="launch-card reveal" style="--d:.08s"><span class="tag">By request</span><h3>Squarespace site setup</h3><p>Choose a design and I’ll personalize it for your business before handing it over for you to edit.</p><a href="#contact" data-type="Website design">Ask about a site</a></article>
+        <article class="launch-card reveal" style="--d:.24s"><span class="tag">In development</span><h3>Wix &amp; WordPress</h3><p>New designs are in development. Get in touch for updates.</p><a href="#contact" data-type="Wix &amp; WordPress updates">Get in touch for updates</a></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="installation" aria-labelledby="installation-title">
+    <div class="wrap">
+      <div class="setup-card">
+        <div>
+          <span class="setup-tag">Optional website installation</span>
+          <h2 id="installation-title">Love the template? I can set it up.</h2>
+          <p class="setup-intro">I can take care of getting your HTML website online, connect your domain, and help you find hosting that fits your budget.</p>
+          <a class="btn" href="#contact" data-type="Website installation &amp; hosting help">Get a setup quote</a>
+        </div>
+        <div>
+          <ul class="setup-list">
+            <li><strong>Template installation</strong><p>I'll upload your ready-to-publish HTML website to a compatible hosting account and check it on desktop and mobile.</p></li>
+            <li><strong>Your domain, connected</strong><p>I'll help point your domain to your new website. You keep ownership of your domain and hosting accounts.</p></li>
+            <li><strong>Affordable hosting options</strong><p>We'll look at options based on what your site needs and what you want to spend. HTML templates can use standalone hosting without a website-builder subscription.</p></li>
+          </ul>
+          <p class="setup-terms">Setup is quoted individually and isn't included in the template price. Domain and hosting charges are separate, paid directly to your providers. We'll agree on the work and price before getting started.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -411,8 +686,12 @@ footer nav a:hover { color: var(--pink); }
       <div class="faq-list">
         <details class="reveal"><summary>Can I edit a Canva website myself?</summary><p>Yes. A Canva website template opens in your Canva account so you can edit the content and publish your version. You'll need a Canva account; some publishing options require a paid plan.</p></details>
         <details class="reveal" style="--d:.06s"><summary>How will Squarespace templates work?</summary><p>I'll build the editable site in Squarespace. After purchase, I can make you a copy and transfer it to your Squarespace account. You'll choose and pay for your own Squarespace site plan.</p></details>
-        <details class="reveal" style="--d:.12s"><summary>What do I get with an HTML template?</summary><p>Website files you can upload to your own hosting account. You can edit the files yourself or ask about installation help.</p></details>
-        <details class="reveal" style="--d:.18s"><summary>When can I buy a template?</summary><p>The first products are being made now. Send me a note if you'd like to hear when a specific collection is ready.</p></details>
+        <details class="reveal" style="--d:.12s"><summary>What do I get with an HTML template?</summary><p>Website files you can upload to your own hosting account. You can edit the files yourself or <a href="#installation">ask about optional installation help</a>.</p></details>
+        <details class="reveal"><summary>Can you install my website and help with hosting?</summary><p>Yes. Optional setup can include uploading your HTML website, connecting your domain, and helping you choose hosting for your needs and budget. You'll own the accounts and pay any domain and hosting charges directly. Installation is quoted separately from the template; customization or moving an existing site needs its own agreed scope. <a href="#contact" data-type="Website installation &amp; hosting help">Ask for a setup quote.</a></p></details>
+        <details class="reveal" style="--d:.18s"><summary>How do I buy the HTML template?</summary><p>The Luxury Real Estate HTML template is $79 USD before applicable taxes. Choose Buy template above to continue to Payhip. Your download includes the website file, browser editor, instructions, and a license for one website for yourself or one client. Demo photos aren't included; add your own photos to the placeholders.</p></details>
+        <details class="reveal"><summary>What do I get with the Northside barbershop template?</summary><p>For $79 USD before applicable taxes, you&#x27;ll receive a ZIP with the private text/photo editor, instructions, neutral media placeholders, and a license for one business or one client website. Demo stock photos and video are excluded; source links are supplied. Host an optional hero video separately, connect your own booking page, and upload the exported HTML to your own hosting. <a href="#northside-barbershop">See the template details.</a></p></details>
+        <details class="reveal"><summary>What do I get with the Vanity salon template?</summary><p>For $79 USD before applicable taxes, you&#x27;ll receive a ZIP with the private browser editor, instructions, and a license for one business or one client website. Edit text, nine photos, links, and page details, then export your website and upload it to your own hosting. A booking provider and its setup are separate. Three AI-generated sample images are included. <a href="#vanity-beauty-salon">See the template details.</a></p></details>
+        <details class="reveal" style="--d:.24s"><summary>What do I receive with the Velour brand kit?</summary><p>For $100 USD before applicable taxes, you'll receive a downloadable HTML collection file with previews and access links for 9 Canva designs across 23 pages. Open the file in your browser, then follow the links to customize the templates in Canva. The license covers one business or one client, with no template resale. <a href="#velour-beauty-studio">See the full collection details.</a></p></details>
       </div>
     </div>
   </section>
@@ -422,7 +701,7 @@ footer nav a:hover { color: var(--pink); }
       <div class="reveal">
         <h2>Say hi</h2>
         <svg class="scribble" viewBox="0 0 260 22" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M3 12c30-8 60 6 90-2s60-8 90 0 50 4 74-4"/></svg>
-        <p style="color:var(--soft);font-weight:500;max-width:36ch">Ask about a custom project or an upcoming template. This form opens a draft in your email app.</p>
+        <p style="color:var(--soft);font-weight:500;max-width:36ch">Ask about a custom project, website setup, or a template. This form opens a draft in your email app.</p>
         <a class="mail" href="mailto:design@marcosuriel.com">design@marcosuriel.com</a>
       </div>
       <form id="contact-form" class="reveal" style="--d:.12s" novalidate>
@@ -434,6 +713,7 @@ footer nav a:hover { color: var(--pink); }
           <select name="type" id="type">
             <option>Brand identity</option>
             <option>Website design</option>
+            <option>Website installation &amp; hosting help</option>
             <option>Business photography</option>
             <option>Social media rebrand</option>
             <option>Photos &amp; social content</option>
@@ -441,6 +721,10 @@ footer nav a:hover { color: var(--pink); }
             <option>Monthly creative support</option>
             <option>Wix &amp; WordPress updates</option>
             <option>Upcoming template</option>
+            <option>Luxury Real Estate template</option>
+            <option>Velour Beauty Studio brand kit</option>
+            <option>Vanity beauty and salon template</option>
+            <option>Northside barbershop template</option>
             <option>Something else</option>
           </select>
         </label>

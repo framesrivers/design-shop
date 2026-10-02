@@ -1,0 +1,302 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Luxury Real Estate Template Demo | Hello Rivers</title><meta name="description" content="Explore the Hello Rivers Luxury Real Estate HTML template. A fictional agent and property showcase. Demo photos are not included in the purchase."><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet"><style>
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#141311;color:#1C1A17;font-family:Jost,Arial,sans-serif}a{text-decoration:none}a:hover{text-decoration:underline}button,input,select,textarea{font:inherit}.site-shell{width:100%;max-width:1600px;min-height:100vh;margin:auto;display:flex;flex-direction:column;background:#F4EFE6;overflow:hidden}.hero{min-height:760px}.hero>div:first-child{background:radial-gradient(ellipse at 73% 34%,#9e8b73 0%,#494840 28%,#2c2b29 62%,#1f1c1a 100%)!important}.hero>div:first-child:before,.about>div:first-child>div:first-child:before,.listings article>div:first-child:before{content:"";position:absolute;inset:12% 16%;border:1px solid rgba(236,223,197,.2);transform:skewY(-8deg);pointer-events:none}.hero>div:first-child>div,.about>div:first-child>div:first-child>span,.listings article>div:first-child>span:first-child{position:relative;z-index:1}.about>div:first-child>div:first-child{background:linear-gradient(140deg,#aaa08f,#dfd6c7 50%,#8c8579)!important}.listings article>div:first-child{background:linear-gradient(135deg,#9d988b,#cfc5b3 48%,#777b75)!important}.listings article:nth-child(2)>div:first-child{background:linear-gradient(135deg,#b1a79a,#d9cbbc 45%,#7e756e)!important}.listings article:nth-child(3)>div:first-child{background:linear-gradient(135deg,#777b79,#cec6b9 55%,#8a8478)!important}.listings article>div:first-child>span:first-child{color:#3d3b38;background:rgba(244,239,230,.75);padding:9px 12px}.footer a{color:#F4EFE6}.quote{min-height:430px}input:focus,select:focus,textarea:focus{outline:2px solid #8c7044;outline-offset:2px}@media(max-width:1050px){.hero,.about,.listings,.services,.contact{padding:80px 6vw!important}.hero{padding-top:28px!important}.facts{padding:48px 6vw!important;gap:24px!important}.quote{padding:80px 12vw!important}.footer{padding:64px 6vw!important}.hero h1{font-size:clamp(52px,8vw,100px)!important}.about h2,.listings h2,.services h2,.contact h2{font-size:clamp(42px,6vw,64px)!important}}
+@media(max-width:700px){.hero{height:auto!important;min-height:760px;padding-bottom:72px!important}.primary-nav{height:auto!important;align-items:flex-start!important;gap:24px!important;flex-direction:column}.primary-nav>div{gap:14px!important;flex-wrap:wrap;font-size:11px!important}.primary-nav>div>a:last-child{display:none!important}.hero>div:last-child{padding-top:150px}.hero h1{font-size:clamp(49px,12vw,74px)!important}.hero h1 br{display:none}.hero p{font-size:18px!important}.hero>div:last-child>div:last-child{flex-wrap:wrap}.hero>div:last-child>div:last-child a{height:54px!important;padding:0 22px!important}.facts{grid-template-columns:repeat(2,minmax(0,1fr))!important}.facts span:first-child{font-size:42px!important}.about,.contact{grid-template-columns:1fr!important;gap:44px!important}.about>div:first-child{height:460px!important}.about>div:last-child>div:last-child{gap:20px!important;flex-wrap:wrap}.listings>div:first-child{align-items:flex-start!important;flex-direction:column}.listings>div:nth-child(2),.services>div:nth-child(2){grid-template-columns:1fr!important;gap:24px!important}.quote p{font-size:34px!important}.contact .consultation-form{padding:26px!important}.contact .consultation-form>div:first-child{grid-template-columns:1fr!important}.footer>div{flex-direction:column!important}.footer>div:first-child>div:last-child{flex-wrap:wrap;gap:18px!important}.footer{gap:32px!important}}@media(max-width:400px){.facts{grid-template-columns:1fr!important}.hero>div:last-child>div:first-child{font-size:11px!important;letter-spacing:2px!important}.hero h1{font-size:48px!important}}
+
+/* Demo photography, credited in the footer. */
+.hero>div:first-child{background-image:linear-gradient(90deg,rgba(12,11,10,.62),rgba(12,11,10,.2)),url("https://images.unsplash.com/photo-1756435292384-1bf32eff7baf?auto=format&fit=crop&w=1800&q=85")!important;background-size:cover!important;background-position:center 48%!important}
+.hero>div:first-child:before,.about>div:first-child>div:first-child:before,.listings article>div:first-child:before{display:none!important}
+.hero>div:first-child>div{display:none!important}
+.about>div:first-child>div:first-child{background-image:url("https://images.unsplash.com/photo-1772442164162-c28b6391758f?auto=format&fit=crop&w=1800&q=85")!important;background-size:cover!important;background-position:center 32%!important}
+.about>div:first-child>div:first-child>span,.about>div:first-child>div:first-child>svg{display:none!important}
+.about>div:first-child>div:first-child:after{content:"Stock portrait for demo";position:absolute;bottom:58px;left:16px;background:rgba(20,19,17,.72);color:#fff;padding:8px 10px;font:11px Jost,Arial,sans-serif;letter-spacing:1px}
+.listings article:nth-child(1)>div:first-child{background-image:url("https://images.unsplash.com/photo-1783125127199-860da9744dcc?auto=format&fit=crop&w=1800&q=85")!important;background-size:cover!important;background-position:center!important}
+.listings article:nth-child(2)>div:first-child{background-image:url("https://images.unsplash.com/photo-1776313756952-32a2ec58d729?auto=format&fit=crop&w=1800&q=85")!important;background-size:cover!important;background-position:center!important}
+.listings article:nth-child(3)>div:first-child{background-image:url("https://images.unsplash.com/photo-1757359056339-22968344cce6?auto=format&fit=crop&w=1800&q=85")!important;background-size:cover!important;background-position:center!important}
+.listings article>div:first-child>span:first-child{display:none!important}
+</style><meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://hellorivers.com/demos/luxury-real-estate/">
+<link rel="icon" href="/hello-rivers-logo-blue.png">
+<meta property="og:title" content="Luxury Real Estate Template Demo | Hello Rivers">
+<meta property="og:description" content="Preview the complete template design. Fictional agent and listings; demo photos are not included in the purchase.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://hellorivers.com/demos/luxury-real-estate/">
+<meta property="og:image" content="https://images.unsplash.com/photo-1756435292384-1bf32eff7baf?auto=format&fit=crop&w=1800&q=85">
+<style>
+.demo-bar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px 24px;background:#141311;color:#f4efe6;font:13px/1.45 Jost,Arial,sans-serif;border-bottom:1px solid #65563f}
+.demo-bar a{color:#f4efe6}.demo-bar .demo-label{text-align:center}.demo-bar small{display:block;color:#c4bbad;font-size:11px}.demo-bar .demo-buy{padding:9px 14px;background:#c2a36b;color:#141311;white-space:nowrap;font-weight:500}
+.demo-bar .demo-back{white-space:nowrap}a:focus-visible,button:focus-visible{outline:2px solid #c2a36b;outline-offset:5px}
+.demo-form-note{margin:0;color:#5e574d;font:13px/1.6 Jost,Arial,sans-serif}.consultation-form input,.consultation-form select,.consultation-form textarea{min-width:0;width:100%}
+.listings article>div:last-child>div:last-child{flex-wrap:wrap;column-gap:18px!important;row-gap:8px}.about>div:last-child>div:last-child{flex-wrap:wrap}
+@media(max-width:700px){.demo-bar{padding:10px 16px;gap:8px;flex-wrap:wrap}.demo-label{order:3;flex-basis:100%;font-size:11px}.demo-bar .demo-buy{padding:8px 12px}.primary-nav>div{column-gap:18px!important;row-gap:16px!important}.hero>div:last-child>div:last-child a{max-width:100%;letter-spacing:2px!important}.consultation-form button{height:auto!important;min-height:60px;padding:14px;line-height:1.4;letter-spacing:2px!important}}
+@media(max-width:1200px){.primary-nav>div{gap:24px!important}.primary-nav>div>a:last-child{display:none!important}}
+@media(min-width:701px) and (max-width:1050px){.contact{grid-template-columns:1fr!important;gap:44px!important}.contact .consultation-form{padding:36px!important}.consultation-form button{height:auto!important;min-height:60px;padding:14px;line-height:1.4;letter-spacing:2px!important}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style></head><body><aside class="demo-bar" aria-label="Template demonstration">
+<a class="demo-back" href="/">← Hello Rivers</a>
+<div class="demo-label">Luxury Real Estate · Template demo<small>Fictional agent &amp; listings · Demo photos not included in purchase</small></div>
+<a class="demo-buy" href="https://payhip.com/b/TLhH9">Buy · $79 USD + tax</a>
+</aside>
+
+<main id="top" class="site-shell">
+
+<!-- HERO -->
+<section class="hero" style="position: relative; height: 900px; background: #1E1B18; display: flex; flex-direction: column; box-sizing: border-box; padding: 40px 120px 96px">
+<div style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: #24201C">
+<div style="display: flex; flex-direction: column; align-items: center; gap: 12px; color: #6F675C; font-size: 13px; letter-spacing: 3px; text-transform: uppercase">
+<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#6F675C" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="1"></rect><circle cx="9" cy="10" r="2"></circle><path d="M21 17l-5-5-9 8"></path></svg>
+<span>Austin, through a different lens</span>
+</div>
+</div>
+<div style="position: absolute; inset: 0; background: rgba(12,11,10,0.55)"></div>
+
+<nav class="primary-nav" aria-label="Main navigation" style="position: relative; display: flex; align-items: center; justify-content: space-between; height: 64px">
+<a href="#top" style="display: flex; flex-direction: column; gap: 2px; color: #F4EFE6">
+<span style="font-family: 'Cormorant Garamond', Georgia, serif; font-size: 30px; font-weight: 500; letter-spacing: 1px">Elena Vale</span>
+<span style="font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: #C2A36B">Luxury Real Estate</span>
+</a>
+<div style="display: flex; align-items: center; gap: 40px; font-size: 13px; letter-spacing: 2.5px; text-transform: uppercase">
+<a href="#listings" style="color: #F4EFE6">Listings</a>
+<a href="#about" style="color: #F4EFE6">About</a>
+<a href="#services" style="color: #F4EFE6">Services</a>
+<a href="#contact" style="color: #F4EFE6">Contact</a>
+<a href="#contact" style="display: flex; align-items: center; height: 48px; padding: 0 28px; border: 1px solid #C2A36B; color: #C2A36B">(202) 555-0148</a>
+</div>
+</nav>
+
+<div style="position: relative; flex-grow: 1; display: flex; flex-direction: column; justify-content: flex-end; gap: 32px; max-width: 880px">
+<div style="display: flex; align-items: center; gap: 16px; font-size: 13px; letter-spacing: 4px; text-transform: uppercase; color: #C2A36B">
+<span style="display: block; width: 48px; height: 1px; background: #C2A36B"></span>
+<span>Austin, Texas · Vale & Co. Realty</span>
+</div>
+<h1 style="margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 400; font-size: 104px; line-height: 0.98; color: #F4EFE6; letter-spacing: -1px">Exceptional homes,<br><em style="font-style: italic; color: #C2A36B">represented</em> with care.</h1>
+<p style="margin: 0; max-width: 600px; font-size: 20px; line-height: 1.6; font-weight: 300; color: #D9D1C3">Discreet, considered guidance for buyers and sellers of distinctive properties — from the first private showing to the final signature.</p>
+<div style="display: flex; gap: 16px; margin-top: 8px">
+<a href="#listings" style="display: flex; align-items: center; height: 60px; padding: 0 40px; background: #C2A36B; color: #141311; font-size: 13px; font-weight: 500; letter-spacing: 3px; text-transform: uppercase">View Listings</a>
+<a href="#contact" style="display: flex; align-items: center; height: 60px; padding: 0 40px; border: 1px solid #F4EFE6; color: #F4EFE6; font-size: 13px; font-weight: 500; letter-spacing: 3px; text-transform: uppercase">Book a Consultation</a>
+</div>
+</div>
+</section>
+
+<!-- CREDENTIALS STRIP -->
+<section class="facts" style="background: #141311; padding: 64px 120px; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 40px">
+<div style="display: flex; flex-direction: column; gap: 8px; border-top: 1px solid #3A352E; padding-top: 24px">
+<span style="font-family: 'Cormorant Garamond', Georgia, serif; font-size: 56px; color: #C2A36B; line-height: 1">01</span>
+<span style="font-size: 12px; letter-spacing: 3px; text-transform: uppercase; color: #B5ADA0">A thoughtful first conversation</span>
+</div>
+<div style="display: flex; flex-direction: column; gap: 8px; border-top: 1px solid #3A352E; padding-top: 24px">
+<span style="font-family: 'Cormorant Garamond', Georgia, serif; font-size: 56px; color: #C2A36B; line-height: 1">02</span>
+<span style="font-size: 12px; letter-spacing: 3px; text-transform: uppercase; color: #B5ADA0">A search shaped around you</span>
+</div>
+<div style="display: flex; flex-direction: column; gap: 8px; border-top: 1px solid #3A352E; padding-top: 24px">
+<span style="font-family: 'Cormorant Garamond', Georgia, serif; font-size: 56px; color: #C2A36B; line-height: 1">03</span>
+<span style="font-size: 12px; letter-spacing: 3px; text-transform: uppercase; color: #B5ADA0">A clear plan for every step</span>
+</div>
+<div style="display: flex; flex-direction: column; gap: 8px; border-top: 1px solid #3A352E; padding-top: 24px">
+<span style="font-family: 'Cormorant Garamond', Georgia, serif; font-size: 56px; color: #C2A36B; line-height: 1">04</span>
+<span style="font-size: 12px; letter-spacing: 3px; text-transform: uppercase; color: #B5ADA0">Care through closing</span>
+</div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="about" style="padding: 140px 120px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 96px; align-items: center">
+<div style="position: relative; height: 680px">
+<div style="position: absolute; top: 0; left: 0; right: 48px; bottom: 48px; background: #D8CFBF; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 12px; color: #5E574D; font-size: 13px; letter-spacing: 3px; text-transform: uppercase">
+<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#5E574D" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"></path></svg>
+<span>Meet Elena</span>
+</div>
+<div style="position: absolute; right: 0; bottom: 0; width: 280px; padding: 32px; background: #141311; display: flex; flex-direction: column; gap: 8px">
+<span style="font-family: 'Cormorant Garamond', Georgia, serif; font-style: italic; font-size: 26px; color: #F4EFE6; line-height: 1.2">“Every home has a story worth telling well.”</span>
+<span style="font-size: 12px; letter-spacing: 3px; text-transform: uppercase; color: #C2A36B">— Elena Vale</span>
+</div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 28px">
+<span style="font-size: 13px; letter-spacing: 4px; text-transform: uppercase; color: #7A5F33">About Elena Vale</span>
+<h2 style="margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 400; font-size: 64px; line-height: 1.05; color: #1C1A17">A quieter, more personal kind of representation.</h2>
+<p style="margin: 0; font-size: 18px; line-height: 1.75; font-weight: 300; color: #3F3A33">I help buyers and sellers navigate Austin with a clear plan and close attention to the details that matter. From established streets in Tarrytown to contemporary homes in East Austin, I tailor each search and sale to the people behind it.</p>
+<p style="margin: 0; font-size: 18px; line-height: 1.75; font-weight: 300; color: #3F3A33">My favorite part of this work is learning what a place means to someone. That conversation shapes everything that follows: the homes we visit, the story we tell, and the pace we set together.</p>
+<div style="display: flex; gap: 48px; padding-top: 16px; border-top: 1px solid #CFC5B3">
+<div style="display: flex; flex-direction: column; gap: 4px">
+<span style="font-size: 12px; letter-spacing: 3px; text-transform: uppercase; color: #5E574D">License</span>
+<span style="font-size: 16px; color: #1C1A17">Demo only · No active license</span>
+</div>
+<div style="display: flex; flex-direction: column; gap: 4px">
+<span style="font-size: 12px; letter-spacing: 3px; text-transform: uppercase; color: #5E574D">Brokerage</span>
+<span style="font-size: 16px; color: #1C1A17">Vale & Co. Realty</span>
+</div>
+<div style="display: flex; flex-direction: column; gap: 4px">
+<span style="font-size: 12px; letter-spacing: 3px; text-transform: uppercase; color: #5E574D">Languages</span>
+<span style="font-size: 16px; color: #1C1A17">English & Spanish</span>
+</div>
+</div>
+</div>
+</section>
+
+<!-- LISTINGS -->
+<section id="listings" class="listings" style="padding: 140px 120px; background: #EAE3D6; display: flex; flex-direction: column; gap: 64px">
+<div style="display: flex; align-items: flex-end; justify-content: space-between; gap: 48px">
+<div style="display: flex; flex-direction: column; gap: 20px">
+<span style="font-size: 13px; letter-spacing: 4px; text-transform: uppercase; color: #7A5F33">Sample Properties</span>
+<h2 style="margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 400; font-size: 64px; line-height: 1.05; color: #1C1A17">A look at the possibilities</h2>
+</div>
+<a href="#contact" style="display: flex; align-items: center; height: 52px; padding: 0 32px; border: 1px solid #1C1A17; color: #1C1A17; font-size: 13px; font-weight: 500; letter-spacing: 3px; text-transform: uppercase">Ask About Homes</a>
+</div>
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px">
+<article style="display: flex; flex-direction: column; background: #F4EFE6">
+<div style="position: relative; height: 300px; background: #CFC5B3; display: flex; align-items: center; justify-content: center; color: #5E574D; font-size: 12px; letter-spacing: 3px; text-transform: uppercase">
+<span>Austin residence</span>
+<span style="position: absolute; top: 20px; left: 20px; padding: 8px 14px; background: #141311; color: #C2A36B; font-size: 11px; letter-spacing: 3px">Illustrative</span>
+</div>
+<div style="padding: 32px; display: flex; flex-direction: column; gap: 12px">
+<span style="font-family: 'Cormorant Garamond', Georgia, serif; font-size: 36px; color: #1C1A17; line-height: 1">$2,450,000</span>
+<span style="font-size: 17px; color: #1C1A17">A hillside retreat</span>
+<span style="font-size: 15px; color: #5E574D">West Austin</span>
+<div style="display: flex; gap: 24px; margin-top: 12px; padding-top: 20px; border-top: 1px solid #D8CFBF; font-size: 13px; letter-spacing: 1.5px; text-transform: uppercase; color: #3F3A33">
+<span>4 Beds</span><span>3 Baths</span><span>3,420 Sq Ft</span>
+</div>
+</div>
+</article>
+<article style="display: flex; flex-direction: column; background: #F4EFE6">
+<div style="position: relative; height: 300px; background: #CFC5B3; display: flex; align-items: center; justify-content: center; color: #5E574D; font-size: 12px; letter-spacing: 3px; text-transform: uppercase">
+<span>Austin residence</span>
+<span style="position: absolute; top: 20px; left: 20px; padding: 8px 14px; background: #141311; color: #C2A36B; font-size: 11px; letter-spacing: 3px">Illustrative</span>
+</div>
+<div style="padding: 32px; display: flex; flex-direction: column; gap: 12px">
+<span style="font-family: 'Cormorant Garamond', Georgia, serif; font-size: 36px; color: #1C1A17; line-height: 1">$1,895,000</span>
+<span style="font-size: 17px; color: #1C1A17">A modern courtyard home</span>
+<span style="font-size: 15px; color: #5E574D">East Austin</span>
+<div style="display: flex; gap: 24px; margin-top: 12px; padding-top: 20px; border-top: 1px solid #D8CFBF; font-size: 13px; letter-spacing: 1.5px; text-transform: uppercase; color: #3F3A33">
+<span>3 Beds</span><span>3 Baths</span><span>2,780 Sq Ft</span>
+</div>
+</div>
+</article>
+<article style="display: flex; flex-direction: column; background: #F4EFE6">
+<div style="position: relative; height: 300px; background: #CFC5B3; display: flex; align-items: center; justify-content: center; color: #5E574D; font-size: 12px; letter-spacing: 3px; text-transform: uppercase">
+<span>Austin residence</span>
+<span style="position: absolute; top: 20px; left: 20px; padding: 8px 14px; background: #141311; color: #C2A36B; font-size: 11px; letter-spacing: 3px">Illustrative</span>
+</div>
+<div style="padding: 32px; display: flex; flex-direction: column; gap: 12px">
+<span style="font-family: 'Cormorant Garamond', Georgia, serif; font-size: 36px; color: #1C1A17; line-height: 1">$3,175,000</span>
+<span style="font-size: 17px; color: #1C1A17">A classic city residence</span>
+<span style="font-size: 15px; color: #5E574D">Central Austin</span>
+<div style="display: flex; gap: 24px; margin-top: 12px; padding-top: 20px; border-top: 1px solid #D8CFBF; font-size: 13px; letter-spacing: 1.5px; text-transform: uppercase; color: #3F3A33">
+<span>5 Beds</span><span>4 Baths</span><span>4,110 Sq Ft</span>
+</div>
+</div>
+</article>
+</div>
+</section>
+
+<!-- SERVICES -->
+<section id="services" class="services" style="padding: 140px 120px; background: #141311; display: flex; flex-direction: column; gap: 72px">
+<div style="display: flex; flex-direction: column; gap: 20px; max-width: 760px">
+<span style="font-size: 13px; letter-spacing: 4px; text-transform: uppercase; color: #C2A36B">How I Can Help</span>
+<h2 style="margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 400; font-size: 64px; line-height: 1.05; color: #F4EFE6">Tailored service at every stage of the move.</h2>
+</div>
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 48px">
+<div style="display: flex; flex-direction: column; gap: 20px; padding-top: 32px; border-top: 1px solid #3A352E">
+<svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#C2A36B" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7"></path><path d="M5 10v10h14V10"></path><path d="M10 20v-6h4v6"></path></svg>
+<h3 style="margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; font-size: 34px; color: #F4EFE6">Selling</h3>
+<p style="margin: 0; font-size: 17px; line-height: 1.7; font-weight: 300; color: #B5ADA0">Strategic pricing, editorial-quality photography and film, and a marketing plan built to reach the right buyers — including off-market and private networks.</p>
+</div>
+<div style="display: flex; flex-direction: column; gap: 20px; padding-top: 32px; border-top: 1px solid #3A352E">
+<svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#C2A36B" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="15" r="4"></circle><path d="M11 12l9-9"></path><path d="M17 6l3 3"></path><path d="M15 8l2 2"></path></svg>
+<h3 style="margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; font-size: 34px; color: #F4EFE6">Buying</h3>
+<p style="margin: 0; font-size: 17px; line-height: 1.7; font-weight: 300; color: #B5ADA0">A curated search shaped around how you live, early access to new and quiet listings, and skilled negotiation from first offer to closing day.</p>
+</div>
+<div style="display: flex; flex-direction: column; gap: 20px; padding-top: 32px; border-top: 1px solid #3A352E">
+<svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#C2A36B" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M3 12h18"></path><path d="M12 3c2.5 2.7 3.8 5.7 3.8 9s-1.3 6.3-3.8 9c-2.5-2.7-3.8-5.7-3.8-9s1.3-6.3 3.8-9z"></path></svg>
+<h3 style="margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; font-size: 34px; color: #F4EFE6">Relocation</h3>
+<p style="margin: 0; font-size: 17px; line-height: 1.7; font-weight: 300; color: #B5ADA0">Neighborhood tours, school and lifestyle guidance, and a trusted circle of lenders, inspectors and designers to make arriving feel effortless.</p>
+</div>
+</div>
+</section>
+
+<!-- TESTIMONIAL -->
+<section class="quote" style="padding: 140px 220px; display: flex; flex-direction: column; align-items: center; gap: 36px; text-align: center">
+<svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#7A5F33" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 7H5v6h4v-2a4 4 0 0 1-4 4"></path><path d="M19 7h-4v6h4v-2a4 4 0 0 1-4 4"></path></svg>
+<p style="margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-style: italic; font-size: 44px; line-height: 1.3; color: #1C1A17">A home is more than a transaction. The right guidance makes room for what matters to you.</p>
+<div style="display: flex; flex-direction: column; gap: 6px">
+<span style="font-size: 14px; letter-spacing: 3px; text-transform: uppercase; color: #1C1A17">The Vale approach</span>
+<span style="font-size: 14px; color: #5E574D">Personal guidance, from first conversation to closing</span>
+</div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact" style="padding: 140px 120px; background: #EAE3D6; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 96px">
+<div style="display: flex; flex-direction: column; gap: 28px">
+<span style="font-size: 13px; letter-spacing: 4px; text-transform: uppercase; color: #7A5F33">Get in Touch</span>
+<h2 style="margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 400; font-size: 64px; line-height: 1.05; color: #1C1A17">Let’s talk about your next move.</h2>
+<p style="margin: 0; font-size: 18px; line-height: 1.75; font-weight: 300; color: #3F3A33">Preparing to sell or beginning your search? Tell me what you have in mind and we can find a good place to start.</p>
+<div style="display: flex; flex-direction: column; gap: 20px; margin-top: 12px">
+<div style="display: flex; align-items: center; gap: 16px; font-size: 17px; color: #1C1A17">
+<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#7A5F33" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"></path></svg>
+<span>(202) 555-0148</span>
+</div>
+<div style="display: flex; align-items: center; gap: 16px; font-size: 17px; color: #1C1A17">
+<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#7A5F33" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="1"></rect><path d="M3 7l9 6 9-6"></path></svg>
+<span>hello@example.com</span>
+</div>
+<div style="display: flex; align-items: center; gap: 16px; font-size: 17px; color: #1C1A17">
+<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#7A5F33" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"></path><circle cx="12" cy="10" r="2.5"></circle></svg>
+<span>Austin, Texas · Sample location</span>
+</div>
+</div>
+</div>
+<div id="consultation" class="consultation-form" role="form" aria-label="Demo consultation form" aria-describedby="demo-form-note" style="display: flex; flex-direction: column; gap: 24px; padding: 56px; background: #F4EFE6">
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px">
+<div style="display: flex; flex-direction: column; gap: 8px">
+<label for="fname" style="font-size: 12px; letter-spacing: 3px; text-transform: uppercase; color: #5E574D">First name</label>
+<input id="fname" autocomplete="off" type="text" style="height: 52px; padding: 0 16px; border: 1px solid #CFC5B3; background: #FBF8F2; font-size: 16px; color: #1C1A17">
+</div>
+<div style="display: flex; flex-direction: column; gap: 8px">
+<label for="lname" style="font-size: 12px; letter-spacing: 3px; text-transform: uppercase; color: #5E574D">Last name</label>
+<input id="lname" autocomplete="off" type="text" style="height: 52px; padding: 0 16px; border: 1px solid #CFC5B3; background: #FBF8F2; font-size: 16px; color: #1C1A17">
+</div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 8px">
+<label for="email" style="font-size: 12px; letter-spacing: 3px; text-transform: uppercase; color: #5E574D">Email</label>
+<input id="email" autocomplete="off" type="email" style="height: 52px; padding: 0 16px; border: 1px solid #CFC5B3; background: #FBF8F2; font-size: 16px; color: #1C1A17">
+</div>
+<div style="display: flex; flex-direction: column; gap: 8px">
+<label for="interest" style="font-size: 12px; letter-spacing: 3px; text-transform: uppercase; color: #5E574D">I am interested in</label>
+<select id="interest" autocomplete="off" style="height: 52px; padding: 0 16px; border: 1px solid #CFC5B3; background: #FBF8F2; font-size: 16px; color: #1C1A17">
+<option>Selling my home</option>
+<option>Buying a home</option>
+<option>Relocating</option>
+<option>A home valuation</option>
+</select>
+</div>
+<div style="display: flex; flex-direction: column; gap: 8px">
+<label for="msg" style="font-size: 12px; letter-spacing: 3px; text-transform: uppercase; color: #5E574D">Message</label>
+<textarea id="msg" autocomplete="off" rows="4" style="padding: 14px 16px; border: 1px solid #CFC5B3; background: #FBF8F2; font-size: 16px; color: #1C1A17; resize: none"></textarea>
+</div>
+<button id="demo-consultation-button" type="button" style="height: 60px; border: none; background: #141311; color: #C2A36B; font-size: 13px; font-weight: 500; letter-spacing: 3px; text-transform: uppercase; cursor: pointer">Request a Private Consultation</button>
+<p id="demo-form-note" class="demo-form-note" role="status">Demo only. This form does not send messages or book appointments.</p></div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer" style="flex-grow: 1; background: #141311; padding: 72px 120px; display: flex; flex-direction: column; gap: 48px">
+<div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 48px">
+<div style="display: flex; flex-direction: column; gap: 6px">
+<span style="font-family: 'Cormorant Garamond', Georgia, serif; font-size: 36px; color: #F4EFE6">Elena Vale</span>
+<span style="font-size: 12px; letter-spacing: 4px; text-transform: uppercase; color: #C2A36B">Luxury Real Estate · Austin, Texas</span>
+</div>
+<div style="display: flex; gap: 40px; font-size: 13px; letter-spacing: 2.5px; text-transform: uppercase">
+<a href="#listings">Listings</a>
+<a href="#about">About</a>
+<a href="#services">Services</a>
+<a href="#contact">Contact</a>
+</div>
+</div>
+<div style="display: flex; justify-content: space-between; gap: 48px; padding-top: 28px; border-top: 1px solid #3A352E; font-size: 13px; line-height: 1.6; color: #9D958A">
+<span>© 2026 Elena Vale · Vale & Co. Realty · Illustrative template</span>
+<span>Fictional agent, brokerage &amp; listings · Template preview</span>
+</div>
+<div class="photo-credit" style="font-size:11px;line-height:1.8;color:#b9b1a5">Demo photos via Unsplash: <a href="https://unsplash.com/photos/modern-luxury-house-with-stone-accents-at-sunset-7qD-iDyrdHY">Justin Wolff</a>, <a href="https://unsplash.com/photos/woman-in-a-blazer-with-sunlight-on-her-face-jnPVwVPsYLY">GN Group</a>, <a href="https://unsplash.com/photos/a-modern-house-with-a-swimming-pool-and-green-lawn-ylzGfY-xzBY">Salvo Media</a>, <a href="https://unsplash.com/photos/a-modern-dining-room-with-a-table-and-chairs-M-W4Y75QJBI">Franco Debartolo</a>, and <a href="https://unsplash.com/photos/modern-luxury-home-with-large-windows-at-dusk-G48h926L2qo">Michael Brown</a>. Properties and agent are fictional. Demo photography is not included in the purchase. <a href="https://unsplash.com/license">Unsplash License</a>.</div></footer>
+
+</main>
+<script>
+document.getElementById('demo-consultation-button').addEventListener('click',function(){
+ document.getElementById('demo-form-note').textContent='This is a template preview. No message was sent and no appointment was booked.';
+});
+</script></body></html>
