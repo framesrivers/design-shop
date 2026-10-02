@@ -178,12 +178,15 @@ h2.in { --w: 130; }
 .block .count { font: 600 1.5rem/1 var(--hand); color: var(--pink); position: relative; z-index: 1; }
 .block .art { position: absolute; inset: auto -2% -4% auto; width: 62%; opacity: .95; transition: transform .5s var(--bounce); }
 .block:hover .art { transform: rotate(-6deg) scale(1.06); }
-.b1 { grid-column: span 2; background: var(--pink); }
+.b1 { grid-column: span 2; background: var(--pink); color: var(--sheet); }
+.b1 .count { color: var(--sheet); }
 .b2 { background: var(--yellow); }
 .b4 { background: var(--blue); color: var(--sheet); }
 .b4 .count { color: var(--yellow); }
-.b5 { background: var(--sheet); }
-.b4 .card-cta { background: var(--yellow); }
+.b5 { background: var(--sheet); container-type: inline-size; }
+.b5 h3 { font-size: clamp(1rem, 10cqi, 2.4rem); line-height: 1.08; font-variation-settings: "wdth" 90; }
+.b5 .card-cta { max-width: 100%; line-height: 1.2; }
+.b4 .card-cta { background: var(--sheet); }
 .b6 { grid-column: span 2; background: #fbd5e9; }
 .b6 .art { width: 60%; right: -3%; bottom: -3%; transform: rotate(-4deg); }
 .b6:hover .art { transform: rotate(-9deg) scale(1.05); }
@@ -226,12 +229,39 @@ h2.in { --w: 130; }
 .launch-card .tag { font: 700 .88rem/1 var(--body); border: 2px solid var(--blue); border-radius: 999px; padding: .45rem .7rem; background: var(--sheet); }
 .launch-card a { margin-top: auto; font-weight: 700; text-underline-offset: .25em; }
 
+/* ---------- Template category notes ---------- */
+.template-notes { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(1.25rem, 3vw, 2.5rem); margin: 1.5rem 0 4rem; padding: .75rem .4rem; scroll-margin-top: 100px; }
+.template-note { appearance: none; border: 0; font: inherit; text-align: left; cursor: pointer; transition: transform .35s var(--bounce), box-shadow .35s var(--ease); position: relative; display: flex; flex-direction: column; padding: 2rem 1.5rem 1.6rem; min-height: 190px; background: var(--yellow); color: var(--blue); transform: rotate(-2deg); box-shadow: 3px 10px 14px rgba(29,63,176,.15); border-radius: 3px 3px 24px 3px; }
+.template-note::before { content: ""; position: absolute; width: 82px; height: 26px; top: -12px; left: calc(50% - 41px); background: rgba(250,250,247,.65); transform: rotate(4deg); box-shadow: 0 1px 2px rgba(29,63,176,.08); }
+.template-note::after { content: ""; position: absolute; right: 0; bottom: 0; width: 25px; height: 25px; background: linear-gradient(135deg, rgba(0,0,0,.1) 50%, var(--paper) 51%); border-radius: 0 0 20px 0; }
+.template-note:nth-child(2) { background: #fbd5e9; transform: rotate(1.5deg); }
+.template-note:nth-child(3) { background: var(--blue); color: var(--sheet); transform: rotate(-1deg); }
+.template-note .note-number { align-self: start; font: 700 .875rem/1 var(--body); border: 1.5px solid currentColor; border-radius: 999px; padding: .3rem .55rem; margin-bottom: 1rem; }
+.template-note .note-title { margin: 0 0 1rem; font: 850 clamp(1.5rem, 2.5vw, 2rem)/1.05 var(--display); text-transform: uppercase; overflow-wrap: anywhere; }
+.template-note .note-action { margin-top: auto; padding-top: 1rem; font-size: 1rem; font-weight: 700; }
+.template-note:hover { transform: translateY(-10px) rotate(1deg); box-shadow: 5px 18px 20px rgba(29,63,176,.2); }
+.template-note:nth-child(2):hover { transform: translateY(-10px) rotate(-2deg); }
+.template-note:nth-child(3):hover { transform: translateY(-10px) rotate(2deg); }
+.template-note[aria-pressed="true"] { transform: translateY(-5px) rotate(0); outline: 3px solid var(--blue); outline-offset: 5px; }
+.template-note:focus-visible { outline: 3px solid var(--blue); outline-offset: 5px; }
+.product-category-panel[hidden], .template-feature[hidden] { display: none; }
+.product-category-panel { scroll-margin-top: 100px; }
+.category-heading { font: 800 clamp(1.5rem, 3vw, 2rem)/1.15 var(--display); text-transform: uppercase; margin: 0 0 2rem; }
+.product-pagination { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: .75rem; margin: 2rem 0 0; }
+.product-pagination button { min-width: 44px; min-height: 44px; border: 2px solid var(--blue); border-radius: 10px; background: var(--sheet); color: var(--blue); font: 700 1rem var(--body); cursor: pointer; }
+.product-pagination button[aria-current="page"] { background: var(--yellow); box-shadow: 3px 3px 0 var(--blue); }
+.product-pagination button:focus-visible { outline: 3px solid var(--blue); outline-offset: 4px; }
+.product-page-status { text-align: center; margin: 1rem 0 0; font-size: .9rem; }
+@media (prefers-reduced-motion: no-preference) { .product-category-panel:not([hidden]) { animation: category-open .4s var(--ease) both; } @keyframes category-open { from { opacity: 0; transform: translateY(-14px); } to { opacity: 1; transform: translateY(0); } } }
+@media (prefers-reduced-motion: reduce) { .template-note { transition: none; } .template-note:hover, .template-note:nth-child(2):hover, .template-note:nth-child(3):hover { transform: none; } }
+@media (max-width: 760px) { .template-notes { grid-template-columns: 1fr; gap: 2rem; margin-bottom: 3rem; padding-inline: .6rem; } .template-note { min-height: 0; padding: 1.75rem 1.5rem; } }
+
 /* ---------- Featured template ---------- */
 .template-feature { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: clamp(1.5rem, 4vw, 3rem); align-items: start; margin-bottom: 3.5rem; }
 .template-preview { margin: 0; overflow: hidden; border: 2.5px solid var(--blue); border-radius: 18px; background: var(--sheet); box-shadow: 5px 5px 0 var(--blue); }
 .template-preview-link { display: block; color: var(--blue); text-decoration: none; }
 .template-preview-link:focus-visible { outline: 4px solid var(--pink); outline-offset: -4px; }
-.template-browser-bar { display: flex; align-items: center; gap: .75rem; padding: .65rem .85rem; border-bottom: 2px solid var(--blue); background: var(--sheet); font: 700 .7rem/1.2 var(--body); letter-spacing: .07em; text-transform: uppercase; }
+.template-browser-bar { display: none; align-items: center; gap: .75rem; padding: .65rem .85rem; border-bottom: 2px solid var(--blue); background: var(--sheet); font: 700 .7rem/1.2 var(--body); letter-spacing: .07em; text-transform: uppercase; }
 .template-browser-dots { display: flex; gap: .3rem; flex-shrink: 0; }
 .template-browser-dots i { width: .5rem; height: .5rem; border: 1.5px solid var(--blue); border-radius: 50%; background: var(--pink); }
 .template-browser-dots i:nth-child(2) { background: var(--yellow); }
@@ -260,7 +290,7 @@ h2.in { --w: 130; }
 .template-includes li { padding-left: .15rem; margin-bottom: .35rem; }
 .template-setup { margin: 0 0 1.4rem; border-block: 2px dashed var(--blue); padding: .15rem 0; }
 .template-setup summary { font-family: var(--body); font-size: 1rem; font-variation-settings: normal; }
-.template-setup p { color: var(--blue); font-size: .95rem; margin: 0 0 1rem; padding: 0; max-width: 52ch; }
+.template-setup p { color: var(--blue); font-size: .95rem; margin: 0; padding: 0 1.3rem 1rem; max-width: 52ch; }
 .template-purchase { padding-top: .4rem; }
 .template-price { margin: 0 0 .75rem; font-weight: 800; font-size: 1.15rem; }
 .template-purchase .btn:disabled { cursor: not-allowed; background: var(--paper); color: var(--blue); box-shadow: none; transform: none; opacity: 1; }
@@ -273,7 +303,7 @@ h2.in { --w: 130; }
 /* ---------- Canva collection ---------- */
 .velour-preview-image { width: 100%; height: auto; background: #f7f1e8; }
 .template-eyebrow { color: var(--soft); font-size: .9rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
-.template-feature + .template-feature { padding-top: 3.5rem; border-top: 2px dashed var(--blue); }
+.category-heading + .template-feature, .template-feature + .template-feature { padding-top: 3.5rem; border-top: 2px dashed var(--blue); }
 
 /* ---------- Optional website setup ---------- */
 .setup-card { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, .95fr); gap: clamp(2rem, 5vw, 4rem); padding: clamp(1.4rem, 4vw, 3rem); border: 2.5px solid var(--blue); border-radius: 18px; background: var(--yellow); box-shadow: 6px 6px 0 var(--blue); }
@@ -426,12 +456,12 @@ footer nav a:hover { color: var(--pink); }
   <section id="browse" style="padding-top:2rem;padding-bottom:0">
     <div class="wrap">
       <div class="bento">
-        <a class="block b1 reveal" href="#contact" data-type="Brand and website package"><div><span class="count">available now</span><h3>Custom<br>work</h3><p>A website or brand identity made around your business.</p><span class="card-cta">Request a quote</span></div></a>
-        <a class="block b2 reveal" style="--d:.08s" href="#contact" data-type="Website design"><div><span class="count">by request</span><h3>Squarespace<br>site setup</h3><p>Choose a design. I’ll personalize the site for your business and hand it over for you to edit.</p><span class="card-cta">Ask about a site</span></div><div class="art" data-art="icons-small"></div></a>
-        <a class="block b3 reveal" style="--d:.16s" href="#northside-barbershop"><div><span class="count">download &amp; launch</span><h3>HTML website<br>templates</h3><p>Change the text and photos, then host the site in your own account. Explore the designs.</p><span class="card-cta">Explore the templates</span></div><div class="art" data-art="logo-small"></div></a>
-        <a class="block b6 reveal" style="--d:.08s" href="#contact" data-type="Photos &amp; social content"><div><span class="count">fresh content</span><h3>Photos + social<br>content</h3><p>Fresh photos of your business, plus graphics and a cohesive look for your social media.</p><span class="card-cta">Ask about photos &amp; social</span></div><div class="art" data-art="template-big"></div></a>
-        <a class="block b4 reveal" style="--d:.24s" href="#contact" data-type="Monthly creative support"><div><span class="count">ongoing support</span><h3>Monthly creative<br>support</h3><p>Ongoing photos, social graphics, and small website updates, planned around what you need each month.</p><span class="card-cta">Ask about a monthly plan</span></div></a>
-        <a class="block b5 reveal" style="--d:.32s" href="#contact" data-type="Wix &amp; WordPress updates"><div><span class="count">in development</span><h3>Wix, WordPress,<br>&amp; Squarespace</h3><p>Themes and installation.</p><span class="card-cta">Get in touch for updates</span></div></a>
+        <a class="block b1 reveal" href="#contact" data-type="Monthly creative support"><div><span class="count">ongoing support</span><h3>Monthly creative<br>support</h3><p>An agreed monthly mix of fresh photos, social graphics, and small website updates, planned around your business.</p><span class="card-cta">Ask about a monthly plan</span></div></a>
+        <a class="block b2 reveal" style="--d:.08s" href="#contact" data-type="UX/UI design"><div><span class="count">by request</span><h3>UX/UI<br>design</h3><p>Clear user flows, wireframes, and interface designs for websites and apps, built around the people using them.</p><span class="card-cta">Ask about UX/UI</span></div><div class="art" data-art="icons-small"></div></a>
+        <a class="block b3 reveal" style="--d:.16s" href="#contact" data-type="Brand identity"><div><span class="count">made for you</span><h3>Custom<br>branding</h3><p>Logos, colors, typography, and useful brand assets designed around your business.</p><span class="card-cta">Ask about branding</span></div><div class="art" data-art="logo-small"></div></a>
+        <a class="block b6 reveal" style="--d:.08s" href="#contact" data-type="Photos &amp; social content"><div><span class="count">fresh content</span><h3>Photos + social<br>content</h3><p>Fresh photos of your business, plus graphics and a cohesive look for your social media.</p><span class="card-cta">Ask about photos &amp; social</span></div></a>
+        <a class="block b4 reveal" style="--d:.24s" href="#contact" data-type="Hosting move"><div><span class="count">a new home</span><h3>Hosting<br>move</h3><p>Moving your website to a new host? I’ll review your current setup and quote the transfer and domain connection.</p><span class="card-cta">Ask about a move</span></div></a>
+        <a class="block b5 reveal" style="--d:.32s" href="#contact" data-type="Wix &amp; WordPress updates"><div><span class="count">in development</span><h3>Wix,<br>WordPress,<br>&amp; Squarespace</h3><p>Themes and installation.</p><span class="card-cta">Get in touch for updates</span></div></a>
       </div>
     </div>
   </section>
@@ -444,12 +474,27 @@ footer nav a:hover { color: var(--pink); }
           <svg class="scribble" viewBox="0 0 260 22" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M3 14c40-9 80-10 120-6s90 5 134-4"/></svg>
         </div>
       </div>
+      <div class="template-notes" id="template-categories" aria-label="Template categories">
+        <button class="template-note" type="button" data-category="html" aria-pressed="true" aria-controls="category-products">
+          <span class="note-number" aria-hidden="true">01</span>
+          <span class="note-title">Website Templates</span>
+          <span class="note-action">3 websites <span aria-hidden="true">＋</span></span>
+        </button>
+        <button class="template-note" type="button" data-category="branding" aria-pressed="false" aria-controls="category-products">
+          <span class="note-number" aria-hidden="true">02</span>
+          <span class="note-title">Brand Kits</span>
+          <span>Editable in Canva</span>
+          <span class="note-action">1 collection <span aria-hidden="true">＋</span></span>
+        </button>
+      </div>
+      <div class="product-category-panel" id="category-products" role="region" aria-labelledby="category-heading" hidden>
+        <h3 class="category-heading" id="category-heading"></h3>
       <article class="template-feature" id="northside-barbershop" aria-labelledby="northside-title">
         <figure class="template-preview">
           <a class="template-preview-link" href="/demos/northside/" aria-label="Open the Northside barbershop live demo" aria-describedby="northside-preview-caption">
             <span class="template-browser-bar" aria-hidden="true"><span class="template-browser-dots"><i></i><i></i><i></i></span><span>Northside</span><span>Live demo ↗</span></span>
             <span class="template-screen"><img src="/northside-full-preview.webp" width="1180" height="4480" loading="lazy" decoding="async" alt="Full-page screenshot of the Northside barbershop demo, from its haircut-video hero through services, studio details, shop notes, and footer"></span>
-            <span class="template-hint" aria-hidden="true"><span class="template-hint-hover">Hover to scroll · Click to open the demo ↗</span><span class="template-hint-open">Open the live demo ↗</span></span>
+            <span class="template-hint">Explore the live demo ↗</span>
           </a>
           <figcaption id="northside-preview-caption">A full-page screenshot of the actual Northside demo. Open the live demo to explore. Stock photos and video are for the preview only; the buyer download contains neutral placeholders and media source links.</figcaption>
         </figure>
@@ -468,19 +513,18 @@ footer nav a:hover { color: var(--pink); }
             <li>Neutral media placeholders, getting-started guide, launch checklist, media source notes, and a single-website license</li>
           </ul>
           <details class="template-setup">
-            <summary>What you'll need to set up</summary>
+            <summary>How it works</summary>
             <p>Edit in a desktop browser and save your editable copy after each session. There is no autosave, CMS, or automatic publishing. Upload your exported index.html to your own static website hosting.</p>
             <p>Demo photos and video are not included. Add media you own or are allowed to use. An optional hero video must be hosted separately and connected by HTTPS URL; a still image works without a video. Arrange your own booking provider, hosting, and domain.</p>
             <p>Changing layout, colors, fonts, spacing, or the number of service cards requires HTML/CSS/JavaScript edits. Replace all fictional business details before launch. This is an HTML template, not an installable WordPress theme. It does not create appointments, process forms or email, or take payments.</p>
+            <p>Checkout and your ZIP download are handled by Payhip. Hosting, domain, installation, and customization cost extra.</p>
+            <p>Want help getting online? <a href="#installation">Optional installation &amp; hosting help</a></p>
+            <p><a class="template-question" href="#contact" data-type="Northside barbershop template">Ask about this template</a></p>
           </details>
           <div class="template-purchase">
             <p class="template-price" id="northside-price">$79 USD <small>+ applicable tax</small></p>
-            <a class="btn" href="https://payhip.com/b/jL5G9" aria-describedby="northside-purchase-note">Buy template</a>
-            <a class="btn plain" href="/demos/northside/">View demo ↗</a>
-            <p class="purchase-note" id="northside-purchase-note">Checkout and your ZIP download are handled by Payhip. Hosting, domain, installation, and customization cost extra.</p>
-            <a class="template-question" href="#contact" data-type="Northside barbershop template">Ask about this template</a>
+            <a class="btn" href="https://payhip.com/b/jL5G9">Buy template</a>
           </div>
-          <p class="setup-callout">Want help getting online? <a href="#installation">Optional installation &amp; hosting help</a></p>
         </div>
       </article>
       <article class="template-feature" id="vanity-beauty-salon" aria-labelledby="vanity-title">
@@ -488,7 +532,7 @@ footer nav a:hover { color: var(--pink); }
           <a class="template-preview-link" href="/demos/vanity/" aria-label="Open the Vanity beauty and salon live demo" aria-describedby="vanity-preview-caption">
             <span class="template-browser-bar" aria-hidden="true"><span class="template-browser-dots"><i></i><i></i><i></i></span><span>Vanity</span><span>Live demo ↗</span></span>
             <span class="template-screen"><img src="/vanity-beauty-salon-preview.webp" width="1163" height="3759" loading="lazy" decoding="async" alt="Full-page screenshot of the Vanity salon demo with blush and burgundy styling, circular hero photos, a service menu, studio story, and booking and contact sections"></span>
-            <span class="template-hint" aria-hidden="true"><span class="template-hint-hover">Hover to scroll · Click to open the demo ↗</span><span class="template-hint-open">Open the live demo ↗</span></span>
+            <span class="template-hint">Explore the live demo ↗</span>
           </a>
           <figcaption id="vanity-preview-caption">The actual Vanity demo, with fictional Rosé Atelier branding and AI-generated example images included in the download.</figcaption>
         </figure>
@@ -507,19 +551,18 @@ footer nav a:hover { color: var(--pink); }
             <li>Getting-started guide, launch checklist, license, and three original AI-generated example images</li>
           </ul>
           <details class="template-setup">
-            <summary>What you'll need to set up</summary>
+            <summary>How it works</summary>
             <p>Use a desktop browser to edit, and save your editable copy after each session. There is no autosave or cloud account. The finished website adapts to phones and desktops.</p>
             <p>Add a real HTTPS booking-page URL before exporting. You arrange your booking provider, hosting, and domain separately. The template does not process appointments, forms, email, or payments, and has no CMS.</p>
             <p>Replace the fictional business details and review the illustrative AI-generated images. Changing colors, fonts, layout, service count, or filter categories requires HTML/CSS/JavaScript edits. Publish only the exported website; keep your editor private.</p>
+            <p>Checkout and your ZIP download are handled by Payhip. Hosting, domain, installation, and customization cost extra.</p>
+            <p>Want help getting online? <a href="#installation">Optional installation &amp; hosting help</a></p>
+            <p><a class="template-question" href="#contact" data-type="Vanity beauty and salon template">Ask about this template</a></p>
           </details>
           <div class="template-purchase">
             <p class="template-price" id="vanity-price">$79 USD <small>+ applicable tax</small></p>
-            <a class="btn" href="https://payhip.com/b/DKGV0" aria-describedby="vanity-purchase-note">Buy template</a>
-            <a class="btn plain" href="/demos/vanity/">View demo ↗</a>
-            <p class="purchase-note" id="vanity-purchase-note">Checkout and your ZIP download are handled by Payhip. Hosting, domain, installation, and customization cost extra.</p>
-            <a class="template-question" href="#contact" data-type="Vanity beauty and salon template">Ask about this template</a>
+            <a class="btn" href="https://payhip.com/b/DKGV0">Buy template</a>
           </div>
-          <p class="setup-callout">Want help getting online? <a href="#installation">Optional installation &amp; hosting help</a></p>
         </div>
       </article>
       <article class="template-feature" id="velour-beauty-studio" aria-labelledby="velour-title">
@@ -548,12 +591,12 @@ footer nav a:hover { color: var(--pink); }
             <summary>How it works</summary>
             <p>Download the HTML collection file after checkout and open it in your browser. It includes the previews and links to all 9 Canva designs. You can browse the file offline; opening and editing templates requires internet access and a Canva account.</p>
             <p>Personalize the sample text, images, and contact details. The website's booking and map areas are demos to replace or connect yourself. Custom setup isn't included. Canva asset and publishing costs depend on your account and choices.</p>
+            <p>Checkout and your collection download are handled by Payhip.</p>
+            <p><a class="template-question" href="#contact" data-type="Velour Beauty Studio brand kit">Ask about this collection</a></p>
           </details>
           <div class="template-purchase">
             <p class="template-price" id="velour-price">$100 USD <small>+ applicable tax</small></p>
-            <a class="btn" href="https://payhip.com/b/NcEVy" aria-describedby="velour-purchase-note">Buy brand kit</a>
-            <p class="purchase-note" id="velour-purchase-note">Checkout and your collection download are handled by Payhip.</p>
-            <a class="template-question" href="#contact" data-type="Velour Beauty Studio brand kit">Ask about this collection</a>
+            <a class="btn" href="https://payhip.com/b/NcEVy">Buy brand kit</a>
           </div>
         </div>
       </article>
@@ -562,11 +605,12 @@ footer nav a:hover { color: var(--pink); }
           <a class="template-preview-link" href="/demos/luxury-real-estate/" aria-label="Open the Luxury Real Estate live demo" aria-describedby="template-preview-caption">
             <span class="template-browser-bar" aria-hidden="true"><span class="template-browser-dots"><i></i><i></i><i></i></span><span>Luxury Real Estate</span><span>Live demo ↗</span></span>
             <span class="template-screen"><img src="/luxury-real-estate-preview.webp" width="1165" height="6065" loading="lazy" decoding="async" alt="Full-page screenshot of the Luxury Real Estate demo, from its home-page hero through properties, services, and contact"></span>
-            <span class="template-hint" aria-hidden="true"><span class="template-hint-hover">Hover to scroll · Click to open the demo ↗</span><span class="template-hint-open">Open the live demo ↗</span></span>
+            <span class="template-hint">Explore the live demo ↗</span>
           </a>
           <figcaption id="template-preview-caption">A screenshot of the full design. Open the live demo to explore. Demo photos aren’t included in the download.</figcaption>
         </figure>
         <div class="template-copy">
+          <p class="template-eyebrow">Real estate HTML website template</p>
           <h3 id="luxury-title">Luxury Real Estate</h3>
           <p>A single-page website template for an agent or a small real estate business, with space for your introduction, featured properties, services, and contact details.</p>
           <ul class="template-facts" aria-label="Template format">
@@ -580,25 +624,21 @@ footer nav a:hover { color: var(--pink); }
             <li>Save an editable copy and export a public website file</li>
           </ul>
           <details class="template-setup">
-            <summary>What you'll need to set up</summary>
+            <summary>How it works</summary>
             <p>Your own static website hosting and a Formspree endpoint for working inquiries. The included form is a demo until you connect it. Some details, including the page title, search description, and link destinations, need HTML edits. Fonts load from Google Fonts.</p>
             <p>This is an HTML template. It isn't a WordPress, Squarespace, or Wix theme, and it doesn't include a live property feed.</p>
+            <p>Checkout opens on Payhip. Installation and customization cost extra.</p>
+            <p>Want help getting online? <a href="#installation">Optional installation &amp; hosting help</a></p>
+            <p><a class="template-question" href="#contact" data-type="Luxury Real Estate template">Ask about this template</a></p>
           </details>
           <div class="template-purchase">
             <p class="template-price" id="luxury-price">$79 USD <small>+ applicable tax</small></p>
-            <a class="btn" href="https://payhip.com/b/TLhH9" aria-describedby="luxury-purchase-note">Buy template</a>
-            <a class="btn plain" href="/demos/luxury-real-estate/">View demo ↗</a>
-            <p class="purchase-note" id="luxury-purchase-note">Checkout opens on Payhip. Installation and customization cost extra.</p>
-            <a class="template-question" href="#contact" data-type="Luxury Real Estate template">Ask about this template</a>
+            <a class="btn" href="https://payhip.com/b/TLhH9">Buy template</a>
           </div>
-          <p class="setup-callout">Want help getting online? <a href="#installation">Optional installation &amp; hosting help</a></p>
         </div>
       </article>
-      <h3 class="upcoming-heading">More from the studio</h3>
-      <div class="grid">
-        <article class="launch-card reveal"><span class="tag">Available now</span><h3>Canva websites &amp; brand kits</h3><p>Meet Velour: a website and matching brand graphics for beauty businesses.</p><a href="#velour-beauty-studio">Explore the Velour collection</a></article>
-        <article class="launch-card reveal" style="--d:.08s"><span class="tag">By request</span><h3>Squarespace site setup</h3><p>Choose a design and I’ll personalize it for your business before handing it over for you to edit.</p><a href="#contact" data-type="Website design">Ask about a site</a></article>
-        <article class="launch-card reveal" style="--d:.24s"><span class="tag">In development</span><h3>Wix &amp; WordPress</h3><p>New designs are in development. Get in touch for updates.</p><a href="#contact" data-type="Wix &amp; WordPress updates">Get in touch for updates</a></article>
+        <nav class="product-pagination" id="product-pagination" aria-label="Product pages"></nav>
+        <p class="product-page-status" id="product-page-status" aria-live="polite"></p>
       </div>
     </div>
   </section>
@@ -656,14 +696,6 @@ footer nav a:hover { color: var(--pink); }
           <a class="btn" href="#contact">Request a quote</a>
         </div>
       </div>
-      <div class="monthly-support reveal" style="--d:.12s">
-        <div>
-          <span class="tag">Flexible ongoing support</span>
-          <h3>Monthly Creative Support</h3>
-          <p>Get an agreed monthly mix of new photos, social media graphics, and small website updates—shaped around what your business needs next.</p>
-        </div>
-        <a class="btn alt" href="#contact" data-type="Monthly creative support">Ask about a monthly plan</a>
-      </div>
     </div>
   </section>
 
@@ -689,7 +721,6 @@ footer nav a:hover { color: var(--pink); }
         <h2>Say hi</h2>
         <svg class="scribble" viewBox="0 0 260 22" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M3 12c30-8 60 6 90-2s60-8 90 0 50 4 74-4"/></svg>
         <p style="color:var(--soft);font-weight:500;max-width:36ch">Ask about a custom project, website setup, or a template. This form opens a draft in your email app.</p>
-        <a class="mail" href="mailto:design@marcosuriel.com">design@marcosuriel.com</a>
       </div>
       <form id="contact-form" class="reveal" style="--d:.12s" novalidate>
         <div class="row2">
@@ -701,6 +732,8 @@ footer nav a:hover { color: var(--pink); }
             <option>Brand identity</option>
             <option>Website design</option>
             <option>Website installation &amp; hosting help</option>
+            <option>UX/UI design</option>
+            <option>Hosting move</option>
             <option>Business photography</option>
             <option>Social media rebrand</option>
             <option>Photos &amp; social content</option>
@@ -782,13 +815,78 @@ function artLogo(c, n) {
   ];
   return `<svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect width="400" height="300" fill="${W}"/>${marks[n % 3]}</svg>`;
 }
-document.getElementById("hero-tape").innerHTML = artTemplate(Y);
+const heroTape = document.getElementById("hero-tape");
+if (heroTape) heroTape.innerHTML = artTemplate(Y);
 const bentoArt = {
   "template-big": () => artTemplate(Y).replace(`<rect width="400" height="300" fill="${W}"/>`, `<rect width="400" height="300" rx="16" fill="${W}" stroke="${B}" stroke-width="5"/>`),
   "icons-small": () => `<svg viewBox="0 0 120 90" aria-hidden="true"><circle cx="70" cy="50" r="32" fill="${P}" style="mix-blend-mode:multiply"/><g transform="translate(46 26) scale(2)">${glyphs()[3]}</g></svg>`,
   "logo-small": () => `<svg viewBox="0 0 120 90" aria-hidden="true"><circle cx="58" cy="52" r="30" fill="${Y}" style="mix-blend-mode:multiply"/><circle cx="80" cy="52" r="30" fill="${P}" style="mix-blend-mode:multiply"/></svg>`,
 };
 document.querySelectorAll("[data-art]").forEach(el => el.innerHTML = bentoArt[el.dataset.art]());
+
+/* ---------- Expandable template categories ---------- */
+const categoryPanel = document.getElementById("category-products");
+const categoryButtons = [...document.querySelectorAll("[data-category]")];
+const categoryProducts = [...categoryPanel.querySelectorAll(".template-feature")];
+const categoryNames = { html: "Website Templates", branding: "Brand Kits" };
+const productsPerPage = 5;
+const pagination = document.getElementById("product-pagination");
+const pageStatus = document.getElementById("product-page-status");
+let activeCategory = null;
+function showCategory(category, page = 1) {
+  activeCategory = category;
+  categoryButtons.forEach(button => {
+    const selected = button.dataset.category === category;
+    button.setAttribute("aria-pressed", String(selected));
+    button.querySelector(".note-action span").textContent = selected ? "· viewing" : "＋";
+  });
+  categoryPanel.hidden = !category;
+  document.getElementById("category-heading").textContent = category ? categoryNames[category] : "";
+  const matchingProducts = categoryProducts.filter(product =>
+    category === "html" ? product.id !== "velour-beauty-studio" : product.id === "velour-beauty-studio"
+  );
+  const pageCount = Math.ceil(matchingProducts.length / productsPerPage);
+  const currentPage = Math.max(1, Math.min(page, pageCount));
+  const start = (currentPage - 1) * productsPerPage;
+  const visibleProducts = matchingProducts.slice(start, start + productsPerPage);
+  categoryProducts.forEach(product => {
+    product.hidden = !category || !visibleProducts.includes(product);
+  });
+  pagination.replaceChildren();
+  for (let number = 1; number <= pageCount; number++) {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.textContent = number;
+    button.setAttribute("aria-label", "Page " + number);
+    if (number === currentPage) button.setAttribute("aria-current", "page");
+    button.addEventListener("click", () => {
+      showCategory(category, number);
+      pagination.querySelector('[aria-current="page"]').focus({ preventScroll: true });
+      categoryPanel.scrollIntoView({ behavior: reduce ? "instant" : "smooth", block: "start" });
+    });
+    pagination.append(button);
+  }
+  pageStatus.textContent = matchingProducts.length
+    ? "Showing " + (start + 1) + "–" + Math.min(start + productsPerPage, matchingProducts.length) + " of " + matchingProducts.length + " products"
+    : "No products in this collection yet.";
+}
+categoryButtons.forEach(button => button.addEventListener("click", () => {
+  showCategory(button.dataset.category);
+}));
+function revealLinkedProduct(hash) {
+  const product = categoryProducts.find(item => "#" + item.id === hash);
+  if (product) {
+    const category = product.id === "velour-beauty-studio" ? "branding" : "html";
+    const matchingProducts = categoryProducts.filter(item =>
+      category === "html" ? item.id !== "velour-beauty-studio" : item.id === "velour-beauty-studio"
+    );
+    showCategory(category, Math.floor(matchingProducts.indexOf(product) / productsPerPage) + 1);
+  }
+}
+document.querySelectorAll('a[href^="#"]').forEach(link => link.addEventListener("click", () => revealLinkedProduct(link.getAttribute("href"))));
+showCategory("html");
+revealLinkedProduct(location.hash);
+window.addEventListener("hashchange", () => revealLinkedProduct(location.hash));
 
 /* ---------- Elastic riso headline ---------- */
 const h1 = document.getElementById("headline");
