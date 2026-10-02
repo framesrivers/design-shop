@@ -86,13 +86,13 @@ a { color: inherit; }
 .riso > span { grid-area: 1 / 1; }
 .riso .ink-p { color: var(--pink); mix-blend-mode: multiply; transform: translate(.035em, .03em); }
 .riso .ink-b { color: var(--blue); }
-.headline .riso { display: inline-flex; }
-.headline .glyph { display: inline-block; position: relative; transform-origin: 50% 82%; transition: transform .2s var(--bounce), filter .2s var(--ease); }
-.headline .glyph .ink-b, .headline .glyph .ink-p { display: block; }
-.headline .glyph .ink-p { position: absolute; inset: 0; }
+.headline .riso, .elastic-title .riso { display: inline-flex; }
+.headline .glyph, .elastic-title .glyph { display: inline-block; position: relative; transform-origin: 50% 82%; transition: transform .2s var(--bounce), filter .2s var(--ease); }
+.headline .glyph .ink-b, .headline .glyph .ink-p, .elastic-title .glyph .ink-b, .elastic-title .glyph .ink-p { display: block; }
+.headline .glyph .ink-p, .elastic-title .glyph .ink-p { position: absolute; inset: 0; }
 @media (prefers-reduced-motion: no-preference) {
-  .headline .glyph:hover { z-index: 2; transform: translateY(-.14em) rotate(var(--r)) scale(1.08); filter: drop-shadow(.035em .04em 0 var(--yellow)); }
-  .headline .glyph:hover .ink-p { transform: translate(.07em, .05em); }
+  .headline .glyph:hover, .elastic-title .glyph:hover { z-index: 2; transform: translateY(-.14em) rotate(var(--r)) scale(1.08); filter: drop-shadow(.035em .04em 0 var(--yellow)); }
+  .headline .glyph:hover .ink-p, .elastic-title .glyph:hover .ink-p { transform: translate(.07em, .05em); }
 }
 .hero .under { display: grid; grid-template-columns: 1fr auto; gap: 2rem; align-items: end; margin-top: 2.25rem; }
 .hero .lede { font-size: 1.25rem; max-width: 40ch; margin: 0 0 1.75rem; font-weight: 500; }
@@ -142,6 +142,9 @@ a { color: inherit; }
 
 /* ---------- Section heads ---------- */
 section { padding: clamp(4rem, 9vw, 7rem) 0; }
+#shop, #installation, #custom, #faq { padding-block: 0; }
+#shop, #installation, #custom, #faq, #contact { padding-top: clamp(7rem, 18vw, 16rem); }
+#contact { padding-bottom: clamp(4rem, 9vw, 7rem); }
 .head { display: flex; justify-content: space-between; align-items: end; flex-wrap: wrap; gap: 1.5rem; margin-bottom: 2.5rem; }
 h2 {
   margin: 0; font-family: var(--display); font-weight: 850; text-transform: uppercase; line-height: .9;
@@ -230,12 +233,22 @@ h2.in { --w: 130; }
 .launch-card a { margin-top: auto; font-weight: 700; text-underline-offset: .25em; }
 
 /* ---------- Template category notes ---------- */
-.template-notes { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(1.25rem, 3vw, 2.5rem); margin: 1.5rem 0 4rem; padding: .75rem .4rem; scroll-margin-top: 100px; }
+.template-notes { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(1.25rem, 3vw, 2.5rem); margin: clamp(3rem, 6vw, 5rem) 0 4rem; padding: .75rem .4rem; scroll-margin-top: 100px; }
 .template-note { appearance: none; border: 0; font: inherit; text-align: left; cursor: pointer; transition: transform .35s var(--bounce), box-shadow .35s var(--ease); position: relative; display: flex; flex-direction: column; padding: 2rem 1.5rem 1.6rem; min-height: 190px; background: var(--yellow); color: var(--blue); transform: rotate(-2deg); box-shadow: 3px 10px 14px rgba(29,63,176,.15); border-radius: 3px 3px 24px 3px; }
 .template-note::before { content: ""; position: absolute; width: 82px; height: 26px; top: -12px; left: calc(50% - 41px); background: rgba(250,250,247,.65); transform: rotate(4deg); box-shadow: 0 1px 2px rgba(29,63,176,.08); }
 .template-note::after { content: ""; position: absolute; right: 0; bottom: 0; width: 25px; height: 25px; background: linear-gradient(135deg, rgba(0,0,0,.1) 50%, var(--paper) 51%); border-radius: 0 0 20px 0; }
 .template-note:nth-child(2) { background: #fbd5e9; transform: rotate(1.5deg); }
 .template-note:nth-child(3) { background: var(--blue); color: var(--sheet); transform: rotate(-1deg); }
+.template-note-coming { cursor: default; }
+.domain-paper-row { display: grid; grid-template-columns: minmax(0, 680px) minmax(150px, 1fr); align-items: center; gap: 2rem; margin-top: 3rem; }
+.domain-note { position: relative; display: block; background: url("domain-paper.png") center / contain no-repeat; color: var(--blue); width: 100%; aspect-ratio: 1438 / 728; text-decoration: none; font-family: var(--body); }
+.domain-note-content { position: absolute; inset: 24% 12% 18% 28%; display: flex; flex-direction: column; justify-content: center; gap: .65rem; }
+.domain-note .note-title { font: 700 clamp(1.5rem, 3vw, 2.3rem)/1.05 var(--hand); color: var(--pink); text-transform: none; }
+.domain-note .domain-copy { font-size: 1rem; line-height: 1.4; }
+.domain-note .note-action { font-size: 1rem; font-weight: 700; text-decoration: underline; text-underline-offset: .2em; }
+.domain-aside { color: var(--pink); font: 700 2.3rem/1.1 var(--hand); transform: rotate(-5deg); margin: 0; }
+.domain-aside svg { display: block; width: 150px; height: 85px; margin-top: .7rem; overflow: visible; }
+@media (max-width: 760px) { .domain-paper-row { grid-template-columns: 1fr; gap: 1rem; margin-top: 2rem; } .domain-note-content { gap: .35rem; } .domain-note .note-title { font-size: clamp(1.15rem, 5vw, 1.8rem); } .domain-note .domain-copy, .domain-note .note-action { font-size: clamp(.7rem, 3vw, .95rem); } .domain-aside { justify-self: end; font-size: 1.8rem; } .domain-aside svg { width: 100px; height: 60px; transform: rotate(40deg); } }
 .template-note .note-number { align-self: start; font: 700 .875rem/1 var(--body); border: 1.5px solid currentColor; border-radius: 999px; padding: .3rem .55rem; margin-bottom: 1rem; }
 .template-note .note-title { margin: 0 0 1rem; font: 850 clamp(1.5rem, 2.5vw, 2rem)/1.05 var(--display); text-transform: uppercase; overflow-wrap: anywhere; }
 .template-note .note-action { margin-top: auto; padding-top: 1rem; font-size: 1rem; font-weight: 700; }
@@ -306,7 +319,7 @@ h2.in { --w: 130; }
 .category-heading + .template-feature, .template-feature + .template-feature { padding-top: 3.5rem; border-top: 2px dashed var(--blue); }
 
 /* ---------- Optional website setup ---------- */
-.setup-card { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, .95fr); gap: clamp(2rem, 5vw, 4rem); padding: clamp(1.4rem, 4vw, 3rem); border: 2.5px solid var(--blue); border-radius: 18px; background: var(--yellow); box-shadow: 6px 6px 0 var(--blue); }
+.setup-card { position: relative; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, .95fr); gap: clamp(2rem, 5vw, 4rem); padding: clamp(1.4rem, 4vw, 3rem); border: 2.5px solid var(--blue); border-radius: 18px; background: var(--yellow); box-shadow: 6px 6px 0 var(--blue); }
 .setup-tag { display: inline-block; margin: 0 0 1.25rem; padding: .45rem .7rem; border: 2px solid var(--blue); border-radius: 999px; background: var(--sheet); font: 700 .88rem/1.2 var(--body); }
 .setup-card h2 { font-size: clamp(2rem, 4.4vw, 3.6rem); line-height: .98; max-width: 12ch; margin: 0 0 1.1rem; }
 .setup-intro { max-width: 43ch; margin: 0 0 1.5rem; font-size: 1.1rem; }
@@ -470,7 +483,7 @@ footer nav a:hover { color: var(--pink); }
     <div class="wrap">
       <div class="head">
         <div class="reveal">
-          <h2>Template shop</h2>
+          <h2 class="elastic-title" id="shop-title" aria-label="Template shop"><span data-text="Template shop" aria-hidden="true">Template shop</span></h2>
           <svg class="scribble" viewBox="0 0 260 22" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M3 14c40-9 80-10 120-6s90 5 134-4"/></svg>
         </div>
       </div>
@@ -486,6 +499,11 @@ footer nav a:hover { color: var(--pink); }
           <span>Editable in Canva</span>
           <span class="note-action">1 collection <span aria-hidden="true">＋</span></span>
         </button>
+        <div class="template-note template-note-coming">
+          <span class="note-number" aria-hidden="true">03</span>
+          <span class="note-title">Design Goods</span>
+          <span class="note-action">Coming soon</span>
+        </div>
       </div>
       <div class="product-category-panel" id="category-products" role="region" aria-labelledby="category-heading" hidden>
         <h3 class="category-heading" id="category-heading"></h3>
@@ -661,6 +679,17 @@ footer nav a:hover { color: var(--pink); }
           <p class="setup-terms">Setup is quoted individually and isn't included in the template price. Domain and hosting charges are separate, paid directly to your providers. We'll agree on the work and price before getting started.</p>
         </div>
       </div>
+      <div class="domain-paper-row">
+          <a class="domain-note" href="#contact" data-type="Domain registration help">
+            <span class="domain-note-content">
+            <span class="note-title">We can buy a domain for you!</span>
+            <span class="domain-copy">You approve the name and cost first, and keep ownership of your domain.</span>
+            </span>
+          </a>
+          <p class="domain-aside">Look at that!
+            <svg viewBox="0 0 150 85" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M135 8 C140 65 70 80 15 48 M38 34 L15 48 L36 65" /></svg>
+          </p>
+      </div>
     </div>
   </section>
 
@@ -668,7 +697,7 @@ footer nav a:hover { color: var(--pink); }
     <div class="wrap">
       <div class="head reveal">
         <div>
-          <h2>Custom work</h2>
+          <h2 class="elastic-title" aria-label="Custom work"><span data-text="Custom work" aria-hidden="true">Custom work</span></h2>
           <svg class="scribble" viewBox="0 0 260 22" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M3 8c50 10 110 12 160 6s70-8 94-2"/></svg>
           <p>Have a business that needs its own look? Tell me what you're making.</p>
         </div>
@@ -701,7 +730,7 @@ footer nav a:hover { color: var(--pink); }
 
   <section id="faq">
     <div class="wrap">
-      <div class="head reveal"><div><h2>Questions</h2></div></div>
+      <div class="head reveal"><div><h2 class="elastic-title" aria-label="Questions"><span data-text="Questions" aria-hidden="true">Questions</span></h2></div></div>
       <div class="faq-list">
         <details class="reveal"><summary>Can I edit a Canva website myself?</summary><p>Yes. A Canva website template opens in your Canva account so you can edit the content and publish your version. You'll need a Canva account; some publishing options require a paid plan.</p></details>
         <details class="reveal" style="--d:.06s"><summary>How will Squarespace templates work?</summary><p>I'll build the editable site in Squarespace. After purchase, I can make you a copy and transfer it to your Squarespace account. You'll choose and pay for your own Squarespace site plan.</p></details>
@@ -718,7 +747,7 @@ footer nav a:hover { color: var(--pink); }
   <section id="contact">
     <div class="wrap contact-grid">
       <div class="reveal">
-        <h2>Say hi</h2>
+        <h2 class="elastic-title" aria-label="Say hi"><span data-text="Say hi" aria-hidden="true">Say hi</span></h2>
         <svg class="scribble" viewBox="0 0 260 22" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M3 12c30-8 60 6 90-2s60-8 90 0 50 4 74-4"/></svg>
         <p style="color:var(--soft);font-weight:500;max-width:36ch">Ask about a custom project, website setup, or a template. This form opens a draft in your email app.</p>
       </div>
@@ -732,6 +761,7 @@ footer nav a:hover { color: var(--pink); }
             <option>Brand identity</option>
             <option>Website design</option>
             <option>Website installation &amp; hosting help</option>
+            <option>Domain registration help</option>
             <option>UX/UI design</option>
             <option>Hosting move</option>
             <option>Business photography</option>
@@ -891,15 +921,20 @@ window.addEventListener("hashchange", () => revealLinkedProduct(location.hash));
 /* ---------- Elastic riso headline ---------- */
 const h1 = document.getElementById("headline");
 const lines = [...h1.querySelectorAll(".fit")];
-lines.forEach(l => {
-  const t = l.dataset.text;
-  l.setAttribute("aria-hidden", "true");
+function renderRisoLetters(t) {
   const glyphs = [...t].map((char, i) => {
     const c = char === " " ? "&nbsp;" : char;
     const r = i % 2 ? "3deg" : "-3deg";
     return `<span class="glyph" style="--r:${r}"><span class="ink-b">${c}</span><span class="ink-p">${c}</span></span>`;
   }).join("");
-  l.innerHTML = `<span class="riso">${glyphs}</span>`;
+  return `<span class="riso">${glyphs}</span>`;
+}
+lines.forEach(l => {
+  l.setAttribute("aria-hidden", "true");
+  l.innerHTML = renderRisoLetters(l.dataset.text);
+});
+document.querySelectorAll(".elastic-title [data-text]").forEach(titleText => {
+  titleText.innerHTML = titleText.dataset.text.split(" ").map(renderRisoLetters).join(" ");
 });
 const MAXW = 125;
 function fitHeadline() {
