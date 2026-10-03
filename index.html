@@ -315,6 +315,11 @@ h2.in { --w: 130; }
 
 /* ---------- Canva collection ---------- */
 .velour-preview-image { width: 100%; height: auto; background: #f7f1e8; }
+.design-gallery { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .65rem; padding: .65rem; background: var(--sheet); }
+.design-gallery img { width: 100%; aspect-ratio: 1; object-fit: cover; border: 1.5px solid rgba(29,63,176,.2); }
+.design-gallery .design-gallery-main { grid-column: span 2; aspect-ratio: 2 / 1; object-position: center; }
+.design-gallery .design-gallery-editor { border: 3px solid var(--pink); }
+.design-goods-title { max-width: 18ch; }
 .template-eyebrow { color: var(--soft); font-size: .9rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
 .category-heading + .template-feature, .template-feature + .template-feature { padding-top: 3.5rem; border-top: 2px dashed var(--blue); }
 
@@ -499,15 +504,15 @@ footer nav a:hover { color: var(--pink); }
           <span>Editable in Canva</span>
           <span class="note-action">1 collection <span aria-hidden="true">＋</span></span>
         </button>
-        <div class="template-note template-note-coming">
+        <button class="template-note" type="button" data-category="goods" aria-pressed="false" aria-controls="category-products">
           <span class="note-number" aria-hidden="true">03</span>
           <span class="note-title">Design Goods</span>
-          <span class="note-action">Coming soon</span>
-        </div>
+          <span class="note-action">1 kit <span aria-hidden="true">＋</span></span>
+        </button>
       </div>
       <div class="product-category-panel" id="category-products" role="region" aria-labelledby="category-heading" hidden>
         <h3 class="category-heading" id="category-heading"></h3>
-      <article class="template-feature" id="northside-barbershop" aria-labelledby="northside-title">
+      <article class="template-feature" id="northside-barbershop" data-category="html" aria-labelledby="northside-title">
         <figure class="template-preview">
           <a class="template-preview-link" href="/demos/northside/" aria-label="Open the Northside barbershop live demo" aria-describedby="northside-preview-caption">
             <span class="template-browser-bar" aria-hidden="true"><span class="template-browser-dots"><i></i><i></i><i></i></span><span>Northside</span><span>Live demo ↗</span></span>
@@ -545,7 +550,7 @@ footer nav a:hover { color: var(--pink); }
           </div>
         </div>
       </article>
-      <article class="template-feature" id="vanity-beauty-salon" aria-labelledby="vanity-title">
+      <article class="template-feature" id="vanity-beauty-salon" data-category="html" aria-labelledby="vanity-title">
         <figure class="template-preview">
           <a class="template-preview-link" href="/demos/vanity/" aria-label="Open the Vanity beauty and salon live demo" aria-describedby="vanity-preview-caption">
             <span class="template-browser-bar" aria-hidden="true"><span class="template-browser-dots"><i></i><i></i><i></i></span><span>Vanity</span><span>Live demo ↗</span></span>
@@ -583,7 +588,7 @@ footer nav a:hover { color: var(--pink); }
           </div>
         </div>
       </article>
-      <article class="template-feature" id="velour-beauty-studio" aria-labelledby="velour-title">
+      <article class="template-feature" id="velour-beauty-studio" data-category="branding" aria-labelledby="velour-title">
         <figure class="template-preview">
           <a class="template-preview-link" href="https://payhip.com/b/NcEVy" aria-label="View the Velour Beauty Studio Canva brand kit on Payhip" aria-describedby="velour-preview-caption">
             <img class="velour-preview-image" src="/velour-beauty-studio-preview.webp" width="1200" height="1060" loading="lazy" decoding="async" alt="Selected Velour designs in cream, peach, and espresso: opening flyer, Instagram post and story, business card, gift card, and Facebook cover">
@@ -618,7 +623,44 @@ footer nav a:hover { color: var(--pink); }
           </div>
         </div>
       </article>
-      <article class="template-feature" id="luxury-real-estate" aria-labelledby="luxury-title">
+      <article class="template-feature" id="sunday-frame" data-category="goods" aria-labelledby="sunday-frame-title">
+        <figure class="template-preview">
+          <div class="design-gallery" aria-label="Sunday Frame listing image gallery">
+            <img class="design-gallery-main" src="/assets/sunday-frame/01-Sunday-Frame-Logo-Kit-Cover.png" width="2400" height="2400" loading="lazy" decoding="async" alt="Sunday Frame botanical and fox logo kit cover with six coordinated logo designs">
+            <img class="design-gallery-editor" src="/assets/sunday-frame/02-Sunday-Frame-Built-In-Editor.png" width="2400" height="2400" loading="lazy" decoding="async" alt="Sunday Frame built-in editor showing an original logo personalized with a new name and colors">
+            <img src="/assets/sunday-frame/03-Sunday-Frame-Included-Formats.png" width="2400" height="2400" loading="lazy" decoding="async" alt="Sunday Frame included formats showing color, black, and white logo variations, SVG and PNG, app icons, avatars, and favicons">
+          </div>
+          <figcaption id="sunday-frame-preview-caption">The actual Sunday Frame listing images. The editor feature image shows the included offline browser editor's before-and-after customization workflow.</figcaption>
+        </figure>
+        <div class="template-copy">
+          <p class="template-eyebrow">Logo kit + built-in editor</p>
+          <h3 class="design-goods-title" id="sunday-frame-title">Sunday Frame — Botanical &amp; Fox Logo Kit + Built-In Editor</h3>
+          <p>A coordinated botanical and fox logo collection with a built-in browser editor, so you can make the lettering and colors your own.</p>
+          <ul class="template-facts" aria-label="Sunday Frame format">
+            <li>6 logo designs</li><li>SVG + PNG</li><li>Built-in editor</li>
+          </ul>
+          <h4>Inside the kit</h4>
+          <ul class="template-includes">
+            <li>Six coordinated logo families in color, black, and white</li>
+            <li>Portable outlined SVG artwork and PNG exports, including transparent versions</li>
+            <li>Square app icons, circular avatars, and favicon variants</li>
+            <li>A local browser editor for name, initials, descriptor, colors, sizing, and layout changes</li>
+          </ul>
+          <details class="template-setup">
+            <summary>How it works</summary>
+            <p>Open the included HTML editor on your computer to choose a design, personalize the lettering and colors, and export SVG or PNG files. It works locally with no account or design-software subscription required.</p>
+            <p>The editor supports Latin names and common accented Latin characters. Long names may need a smaller lettering size; inspect fine artwork details before large-format printing.</p>
+            <p>Each purchase covers one business or one client project. The kit and editor may not be resold or redistributed. The designs are non-exclusive.</p>
+            <p>Checkout and your ZIP download are handled by Payhip.</p>
+            <p><a class="template-question" href="#contact" data-type="Sunday Frame logo kit">Ask about this kit</a></p>
+          </details>
+          <div class="template-purchase">
+            <p class="template-price" id="sunday-frame-price">$75 USD <small>one-time digital download + applicable tax</small></p>
+            <a class="btn" href="https://payhip.com/b/2DFus">Buy Sunday Frame</a>
+          </div>
+        </div>
+      </article>
+      <article class="template-feature" id="luxury-real-estate" data-category="html" aria-labelledby="luxury-title">
         <figure class="template-preview">
           <a class="template-preview-link" href="/demos/luxury-real-estate/" aria-label="Open the Luxury Real Estate live demo" aria-describedby="template-preview-caption">
             <span class="template-browser-bar" aria-hidden="true"><span class="template-browser-dots"><i></i><i></i><i></i></span><span>Luxury Real Estate</span><span>Live demo ↗</span></span>
@@ -740,6 +782,7 @@ footer nav a:hover { color: var(--pink); }
         <details class="reveal"><summary>What do I get with the Northside barbershop template?</summary><p>For $79 USD before applicable taxes, you&#x27;ll receive a ZIP with the private text/photo editor, instructions, neutral media placeholders, and a license for one business or one client website. Demo stock photos and video are excluded; source links are supplied. Host an optional hero video separately, connect your own booking page, and upload the exported HTML to your own hosting. <a href="#northside-barbershop">See the template details.</a></p></details>
         <details class="reveal"><summary>What do I get with the Vanity salon template?</summary><p>For $79 USD before applicable taxes, you&#x27;ll receive a ZIP with the private browser editor, instructions, and a license for one business or one client website. Edit text, nine photos, links, and page details, then export your website and upload it to your own hosting. A booking provider and its setup are separate. Three AI-generated sample images are included. <a href="#vanity-beauty-salon">See the template details.</a></p></details>
         <details class="reveal" style="--d:.24s"><summary>What do I receive with the Velour brand kit?</summary><p>For $100 USD before applicable taxes, you'll receive a downloadable HTML collection file with previews and access links for 9 Canva designs across 23 pages. Open the file in your browser, then follow the links to customize the templates in Canva. The license covers one business or one client, with no template resale. <a href="#velour-beauty-studio">See the full collection details.</a></p></details>
+        <details class="reveal"><summary>What do I receive with the Sunday Frame logo kit?</summary><p>For $75 USD before applicable taxes, you'll receive a ZIP with six coordinated logo designs, SVG and PNG formats, app icons, avatars, favicons, and a local browser editor for changing the name and colors. The license covers one business or one client project; the kit and editor cannot be resold or redistributed. <a href="#sunday-frame">See the full kit details.</a></p></details>
       </div>
     </div>
   </section>
@@ -775,6 +818,7 @@ footer nav a:hover { color: var(--pink); }
             <option>Velour Beauty Studio brand kit</option>
             <option>Vanity beauty and salon template</option>
             <option>Northside barbershop template</option>
+            <option>Sunday Frame logo kit</option>
             <option>Something else</option>
           </select>
         </label>
@@ -856,9 +900,9 @@ document.querySelectorAll("[data-art]").forEach(el => el.innerHTML = bentoArt[el
 
 /* ---------- Expandable template categories ---------- */
 const categoryPanel = document.getElementById("category-products");
-const categoryButtons = [...document.querySelectorAll("[data-category]")];
+const categoryButtons = [...document.querySelectorAll("#template-categories [data-category]")];
 const categoryProducts = [...categoryPanel.querySelectorAll(".template-feature")];
-const categoryNames = { html: "Website Templates", branding: "Brand Kits" };
+const categoryNames = { html: "Website Templates", branding: "Brand Kits", goods: "Design Goods" };
 const productsPerPage = 5;
 const pagination = document.getElementById("product-pagination");
 const pageStatus = document.getElementById("product-page-status");
@@ -872,9 +916,7 @@ function showCategory(category, page = 1) {
   });
   categoryPanel.hidden = !category;
   document.getElementById("category-heading").textContent = category ? categoryNames[category] : "";
-  const matchingProducts = categoryProducts.filter(product =>
-    category === "html" ? product.id !== "velour-beauty-studio" : product.id === "velour-beauty-studio"
-  );
+  const matchingProducts = categoryProducts.filter(product => product.dataset.category === category);
   const pageCount = Math.ceil(matchingProducts.length / productsPerPage);
   const currentPage = Math.max(1, Math.min(page, pageCount));
   const start = (currentPage - 1) * productsPerPage;
@@ -906,10 +948,8 @@ categoryButtons.forEach(button => button.addEventListener("click", () => {
 function revealLinkedProduct(hash) {
   const product = categoryProducts.find(item => "#" + item.id === hash);
   if (product) {
-    const category = product.id === "velour-beauty-studio" ? "branding" : "html";
-    const matchingProducts = categoryProducts.filter(item =>
-      category === "html" ? item.id !== "velour-beauty-studio" : item.id === "velour-beauty-studio"
-    );
+    const category = product.dataset.category;
+    const matchingProducts = categoryProducts.filter(item => item.dataset.category === category);
     showCategory(category, Math.floor(matchingProducts.indexOf(product) / productsPerPage) + 1);
   }
 }
