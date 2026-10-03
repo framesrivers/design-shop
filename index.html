@@ -315,9 +315,11 @@ h2.in { --w: 130; }
 
 /* ---------- Canva collection ---------- */
 .velour-preview-image { width: 100%; height: auto; background: #f7f1e8; }
-.design-gallery { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .65rem; padding: .65rem; background: var(--sheet); }
-.design-gallery img { width: 100%; aspect-ratio: 1; object-fit: cover; border: 1.5px solid rgba(29,63,176,.2); }
-.design-gallery .design-gallery-main { grid-column: span 2; aspect-ratio: 2 / 1; object-position: center; }
+.sunday-frame-preview-image { width: 100%; height: auto; background: #f7f1e8; }
+.design-gallery-details { border-top: 2.5px solid var(--blue); background: var(--sheet); }
+.design-gallery-details summary { padding: .65rem .85rem; background: var(--yellow); cursor: pointer; font: 700 .82rem/1.3 var(--body); text-align: center; }
+.design-gallery { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .55rem; padding: .65rem; background: #f7f1e8; }
+.design-gallery img { width: 100%; aspect-ratio: 1; object-fit: cover; background: #f7f1e8; }
 .design-gallery .design-gallery-editor { border: 3px solid var(--pink); }
 .design-goods-title { max-width: 18ch; }
 .template-eyebrow { color: var(--soft); font-size: .9rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
@@ -625,12 +627,18 @@ footer nav a:hover { color: var(--pink); }
       </article>
       <article class="template-feature" id="sunday-frame" data-category="goods" aria-labelledby="sunday-frame-title">
         <figure class="template-preview">
-          <div class="design-gallery" aria-label="Sunday Frame listing image gallery">
-            <img class="design-gallery-main" src="/assets/sunday-frame/01-Sunday-Frame-Logo-Kit-Cover.png" width="2400" height="2400" loading="lazy" decoding="async" alt="Sunday Frame botanical and fox logo kit cover with six coordinated logo designs">
-            <img class="design-gallery-editor" src="/assets/sunday-frame/02-Sunday-Frame-Built-In-Editor.png" width="2400" height="2400" loading="lazy" decoding="async" alt="Sunday Frame built-in editor showing an original logo personalized with a new name and colors">
-            <img src="/assets/sunday-frame/03-Sunday-Frame-Included-Formats.png" width="2400" height="2400" loading="lazy" decoding="async" alt="Sunday Frame included formats showing color, black, and white logo variations, SVG and PNG, app icons, avatars, and favicons">
-          </div>
-          <figcaption id="sunday-frame-preview-caption">The actual Sunday Frame listing images. The editor feature image shows the included offline browser editor's before-and-after customization workflow.</figcaption>
+          <a class="template-preview-link" href="https://payhip.com/b/2DFus" aria-label="View the Sunday Frame Botanical and Fox Logo Kit on Payhip" aria-describedby="sunday-frame-preview-caption">
+            <img class="sunday-frame-preview-image" src="/assets/sunday-frame/01-Sunday-Frame-Logo-Kit-Cover.png" width="2400" height="2400" loading="lazy" decoding="async" alt="Sunday Frame botanical and fox logo kit cover with six coordinated logo designs">
+            <span class="template-hint" aria-hidden="true">Explore the kit on Payhip ↗</span>
+          </a>
+          <details class="design-gallery-details">
+            <summary>See editor + format previews</summary>
+            <div class="design-gallery" aria-label="Sunday Frame editor and format preview gallery">
+              <img class="design-gallery-editor" src="/assets/sunday-frame/02-Sunday-Frame-Built-In-Editor.png" width="2400" height="2400" loading="lazy" decoding="async" alt="Sunday Frame built-in editor showing an original logo personalized with a new name and colors">
+              <img src="/assets/sunday-frame/03-Sunday-Frame-Included-Formats.png" width="2400" height="2400" loading="lazy" decoding="async" alt="Sunday Frame included formats showing color, black, and white logo variations, SVG and PNG, app icons, avatars, and favicons">
+            </div>
+          </details>
+          <figcaption id="sunday-frame-preview-caption">The main listing image is the actual Sunday Frame cover. Open the preview details to see the included editor and formats.</figcaption>
         </figure>
         <div class="template-copy">
           <p class="template-eyebrow">Logo kit + built-in editor</p>
