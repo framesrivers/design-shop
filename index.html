@@ -26,6 +26,8 @@
   --hand: "Caveat", "Comic Sans MS", cursive;
   --ease: cubic-bezier(.2, .8, .2, 1);
   --bounce: cubic-bezier(.34, 1.56, .64, 1);
+  --section-space: clamp(7rem, 18vw, 16rem);
+  --content-space: clamp(2rem, 4vw, 3.5rem);
 
   box-sizing: border-box;
   padding-top: env(safe-area-inset-top, 0px);
@@ -143,7 +145,7 @@ a { color: inherit; }
 /* ---------- Section heads ---------- */
 section { padding: clamp(4rem, 9vw, 7rem) 0; }
 #shop, #installation, #custom, #faq { padding-block: 0; }
-#shop, #installation, #custom, #faq, #contact { padding-top: clamp(7rem, 18vw, 16rem); }
+#shop, #installation, #custom, #faq, #contact { padding-top: var(--section-space); }
 #contact { padding-bottom: clamp(4rem, 9vw, 7rem); }
 .head { display: flex; justify-content: space-between; align-items: end; flex-wrap: wrap; gap: 1.5rem; margin-bottom: 2.5rem; }
 h2 {
@@ -416,9 +418,81 @@ footer nav a:hover { color: var(--pink); }
 .wordmark span { display: inline-block; font-variation-settings: "wdth" var(--w, 125), "wght" 900; transition: font-variation-settings .25s var(--ease); }
 .wordmark span:nth-child(3n+1) { color: var(--pink); }
 .hint { font: 600 1.3rem/1 var(--hand); color: var(--soft); margin-top: .75rem; }
+
+/* Preserve the printed palette and elastic type; give the content room to read. */
+.skip-link { position: fixed; top: 1rem; left: 1rem; z-index: 100; padding: .8rem 1.2rem; background: var(--yellow); color: var(--blue); border: 2px solid var(--blue); border-radius: 10px; transform: translateY(-180%); }
+.skip-link:focus { transform: none; }
+.nav-toggle { display: none; }
+.hero .lede { max-width: 42ch; font-size: clamp(1.1rem, 2vw, 1.3rem); }
+.hero .actions .btn { min-height: 48px; line-height: 1.2; }
+.bento { gap: clamp(1rem, 2vw, 1.5rem); }
+.block { container-type: inline-size; padding: clamp(1.4rem, 2.8vw, 2rem); justify-content: flex-start; gap: 1.5rem; }
+.block > div:not(.art) { display: flex; flex-direction: column; align-items: start; flex: 1; }
+.block h3 { font-size: clamp(1.5rem, 13cqi, 2.5rem); line-height: 1.02; font-variation-settings: "wdth" 100; }
+.block p { margin-top: .85rem; line-height: 1.65; }
+.block .card-cta { margin-top: auto; max-width: 100%; min-height: 44px; align-items: center; line-height: 1.25; }
+.block p { margin-bottom: 1.5rem; }
+.block .count { display: block; margin-bottom: .45rem; line-height: 1.2; }
+.b1 { background: #CC1479; }
+.b1 h3 { font-size: clamp(1.8rem, 8cqi, 3rem); }
+.b6 h3 { font-size: clamp(1.8rem, 8cqi, 3rem); }
+.block .art { width: 42%; bottom: -.6rem; opacity: .7; pointer-events: none; }
+.block:has(.art) p { max-width: 24ch; }
+.template-note { min-height: 230px; padding: 2.1rem 1.6rem 1.8rem; }
+.template-note .note-title { line-height: 1.12; }
+.template-note .note-action { line-height: 1.4; }
+.category-heading { margin-bottom: var(--content-space); }
+.category-heading + .template-feature { border-top: 0; padding-top: 0; }
+.template-feature { margin-bottom: var(--content-space); }
+.template-feature + .template-feature { padding-top: var(--content-space); }
+.template-copy h3 { line-height: 1.04; }
+.template-copy > p { line-height: 1.7; }
+.template-facts { gap: .6rem; }
+.template-includes li { margin-bottom: .55rem; }
+.template-purchase .btn { min-height: 48px; line-height: 1.2; }
+.template-setup summary, .faq-list summary { min-height: 56px; align-items: center; }
+.faq-list { max-width: none; grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; gap: 1.25rem; }
+.faq-list details p { line-height: 1.7; }
+.steps { gap: 2rem; }
+.steps span { display: block; margin-top: .55rem; max-width: 45ch; }
+.contact-grid .head p { line-height: 1.7; }
+input::placeholder, textarea::placeholder { color: var(--soft); opacity: 1; }
+@media (min-width: 1050px) {
+  .template-preview { position: sticky; top: 100px; }
+}
+@media (max-width: 760px) {
+  .nav { background: var(--paper); border-bottom: 2px solid var(--blue); }
+  .nav .wrap { position: relative; gap: .7rem; }
+  .nav-toggle { display: inline-flex; align-items: center; justify-content: center; margin-left: auto; min-height: 44px; padding: .6rem .75rem; background: var(--sheet); color: var(--blue); border: 2px solid var(--blue); border-radius: 11px; font: 700 .9rem/1 var(--body); cursor: pointer; }
+  .nav ul { position: absolute; top: calc(100% + .6rem); left: 0; right: 0; flex-direction: column; gap: .25rem; padding: .75rem; border: 2.5px solid var(--blue); border-radius: 16px; background: var(--sheet); box-shadow: 4px 4px 0 var(--blue); }
+  .nav.menu-open ul { display: flex; }
+  .nav ul a { display: block; padding: .75rem 1rem; border-radius: 8px; }
+  .nav ul a:hover, .nav ul a:focus-visible { background: var(--yellow); }
+  .nav ul a::after { display: none; }
+  .bento { grid-template-columns: 1fr; gap: 1.5rem; }
+  .b1, .b2, .b3, .b4, .b5, .b6 { grid-column: auto; min-height: 270px; }
+  .block { padding: 1.6rem; gap: 1.75rem; }
+  .block h3, .b5 h3 { font-size: clamp(1.6rem, 9cqi, 2.3rem); }
+  .block:has(.art) p { max-width: 22ch; }
+  .template-note { min-height: 185px; }
+  .faq-list { grid-template-columns: 1fr; }
+  .hero .actions { gap: .9rem; }
+  .hero .actions .btn { justify-content: center; }
+}
+@media (max-width: 380px) {
+  .nav .btn.small { padding-inline: .65rem; }
+  .brand-logo { width: 112px; }
+  .hero .actions .btn { width: 100%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .block:hover, .btn:hover, .btn:active, .receipt-rot:hover { transform: none; }
+}
 </style>
 </head>
 <body>
+<a class="skip-link" href="#top">Skip to content</a>
 <div class="paper" aria-hidden="true"></div>
 
 <!-- Shared halftone patterns for the preview art -->
@@ -433,7 +507,8 @@ footer nav a:hover { color: var(--pink); }
 <header class="nav" id="nav">
   <div class="wrap">
     <a class="brand" href="#top" aria-label="Hello Rivers home"><img class="brand-logo" src="hello-rivers-logo-blue.png" alt="Hello Rivers"></a>
-    <ul>
+    <button class="nav-toggle" type="button" aria-controls="primary-links" aria-expanded="false">Menu</button>
+    <ul id="primary-links" aria-label="Primary navigation">
       <li><a href="#shop">Shop</a></li>
       <li><a href="#installation">Setup help</a></li>
       <li><a href="#custom">Custom work</a></li>
@@ -443,7 +518,7 @@ footer nav a:hover { color: var(--pink); }
   </div>
 </header>
 
-<main id="top">
+<main id="top" tabindex="-1">
   <section class="hero" style="padding-top:118px">
     <div class="wrap">
       <h1 class="headline" id="headline" aria-label="Websites and brand goods, made by a human.">
@@ -453,7 +528,7 @@ footer nav a:hover { color: var(--pink); }
       </h1>
       <div class="under">
         <div>
-          <p class="lede">Editable websites and visual identities for small businesses with their own point of view. Explore the Canva brand kit and HTML template, or ask about a custom project.</p>
+          <p class="lede">Editable websites, Canva brand kits, and custom design for small businesses with their own point of view.</p>
           <div class="actions">
             <a class="btn" href="#shop">Explore templates</a>
             <a class="btn plain" href="#custom">Ask about custom work</a>
@@ -935,7 +1010,7 @@ function showCategory(category, page = 1) {
     pagination.append(button);
   }
   pageStatus.textContent = matchingProducts.length
-    ? "Showing " + (start + 1) + "–" + Math.min(start + productsPerPage, matchingProducts.length) + " of " + matchingProducts.length + " products"
+    ? "Showing " + (start + 1) + "-" + Math.min(start + productsPerPage, matchingProducts.length) + " of " + matchingProducts.length + " products"
     : "No products in this collection yet.";
 }
 categoryButtons.forEach(button => button.addEventListener("click", () => {
@@ -1012,6 +1087,33 @@ const io = "IntersectionObserver" in window ? new IntersectionObserver(es => es.
 const watch = root => root.querySelectorAll(".reveal:not(.in)").forEach(el => io ? io.observe(el) : el.classList.add("in", ...[]));
 
 /* Receipt items preselect the form */
+const menuToggle = document.querySelector(".nav-toggle");
+const nav = document.getElementById("nav");
+function closeMenu() {
+  nav.classList.remove("menu-open");
+  menuToggle.setAttribute("aria-expanded", "false");
+  menuToggle.textContent = "Menu";
+}
+menuToggle.addEventListener("click", () => {
+  const open = menuToggle.getAttribute("aria-expanded") !== "true";
+  nav.classList.toggle("menu-open", open);
+  menuToggle.setAttribute("aria-expanded", String(open));
+  menuToggle.textContent = open ? "Close" : "Menu";
+});
+nav.addEventListener("click", event => {
+  if (event.target.closest("a")) closeMenu();
+});
+document.addEventListener("keydown", event => {
+  if (event.key === "Escape" && nav.classList.contains("menu-open")) {
+    closeMenu();
+    menuToggle.focus();
+  }
+});
+document.addEventListener("click", event => {
+  if (!nav.contains(event.target)) closeMenu();
+});
+window.matchMedia("(min-width: 761px)").addEventListener("change", closeMenu);
+
 document.querySelectorAll("[data-type]").forEach(a => a.addEventListener("click", () => {
   const type = document.getElementById("type");
   if (type && [...type.options].some(o => o.value === a.dataset.type)) type.value = a.dataset.type;
