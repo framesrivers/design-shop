@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Hello Rivers - Websites and Brand Goods</title>
-<meta name="description" content="Shop editable HTML website templates and Canva brand kits from Hello Rivers, plus custom websites and visual identities.">
+<title>Hello Rivers - Freelance Websites, Branding &amp; UX/UI</title>
+<meta name="description" content="Freelance website design, branding, UX/UI, monthly creative support, social media maintenance, hosting, and website care from Hello Rivers.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anybody:wdth,wght@50..150,300..900&family=Hanken+Grotesk:wght@400;500;700&family=Caveat:wght@600&display=swap" rel="stylesheet">
@@ -144,8 +144,8 @@ a { color: inherit; }
 
 /* ---------- Section heads ---------- */
 section { padding: clamp(4rem, 9vw, 7rem) 0; }
-#shop, #installation, #custom, #faq { padding-block: 0; }
-#shop, #installation, #custom, #faq, #contact { padding-top: var(--section-space); }
+#work, #support, #process, #faq { padding-block: 0; }
+#work, #support, #process, #faq, #contact { padding-top: var(--section-space); }
 #contact { padding-bottom: clamp(4rem, 9vw, 7rem); }
 .head { display: flex; justify-content: space-between; align-items: end; flex-wrap: wrap; gap: 1.5rem; margin-bottom: 2.5rem; }
 h2 {
@@ -419,6 +419,25 @@ footer nav a:hover { color: var(--pink); }
 .wordmark span:nth-child(3n+1) { color: var(--pink); }
 .hint { font: 600 1.3rem/1 var(--hand); color: var(--soft); margin-top: .75rem; }
 
+/* ---------- Selected work ---------- */
+.work-grid { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(280px, .8fr); gap: clamp(1.25rem, 3vw, 2.25rem); }
+.work-card { overflow: hidden; border: 2.5px solid var(--blue); border-radius: 22px; background: var(--sheet); box-shadow: 6px 6px 0 var(--blue); }
+.work-card-main { grid-row: span 2; background: #fbd5e9; }
+.work-card:nth-child(2) { background: var(--yellow); }
+.work-card:nth-child(3) { background: var(--blue); color: var(--sheet); }
+.work-image { overflow: hidden; border-bottom: 2.5px solid var(--blue); background: var(--sheet); aspect-ratio: 16 / 10; }
+.work-card-main .work-image { aspect-ratio: 4 / 3; }
+.work-image img { width: 100%; height: 100%; object-fit: cover; object-position: center top; transition: transform .7s var(--ease), object-position 8s linear; }
+.work-card:hover .work-image img { transform: scale(1.025); object-position: center bottom; }
+.work-copy { padding: clamp(1.35rem, 3vw, 2rem); }
+.work-label { margin: 0 0 .55rem; font: 650 1.25rem/1 var(--hand); color: var(--pink); }
+.work-card:nth-child(3) .work-label { color: var(--yellow); }
+.work-copy h3 { margin: 0 0 .75rem; font: 850 clamp(1.7rem, 4vw, 3rem)/.95 var(--display); font-variation-settings: "wdth" 105; text-transform: uppercase; text-wrap: balance; }
+.work-copy p:not(.work-label) { margin: 0; max-width: 48ch; line-height: 1.65; }
+.work-cta { margin-top: 2.5rem; }
+@media (max-width: 800px) { .work-grid { grid-template-columns: 1fr; } .work-card-main { grid-row: auto; } }
+@media (prefers-reduced-motion: reduce) { .work-image img, .work-card:hover .work-image img { transition: none; transform: none; object-position: center top; } }
+
 /* Preserve the printed palette and elastic type; give the content room to read. */
 .skip-link { position: fixed; top: 1rem; left: 1rem; z-index: 100; padding: .8rem 1.2rem; background: var(--yellow); color: var(--blue); border: 2px solid var(--blue); border-radius: 10px; transform: translateY(-180%); }
 .skip-link:focus { transform: none; }
@@ -509,54 +528,93 @@ input::placeholder, textarea::placeholder { color: var(--soft); opacity: 1; }
     <a class="brand" href="#top" aria-label="Hello Rivers home"><img class="brand-logo" src="hello-rivers-logo-blue.png" alt="Hello Rivers"></a>
     <button class="nav-toggle" type="button" aria-controls="primary-links" aria-expanded="false">Menu</button>
     <ul id="primary-links" aria-label="Primary navigation">
-      <li><a href="#shop">Shop</a></li>
-      <li><a href="#installation">Setup help</a></li>
-      <li><a href="#custom">Custom work</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#support">Monthly support</a></li>
       <li><a href="#faq">FAQ</a></li>
     </ul>
-    <a class="btn small alt" href="#contact">Hire me</a>
+    <a class="btn small alt" href="#contact">Work with me</a>
   </div>
 </header>
 
 <main id="top" tabindex="-1">
   <section class="hero" style="padding-top:118px">
     <div class="wrap">
-      <h1 class="headline" id="headline" aria-label="Websites and brand goods, made by a human.">
+      <h1 class="headline" id="headline" aria-label="Websites, branding, and UX/UI support.">
         <span class="fit" data-text="Websites +"></span>
-        <span class="fit" data-text="brand goods"></span>
-        <span class="fit" data-text="made for you."></span>
+        <span class="fit" data-text="branding +"></span>
+        <span class="fit" data-text="UX/UI support."></span>
       </h1>
       <div class="under">
         <div>
-          <p class="lede">Editable websites, Canva brand kits, and custom design for small businesses with their own point of view.</p>
+          <p class="lede">Freelance design for small businesses that need a clear brand, a useful website, and reliable ongoing support.</p>
           <div class="actions">
-            <a class="btn" href="#shop">Explore templates</a>
-            <a class="btn plain" href="#custom">Ask about custom work</a>
+            <a class="btn" href="#services">See services</a>
+            <a class="btn plain" href="#contact">Start a project</a>
           </div>
         </div>
-        <div class="note" aria-hidden="true">the good stuff
+        <div class="note" aria-hidden="true">one creative partner
           <svg viewBox="0 0 90 70"><path d="M20 5c-8 20 0 45 50 52M62 44l10 13-15 6" fill="none" stroke="#FF48B0" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </div>
       </div>
     </div>
     <div class="sticker tape slap" style="--d:1.2s" aria-hidden="true" id="hero-tape"></div>
-    <div class="strip" aria-hidden="true"><div class="track" data-strip="Made by a human,Custom work,Squarespace site setup,HTML templates,Monthly support,Wix + WordPress"></div></div>
+    <div class="strip" aria-hidden="true"><div class="track" data-strip="Websites,Branding,UX/UI,Monthly support,Social media,Hosting + care"></div></div>
   </section>
 
-  <section id="browse" style="padding-top:2rem;padding-bottom:0">
+  <section id="services" style="padding-top:2rem;padding-bottom:0" aria-label="Services">
     <div class="wrap">
       <div class="bento">
-        <a class="block b1 reveal" href="#contact" data-type="Monthly creative support"><div><span class="count">ongoing support</span><h3>Monthly creative<br>support</h3><p>An agreed monthly mix of fresh photos, social graphics, and small website updates, planned around your business.</p><span class="card-cta">Ask about a monthly plan</span></div></a>
-        <a class="block b2 reveal" style="--d:.08s" href="#contact" data-type="UX/UI design"><div><span class="count">by request</span><h3>UX/UI<br>design</h3><p>Clear user flows, wireframes, and interface designs for websites and apps, built around the people using them.</p><span class="card-cta">Ask about UX/UI</span></div><div class="art" data-art="icons-small"></div></a>
-        <a class="block b3 reveal" style="--d:.16s" href="#contact" data-type="Brand identity"><div><span class="count">made for you</span><h3>Custom<br>branding</h3><p>Logos, colors, typography, and useful brand assets designed around your business.</p><span class="card-cta">Ask about branding</span></div><div class="art" data-art="logo-small"></div></a>
-        <a class="block b6 reveal" style="--d:.08s" href="#contact" data-type="Photos &amp; social content"><div><span class="count">fresh content</span><h3>Photos + social<br>content</h3><p>Fresh photos of your business, plus graphics and a cohesive look for your social media.</p><span class="card-cta">Ask about photos &amp; social</span></div></a>
-        <a class="block b4 reveal" style="--d:.24s" href="#contact" data-type="Hosting move"><div><span class="count">a new home</span><h3>Hosting<br>move</h3><p>Moving your website to a new host? I’ll review your current setup and quote the transfer and domain connection.</p><span class="card-cta">Ask about a move</span></div></a>
-        <a class="block b5 reveal" style="--d:.32s" href="#contact" data-type="Wix &amp; WordPress updates"><div><span class="count">in development</span><h3>Wix,<br>WordPress,<br>&amp; Squarespace</h3><p>Themes and installation.</p><span class="card-cta">Get in touch for updates</span></div></a>
+        <a class="block b1 reveal" href="#contact" data-type="Website design and build"><div><span class="count">from idea to launch</span><h3>Website design<br>+ build</h3><p>Strategy, structure, design, and launch for a site that fits your business and works across screens.</p><span class="card-cta">Ask about a website</span></div></a>
+        <a class="block b2 reveal" style="--d:.08s" href="#contact" data-type="UX/UI design"><div><span class="count">clear + useful</span><h3>UX/UI<br>design</h3><p>User flows, wireframes, responsive interfaces, and thoughtful interaction details.</p><span class="card-cta">Ask about UX/UI</span></div><div class="art" data-art="icons-small"></div></a>
+        <a class="block b3 reveal" style="--d:.16s" href="#contact" data-type="Branding"><div><span class="count">made for you</span><h3>Custom<br>branding</h3><p>Brand direction, color, typography, and a flexible visual system that feels like your business.</p><span class="card-cta">Ask about branding</span></div><div class="art" data-art="logo-small"></div></a>
+        <a class="block b6 reveal" style="--d:.08s" href="#contact" data-type="Monthly creative support"><div><span class="count">ongoing support</span><h3>Monthly creative<br>support</h3><p>A flexible monthly mix of website updates, social content, design help, and launch support.</p><span class="card-cta">Ask about monthly support</span></div></a>
+        <a class="block b4 reveal" style="--d:.24s" href="#contact" data-type="Social media maintenance"><div><span class="count">stay consistent</span><h3>Social media<br>maintenance</h3><p>Ongoing graphics, profile updates, and scheduling-ready content that stays on brand.</p><span class="card-cta">Ask about social support</span></div></a>
+        <a class="block b5 reveal" style="--d:.32s" href="#contact" data-type="Hosting and website care"><div><span class="count">keep it running</span><h3>Hosting +<br>website care</h3><p>Hosting setup, domains, updates, backups, and practical help when something changes.</p><span class="card-cta">Ask about site care</span></div></a>
       </div>
     </div>
   </section>
 
-  <section id="shop">
+  <section id="work" aria-labelledby="work-title">
+    <div class="wrap">
+      <div class="head reveal">
+        <div>
+          <h2 class="elastic-title" id="work-title" aria-label="Selected work"><span data-text="Selected work" aria-hidden="true">Selected work</span></h2>
+          <svg class="scribble" viewBox="0 0 260 22" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M3 14c40-9 80-10 120-6s90 5 134-4"/></svg>
+          <p>Website and brand directions made to give each business a clearer, more useful presence.</p>
+        </div>
+      </div>
+      <div class="work-grid">
+        <article class="work-card work-card-main reveal">
+          <div class="work-image"><img src="northside-full-preview.webp" alt="Northside barbershop website shown across several page sections"></div>
+          <div class="work-copy">
+            <p class="work-label">Website design + build</p>
+            <h3>Northside</h3>
+            <p>A bold service-led website direction with clear offers, booking paths, and a strong mobile experience.</p>
+          </div>
+        </article>
+        <article class="work-card reveal" style="--d:.08s">
+          <div class="work-image"><img src="vanity-beauty-salon-preview.webp" alt="Vanity beauty salon website design preview"></div>
+          <div class="work-copy">
+            <p class="work-label">Website + brand direction</p>
+            <h3>Vanity</h3>
+            <p>A polished beauty brand translated into an easy-to-use service and booking experience.</p>
+          </div>
+        </article>
+        <article class="work-card reveal" style="--d:.16s">
+          <div class="work-image"><img src="luxury-real-estate-preview.webp" alt="Luxury real estate website interface preview"></div>
+          <div class="work-copy">
+            <p class="work-label">UX/UI + website direction</p>
+            <h3>Luxury real estate</h3>
+            <p>A refined responsive interface that helps listings, expertise, and next steps feel easy to find.</p>
+          </div>
+        </article>
+      </div>
+      <div class="work-cta reveal"><a class="btn" href="#contact" data-type="Website design and build">Start a similar project</a></div>
+    </div>
+  </section>
+
+  <section id="shop" hidden aria-hidden="true">
     <div class="wrap">
       <div class="head">
         <div class="reveal">
@@ -612,13 +670,12 @@ input::placeholder, textarea::placeholder { color: var(--soft); opacity: 1; }
             <p>Edit in a desktop browser and save your editable copy after each session. There is no autosave, CMS, or automatic publishing. Upload your exported index.html to your own static website hosting.</p>
             <p>Demo photos and video are not included. Add media you own or are allowed to use. An optional hero video must be hosted separately and connected by HTTPS URL; a still image works without a video. Arrange your own booking provider, hosting, and domain.</p>
             <p>Changing layout, colors, fonts, spacing, or the number of service cards requires HTML/CSS/JavaScript edits. Replace all fictional business details before launch. This is an HTML template, not an installable WordPress theme. It does not create appointments, process forms or email, or take payments.</p>
-            <p>Checkout and your ZIP download are handled by Payhip. Hosting, domain, installation, and customization cost extra.</p>
+            <p>This concept is now shown as selected work rather than sold as a downloadable product.</p>
             <p>Want help getting online? <a href="#installation">Optional installation &amp; hosting help</a></p>
             <p><a class="template-question" href="#contact" data-type="Northside barbershop template">Ask about this template</a></p>
           </details>
           <div class="template-purchase">
-            <p class="template-price" id="northside-price">$79 USD <small>+ applicable tax</small></p>
-            <a class="btn" href="https://payhip.com/b/jL5G9">Buy template</a>
+            <a class="btn" href="#contact">Ask about a similar project</a>
           </div>
         </div>
       </article>
@@ -650,21 +707,20 @@ input::placeholder, textarea::placeholder { color: var(--soft); opacity: 1; }
             <p>Use a desktop browser to edit, and save your editable copy after each session. There is no autosave or cloud account. The finished website adapts to phones and desktops.</p>
             <p>Add a real HTTPS booking-page URL before exporting. You arrange your booking provider, hosting, and domain separately. The template does not process appointments, forms, email, or payments, and has no CMS.</p>
             <p>Replace the fictional business details and review the illustrative AI-generated images. Changing colors, fonts, layout, service count, or filter categories requires HTML/CSS/JavaScript edits. Publish only the exported website; keep your editor private.</p>
-            <p>Checkout and your ZIP download are handled by Payhip. Hosting, domain, installation, and customization cost extra.</p>
+            <p>This concept is now shown as selected work rather than sold as a downloadable product.</p>
             <p>Want help getting online? <a href="#installation">Optional installation &amp; hosting help</a></p>
             <p><a class="template-question" href="#contact" data-type="Vanity beauty and salon template">Ask about this template</a></p>
           </details>
           <div class="template-purchase">
-            <p class="template-price" id="vanity-price">$79 USD <small>+ applicable tax</small></p>
-            <a class="btn" href="https://payhip.com/b/DKGV0">Buy template</a>
+            <a class="btn" href="#contact">Ask about a similar project</a>
           </div>
         </div>
       </article>
       <article class="template-feature" id="velour-beauty-studio" data-category="branding" aria-labelledby="velour-title">
         <figure class="template-preview">
-          <a class="template-preview-link" href="https://payhip.com/b/NcEVy" aria-label="View the Velour Beauty Studio Canva brand kit on Payhip" aria-describedby="velour-preview-caption">
+          <a class="template-preview-link" href="#contact" aria-label="Ask about a custom beauty brand project" aria-describedby="velour-preview-caption">
             <img class="velour-preview-image" src="/velour-beauty-studio-preview.webp" width="1200" height="1060" loading="lazy" decoding="async" alt="Selected Velour designs in cream, peach, and espresso: opening flyer, Instagram post and story, business card, gift card, and Facebook cover">
-            <span class="template-hint" aria-hidden="true">Explore the collection on Payhip ↗</span>
+            <span class="template-hint" aria-hidden="true">Ask about a custom brand project ↗</span>
           </a>
           <figcaption id="velour-preview-caption">A look inside the collection, using the actual designs. Customize the sample branding and content for your business.</figcaption>
         </figure>
@@ -686,20 +742,19 @@ input::placeholder, textarea::placeholder { color: var(--soft); opacity: 1; }
             <summary>How it works</summary>
             <p>Download the HTML collection file after checkout and open it in your browser. It includes the previews and links to all 9 Canva designs. You can browse the file offline; opening and editing templates requires internet access and a Canva account.</p>
             <p>Personalize the sample text, images, and contact details. The website's booking and map areas are demos to replace or connect yourself. Custom setup isn't included. Canva asset and publishing costs depend on your account and choices.</p>
-            <p>Checkout and your collection download are handled by Payhip.</p>
+            <p>This direction is now part of the portfolio rather than a downloadable collection.</p>
             <p><a class="template-question" href="#contact" data-type="Velour Beauty Studio brand kit">Ask about this collection</a></p>
           </details>
           <div class="template-purchase">
-            <p class="template-price" id="velour-price">$100 USD <small>+ applicable tax</small></p>
-            <a class="btn" href="https://payhip.com/b/NcEVy">Buy brand kit</a>
+            <a class="btn" href="#contact">Ask about custom branding</a>
           </div>
         </div>
       </article>
       <article class="template-feature" id="sunday-frame" data-category="goods" aria-labelledby="sunday-frame-title">
         <figure class="template-preview">
-          <a class="template-preview-link" href="https://payhip.com/b/2DFus" aria-label="View the Sunday Frame Botanical and Fox Logo Kit on Payhip" aria-describedby="sunday-frame-preview-caption">
+          <a class="template-preview-link" href="#contact" aria-label="Ask about a custom identity project" aria-describedby="sunday-frame-preview-caption">
             <img class="sunday-frame-preview-image" src="/assets/sunday-frame/01-Sunday-Frame-Logo-Kit-Cover.png" width="2400" height="2400" loading="lazy" decoding="async" alt="Sunday Frame botanical and fox logo kit cover with six coordinated logo designs">
-            <span class="template-hint" aria-hidden="true">Explore the kit on Payhip ↗</span>
+            <span class="template-hint" aria-hidden="true">Ask about custom branding ↗</span>
           </a>
           <figcaption id="sunday-frame-preview-caption">The main listing image is the actual Sunday Frame cover.</figcaption>
         </figure>
@@ -722,12 +777,11 @@ input::placeholder, textarea::placeholder { color: var(--soft); opacity: 1; }
             <p>Open the included HTML editor on your computer to choose a design, personalize the lettering and colors, and export SVG or PNG files. It works locally with no account or design-software subscription required.</p>
             <p>The editor supports Latin names and common accented Latin characters. Long names may need a smaller lettering size; inspect fine artwork details before large-format printing.</p>
             <p>Each purchase covers one business or one client project. The kit and editor may not be resold or redistributed. The designs are non-exclusive.</p>
-            <p>Checkout and your ZIP download are handled by Payhip.</p>
+            <p>This direction is now part of the portfolio rather than a downloadable kit.</p>
             <p><a class="template-question" href="#contact" data-type="Sunday Frame logo kit">Ask about this kit</a></p>
           </details>
           <div class="template-purchase">
-            <p class="template-price" id="sunday-frame-price">$75 USD <small>one-time digital download + applicable tax</small></p>
-            <a class="btn" href="https://payhip.com/b/2DFus">Buy Sunday Frame</a>
+            <a class="btn" href="#contact">Ask about custom branding</a>
           </div>
         </div>
       </article>
@@ -758,13 +812,12 @@ input::placeholder, textarea::placeholder { color: var(--soft); opacity: 1; }
             <summary>How it works</summary>
             <p>Your own static website hosting and a Formspree endpoint for working inquiries. The included form is a demo until you connect it. Some details, including the page title, search description, and link destinations, need HTML edits. Fonts load from Google Fonts.</p>
             <p>This is an HTML template. It isn't a WordPress, Squarespace, or Wix theme, and it doesn't include a live property feed.</p>
-            <p>Checkout opens on Payhip. Installation and customization cost extra.</p>
+            <p>This concept is now shown as selected work rather than sold as a downloadable product.</p>
             <p>Want help getting online? <a href="#installation">Optional installation &amp; hosting help</a></p>
             <p><a class="template-question" href="#contact" data-type="Luxury Real Estate template">Ask about this template</a></p>
           </details>
           <div class="template-purchase">
-            <p class="template-price" id="luxury-price">$79 USD <small>+ applicable tax</small></p>
-            <a class="btn" href="https://payhip.com/b/TLhH9">Buy template</a>
+            <a class="btn" href="#contact">Ask about a similar project</a>
           </div>
         </div>
       </article>
@@ -774,68 +827,69 @@ input::placeholder, textarea::placeholder { color: var(--soft); opacity: 1; }
     </div>
   </section>
 
-  <section id="installation" aria-labelledby="installation-title">
+  <section id="support" aria-labelledby="support-title">
     <div class="wrap">
       <div class="setup-card">
         <div>
-          <span class="setup-tag">Optional website installation</span>
-          <h2 id="installation-title">Love the template? I can set it up.</h2>
-          <p class="setup-intro">I can take care of getting your HTML website online, connect your domain, and help you find hosting that fits your budget.</p>
-          <a class="btn" href="#contact" data-type="Website installation &amp; hosting help">Get a setup quote</a>
+          <span class="setup-tag">Flexible monthly support</span>
+          <h2 id="support-title">Keep the work moving.</h2>
+          <p class="setup-intro">Get a reliable monthly mix of website, social, brand, and UX/UI support—planned around what your business needs next.</p>
+          <a class="btn" href="#contact" data-type="Monthly creative support">Ask about monthly support</a>
         </div>
         <div>
           <ul class="setup-list">
-            <li><strong>Template installation</strong><p>I'll upload your ready-to-publish HTML website to a compatible hosting account and check it on desktop and mobile.</p></li>
-            <li><strong>Your domain, connected</strong><p>I'll help point your domain to your new website. You keep ownership of your domain and hosting accounts.</p></li>
-            <li><strong>Affordable hosting options</strong><p>We'll look at options based on what your site needs and what you want to spend. HTML templates can use standalone hosting without a website-builder subscription.</p></li>
+            <li><strong>Website maintenance</strong><p>Content changes, layout updates, small features, seasonal refreshes, and practical fixes.</p></li>
+            <li><strong>Social media maintenance</strong><p>Ongoing graphics, profile updates, and scheduling-ready content that stays on brand.</p></li>
+            <li><strong>Brand + UX support</strong><p>New brand assets, campaign help, interface improvements, and design problem-solving.</p></li>
+            <li><strong>Hosting + domains</strong><p>Hosting setup, backups, domain connections, updates, and troubleshooting when something changes.</p></li>
           </ul>
-          <p class="setup-terms">Setup is quoted individually and isn't included in the template price. Domain and hosting charges are separate, paid directly to your providers. We'll agree on the work and price before getting started.</p>
+          <p class="setup-terms">We agree on a clear monthly scope before work begins. Larger one-off projects can be quoted separately, and you keep ownership of every account.</p>
         </div>
       </div>
       <div class="domain-paper-row">
-          <a class="domain-note" href="#contact" data-type="Domain registration help">
+          <a class="domain-note" href="#contact" data-type="Hosting and domain support">
             <span class="domain-note-content">
-            <span class="note-title">We can buy a domain for you!</span>
-            <span class="domain-copy">You approve the name and cost first, and keep ownership of your domain.</span>
+            <span class="note-title">Hosting can live here too.</span>
+            <span class="domain-copy">I can handle setup, updates, backups, and domain connections. You keep ownership of every account.</span>
             </span>
           </a>
-          <p class="domain-aside">Look at that!
+          <p class="domain-aside">one less thing!
             <svg viewBox="0 0 150 85" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M135 8 C140 65 70 80 15 48 M38 34 L15 48 L36 65" /></svg>
           </p>
       </div>
     </div>
   </section>
 
-  <section id="custom">
+  <section id="process">
     <div class="wrap">
       <div class="head reveal">
         <div>
-          <h2 class="elastic-title" aria-label="Custom work"><span data-text="Custom work" aria-hidden="true">Custom work</span></h2>
+          <h2 class="elastic-title" aria-label="How we work"><span data-text="How we work" aria-hidden="true">How we work</span></h2>
           <svg class="scribble" viewBox="0 0 260 22" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M3 8c50 10 110 12 160 6s70-8 94-2"/></svg>
-          <p>Have a business that needs its own look? Tell me what you're making.</p>
+          <p>A clear process from the first note to launch—and ongoing care when you need it.</p>
         </div>
       </div>
       <div class="custom-grid">
         <div class="receipt-wrap reveal" style="--rr:-6deg"><div class="receipt-rot"><div class="receipt">
-          <p class="rt">Fieldwork</p>
-          <p class="rs">Ways we can work together</p>
+          <p class="rt">Hello Rivers</p>
+          <p class="rs">Ways I can help</p>
           <hr>
-          <a class="item" href="#contact" data-type="Brand identity"><span>Brand identity<small>Logo, colors and useful brand assets</small></span><span class="dots"></span><span>Ask</span></a>
-          <a class="item" href="#contact" data-type="Website design"><span>Website design<small>Canva, Squarespace or custom HTML</small></span><span class="dots"></span><span>Ask</span></a>
-          <a class="item" href="#contact" data-type="Business photography"><span>Business photography<small>Space, products, team, or work for your site and socials</small></span><span class="dots"></span><span>Ask</span></a>
-          <a class="item" href="#contact" data-type="Social media rebrand"><span>Social media rebrand<small>Profile refresh, post templates, and matching graphics</small></span><span class="dots"></span><span>Ask</span></a>
-          <a class="item" href="#contact" data-type="Brand and website package"><span>Brand + website<small>A coordinated set made for your business</small></span><span class="dots"></span><span>Ask</span></a>
+          <a class="item" href="#contact" data-type="Website design and build"><span>Website design + build<small>Strategy, design, development, and launch</small></span><span class="dots"></span><span>Ask</span></a>
+          <a class="item" href="#contact" data-type="Branding"><span>Branding<small>Direction, color, typography, and visual system</small></span><span class="dots"></span><span>Ask</span></a>
+          <a class="item" href="#contact" data-type="UX/UI design"><span>UX/UI design<small>Flows, wireframes, and responsive interfaces</small></span><span class="dots"></span><span>Ask</span></a>
+          <a class="item" href="#contact" data-type="Social media maintenance"><span>Social maintenance<small>Ongoing graphics and content support</small></span><span class="dots"></span><span>Ask</span></a>
+          <a class="item" href="#contact" data-type="Hosting and domain support"><span>Hosting + care<small>Domains, updates, backups, and troubleshooting</small></span><span class="dots"></span><span>Ask</span></a>
           <hr>
-          <div class="total"><span>Start with a note</span></div>
-          <p class="thanks">thanks for shopping small!</p>
+          <div class="total"><span>One creative partner</span></div>
+          <p class="thanks">made around your business</p>
         </div></div></div>
         <div>
           <ol class="steps">
-            <li class="reveal"><div><strong>Tell me about it</strong><span>What your business does, what you need, and what's missing today.</span></div></li>
-            <li class="reveal" style="--d:.1s"><div><strong>Make a plan</strong><span>We'll agree on the scope, timeline and price before work begins.</span></div></li>
-            <li class="reveal" style="--d:.2s"><div><strong>Make it yours</strong><span>You'll get the agreed files and instructions for using them.</span></div></li>
+            <li class="reveal"><div><strong>Tell me what needs to change</strong><span>Share what your business does, what is working now, and what feels stuck.</span></div></li>
+            <li class="reveal" style="--d:.1s"><div><strong>Get a clear plan</strong><span>I'll recommend the right scope, timeline, and price before work begins.</span></div></li>
+            <li class="reveal" style="--d:.2s"><div><strong>Build, launch, keep going</strong><span>We finish the work, put it into use, and continue with monthly support if it helps.</span></div></li>
           </ol>
-          <a class="btn" href="#contact">Request a quote</a>
+          <a class="btn" href="#contact">Start a project</a>
         </div>
       </div>
     </div>
@@ -845,15 +899,12 @@ input::placeholder, textarea::placeholder { color: var(--soft); opacity: 1; }
     <div class="wrap">
       <div class="head reveal"><div><h2 class="elastic-title" aria-label="Questions"><span data-text="Questions" aria-hidden="true">Questions</span></h2></div></div>
       <div class="faq-list">
-        <details class="reveal"><summary>Can I edit a Canva website myself?</summary><p>Yes. A Canva website template opens in your Canva account so you can edit the content and publish your version. You'll need a Canva account; some publishing options require a paid plan.</p></details>
-        <details class="reveal" style="--d:.06s"><summary>How will Squarespace templates work?</summary><p>I'll build the editable site in Squarespace. After purchase, I can make you a copy and transfer it to your Squarespace account. You'll choose and pay for your own Squarespace site plan.</p></details>
-        <details class="reveal" style="--d:.12s"><summary>What do I get with an HTML template?</summary><p>Website files you can upload to your own hosting account. You can edit the files yourself or <a href="#installation">ask about optional installation help</a>.</p></details>
-        <details class="reveal"><summary>Can you install my website and help with hosting?</summary><p>Yes. Optional setup can include uploading your HTML website, connecting your domain, and helping you choose hosting for your needs and budget. You'll own the accounts and pay any domain and hosting charges directly. Installation is quoted separately from the template; customization or moving an existing site needs its own agreed scope. <a href="#contact" data-type="Website installation &amp; hosting help">Ask for a setup quote.</a></p></details>
-        <details class="reveal" style="--d:.18s"><summary>How do I buy the HTML template?</summary><p>The Luxury Real Estate HTML template is $79 USD before applicable taxes. Choose Buy template above to continue to Payhip. Your download includes the website file, browser editor, instructions, and a license for one website for yourself or one client. Demo photos aren't included; add your own photos to the placeholders.</p></details>
-        <details class="reveal"><summary>What do I get with the Northside barbershop template?</summary><p>For $79 USD before applicable taxes, you&#x27;ll receive a ZIP with the private text/photo editor, instructions, neutral media placeholders, and a license for one business or one client website. Demo stock photos and video are excluded; source links are supplied. Host an optional hero video separately, connect your own booking page, and upload the exported HTML to your own hosting. <a href="#northside-barbershop">See the template details.</a></p></details>
-        <details class="reveal"><summary>What do I get with the Vanity salon template?</summary><p>For $79 USD before applicable taxes, you&#x27;ll receive a ZIP with the private browser editor, instructions, and a license for one business or one client website. Edit text, nine photos, links, and page details, then export your website and upload it to your own hosting. A booking provider and its setup are separate. Three AI-generated sample images are included. <a href="#vanity-beauty-salon">See the template details.</a></p></details>
-        <details class="reveal" style="--d:.24s"><summary>What do I receive with the Velour brand kit?</summary><p>For $100 USD before applicable taxes, you'll receive a downloadable HTML collection file with previews and access links for 9 Canva designs across 23 pages. Open the file in your browser, then follow the links to customize the templates in Canva. The license covers one business or one client, with no template resale. <a href="#velour-beauty-studio">See the full collection details.</a></p></details>
-        <details class="reveal"><summary>What do I receive with the Sunday Frame logo kit?</summary><p>For $75 USD before applicable taxes, you'll receive a ZIP with six coordinated logo designs, SVG and PNG formats, app icons, avatars, favicons, and a local browser editor for changing the name and colors. The license covers one business or one client project; the kit and editor cannot be resold or redistributed. <a href="#sunday-frame">See the full kit details.</a></p></details>
+        <details class="reveal"><summary>What kinds of websites do you build?</summary><p>I design and build service, portfolio, small-business, and campaign websites. We choose the platform and scope around what you need to manage, how quickly you need to launch, and where the site should grow next.</p></details>
+        <details class="reveal" style="--d:.06s"><summary>Can you handle branding and UX/UI together?</summary><p>Yes. A project can combine brand direction, website strategy, UX/UI, and development so everything feels connected instead of pieced together.</p></details>
+        <details class="reveal" style="--d:.12s"><summary>What does monthly support include?</summary><p>Monthly support can cover website updates, social graphics, brand assets, UX/UI improvements, launch help, and hosting care. We agree on priorities and a realistic amount of work each month.</p></details>
+        <details class="reveal"><summary>Can you maintain my social media?</summary><p>Yes. I can help with ongoing graphics, profile and highlight updates, content organization, and scheduling-ready posts. We can shape the exact mix around the channels you use.</p></details>
+        <details class="reveal" style="--d:.18s"><summary>Can you manage hosting and domains?</summary><p>Yes. I can set up hosting, connect domains, manage updates and backups, and troubleshoot common website issues. You keep ownership of every account and approve outside costs first.</p></details>
+        <details class="reveal" style="--d:.24s"><summary>What does a project cost?</summary><p>Pricing depends on scope, timeline, and the level of strategy or ongoing support involved. Send a short note about what you need and I'll recommend a clear next step before any work begins.</p></details>
       </div>
     </div>
   </section>
@@ -863,7 +914,7 @@ input::placeholder, textarea::placeholder { color: var(--soft); opacity: 1; }
       <div class="reveal">
         <h2 class="elastic-title" aria-label="Say hi"><span data-text="Say hi" aria-hidden="true">Say hi</span></h2>
         <svg class="scribble" viewBox="0 0 260 22" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M3 12c30-8 60 6 90-2s60-8 90 0 50 4 74-4"/></svg>
-        <p style="color:var(--soft);font-weight:500;max-width:36ch">Ask about a custom project, website setup, or a template. This form opens a draft in your email app.</p>
+        <p style="color:var(--soft);font-weight:500;max-width:36ch">Ask about a website, branding, UX/UI, monthly support, social media maintenance, or hosting. This form opens a draft in your email app.</p>
       </div>
       <form id="contact-form" class="reveal" style="--d:.12s" novalidate>
         <div class="row2">
@@ -872,24 +923,14 @@ input::placeholder, textarea::placeholder { color: var(--soft); opacity: 1; }
         </div>
         <label>What do you need?
           <select name="type" id="type">
-            <option>Brand identity</option>
-            <option>Website design</option>
-            <option>Website installation &amp; hosting help</option>
-            <option>Domain registration help</option>
+            <option>Website design and build</option>
+            <option>Branding</option>
             <option>UX/UI design</option>
-            <option>Hosting move</option>
-            <option>Business photography</option>
-            <option>Social media rebrand</option>
-            <option>Photos &amp; social content</option>
             <option>Brand and website package</option>
             <option>Monthly creative support</option>
-            <option>Wix &amp; WordPress updates</option>
-            <option>Upcoming template</option>
-            <option>Luxury Real Estate template</option>
-            <option>Velour Beauty Studio brand kit</option>
-            <option>Vanity beauty and salon template</option>
-            <option>Northside barbershop template</option>
-            <option>Sunday Frame logo kit</option>
+            <option>Social media maintenance</option>
+            <option>Website maintenance</option>
+            <option>Hosting and domain support</option>
             <option>Something else</option>
           </select>
         </label>
