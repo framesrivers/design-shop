@@ -423,6 +423,9 @@ footer nav a:hover { color: var(--pink); }
 .work-grid { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(280px, .8fr); gap: clamp(1.25rem, 3vw, 2.25rem); }
 .work-card { overflow: hidden; border: 2.5px solid var(--blue); border-radius: 22px; background: var(--sheet); box-shadow: 6px 6px 0 var(--blue); }
 .work-card-main { grid-row: span 2; background: #fbd5e9; }
+.work-card-vanilla { grid-column: 1 / -1; }
+.work-card-vanilla .work-image { aspect-ratio: 16 / 9; }
+.work-link { display: inline-flex; margin-top: 1.25rem; }
 .work-card:nth-child(2) { background: var(--yellow); }
 .work-card:nth-child(3) { background: var(--blue); color: var(--sheet); }
 .work-image { overflow: hidden; border-bottom: 2.5px solid var(--blue); background: var(--sheet); aspect-ratio: 16 / 10; }
@@ -607,6 +610,15 @@ input::placeholder, textarea::placeholder { color: var(--soft); opacity: 1; }
             <p class="work-label">UX/UI + website direction</p>
             <h3>Luxury real estate</h3>
             <p>A refined responsive interface that helps listings, expertise, and next steps feel easy to find.</p>
+          </div>
+        </article>
+        <article class="work-card work-card-vanilla reveal" style="--d:.24s">
+          <div class="work-image"><img src="vanilla-bake-preview.webp" alt="Vanilla Bake by Erika website with its pink birthday cake and custom cake gallery" loading="lazy" width="1173" height="1857"></div>
+          <div class="work-copy">
+            <p class="work-label">Website design + build</p>
+            <h3>Vanilla Bake by Erika</h3>
+            <p>A warm custom-cake website with a cake gallery, clear ordering guidance, and easy inquiries through WhatsApp and a contact form.</p>
+            <a class="btn small plain work-link" href="https://vanillacakesbyerika.com/" target="_blank" rel="noopener noreferrer">Visit live site <span aria-hidden="true">↗</span></a>
           </div>
         </article>
       </div>
