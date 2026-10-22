@@ -438,6 +438,9 @@ footer nav a:hover { color: var(--pink); }
 .work-copy h3 { margin: 0 0 .75rem; font: 850 clamp(1.7rem, 4vw, 3rem)/.95 var(--display); font-variation-settings: "wdth" 105; text-transform: uppercase; text-wrap: balance; }
 .work-copy p:not(.work-label) { margin: 0; max-width: 48ch; line-height: 1.65; }
 .work-cta { margin-top: 2.5rem; }
+.work-soon { background: var(--yellow); text-align: center; }
+.work-soon .work-copy { padding-block: clamp(3rem, 8vw, 5.5rem); }
+.work-soon .work-copy p:not(.work-label) { margin-inline: auto; }
 @media (max-width: 800px) { .work-grid { grid-template-columns: 1fr; } .work-card-main { grid-row: auto; } }
 @media (prefers-reduced-motion: reduce) { .work-image img, .work-card:hover .work-image img { transition: none; transform: none; object-position: center top; } }
 
@@ -584,45 +587,17 @@ input::placeholder, textarea::placeholder { color: var(--soft); opacity: 1; }
         <div>
           <h2 class="elastic-title" id="work-title" aria-label="Selected work"><span data-text="Selected work" aria-hidden="true">Selected work</span></h2>
           <svg class="scribble" viewBox="0 0 260 22" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M3 14c40-9 80-10 120-6s90 5 134-4"/></svg>
-          <p>Website and brand directions made to give each business a clearer, more useful presence.</p>
+          <p>A new collection of website and brand work is being put together.</p>
         </div>
       </div>
-      <div class="work-grid">
-        <article class="work-card work-card-main reveal">
-          <div class="work-image"><img src="northside-full-preview.webp" alt="Northside barbershop website shown across several page sections"></div>
-          <div class="work-copy">
-            <p class="work-label">Website design + build</p>
-            <h3>Northside</h3>
-            <p>A bold service-led website direction with clear offers, booking paths, and a strong mobile experience.</p>
-          </div>
-        </article>
-        <article class="work-card reveal" style="--d:.08s">
-          <div class="work-image"><img src="vanity-beauty-salon-preview.webp" alt="Vanity beauty salon website design preview"></div>
-          <div class="work-copy">
-            <p class="work-label">Website + brand direction</p>
-            <h3>Vanity</h3>
-            <p>A polished beauty brand translated into an easy-to-use service and booking experience.</p>
-          </div>
-        </article>
-        <article class="work-card reveal" style="--d:.16s">
-          <div class="work-image"><img src="luxury-real-estate-preview.webp" alt="Luxury real estate website interface preview"></div>
-          <div class="work-copy">
-            <p class="work-label">UX/UI + website direction</p>
-            <h3>Luxury real estate</h3>
-            <p>A refined responsive interface that helps listings, expertise, and next steps feel easy to find.</p>
-          </div>
-        </article>
-        <article class="work-card work-card-vanilla reveal" style="--d:.24s">
-          <div class="work-image"><img src="vanilla-bake-preview.webp" alt="Vanilla Bake by Erika website with its pink birthday cake and custom cake gallery" loading="lazy" width="1173" height="1857"></div>
-          <div class="work-copy">
-            <p class="work-label">Website design + build</p>
-            <h3>Vanilla Bake by Erika</h3>
-            <p>A warm custom-cake website with a cake gallery, clear ordering guidance, and easy inquiries through WhatsApp and a contact form.</p>
-            <a class="btn small plain work-link" href="https://vanillacakesbyerika.com/" target="_blank" rel="noopener noreferrer">Visit live site <span aria-hidden="true">↗</span></a>
-          </div>
-        </article>
+      <div class="work-card work-soon reveal">
+        <div class="work-copy">
+          <p class="work-label">New projects in progress</p>
+          <h3>Coming soon</h3>
+          <p>Fresh website and brand work is on the way. Check back soon, or reach out and your project could be one of the first.</p>
+        </div>
       </div>
-      <div class="work-cta reveal"><a class="btn" href="#contact" data-type="Website design and build">Start a similar project</a></div>
+      <div class="work-cta reveal"><a class="btn" href="#contact" data-type="Website design and build">Start a project</a></div>
     </div>
   </section>
 
