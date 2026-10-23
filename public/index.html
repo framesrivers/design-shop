@@ -26,7 +26,9 @@
   --hand: "Caveat", "Comic Sans MS", cursive;
   --ease: cubic-bezier(.2, .8, .2, 1);
   --bounce: cubic-bezier(.34, 1.56, .64, 1);
-  --section-space: clamp(7rem, 18vw, 16rem);
+  --section-space: clamp(5rem, 10vw, 8rem);
+  --head-space: clamp(2rem, 4vw, 3rem);
+  --content-space: clamp(2rem, 4vw, 3rem);
   --content-space: clamp(2rem, 4vw, 3.5rem);
 
   box-sizing: border-box;
@@ -81,7 +83,7 @@ a { color: inherit; }
 @media (max-width: 760px) { .nav ul { display: none; } }
 
 /* ---------- Hero with elastic riso type ---------- */
-.hero { padding: 118px 0 3rem; position: relative; }
+.hero { padding: 118px 0 0; position: relative; }
 .headline { margin: 0; --wdth: 125; --wght: 800; font-family: var(--display); text-transform: uppercase; line-height: .84; letter-spacing: -.01em; }
 .headline .fit { display: block; white-space: nowrap; font-variation-settings: "wdth" var(--wdth), "wght" var(--wght); }
 .riso { display: inline-grid; }
@@ -134,11 +136,9 @@ a { color: inherit; }
 
 
 /* ---------- Section heads ---------- */
-section { padding: clamp(4rem, 9vw, 7rem) 0; }
-#work, #support, #process, #faq { padding-block: 0; }
-#work, #support, #process, #faq, #contact { padding-top: var(--section-space); }
-#contact { padding-bottom: clamp(4rem, 9vw, 7rem); }
-.head { display: flex; justify-content: space-between; align-items: end; flex-wrap: wrap; gap: 1.5rem; margin-bottom: 2.5rem; }
+section { padding: var(--section-space) 0 0; }
+#contact { padding-bottom: var(--section-space); }
+.head { display: flex; justify-content: space-between; align-items: end; flex-wrap: wrap; gap: 1.5rem; margin-bottom: var(--head-space); }
 h2 {
   margin: 0; font-family: var(--display); font-weight: 850; text-transform: uppercase; line-height: .9;
   font-size: clamp(2.8rem, 7.5vw, 6rem); font-variation-settings: "wdth" var(--w, 60);
@@ -233,7 +233,7 @@ h2.in { --w: 130; }
 .template-note:nth-child(2) { background: #fbd5e9; transform: rotate(1.5deg); }
 .template-note:nth-child(3) { background: var(--blue); color: var(--sheet); transform: rotate(-1deg); }
 .template-note-coming { cursor: default; }
-.domain-paper-row { display: grid; grid-template-columns: minmax(0, 680px) minmax(150px, 1fr); align-items: center; gap: 2rem; margin-top: 3rem; }
+.domain-paper-row { display: grid; grid-template-columns: minmax(0, 680px) minmax(150px, 1fr); align-items: center; gap: 2rem; margin-top: var(--content-space); }
 .domain-note { position: relative; display: block; background: url("domain-paper.png") center / contain no-repeat; color: var(--blue); width: 100%; aspect-ratio: 1438 / 728; text-decoration: none; font-family: var(--body); }
 .domain-note-content { position: absolute; inset: 24% 12% 18% 28%; display: flex; flex-direction: column; justify-content: center; gap: .65rem; }
 .domain-note .note-title { font: 700 clamp(1.5rem, 3vw, 2.3rem)/1.05 var(--hand); color: var(--pink); text-transform: none; }
@@ -358,8 +358,8 @@ h2.in { --w: 130; }
 .steps li:nth-child(3)::before { background: var(--sheet); }
 .steps strong { display: block; font: 800 1.3rem/1.2 var(--display); font-variation-settings: "wdth" 105; margin-top: .3rem; }
 .steps span { color: var(--soft); }
-.custom-grid .btn { margin-top: 2rem; }
-.monthly-support { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 2rem; align-items: center; margin-top: 2.75rem; padding: 1.5rem 1.75rem; background: var(--blue); color: var(--sheet); border: 2.5px solid var(--blue); border-radius: 18px; box-shadow: 5px 5px 0 var(--pink); }
+.custom-grid .btn { margin-top: var(--content-space); }
+.monthly-support { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 2rem; align-items: center; margin-top: var(--content-space); padding: 1.5rem 1.75rem; background: var(--blue); color: var(--sheet); border: 2.5px solid var(--blue); border-radius: 18px; box-shadow: 5px 5px 0 var(--pink); }
 .monthly-support .tag { display: inline-block; color: var(--blue); background: var(--yellow); border: 2px solid var(--blue); border-radius: 999px; padding: .45rem .7rem; font: 700 .88rem/1 var(--body); }
 .monthly-support h3 { margin: .8rem 0 .45rem; font: 850 clamp(1.7rem, 3vw, 2.5rem)/.95 var(--display); font-variation-settings: "wdth" 105; text-transform: uppercase; }
 .monthly-support p { max-width: 58ch; margin: 0; color: var(--sheet); }
@@ -428,7 +428,7 @@ footer nav a:hover { color: var(--pink); }
 .work-card:nth-child(3) .work-label { color: var(--yellow); }
 .work-copy h3 { margin: 0 0 .75rem; font: 850 clamp(1.7rem, 4vw, 3rem)/.95 var(--display); font-variation-settings: "wdth" 105; text-transform: uppercase; text-wrap: balance; }
 .work-copy p:not(.work-label) { margin: 0; max-width: 48ch; line-height: 1.65; }
-.work-cta { margin-top: 2.5rem; }
+.work-cta { margin-top: var(--content-space); }
 .work-soon { background: var(--yellow); text-align: center; }
 .work-soon .work-copy { padding-block: clamp(3rem, 8vw, 5.5rem); }
 .work-soon .work-copy p:not(.work-label) { margin-inline: auto; }
@@ -471,7 +471,7 @@ footer nav a:hover { color: var(--pink); }
 .faq-list details p { line-height: 1.7; }
 .steps { gap: 2rem; }
 .steps span { display: block; margin-top: .55rem; max-width: 45ch; }
-.contact-grid .head p { line-height: 1.7; }
+.contact-intro { max-width: 36ch; margin: .8rem 0 0; color: var(--soft); font-weight: 500; line-height: 1.7; }
 input::placeholder, textarea::placeholder { color: var(--soft); opacity: 1; }
 @media (min-width: 1050px) {
   .template-preview { position: sticky; top: 100px; }
@@ -535,7 +535,7 @@ input::placeholder, textarea::placeholder { color: var(--soft); opacity: 1; }
 </header>
 
 <main id="top" tabindex="-1">
-  <section class="hero" style="padding-top:118px">
+  <section class="hero">
     <div class="wrap">
       <h1 class="headline" id="headline" aria-label="Websites, branding, and UX/UI support.">
         <span class="fit" data-text="Websites +"></span>
@@ -554,7 +554,7 @@ input::placeholder, textarea::placeholder { color: var(--soft); opacity: 1; }
     </div>
   </section>
 
-  <section id="services" style="padding-top:2rem;padding-bottom:0" aria-label="Services">
+  <section id="services" aria-label="Services">
     <div class="wrap">
       <div class="bento">
         <a class="block b1 reveal" href="#contact" data-type="Website design and build"><div><span class="count">from idea to launch</span><h3>Website design<br>+ build</h3><p>Strategy, structure, design, and launch for a site that fits your business and works across screens.</p><span class="card-cta">Ask about a website</span></div></a>
@@ -674,7 +674,7 @@ input::placeholder, textarea::placeholder { color: var(--soft); opacity: 1; }
       <div class="reveal">
         <h2 class="elastic-title" aria-label="Say hi"><span data-text="Say hi" aria-hidden="true">Say hi</span></h2>
         <svg class="scribble" viewBox="0 0 260 22" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M3 12c30-8 60 6 90-2s60-8 90 0 50 4 74-4"/></svg>
-        <p style="color:var(--soft);font-weight:500;max-width:36ch">Ask about a website, branding, UX/UI, monthly support, social media maintenance, or hosting. This form opens a draft in your email app.</p>
+        <p class="contact-intro">Ask about a website, branding, UX/UI, monthly support, social media maintenance, or hosting. This form opens a draft in your email app.</p>
       </div>
       <form id="contact-form" class="reveal" style="--d:.12s" novalidate>
         <div class="row2">
