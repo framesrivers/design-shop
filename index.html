@@ -132,15 +132,6 @@ a { color: inherit; }
   @keyframes slap { from { transform: scale(1.8) rotate(-30deg); opacity: 0; } }
 }
 
-/* ---------- Tape strip ---------- */
-.strip { background: var(--yellow); border-block: 2.5px solid var(--blue); transform: rotate(-1.5deg); overflow: hidden; margin: 2.5rem -1rem 0; }
-.strip .track { display: flex; width: max-content; }
-.strip span { font: 800 1.35rem/1 var(--display); font-variation-settings: "wdth" 130; text-transform: uppercase; padding: .9rem 0; white-space: nowrap; }
-.strip b { color: var(--pink); padding: 0 1.2rem; font-weight: 800; }
-@media (prefers-reduced-motion: no-preference) {
-  .strip .track { animation: slide 30s linear infinite; }
-  @keyframes slide { to { transform: translateX(-50%); } }
-}
 
 /* ---------- Section heads ---------- */
 section { padding: clamp(4rem, 9vw, 7rem) 0; }
@@ -561,7 +552,6 @@ input::placeholder, textarea::placeholder { color: var(--soft); opacity: 1; }
         </div>
       </div>
     </div>
-    <div class="strip" aria-hidden="true"><div class="track" data-strip="Websites,Branding,UX/UI,Monthly support,Social media,Hosting + care"></div></div>
   </section>
 
   <section id="services" style="padding-top:2rem;padding-bottom:0" aria-label="Services">
@@ -819,12 +809,6 @@ function onScroll() {
 }
 addEventListener("scroll", onScroll, { passive: true });
 addEventListener("resize", () => { fitHeadline(); fitWordmark(); });
-
-/* ---------- Tape strip ---------- */
-document.querySelectorAll("[data-strip]").forEach(t => {
-  const run = t.dataset.strip.split(",").map(w => `${w}<b>✦</b>`).join("");
-  t.innerHTML = `<span>${run.repeat(2)}</span><span>${run.repeat(2)}</span>`;
-});
 
 /* ---------- Reveal on scroll ---------- */
 const io = "IntersectionObserver" in window ? new IntersectionObserver(es => es.forEach(e => {
