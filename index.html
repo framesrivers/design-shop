@@ -310,10 +310,11 @@ input::placeholder, textarea::placeholder { color: var(--soft); opacity: 1; }
 /* ---------- Selected work ---------- */
 .work-grid { display: grid; grid-template-columns: minmax(0, 1.7fr) minmax(260px, 1fr); gap: clamp(1.25rem, 3vw, 2.25rem); align-items: stretch; }
 .work-card { overflow: hidden; border: 2.5px solid var(--blue); border-radius: 22px; background: var(--sheet); box-shadow: 6px 6px 0 var(--blue); }
-.work-feature { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1fr); }
-.work-image { position: relative; min-height: 360px; overflow: hidden; border-right: 2.5px solid var(--blue); background: #fbd5e9; }
-.work-image img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center top; transition: transform .7s var(--ease), object-position 8s linear; }
-.work-card:hover .work-image img { transform: scale(1.025); object-position: center bottom; }
+.work-feature { display: flex; flex-direction: column; }
+.work-image { position: relative; aspect-ratio: 16 / 10; overflow: hidden; border-bottom: 2.5px solid var(--blue); background: #fdf6ec; }
+.work-image img, .work-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+.work-video { opacity: 0; transition: opacity .3s var(--ease); }
+.work-image.is-playing .work-video { opacity: 1; }
 .live-tag { position: absolute; bottom: 1rem; left: 1rem; padding: .45rem .75rem; border: 2px solid var(--blue); border-radius: 999px; background: var(--yellow); box-shadow: 2px 2px 0 var(--blue); font: 700 .85rem/1 var(--body); transform: rotate(-4deg); }
 .work-copy { display: flex; flex-direction: column; align-items: start; padding: clamp(1.5rem, 3vw, 2.25rem); }
 .work-copy h3 { margin: 0 0 .85rem; font: 850 clamp(1.7rem, 3.4vw, 2.6rem)/.98 var(--display); font-variation-settings: "wdth" 105; text-transform: uppercase; text-wrap: balance; }
@@ -322,8 +323,7 @@ input::placeholder, textarea::placeholder { color: var(--soft); opacity: 1; }
 .work-next { background: var(--yellow); }
 .ext { width: 1em; height: 1em; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 @media (max-width: 960px) { .work-grid { grid-template-columns: 1fr; } }
-@media (max-width: 640px) { .work-feature { grid-template-columns: 1fr; } .work-image { min-height: 0; aspect-ratio: 4 / 3; border-right: 0; border-bottom: 2.5px solid var(--blue); } }
-@media (prefers-reduced-motion: reduce) { .work-image img, .work-card:hover .work-image img { transition: none; transform: none; object-position: center top; } }
+@media (prefers-reduced-motion: reduce) { .work-video { display: none; } }
 
 /* ---------- Contact details + form states ---------- */
 .contact-intro { max-width: 36ch; margin: .8rem 0 0; color: var(--soft); font-weight: 500; line-height: 1.7; }
@@ -426,7 +426,11 @@ p, summary, li { text-wrap: pretty; }
       <div class="work-grid">
         <article class="work-card work-feature reveal">
           <div class="work-image">
-            <img src="vanilla-bake-preview.webp" alt="Vanilla Bake by Erika website with its pink birthday cake and custom cake gallery" loading="lazy" width="1173" height="1857">
+            <img src="vanilla-bake-2026.webp" alt="Vanilla Bake by Erika homepage: 'Algo rico viene en camino' beside a candlelit cake" loading="lazy" width="960" height="600">
+            <video class="work-video" muted playsinline loop preload="none" poster="vanilla-bake-2026.webp" aria-hidden="true" tabindex="-1">
+              <source src="vanilla-bake-scroll.webm" type="video/webm">
+              <source src="vanilla-bake-scroll.mp4" type="video/mp4">
+            </video>
             <span class="live-tag">Live client site</span>
           </div>
           <div class="work-copy">
@@ -751,6 +755,23 @@ form.addEventListener("submit", e => {
   location.href = `mailto:${EMAIL}?subject=${encodeURIComponent("Project request: " + d.type)}&body=${encodeURIComponent(`Name: ${d.name}\nEmail: ${d.email}\nProject: ${d.type}\n\n${d.details}`)}`;
   status.innerHTML = "Your email app should be opening with your note ready to send. " + fallback;
 });
+
+/* ---------- Vanilla Bake scroll recording: hover on desktop, in view on touch ---------- */
+const workImage = document.querySelector(".work-feature .work-image");
+const workVideo = workImage && workImage.querySelector("video");
+if (workVideo && !reduce) {
+  const play = () => { workImage.classList.add("is-playing"); workVideo.play().catch(() => workImage.classList.remove("is-playing")); };
+  const stop = () => { workImage.classList.remove("is-playing"); workVideo.pause(); workVideo.currentTime = 0; };
+  const card = workImage.closest(".work-card");
+  if (matchMedia("(hover: hover) and (pointer: fine)").matches) {
+    card.addEventListener("mouseenter", play);
+    card.addEventListener("mouseleave", stop);
+    card.addEventListener("focusin", play);
+    card.addEventListener("focusout", stop);
+  } else if ("IntersectionObserver" in window) {
+    new IntersectionObserver(es => es.forEach(e => e.isIntersecting ? play() : stop()), { threshold: .6 }).observe(workImage);
+  }
+}
 
 /* ---------- Copy email ---------- */
 const copyStatus = document.getElementById("copy-status");
