@@ -68,7 +68,7 @@ a { color: inherit; }
 .btn:active { transform: translate(4px, 4px) scale(.98, .96); box-shadow: 0 0 0 var(--blue), inset 0 3px 0 rgba(0,0,0,.12); }
 .btn.alt { color: var(--blue); background: linear-gradient(180deg, rgba(255,255,255,.55), rgba(255,255,255,0) 55%), var(--yellow); }
 .btn.plain { color: var(--blue); background: var(--sheet); }
-.btn.small { padding: .65rem 1rem; font-size: .9rem; border-radius: 11px; }
+.btn.small { min-height: 44px; padding: .65rem 1rem; font-size: .9rem; border-radius: 11px; }
 
 /* ---------- Nav ---------- */
 .nav { position: fixed; inset: 0 0 auto; z-index: 50; padding-top: env(safe-area-inset-top, 0px); transition: background .3s; }
@@ -152,29 +152,15 @@ h2.in { --w: 130; }
 .block:hover .art { transform: rotate(-6deg) scale(1.06); }
 .b1 { grid-column: span 2; background: var(--pink); color: var(--sheet); }
 .b2 { background: var(--yellow); }
-.b4 { background: var(--blue); color: var(--sheet); }
-.b5 { background: var(--sheet); container-type: inline-size; }
-.b5 h3 { font-size: clamp(1rem, 10cqi, 2.4rem); line-height: 1.08; font-variation-settings: "wdth" 90; }
-.b5 .card-cta { max-width: 100%; line-height: 1.2; }
-.b4 .card-cta { background: var(--sheet); }
-.b6 { grid-column: span 2; background: #fbd5e9; }
+.b6 { grid-column: 1 / -1; background: var(--blue); color: var(--sheet); }
+.b6 p { max-width: 56ch; }
 .b6 .art { width: 60%; right: -3%; bottom: -3%; transform: rotate(-4deg); }
 .b6:hover .art { transform: rotate(-9deg) scale(1.05); }
 @media (max-width: 860px) {
   .bento { grid-template-columns: 1fr 1fr; grid-template-rows: none; }
   .b1, .b6 { grid-column: span 2; min-height: 300px; }
-  .b4, .b5 { grid-column: span 2; }
 }
 
-.domain-paper-row { display: grid; grid-template-columns: minmax(0, 680px) minmax(150px, 1fr); align-items: center; gap: 2rem; margin-top: var(--content-space); }
-.domain-note { position: relative; display: block; background: url("domain-paper.png") center / contain no-repeat; color: var(--blue); width: 100%; aspect-ratio: 1438 / 728; text-decoration: none; font-family: var(--body); }
-.domain-note-content { position: absolute; inset: 24% 12% 18% 28%; display: flex; flex-direction: column; justify-content: center; gap: .65rem; }
-.domain-note .note-title { font: 700 clamp(1.5rem, 3vw, 2.3rem)/1.05 var(--hand); color: var(--pink-ink); text-transform: none; }
-.domain-note .domain-copy { font-size: 1rem; line-height: 1.4; }
-.domain-note .note-action { font-size: 1rem; font-weight: 700; text-decoration: underline; text-underline-offset: .2em; }
-.domain-aside { color: var(--pink-ink); font: 700 2.3rem/1.1 var(--hand); transform: rotate(-5deg); margin: 0; }
-.domain-aside svg { display: block; width: 150px; height: 85px; margin-top: .7rem; overflow: visible; }
-@media (max-width: 760px) { .domain-paper-row { grid-template-columns: 1fr; margin-top: 2rem; } .domain-note { aspect-ratio: auto; padding: 1.5rem 1.4rem; background: var(--sheet); border: 2.5px solid var(--blue); border-radius: 6px; box-shadow: 4px 4px 0 var(--blue); transform: rotate(-1deg); } .domain-note-content { position: static; gap: .5rem; } .domain-note .note-title { font-size: 1.9rem; } .domain-aside { display: none; } }
 /* ---------- Optional website setup ---------- */
 .setup-card { position: relative; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, .95fr); gap: clamp(2rem, 5vw, 4rem); padding: clamp(1.4rem, 4vw, 3rem); border: 2.5px solid var(--blue); border-radius: 18px; background: var(--yellow); box-shadow: 6px 6px 0 var(--blue); }
 .setup-card h2 { font-size: clamp(2rem, 4.4vw, 3.6rem); line-height: .98; max-width: 12ch; margin: 0 0 1.1rem; }
@@ -200,10 +186,9 @@ h2.in { --w: 130; }
 .receipt .rt { font: 850 1.8rem/1 var(--display); font-variation-settings: "wdth" 130; text-transform: uppercase; text-align: center; margin: 0 0 .25rem; }
 .receipt .rs { text-align: center; color: var(--soft); font-size: .9rem; margin: 0 0 1.25rem; }
 .receipt hr { border: 0; border-top: 2.5px dashed var(--blue); margin: 1rem 0; }
-.item { display: flex; align-items: baseline; gap: .5rem; text-decoration: none; padding: .55rem 0; font-weight: 700; }
+.item { display: flex; align-items: baseline; gap: .5rem; padding: .55rem 0; font-weight: 700; }
 .item .dots { flex: 1; border-bottom: 2.5px dotted var(--blue); transform: translateY(-4px); }
 .item small { display: block; font-weight: 500; color: var(--soft); font-size: .88rem; }
-.item:hover { color: var(--pink-ink); }
 .receipt .total { display: flex; justify-content: space-between; font: 850 1.3rem/1 var(--display); text-transform: uppercase; }
 .receipt .thanks { font: 600 1.7rem/1 var(--hand); color: var(--pink-ink); text-align: center; margin: 1.25rem 0 0; transform: rotate(-3deg); }
 .steps { list-style: none; padding: 0; margin: 0; display: grid; gap: 1.25rem; counter-reset: s; }
@@ -294,9 +279,9 @@ input::placeholder, textarea::placeholder { color: var(--soft); opacity: 1; }
   .nav ul a:hover, .nav ul a:focus-visible { background: var(--yellow); }
   .nav ul a::after { display: none; }
   .bento { grid-template-columns: 1fr; gap: 1.5rem; }
-  .b1, .b2, .b3, .b4, .b5, .b6 { grid-column: auto; min-height: 270px; }
+  .b1, .b2, .b3, .b6 { grid-column: auto; min-height: 270px; }
   .block { padding: 1.6rem; gap: 1.75rem; }
-  .block h3, .b5 h3 { font-size: clamp(1.6rem, 9cqi, 2.3rem); }
+  .block h3 { font-size: clamp(1.6rem, 9cqi, 2.3rem); }
   .block:has(.art) p { max-width: 22ch; }
   .faq-list { grid-template-columns: 1fr; }
   .hero .actions { gap: .9rem; }
@@ -329,7 +314,7 @@ input::placeholder, textarea::placeholder { color: var(--soft); opacity: 1; }
 .work-image { position: relative; min-height: 360px; overflow: hidden; border-right: 2.5px solid var(--blue); background: #fbd5e9; }
 .work-image img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center top; transition: transform .7s var(--ease), object-position 8s linear; }
 .work-card:hover .work-image img { transform: scale(1.025); object-position: center bottom; }
-.live-tag { position: absolute; top: 1rem; left: 1rem; padding: .45rem .75rem; border: 2px solid var(--blue); border-radius: 999px; background: var(--yellow); box-shadow: 2px 2px 0 var(--blue); font: 700 .85rem/1 var(--body); transform: rotate(-4deg); }
+.live-tag { position: absolute; bottom: 1rem; left: 1rem; padding: .45rem .75rem; border: 2px solid var(--blue); border-radius: 999px; background: var(--yellow); box-shadow: 2px 2px 0 var(--blue); font: 700 .85rem/1 var(--body); transform: rotate(-4deg); }
 .work-copy { display: flex; flex-direction: column; align-items: start; padding: clamp(1.5rem, 3vw, 2.25rem); }
 .work-copy h3 { margin: 0 0 .85rem; font: 850 clamp(1.7rem, 3.4vw, 2.6rem)/.98 var(--display); font-variation-settings: "wdth" 105; text-transform: uppercase; text-wrap: balance; }
 .work-copy p { margin: 0 0 1.75rem; max-width: 46ch; line-height: 1.65; }
@@ -347,13 +332,21 @@ input::placeholder, textarea::placeholder { color: var(--soft); opacity: 1; }
 .reach-label { font: 700 .93rem/1.2 var(--body); color: var(--soft); }
 .reach-row { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem .9rem; }
 .contact-grid .mail { margin-top: 0; text-decoration: none; }
-.copy-btn { display: inline-flex; align-items: center; min-height: 36px; padding: .4rem .8rem; border: 2px solid var(--blue); border-radius: 999px; background: var(--sheet); box-shadow: 2px 2px 0 var(--blue); color: var(--blue); font: 700 .88rem/1 var(--body); text-decoration: none; cursor: pointer; }
+.copy-btn { display: inline-flex; align-items: center; min-height: 44px; padding: .4rem .8rem; border: 2px solid var(--blue); border-radius: 999px; background: var(--sheet); box-shadow: 2px 2px 0 var(--blue); color: var(--blue); font: 700 .88rem/1 var(--body); text-decoration: none; cursor: pointer; }
 .copy-btn:hover { background: var(--yellow); }
 .copy-btn:active { transform: translate(2px, 2px); box-shadow: 0 0 0 var(--blue); }
 .copy-status { min-height: 1.4em; margin: .75rem 0 0; font-weight: 700; font-size: .93rem; }
 .field-error { font-size: .88rem; font-weight: 700; color: var(--pink-ink); }
 .field-error:empty { display: none; }
-input[aria-invalid="true"], textarea[aria-invalid="true"] { border-color: var(--pink-ink); box-shadow: 4px 4px 0 var(--pink); }
+input[aria-invalid="true"], textarea[aria-invalid="true"] { border-color: var(--pink-ink); border-style: dashed; background: #FCE4F1; }
+input, textarea, select { scroll-margin-top: 120px; }
+.field { display: grid; gap: .4rem; }
+.submit-row { display: flex; flex-wrap: wrap; align-items: center; gap: .75rem 1.25rem; }
+.form-note { margin: 0; color: var(--soft); font-size: .9rem; }
+.es-note { max-width: 40ch; margin: .9rem 0 0; font-weight: 600; }
+.es-note a { font-weight: 800; text-underline-offset: .2em; }
+a.se-habla { display: inline-block; text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: .18em; }
+a.se-habla:hover { color: var(--blue); }
 .status.is-error { color: var(--pink-ink); }
 .status a { font-weight: 800; text-underline-offset: .2em; }
 footer .foot-contact { display: flex; flex-wrap: wrap; gap: .5rem 1.5rem; }
@@ -371,12 +364,15 @@ p, summary, li { text-wrap: pretty; }
   <div class="wrap">
     <a class="brand" href="#top" aria-label="Hello Rivers home"><img class="brand-logo" src="hello-rivers-logo-blue.png" alt="Hello Rivers"></a>
     <button class="nav-toggle" type="button" aria-controls="primary-links" aria-expanded="false">Menu</button>
-    <ul id="primary-links" aria-label="Primary navigation">
-      <li><a href="#services">Services</a></li>
-      <li><a href="#work">Work</a></li>
-      <li><a href="#support">Monthly support</a></li>
-      <li><a href="#faq">FAQ</a></li>
-    </ul>
+    <nav aria-label="Primary">
+      <ul id="primary-links">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#work">Work</a></li>
+        <li><a href="#support">Monthly support</a></li>
+        <li><a href="#process">How it works</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul>
+    </nav>
     <a class="btn small alt" href="#contact">Work with me</a>
   </div>
 </header>
@@ -396,7 +392,7 @@ p, summary, li { text-wrap: pretty; }
             <a class="btn" href="#contact">Start a project</a>
             <a class="btn plain" href="#services">See what I do</a>
           </div>
-          <p class="se-habla" lang="es">¡Se habla español!</p>
+          <a class="se-habla" lang="es" href="https://wa.me/19567388487?text=Hola%20Marcos%2C%20me%20interesa%20un%20proyecto." target="_blank" rel="noopener noreferrer">¡Se habla español!<span class="sr-only"> Escríbeme por WhatsApp (se abre en una pestaña nueva)</span></a>
         </div>
         <figure class="portrait reveal" style="--rr:3deg">
           <img src="marcos-rivers.webp" alt="Marcos, the designer behind Hello Rivers, sitting backwards on a black folding chair" width="600" height="644">
@@ -411,11 +407,9 @@ p, summary, li { text-wrap: pretty; }
       <h2 class="sr-only" id="services-title">Services</h2>
       <div class="bento">
         <a class="block b1 reveal" href="#contact" data-type="A new website"><div><h3>Website design<br>+ build</h3><p>A site that looks like you, works on every phone and gets people to call. I plan it, design it, build it and launch it.</p><span class="card-cta">Ask about a website</span></div></a>
-        <a class="block b2 reveal" style="--d:.08s" href="#contact" data-type="UX/UI design"><div><h3>UX/UI<br>design</h3><p>Fewer confused clicks. I map how people move through your site or app and smooth out every spot where they get stuck.</p><span class="card-cta">Ask about UX/UI</span></div><div class="art" data-art="icons-small"></div></a>
+        <a class="block b2 reveal" style="--d:.08s" href="#contact" data-type="UX/UI design"><div><h3>UX/UI<br>design</h3><p>UX/UI just means how easy your site or app is to use. I find the spots where people get stuck and smooth them out.</p><span class="card-cta">Ask about UX/UI</span></div><div class="art" data-art="icons-small"></div></a>
         <a class="block b3 reveal" style="--d:.16s" href="#contact" data-type="Branding"><div><h3>Custom<br>branding</h3><p>A logo, colors and type people actually remember, plus a kit so everything you make matches.</p><span class="card-cta">Ask about branding</span></div><div class="art" data-art="logo-small"></div></a>
-        <a class="block b6 reveal" style="--d:.08s" href="#support" data-type="Monthly support (site, social or hosting)"><div><h3>Monthly creative<br>support</h3><p>Most designers leave after launch. I stay. Each month I handle the updates, graphics and fixes on your list.</p><span class="card-cta">See how it works</span></div></a>
-        <a class="block b4 reveal" style="--d:.24s" href="#contact" data-type="Monthly support (site, social or hosting)"><div><h3>Social media<br>care</h3><p>Graphics and profile updates that keep your feed on brand and ready to post.</p><span class="card-cta">Ask about social</span></div></a>
-        <a class="block b5 reveal" style="--d:.32s" href="#contact" data-type="Monthly support (site, social or hosting)"><div><h3>Hosting +<br>website care</h3><p>Hosting, domains, updates and backups, handled. When something breaks, I fix it.</p><span class="card-cta">Ask about website care</span></div></a>
+        <a class="block b6 reveal" style="--d:.08s" href="#support"><div><h3>Monthly creative<br>support</h3><p>Most designers leave after launch. I stay. Site updates, social graphics, hosting and fixes, handled every month.</p><span class="card-cta">See monthly support</span></div></a>
       </div>
     </div>
   </section>
@@ -437,7 +431,7 @@ p, summary, li { text-wrap: pretty; }
           </div>
           <div class="work-copy">
             <h3>Vanilla Bake by Erika</h3>
-            <p>A custom-cake bakery needed a site as sweet as the cakes. I designed and built it with a cake gallery, clear ordering steps and quick ways to ask through WhatsApp or a form.</p>
+            <p>A custom-cake bakery needed a site as sweet as the cakes. I designed and built it in Spanish, with a cake gallery, clear ordering steps and quick ways to ask through WhatsApp or a form.</p>
             <a class="btn small plain work-link" href="https://vanillacakesbyerika.com/" target="_blank" rel="noopener noreferrer">Visit the live site<svg class="ext" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5"/></svg><span class="sr-only"> (opens in a new tab)</span></a>
           </div>
         </article>
@@ -470,18 +464,6 @@ p, summary, li { text-wrap: pretty; }
           <p class="setup-terms">We agree on a clear monthly scope before I start. Bigger one-off projects get their own quote, and you always own every account.</p>
         </div>
       </div>
-      <div class="domain-paper-row">
-          <a class="domain-note" href="#contact" data-type="Monthly support (site, social or hosting)">
-            <span class="domain-note-content">
-            <span class="note-title">Hosting can live here too.</span>
-            <span class="domain-copy">I'll set it up, keep it updated and backed up, and connect your domain. The accounts stay in your name.</span>
-            <span class="note-action">Ask about hosting</span>
-            </span>
-          </a>
-          <p class="domain-aside" aria-hidden="true">one less thing!
-            <svg viewBox="0 0 150 85" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M135 8 C140 65 70 80 15 48 M38 34 L15 48 L36 65" /></svg>
-          </p>
-      </div>
     </div>
   </section>
 
@@ -497,16 +479,15 @@ p, summary, li { text-wrap: pretty; }
       <div class="custom-grid">
         <div class="receipt-wrap reveal" style="--rr:-6deg"><div class="receipt-rot"><div class="receipt">
           <p class="rt">Hello Rivers</p>
-          <p class="rs">Ways I can help</p>
+          <p class="rs">A sample month of support</p>
           <hr>
-          <a class="item" href="#contact" data-type="A new website"><span>Website design + build<small>Plan, design, build, launch</small></span><span class="dots"></span><span>Ask me</span></a>
-          <a class="item" href="#contact" data-type="Branding"><span>Custom branding<small>Logo, colors, type, brand kit</small></span><span class="dots"></span><span>Ask me</span></a>
-          <a class="item" href="#contact" data-type="UX/UI design"><span>UX/UI design<small>Easier sites and apps</small></span><span class="dots"></span><span>Ask me</span></a>
-          <a class="item" href="#contact" data-type="Monthly support (site, social or hosting)"><span>Social media care<small>On-brand graphics, ready to post</small></span><span class="dots"></span><span>Ask me</span></a>
-          <a class="item" href="#contact" data-type="Monthly support (site, social or hosting)"><span>Hosting + website care<small>Domains, updates, backups</small></span><span class="dots"></span><span>Ask me</span></a>
+          <div class="item"><span>Website refresh<small>New photos, hours, a seasonal promo</small></span><span class="dots"></span><span>Done</span></div>
+          <div class="item"><span>Social graphics<small>The month's posts, on brand</small></span><span class="dots"></span><span>Done</span></div>
+          <div class="item"><span>Hosting + backups<small>Updated, backed up, watched</small></span><span class="dots"></span><span>Done</span></div>
+          <div class="item"><span>Little fixes<small>That thing that broke on Tuesday</small></span><span class="dots"></span><span>Done</span></div>
           <hr>
-          <div class="total"><span>One creative partner</span></div>
-          <p class="thanks">made around your business</p>
+          <div class="total"><span>You</span><span>Back to business</span></div>
+          <p class="thanks">every month is planned with you</p>
         </div></div></div>
         <div>
           <ol class="steps">
@@ -525,9 +506,9 @@ p, summary, li { text-wrap: pretty; }
       <div class="head reveal"><div><h2 class="elastic-title" id="faq-title" aria-label="Questions"><span data-text="Questions" aria-hidden="true">Questions</span></h2></div></div>
       <div class="faq-list">
         <details class="reveal"><summary>What kinds of websites do you build?</summary><p>Sites for service businesses, salons, bakeries, shops, portfolios and launches. We pick the platform based on what you want to update yourself and how fast you need to go live.</p></details>
+        <details class="reveal" style="--d:.06s" lang="es"><summary>¿Trabajas en español?</summary><p>¡Sí! Podemos hacer todo el proyecto en español, desde el primer mensaje hasta el lanzamiento y el soporte mensual.</p></details>
         <details class="reveal" style="--d:.06s"><summary>Can you do my branding and website together?</summary><p>Yes, and it's the best way to do it. Your logo, colors and site get designed side by side, so nothing looks stitched together.</p></details>
         <details class="reveal" style="--d:.12s"><summary>What does monthly support include?</summary><p>Whatever your business needs that month: site updates, social graphics, new brand pieces, design fixes or hosting help. We agree on a realistic amount of work up front.</p></details>
-        <details class="reveal" lang="es"><summary>¿Trabajas en español?</summary><p>¡Sí! Podemos hacer todo el proyecto en español, desde el primer mensaje hasta el lanzamiento y el soporte mensual.</p></details>
         <details class="reveal" style="--d:.18s"><summary>Can you manage hosting and domains?</summary><p>Yes. I set up hosting, connect domains, handle updates and backups, and fix things when they break. You keep ownership of every account and approve any outside costs first.</p></details>
         <details class="reveal" style="--d:.24s"><summary>What does a project cost?</summary><p>It depends on what you need. Send me a quick note and I'll come back with a clear plan and price before any work starts.</p></details>
       </div>
@@ -539,7 +520,8 @@ p, summary, li { text-wrap: pretty; }
       <div class="reveal">
         <h2 class="elastic-title" id="contact-title" aria-label="Say hi"><span data-text="Say hi" aria-hidden="true">Say hi</span></h2>
         <svg class="scribble" viewBox="0 0 260 22" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M3 12c30-8 60 6 90-2s60-8 90 0 50 4 74-4"/></svg>
-        <p class="contact-intro">Tell me about your business and what you need. I'll reply with next steps. English or Spanish, whatever's easier.</p>
+        <p class="contact-intro">Tell me about your business and what you need. I reply within one business day with next steps.</p>
+        <p class="es-note" lang="es">¿Prefieres español? Escríbeme aquí en español o <a href="https://wa.me/19567388487?text=Hola%20Marcos%2C%20me%20interesa%20un%20proyecto." target="_blank" rel="noopener noreferrer">mándame un WhatsApp<span class="sr-only"> (se abre en una pestaña nueva)</span></a>.</p>
         <ul class="reach">
           <li>
             <span class="reach-label">Email me</span>
@@ -554,8 +536,8 @@ p, summary, li { text-wrap: pretty; }
       </div>
       <form id="contact-form" class="reveal" style="--d:.12s" novalidate>
         <div class="row2">
-          <label>Name<input name="name" autocomplete="name" required aria-describedby="name-error"><span class="field-error" id="name-error"></span></label>
-          <label>Email<input name="email" type="email" autocomplete="email" required aria-describedby="email-error"><span class="field-error" id="email-error"></span></label>
+          <div class="field"><label for="f-name">Name</label><input id="f-name" name="name" autocomplete="name" required aria-describedby="name-error"><span class="field-error" id="name-error"></span></div>
+          <div class="field"><label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email" required aria-describedby="email-error"><span class="field-error" id="email-error"></span></div>
         </div>
         <label>What do you need?
           <select name="type" id="type">
@@ -566,8 +548,11 @@ p, summary, li { text-wrap: pretty; }
             <option>Not sure yet</option>
           </select>
         </label>
-        <label>Project details<textarea name="details" placeholder="What it's for, your timeline, and your budget if you have one." required aria-describedby="details-error"></textarea><span class="field-error" id="details-error"></span></label>
-        <button class="btn" type="submit">Send my project note</button>
+        <div class="field"><label for="f-details">Project details</label><textarea id="f-details" name="details" placeholder="What it's for, your timeline, and your budget if you have one." required aria-describedby="details-error"></textarea><span class="field-error" id="details-error"></span></div>
+        <div class="submit-row">
+          <button class="btn" type="submit" aria-describedby="submit-note">Send my project note</button>
+          <p class="form-note" id="submit-note">Opens your email app with this note ready to send.</p>
+        </div>
         <p class="status" id="form-status" role="status"></p>
       </form>
     </div>
@@ -613,7 +598,10 @@ document.querySelectorAll("[data-art]").forEach(el => el.innerHTML = bentoArt[el
 
 /* ---------- Elastic riso headline ---------- */
 const h1 = document.getElementById("headline");
-const lines = [...h1.querySelectorAll(".fit")];
+/* Phones get shorter lines so "I stick around." stays big */
+const HEADLINE = { wide: ["Websites +", "branding +", "I stick around."], narrow: ["Websites +", "branding +", "I stick", "around."] };
+const narrowHead = matchMedia("(max-width: 560px)");
+let lines = [];
 function renderRisoLetters(t) {
   const glyphs = [...t].map((char, i) => {
     const c = char === " " ? "&nbsp;" : char;
@@ -622,10 +610,13 @@ function renderRisoLetters(t) {
   }).join("");
   return `<span class="riso">${glyphs}</span>`;
 }
-lines.forEach(l => {
-  l.setAttribute("aria-hidden", "true");
-  l.innerHTML = renderRisoLetters(l.dataset.text);
-});
+function renderHeadline() {
+  const set = narrowHead.matches ? HEADLINE.narrow : HEADLINE.wide;
+  h1.innerHTML = set.map(t => `<span class="fit" aria-hidden="true">${renderRisoLetters(t)}</span>`).join("");
+  lines = [...h1.children];
+}
+renderHeadline();
+narrowHead.addEventListener("change", () => { renderHeadline(); fitHeadline(); });
 document.querySelectorAll(".elastic-title [data-text]").forEach(titleText => {
   titleText.innerHTML = titleText.dataset.text.split(" ").map(renderRisoLetters).join(" ");
 });
@@ -652,6 +643,7 @@ function onScroll() {
 }
 addEventListener("scroll", onScroll, { passive: true });
 addEventListener("resize", () => { fitHeadline(); fitWordmark(); });
+addEventListener("orientationchange", () => { fitHeadline(); fitWordmark(); });
 
 /* ---------- Reveal on scroll ---------- */
 const io = "IntersectionObserver" in window ? new IntersectionObserver(es => es.forEach(e => {
@@ -724,28 +716,35 @@ wm.addEventListener("touchend", relax);
 /* ---------- Contact form ---------- */
 const form = document.getElementById("contact-form"), status = document.getElementById("form-status");
 const fallback = `Nothing opened? Email me at <a href="mailto:${EMAIL}">${EMAIL}</a> or <a href="https://wa.me/19567388487" target="_blank" rel="noopener noreferrer">message me on WhatsApp</a>.`;
+const rules = {
+  name: v => v ? "" : "Add your name so I know who to reply to.",
+  email: v => !v ? "Add your email so I can reply." : /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v) ? "" : "Check your email. It should look like name@example.com.",
+  details: v => v ? "" : "Tell me a little about the project.",
+};
 function setError(field, msg) {
   field.setAttribute("aria-invalid", msg ? "true" : "false");
   document.getElementById(field.name + "-error").textContent = msg;
 }
 form.querySelectorAll("input, textarea").forEach(f => f.addEventListener("input", () => {
-  if (f.getAttribute("aria-invalid") === "true") setError(f, "");
-  if (status.classList.contains("is-error")) { status.textContent = ""; status.classList.remove("is-error"); }
+  if (f.getAttribute("aria-invalid") !== "true") return;
+  setError(f, rules[f.name](f.value.trim()));
+  const left = form.querySelectorAll('[aria-invalid="true"]').length;
+  if (!left) { status.textContent = ""; status.classList.remove("is-error"); }
+  else status.textContent = left === 1 ? "One field needs a look." : `${left} fields need a look.`;
 }));
 form.addEventListener("submit", e => {
   e.preventDefault();
   const d = Object.fromEntries([...new FormData(form)].map(([k, v]) => [k, String(v).trim()]));
-  const checks = [
-    [form.elements.name, d.name ? "" : "Add your name so I know who to reply to."],
-    [form.elements.email, !d.email ? "Add your email so I can reply." : /^\S+@\S+\.\S+$/.test(d.email) ? "" : "Check your email. It should look like name@example.com."],
-    [form.elements.details, d.details ? "" : "Tell me a little about the project."],
-  ];
-  checks.forEach(([f, msg]) => setError(f, msg));
-  const bad = checks.find(([, msg]) => msg);
-  if (bad) {
+  const bad = Object.keys(rules).map(k => form.elements[k]).filter(f => {
+    const msg = rules[f.name](d[f.name]);
+    setError(f, msg);
+    return msg;
+  });
+  if (bad.length) {
     status.classList.add("is-error");
-    status.textContent = "A couple of fields need a look.";
-    bad[0].focus();
+    status.textContent = bad.length === 1 ? "One field needs a look." : `${bad.length} fields need a look.`;
+    bad[0].scrollIntoView({ block: "center", behavior: reduce ? "auto" : "smooth" });
+    bad[0].focus({ preventScroll: true });
     return;
   }
   status.classList.remove("is-error");

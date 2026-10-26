@@ -26,6 +26,7 @@ Ongoing monthly support is the differentiator: Hello Rivers stays on after launc
 
 - Inquiry email: hola@marcosuriel.com (confirmed 2026-10-26). The on-page form opens a draft to it in the visitor's email app, so the address must also be shown visibly as a fallback.
 - WhatsApp / phone: (956) 738-8487, offered as a second way to reach Hello Rivers.
+- Reply time promise: within one business day (confirmed 2026-10-26).
 - Scope and price are agreed before work begins; larger one-off projects are quoted separately.
 - Clients keep ownership of every account (hosting, domains) and approve outside costs first.
 
@@ -45,7 +46,7 @@ Ongoing monthly support is the differentiator: Hello Rivers stays on after launc
 
 ## Evidence on Hand
 
-- Real client: Vanilla Bake by Erika — live site at https://vanillacakesbyerika.com/ (preview: `public/vanilla-bake-preview.webp`).
+- Real client: Vanilla Bake by Erika — live site at https://vanillacakesbyerika.com/, built in Spanish (confirmed 2026-10-26) (preview: `public/vanilla-bake-preview.webp`).
 - Concept/demo work, not paying clients: Northside (barbershop), Vanity (beauty salon), Luxury real estate (`public/demos/`, preview images in `public/`). Never present these as client work.
 - Sunday Frame product assets in `public/assets/sunday-frame/`.
 - The Selected work section currently shows "Coming soon" while a new collection is prepared.
