@@ -320,6 +320,24 @@ input::placeholder, textarea::placeholder { color: var(--soft); opacity: 1; }
 .work-copy h3 { margin: 0 0 .85rem; font: 850 clamp(1.7rem, 3.4vw, 2.6rem)/.98 var(--display); font-variation-settings: "wdth" 105; text-transform: uppercase; text-wrap: balance; }
 .work-copy p { margin: 0 0 1.75rem; max-width: 46ch; line-height: 1.65; }
 .work-link { margin-top: auto; }
+.work-photos { grid-column: 1 / -1; display: grid; grid-template-columns: minmax(260px, .8fr) minmax(0, 2fr); }
+.work-photos .work-copy { border-right: 2.5px solid var(--blue); }
+.shoot { position: relative; min-width: 0; background: #f1f1ef; }
+.shoot .live-tag { z-index: 1; }
+.shoot-strip { list-style: none; display: flex; gap: .75rem; height: 100%; margin: 0; padding: 1rem; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: thin; scrollbar-color: var(--blue) transparent; }
+.shoot-strip li { flex: 0 0 auto; scroll-snap-align: start; }
+.shoot-strip img { display: block; height: clamp(300px, 30vw, 420px); width: auto; aspect-ratio: 3 / 4; object-fit: cover; border: 2px solid var(--blue); border-radius: 12px; }
+.shoot-strip:focus-visible { outline: 3px solid var(--pink); outline-offset: -3px; }
+@media (min-width: 761px) {
+  .shoot-strip { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); align-content: center; height: auto; overflow: visible; }
+  .shoot-strip li:first-child { grid-column: span 2; grid-row: span 2; }
+  .shoot-strip img { width: 100%; height: 100%; }
+}
+@media (max-width: 760px) {
+  .work-photos { grid-template-columns: 1fr; }
+  .work-photos .work-copy { border-right: 0; border-bottom: 2.5px solid var(--blue); }
+  .shoot-strip img { height: 340px; }
+}
 .work-next { display: flex; background: var(--yellow); }
 .work-next .work-copy { justify-content: center; }
 .work-next .work-link { margin-top: 0; }
@@ -438,7 +456,7 @@ p, summary, li { text-wrap: pretty; }
         <div>
           <h2 class="elastic-title" id="work-title" aria-label="Recent work"><span data-text="Recent work" aria-hidden="true">Recent work</span></h2>
           <svg class="scribble" viewBox="0 0 260 22" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M3 14c40-9 80-10 120-6s90 5 134-4"/></svg>
-          <p>Two live client sites, one concept build, and more projects wrapping up.</p>
+          <p>Two live client sites, a client photoshoot, one concept build, and more projects wrapping up.</p>
         </div>
       </div>
       <div class="work-grid">
@@ -472,7 +490,26 @@ p, summary, li { text-wrap: pretty; }
             <a class="btn small plain work-link" href="https://thevalleyflash.online/" target="_blank" rel="noopener noreferrer">Visit the live site<svg class="ext" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5"/></svg><span class="sr-only"> (opens in a new tab)</span></a>
           </div>
         </article>
-        <article class="work-card work-feature reveal" style="--d:.2s">
+        <article class="work-card work-photos reveal" style="--d:.2s">
+          <div class="work-copy">
+            <h3>Bloom Creative Media</h3>
+            <p>A brand photoshoot for Paola, a social media manager in McAllen. A clean studio set with her camera, laptop and her own signs, shot so she could introduce herself and her business on Instagram.</p>
+            <a class="btn small plain work-link" href="https://www.instagram.com/p/DRlPWdTjtfV/" target="_blank" rel="noopener noreferrer">See the post on Instagram<svg class="ext" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5"/></svg><span class="sr-only"> (opens in a new tab)</span></a>
+          </div>
+          <div class="shoot">
+            <span class="live-tag">Client photoshoot</span>
+            <ul class="shoot-strip" aria-label="Photos from the Bloom Creative Media shoot">
+              <li><img src="bloom-shoot-1.webp" alt="Paola in sunglasses on a director's chair, holding a 'You look like my next client' sign" loading="lazy" width="600" height="800"></li>
+              <li><img src="bloom-shoot-2.webp" alt="Paola crouching in a white studio, holding up her camera, with her signs scattered on the floor" loading="lazy" width="600" height="800"></li>
+              <li><img src="bloom-shoot-3.webp" alt="Paola standing with an open laptop in a black blazer" loading="lazy" width="600" height="800"></li>
+              <li><img src="bloom-shoot-4.webp" alt="Paola throwing her signs in the air with both arms up" loading="lazy" width="600" height="800"></li>
+              <li><img src="bloom-shoot-5.webp" alt="Paola crouching with her camera, picking up a 'Got a special event?' sign" loading="lazy" width="600" height="800"></li>
+              <li><img src="bloom-shoot-6.webp" alt="Close-up of Paola's laptop, coffee cup and camera beside her signs" loading="lazy" width="600" height="800"></li>
+              <li><img src="bloom-shoot-7.webp" alt="Paola walking across the studio with her camera in hand" loading="lazy" width="600" height="800"></li>
+            </ul>
+          </div>
+        </article>
+        <article class="work-card work-feature reveal" style="--d:.3s">
           <div class="work-image">
             <img src="brazos-bloom.webp" alt="Brazos &amp; Bloom Realty homepage: the name in large letters over a stone house at dusk, with a featured listing card" loading="lazy" width="960" height="600">
             <video class="work-video" muted playsinline loop preload="none" poster="brazos-bloom.webp" aria-hidden="true" tabindex="-1">
@@ -487,7 +524,7 @@ p, summary, li { text-wrap: pretty; }
             <a class="btn small plain work-link" href="demos/brazos-bloom/" target="_blank" rel="noopener noreferrer">Explore the concept<svg class="ext" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5"/></svg><span class="sr-only"> (opens in a new tab)</span></a>
           </div>
         </article>
-        <article class="work-card work-next reveal" style="--d:.3s">
+        <article class="work-card work-next reveal" style="--d:.4s">
           <div class="work-copy">
             <h3>Your business could be next</h3>
             <p>New website and brand projects are on the way. Get in early and yours could be the next one on this page.</p>
