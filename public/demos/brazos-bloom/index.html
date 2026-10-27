@@ -1,0 +1,1030 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Brazos &amp; Bloom Realty · Rooted in the Rio Grande Valley</title>
+<meta name="description" content="Brazos & Bloom Realty — Andrés and Lucía Villarreal, REALTORS®. Luxury homes, ranch and acreage, investment rentals and relocation across McAllen, Mission, Edinburg and Hidalgo County. Hablamos español.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23243a2e'/%3E%3Cpath d='M16 7c2.6 2.6 2.6 6.4 0 9-2.6-2.6-2.6-6.4 0-9Zm0 9c2.6-2.6 6.4-2.6 9 0-2.6 2.6-6.4 2.6-9 0Zm0 0c-2.6 2.6-6.4 2.6-9 0 2.6-2.6 6.4-2.6 9 0Z' fill='%23f4efe6'/%3E%3Cpath d='M7 23c3-2 6 2 9 0s6-2 9 0' stroke='%23d9784f' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
+<style>
+:root{
+  --bg:#f6f2eb;
+  --surface:#ffffff;
+  --sunk:#ede7dc;
+  --ink:#1b1a17;
+  --ink-2:#4a4740;
+  --muted:#6e685d;
+  --line:#e2dbcf;
+  --green:#243a2e;
+  --green-2:#2f4a3b;
+  --clay:#b9542f;
+  --clay-soft:#f3e2d8;
+  --radius:22px;
+  --radius-sm:14px;
+  --wrap:1320px;
+  --gut:clamp(16px,3vw,40px);
+  --ease:cubic-bezier(.22,.61,.36,1);
+  --out:cubic-bezier(.16,1,.3,1);
+  /* spacing roles: headline→intro, groups within a column, section head→content, between sections */
+  --gap-title:18px;
+  --gap-group:32px;
+  --gap-head:48px;
+  --gap-section:clamp(80px,11vw,140px);
+  --on-green-2:#b9c3b6;
+  --err:#a3401d;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--ink);font:400 16px/1.55 Geist,system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+svg.i{width:18px;height:18px;flex:none;stroke:currentColor;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--gut)}
+section{scroll-margin-top:80px}
+:focus-visible{outline:2px solid var(--clay);outline-offset:3px}
+::selection{background:var(--clay);color:#fff}
+html{scrollbar-color:#cbc2b3 var(--bg);accent-color:var(--clay)}
+input,textarea{caret-color:var(--clay)}
+h1,h2,h3{text-wrap:balance}
+p,dd{text-wrap:pretty}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+.skip{position:absolute;left:16px;top:-64px;z-index:100;background:var(--ink);color:#fff;padding:10px 18px;border-radius:99px;font-size:14px;font-weight:500;transition:top .2s}
+.skip:focus{top:12px}
+
+/* shared bits */
+.h2{font-size:clamp(34px,4.6vw,60px);line-height:1.04;font-weight:500;letter-spacing:-.035em}
+.lede{color:var(--ink-2);font-size:17px;max-width:46ch}
+.sec{padding-bottom:var(--gap-section)}
+.sec-head{display:flex;justify-content:space-between;align-items:flex-end;gap:var(--gap-group);margin-bottom:var(--gap-head)}
+.btn{display:inline-flex;align-items:center;gap:10px;height:50px;padding:0 8px 0 22px;border-radius:99px;background:var(--ink);color:#fff;font-weight:500;font-size:15px;transition:background .25s var(--ease),transform .25s var(--ease)}
+.btn .dot{display:grid;place-items:center;width:36px;height:36px;border-radius:50%;background:#fff;color:var(--ink);transition:transform .3s var(--ease)}
+.btn:hover .dot{transform:rotate(-45deg)}
+.btn:hover{background:var(--green)}
+/* pressed: every tappable thing gives way a little under the finger */
+.btn:active,.feat-row a:active,.filters button:active,.chips label:active span,.spec-item:active,.socials a:active,.callbar a:active,.nav-cta:active,summary:active .pm{transform:scale(.97)}
+.btn.light{background:#fff;color:var(--ink)}
+.btn.light .dot{background:var(--ink);color:#fff}
+.btn.light:hover{background:var(--clay-soft)}
+.btn.ghost{background:transparent;border:1px solid rgba(255,255,255,.45);padding:0 22px}
+.btn.ghost:hover{background:rgba(255,255,255,.12)}
+
+/* nav */
+.nav{position:fixed;inset:0 0 auto;z-index:50;transition:background .35s var(--ease),color .35s var(--ease),box-shadow .35s var(--ease),transform .45s var(--out);color:#fff;animation:nav-in .7s .55s var(--out) both}
+.nav.tucked{transform:translateY(-100%)}
+.nav:focus-within{transform:none}
+@keyframes nav-in{from{opacity:0;translate:0 -10px}}
+.nav .wrap{display:flex;align-items:center;height:76px;gap:24px}
+.nav.solid{background:var(--bg);color:var(--ink);box-shadow:0 1px 0 var(--line)}
+.logo{display:flex;align-items:center;gap:10px;font-weight:500;font-size:18px;letter-spacing:-.02em;white-space:nowrap}
+.logo svg{width:30px;height:30px}
+.nav-links{display:flex;gap:30px;margin:0 auto;font-size:15px}
+.nav-links a{opacity:.82;transition:opacity .2s}
+.nav-links a:hover{opacity:1}
+.nav-links a{position:relative}
+.nav-links a::after{content:"";position:absolute;left:0;right:0;bottom:-7px;height:1.5px;border-radius:2px;background:currentColor;transform:scaleX(0);transition:transform .3s var(--out)}
+.nav-links a[aria-current="true"]{opacity:1}
+.nav-links a[aria-current="true"]::after{transform:scaleX(1)}
+.nav-right{display:flex;align-items:center;gap:14px}
+.lang{display:flex;border:1px solid currentColor;border-radius:99px;padding:3px;font-size:12.5px;font-weight:600;opacity:.9}
+.lang button{padding:5px 10px;border-radius:99px;letter-spacing:.04em}
+.lang button[aria-pressed="true"]{background:currentColor}
+.lang button[aria-pressed="true"] span{color:var(--ink)}
+.nav.solid .lang button[aria-pressed="true"] span{color:#fff}
+.nav-cta{display:inline-flex;align-items:center;gap:8px;font-size:15px;font-weight:500}
+.nav-cta svg{transition:transform .3s var(--ease)}
+.nav-cta:hover svg{transform:translate(2px,-2px)}
+.burger{display:none;width:42px;height:42px;border-radius:50%;border:1px solid currentColor;place-items:center}
+.menu{position:fixed;inset:0;z-index:60;background:var(--green);color:#f6f2eb;padding:24px var(--gut);display:flex;flex-direction:column;transform:translateY(-100%);transition:transform .5s var(--ease);visibility:hidden}
+.menu.open{transform:none;visibility:visible}
+.menu-top{display:flex;justify-content:space-between;align-items:center;height:28px}
+.menu nav{display:flex;flex-direction:column;gap:6px;margin-top:56px}
+.menu nav a{font-size:40px;letter-spacing:-.03em;font-weight:500}
+.menu.open nav a{animation:arrive .55s var(--out) both}
+.menu.open nav a:nth-child(2){animation-delay:.04s}.menu.open nav a:nth-child(3){animation-delay:.08s}.menu.open nav a:nth-child(4){animation-delay:.12s}.menu.open nav a:nth-child(5){animation-delay:.16s}
+.menu .lang button{padding:9px 16px}
+.menu .menu-foot{margin-top:auto;display:grid;gap:8px;font-size:15px;opacity:.8}
+
+/* hero */
+.hero{position:relative;min-height:max(680px,100svh);color:#fff;overflow:hidden;display:flex;flex-direction:column}
+.hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;animation:settle 2.4s var(--out) both}
+@keyframes settle{from{transform:scale(1.06)}}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(25deg,rgba(20,18,14,.72) 0%,rgba(20,18,14,.35) 38%,rgba(20,18,14,0) 60%),linear-gradient(180deg,rgba(20,18,14,.94) 0%,rgba(20,18,14,.78) 16%,rgba(20,18,14,.48) 34%,rgba(20,18,14,.18) 50%,rgba(20,18,14,.12) 58%,rgba(20,18,14,.8) 100%)}
+.hero-word{position:relative;z-index:1;padding-top:96px;text-align:center;font-size:clamp(54px,11.4vw,196px);font-weight:500;letter-spacing:-.04em;line-height:.9;color:rgba(255,255,255,.9);white-space:nowrap}
+.hero-word span{display:inline-block;animation:rise 1.6s var(--out) both}
+.hero-word span:nth-child(2){animation-delay:.08s;color:#f3c9b2}
+.hero-word span:nth-child(3){animation-delay:.16s}
+@keyframes rise{from{transform:translateY(16%);letter-spacing:.02em}}
+/* hero motion: the photo opens out from a rounded card like a bud on load,
+   then folds back into one as you scroll past it */
+.hero{animation:bloom 1.3s var(--out) both}
+@keyframes bloom{from{clip-path:inset(7% 5% 7% 5% round 36px)}to{clip-path:inset(0 0 0 0 round 0)}}
+.hero-bottom>*{animation:arrive .8s var(--out) both}
+.hero-bottom>:first-child{animation-delay:.45s}
+.hero-bottom>:last-child{animation-delay:.6s}
+@keyframes arrive{from{opacity:0;translate:0 22px}}
+@supports (animation-timeline:scroll()){
+  /* 1px start keeps the load bloom in charge while the page sits at the top */
+  .hero{animation:bloom 1.3s var(--out) both,fold linear none;animation-timeline:auto,scroll(root);animation-range:normal,1px 100vh}
+  .hero-img{animation:settle 2.4s var(--out) both,deepen linear none;animation-timeline:auto,scroll(root);animation-range:normal,1px 100vh}
+  .hero-word{animation:drift linear none;animation-timeline:scroll(root);animation-range:1px 75vh}
+}
+@keyframes fold{from{clip-path:inset(0 0 0 0 round 0)}to{clip-path:inset(0 calc(var(--gut) * .6) 0 calc(var(--gut) * .6) round 0 0 32px 32px)}}
+@keyframes deepen{to{scale:1.08}}
+@keyframes drift{to{translate:0 -35%;opacity:.2}}
+.hero-bottom{position:relative;z-index:1;width:100%;margin-top:auto;padding-bottom:40px;display:grid;grid-template-columns:1fr 1fr;align-items:end;gap:28px 32px}
+.hero-copy .tagline{font-size:clamp(26px,2.5vw,34px);font-weight:500;letter-spacing:-.025em;line-height:1.12;max-width:18ch;margin-bottom:14px}
+.hero-copy .sub{font-size:16.5px;line-height:1.55;max-width:40ch;color:rgba(255,255,255,.88);margin-bottom:28px}
+.hero-actions{display:flex;flex-wrap:wrap;gap:10px}
+.feat{justify-self:end;width:min(360px,100%);background:var(--surface);color:var(--ink);border-radius:var(--radius);padding:10px;box-shadow:0 20px 60px -20px rgba(0,0,0,.45)}
+.feat-thumbs{position:relative;display:grid;grid-template-columns:1.4fr 1fr;gap:6px}
+.feat-thumbs img{width:100%;height:118px;object-fit:cover;border-radius:14px}
+.feat-body{padding:14px 8px 6px}
+.feat-body h2{font-size:18px;font-weight:500;letter-spacing:-.02em;margin-bottom:2px}
+.feat-body p{font-size:13.5px;color:var(--muted)}
+.feat-row{display:flex;justify-content:space-between;align-items:center;margin-top:14px}
+.feat-row strong{font-size:20px;font-weight:500;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.feat-row a{display:inline-flex;align-items:center;gap:6px;height:40px;padding:0 16px;border-radius:99px;background:var(--ink);color:#fff;font-size:14px;font-weight:500}
+.feat-row a:hover{background:var(--green)}
+.feat-row a svg{width:15px;height:15px}
+
+/* at a glance */
+.about{padding-top:clamp(56px,7vw,88px);padding-bottom:var(--gap-section)}
+
+.facts{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line);text-align:left}
+.facts div{padding:26px 28px 28px 0}
+.facts div+div{padding-left:28px;border-left:1px solid var(--line)}
+.facts dt{font-size:13px;font-weight:500;color:var(--muted)}
+.facts dd{margin-top:6px;font-size:clamp(17px,1.5vw,20px);font-weight:500;letter-spacing:-.015em;line-height:1.3}
+
+/* listings */
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px}
+.filters button{height:40px;padding:0 18px;border-radius:99px;border:1px solid var(--line);background:var(--surface);font-size:14px;font-weight:500;color:var(--ink-2);transition:all .2s}
+.filters button:hover{border-color:var(--ink)}
+.filters button[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:#fff}
+.filters button[data-count]::after{content:attr(data-count);margin-left:8px;font-variant-numeric:tabular-nums;opacity:.55}
+.grid-list{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.card{position:relative;border-radius:var(--radius);overflow:hidden;aspect-ratio:4/5;background:var(--sunk);isolation:isolate}
+.card.hide{display:none}
+.card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1s var(--ease)}
+.card:hover img{transform:scale(1.05)}
+.grid-list.stage .card{opacity:0;translate:0 32px}
+.grid-list.stage.in .card{opacity:1;translate:0 0;transition:opacity .7s var(--out),translate .9s var(--out),transform .2s var(--out);transition-delay:calc(var(--i) * 70ms),calc(var(--i) * 70ms),0s}
+::view-transition-group(*){animation-duration:.5s;animation-timing-function:cubic-bezier(.16,1,.3,1)}
+::view-transition-old(root),::view-transition-new(root){animation-duration:.28s}
+.card{transition:transform .2s var(--out)}
+.card:active{transform:scale(.985)}
+.card .badge,.feat .badge{position:absolute;top:14px;left:14px;padding:6px 12px;border-radius:99px;background:var(--surface);font-size:12.5px;font-weight:500}
+.badge.clay{background:var(--clay);color:#fff}
+.card-info{position:absolute;left:10px;right:10px;bottom:10px;background:var(--surface);border-radius:16px;padding:16px 16px 14px}
+.card-info .top{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}
+.card-info h3{font-size:19px;font-weight:500;letter-spacing:-.02em;line-height:1.2}
+.card-info .loc{display:flex;align-items:center;gap:6px;color:var(--muted);font-size:13.5px;margin-top:4px}
+.card-info .loc svg{width:14px;height:14px}
+.arrow{display:grid;place-items:center;width:36px;height:36px;border-radius:50%;border:1px solid var(--line);flex:none;transition:all .3s var(--ease)}
+.card:hover .arrow{background:var(--ink);color:#fff;border-color:var(--ink);transform:rotate(-45deg)}
+.card-info .bot{display:flex;justify-content:space-between;align-items:center;margin-top:14px;padding-top:12px;border-top:1px solid var(--line)}
+.specs{display:flex;gap:12px;font-size:13px;color:var(--ink-2)}
+.specs span{display:flex;align-items:center;gap:5px}
+.specs svg{width:15px;height:15px}
+.price{font-size:19px;font-weight:500;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.note{margin-top:22px;font-size:13px;color:var(--muted)}
+.note a{color:var(--ink);font-weight:500;text-decoration:underline;text-underline-offset:3px}
+.note a:hover{color:var(--clay)}
+
+/* specialties */
+.spec-intro{margin-top:var(--gap-title)}
+.spec-wrap{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,4vw,56px);margin-top:var(--gap-head);align-items:start}
+.spec-list{position:relative;display:flex;flex-direction:column;gap:6px}
+.spec-pill{position:absolute;left:0;right:0;top:0;border-radius:18px;background:var(--surface);box-shadow:0 1px 0 var(--line);transition:transform .5s var(--out),height .5s var(--out);pointer-events:none}
+.spec-item{display:flex;justify-content:space-between;align-items:center;width:100%;text-align:left;padding:22px 26px;border-radius:18px;font-size:clamp(24px,2.6vw,36px);letter-spacing:-.03em;font-weight:500;color:#8a8376;transition:background .3s,color .3s}
+.spec-item:hover{color:var(--ink-2)}
+.spec-item{position:relative}
+.spec-item[aria-selected="true"]{color:var(--ink)}
+.spec-panel{position:sticky;top:100px}
+.spec-img{position:relative;aspect-ratio:5/4;border-radius:var(--radius);overflow:hidden;background:var(--sunk)}
+.spec-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;scale:1.05;transition:opacity .6s var(--ease),scale 1.4s var(--out)}
+.spec-img img.on{opacity:1;scale:1}
+.spec-text{margin-top:24px}
+.spec-text h3{font-size:20px;font-weight:500;letter-spacing:-.02em;margin-bottom:8px}
+.spec-text p{color:var(--ink-2);max-width:52ch}
+.spec-text ul{list-style:none;display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.spec-text li{font-size:13px;padding:6px 12px;border-radius:99px;background:var(--sunk);color:var(--ink-2)}
+
+
+/* team */
+.team-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(28px,5vw,72px);align-items:center}
+.team-photo{position:relative;border-radius:var(--radius);overflow:hidden;aspect-ratio:4/5}
+.team-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 38%}
+.team-photo .cap{position:absolute;left:14px;bottom:14px;right:14px;display:flex;justify-content:space-between;align-items:center;background:var(--surface);border-radius:16px;padding:14px 16px;font-size:14px}
+.team-photo .cap b{font-weight:500}
+.team-photo .cap span{color:var(--muted)}
+.people{display:grid;gap:12px;margin-top:var(--gap-group)}
+.person{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:22px 22px 20px}
+.person header{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.person h3{font-size:21px;font-weight:500;letter-spacing:-.02em}
+.person header span{font-size:13px;color:var(--clay);font-weight:500}
+.person p{color:var(--ink-2);margin-top:8px;font-size:15.5px}
+.team-meta{display:flex;flex-wrap:wrap;gap:22px;margin-top:22px;font-size:14px;color:var(--ink-2)}
+.team-meta span{display:flex;align-items:center;gap:8px}
+
+/* staging */
+.staging{padding-bottom:var(--gap-section)}
+.stage-card{display:grid;grid-template-columns:1fr 1fr;background:var(--surface);border:1px solid var(--line);border-radius:28px;overflow:hidden}
+.stage-pics{position:relative;min-height:520px}
+.stage-pics img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.stage-pics .ba{position:absolute;top:18px;left:18px;padding:6px 12px;border-radius:99px;background:var(--clay);color:#fff;font-size:12.5px;font-weight:500}
+.stage-body{padding:clamp(28px,5vw,64px);display:flex;flex-direction:column}
+.stage-body .h2{font-size:clamp(30px,3.6vw,48px);margin:0 0 var(--gap-title)}
+.steps{list-style:none;margin:30px 0 34px;display:grid;gap:0}
+.steps li{display:grid;grid-template-columns:44px 1fr;gap:14px;padding:16px 0;border-top:1px solid var(--line)}
+.steps li:last-child{border-bottom:1px solid var(--line)}
+@supports (animation-timeline:view()){
+  .steps li{position:relative}
+  .steps li::before{content:"";position:absolute;left:0;right:0;top:-1px;height:1px;background:var(--ink);transform-origin:left;transform:scaleX(0);animation:draw linear both;animation-timeline:view();animation-range:entry 30% cover 45%}
+  .foot-word{animation:bookend linear both;animation-timeline:view();animation-range:entry 0% entry 90%}
+}
+@keyframes draw{to{transform:scaleX(1)}}
+@keyframes bookend{from{opacity:0;translate:0 30%;letter-spacing:.01em}}
+.steps i{font-style:normal;font-size:13px;color:var(--muted);padding-top:3px}
+.steps b{font-weight:500;display:block}
+.steps p{font-size:14.5px;color:var(--ink-2)}
+.stage-body .btn{align-self:flex-start;margin-top:auto}
+
+/* faq */
+.faq-wrap{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(28px,5vw,80px);align-items:start}
+.faq-side{position:sticky;top:110px}
+.faq-side .lede{margin-top:var(--gap-title)}
+.faq-side .ask{margin-top:var(--gap-group);background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:20px;display:flex;gap:14px;align-items:center}
+.faq-side .ask .ico{width:46px;height:46px;border-radius:50%;background:var(--clay-soft);color:var(--clay);display:grid;place-items:center;flex:none}
+.faq-side .ask b{font-weight:500;display:block}
+.faq-side .ask a{color:var(--clay);font-weight:500;font-size:15px}
+.faq-list{display:grid;gap:10px}
+details{background:var(--surface);border:1px solid var(--line);border-radius:18px;transition:border-color .25s}
+details[open]{border-color:#cfc6b7}
+summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:22px 24px;font-size:clamp(17px,1.5vw,20px);font-weight:500;letter-spacing:-.015em}
+summary::-webkit-details-marker{display:none}
+summary .pm{width:32px;height:32px;border-radius:50%;background:var(--sunk);display:grid;place-items:center;flex:none;transition:transform .3s var(--ease),background .3s}
+summary .pm svg{width:16px;height:16px}
+details[open] summary .pm{transform:rotate(45deg);background:var(--ink);color:#fff}
+details .ans{padding:0 24px 22px;color:var(--ink-2);max-width:62ch}
+:root{interpolate-size:allow-keywords}
+details::details-content{block-size:0;overflow:clip;transition:block-size .45s var(--out),content-visibility .45s allow-discrete}
+details[open]::details-content{block-size:auto}
+
+/* contact */
+.contact{padding-bottom:0}
+.contact-card{position:relative;border-radius:28px;overflow:hidden;color:#fff;isolation:isolate;display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,4vw,56px);padding:clamp(28px,5vw,64px)}
+.contact-card>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
+.contact-card::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(100deg,rgba(18,28,22,.88) 0%,rgba(18,28,22,.7) 50%,rgba(18,28,22,.35) 100%)}
+.contact-card .h2{margin:0 0 var(--gap-title)}
+.contact-card .lede{color:rgba(255,255,255,.8)}
+.info{display:grid;gap:14px;margin-top:34px;font-size:15px}
+.info a,.info div{display:flex;gap:12px;align-items:flex-start}
+.info a:hover{color:#f3c9b2}
+.info svg{margin-top:2px}
+form.lead{background:var(--surface);color:var(--ink);border-radius:22px;padding:clamp(20px,3vw,32px);display:grid;gap:14px;align-self:start}
+form.lead h3{font-size:22px;font-weight:500;letter-spacing:-.02em}
+form.lead .row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+form.lead label{display:grid;gap:6px;font-size:13px;font-weight:500;color:var(--ink-2)}
+form.lead input,form.lead select,form.lead textarea{font:inherit;font-size:15px;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:12px 14px;width:100%;transition:border-color .2s}
+form.lead textarea{min-height:96px;resize:vertical}
+form.lead input:focus,form.lead select:focus,form.lead textarea:focus{outline:none;border-color:var(--ink)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips label{display:block;font-size:14px;color:var(--ink)}
+.chips input{position:absolute;opacity:0;pointer-events:none}
+.chips span{display:inline-block;padding:9px 14px;border-radius:99px;border:1px solid var(--line);cursor:pointer;transition:all .2s;font-weight:500}
+.chips input:checked+span{background:var(--ink);border-color:var(--ink);color:#fff}
+.chips input:focus-visible+span{outline:2px solid var(--clay);outline-offset:2px}
+form.lead .btn{justify-self:start;margin-top:4px}
+form.lead .fine{font-size:12.5px;color:var(--muted)}
+form.lead .hint{display:none;font-size:12.5px;font-weight:500;color:var(--err)}
+form.lead input:user-invalid,form.lead.tried input:invalid{border-color:var(--err)}
+form.lead label:has(input:user-invalid) .hint,form.lead.tried label:has(input:invalid) .hint{display:block}
+form.lead textarea.flash{animation:flash 1.8s var(--out)}
+@keyframes flash{from{background:var(--clay-soft);border-color:var(--clay)}}
+.sent a{color:var(--clay);font-weight:500;text-decoration:underline;text-underline-offset:3px}
+.sent{animation:arrive .5s var(--out) both;display:none;gap:12px;align-items:flex-start;padding:12px 14px;border-radius:12px;background:var(--clay-soft);color:var(--ink);font-size:14px}
+.sent b{font-weight:500}
+/* the brand's bloom opens once, beside the thank-you */
+.sent-bloom{width:30px;height:30px;flex:none;margin-top:-2px}
+.sent-bloom path{fill:var(--clay);transform-box:view-box;transform-origin:16px 15.8px;animation:petal .7s var(--out) both}
+.sent-bloom .p2{animation-delay:.12s}.sent-bloom .p3{animation-delay:.24s}
+.sent-bloom .stem{fill:none;stroke:var(--green);stroke-width:2;stroke-linecap:round;stroke-dasharray:24;animation:stem .8s .3s var(--out) both}
+@keyframes petal{from{transform:scale(0) rotate(-30deg);opacity:0}}
+@keyframes stem{from{stroke-dashoffset:24}}
+.open-now{display:flex;align-items:center;gap:8px;margin-top:10px;font-size:13.5px;font-weight:500;color:#fff}
+.open-now:empty{display:none}
+.open-now::before{content:"";width:8px;height:8px;border-radius:50%;background:#f3c9b2;box-shadow:0 0 0 3px rgba(243,201,178,.25)}
+.open-now.closed{color:rgba(255,255,255,.75)}
+.open-now.closed::before{background:transparent;border:1.5px solid rgba(255,255,255,.6);box-shadow:none}
+.hola{position:fixed;z-index:65;border:1px solid rgba(246,242,235,.16);top:88px;right:var(--gut);max-width:min(340px,calc(100vw - 32px));padding:12px 16px;border-radius:14px;background:var(--green);color:#f6f2eb;font-size:14px;line-height:1.4;box-shadow:0 18px 40px -18px rgba(0,0,0,.45);opacity:0;translate:0 -8px;pointer-events:none;transition:opacity .3s var(--out),translate .4s var(--out)}
+.hola.show{opacity:1;translate:0 0}
+.hola b{font-weight:500;color:#f3c9b2}
+
+/* footer */
+footer{background:var(--green);color:#f6f2eb;margin-top:var(--gap-section);padding:clamp(56px,7vw,90px) 0 28px;overflow:hidden}
+.foot-top{display:grid;grid-template-columns:1.3fr repeat(3,1fr);gap:40px}
+.foot-top p{color:var(--on-green-2);font-size:15px;max-width:34ch;margin-top:16px}
+.foot-top h4{font-size:13px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--on-green-2);margin-bottom:14px}
+.foot-top ul{list-style:none;display:grid;gap:9px;font-size:15px}
+.foot-top ul a{opacity:.85}
+.foot-top ul a:hover{opacity:1;color:#f3c9b2}
+.socials{display:flex;gap:8px;margin-top:22px}
+.socials a{width:44px;height:44px;border-radius:50%;border:1px solid rgba(246,242,235,.25);display:grid;place-items:center;transition:background .2s}
+.socials a:hover{background:rgba(246,242,235,.1)}
+.foot-word{font-size:clamp(56px,12.6vw,220px);font-weight:500;letter-spacing:-.04em;line-height:.85;margin:clamp(48px,7vw,90px) 0 26px;color:rgba(246,242,235,.1);white-space:nowrap;text-align:center}
+.foot-legal{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 28px;font-size:13px;color:var(--on-green-2);padding-top:22px;border-top:1px solid rgba(246,242,235,.14)}
+.foot-legal nav{display:flex;flex-wrap:wrap;gap:8px 20px}
+.foot-legal a:hover{text-decoration:underline;text-underline-offset:3px;color:#f6f2eb}
+
+.callbar{display:none}
+
+@media (max-width:1080px){
+  .nav-links{display:none}
+  .nav-right{margin-left:auto}
+  .grid-list{grid-template-columns:repeat(2,1fr)}
+  .facts{grid-template-columns:repeat(2,1fr)}
+  .facts div:nth-child(3){padding-left:0;border-left:0}
+  .facts div:nth-child(n+3){border-top:1px solid var(--line)}
+  .foot-top{grid-template-columns:1fr 1fr}
+}
+@media (max-width:820px){
+  .nav-cta{display:none}
+  .burger{display:grid}
+  .hero-bottom{grid-template-columns:1fr;gap:24px}
+  .hero::after{background:linear-gradient(180deg,rgba(20,18,14,.94) 0%,rgba(20,18,14,.74) 14%,rgba(20,18,14,.45) 28%,rgba(20,18,14,.74) 48%,rgba(20,18,14,.86) 100%)}
+  .feat{justify-self:stretch;width:100%}
+  .feat-thumbs img{height:96px}
+  .sec-head{flex-direction:column;align-items:flex-start}
+  .spec-wrap,.team-grid,.stage-card,.faq-wrap,.contact-card{grid-template-columns:1fr}
+  .spec-panel,.faq-side{position:static}
+  .spec-panel{order:-1}
+  .stage-pics{min-height:320px}
+  .team-photo{aspect-ratio:4/3.4}
+  .team-photo img{object-position:50% 34%}
+}
+@media (max-width:600px){
+  .lang{display:none}
+  .filters button{height:44px}
+  .hero{min-height:auto}
+  .hero-bottom{padding-top:140px}
+  .hero-word{white-space:normal;padding-top:108px;font-size:clamp(56px,19vw,110px);text-align:left;padding-left:var(--gut);padding-right:var(--gut);line-height:.88}
+  .grid-list{grid-template-columns:1fr}
+  .card{aspect-ratio:4/4.6}
+  .facts{grid-template-columns:1fr}
+  .facts div,.facts div+div{padding:18px 0;border-left:0}
+  .facts div+div{border-top:1px solid var(--line)}
+  .spec-item{padding:16px 18px}
+  form.lead .row{grid-template-columns:1fr}
+  .foot-top{grid-template-columns:1fr}
+  .foot-word{white-space:normal;text-align:left}
+  .callbar{display:grid;grid-template-columns:1fr 1fr;gap:8px;position:fixed;left:0;right:0;bottom:0;z-index:40;padding:10px 16px calc(10px + env(safe-area-inset-bottom));background:var(--bg);border-top:1px solid var(--line)}
+  .callbar a{display:flex;align-items:center;justify-content:center;gap:8px;height:48px;border-radius:99px;font-weight:500;font-size:15px;border:1px solid var(--ink)}
+  .callbar a:last-child{background:var(--ink);color:#fff}
+  footer{padding-bottom:96px}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-delay:0s!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
+  .hero,.hero-img,.hero-word,.hero-word span,.hero-bottom>*,.nav,.steps li::before,.foot-word,.menu.open nav a,.sent{animation:none!important}
+  .steps li::before{display:none}
+  .sent-bloom path{animation:none!important}
+  .spec-img img{scale:1}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#about" data-es="Saltar al contenido">Skip to content</a>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="arrow" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></symbol>
+  <symbol id="pin" viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/></symbol>
+  <symbol id="bed" viewBox="0 0 24 24"><path d="M3 18V7m0 7h18v4m0-4v-2a3 3 0 0 0-3-3h-7v5"/><circle cx="7" cy="11" r="1.6"/></symbol>
+  <symbol id="bath" viewBox="0 0 24 24"><path d="M4 12h16v2a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5v-2Zm2 0V6a2 2 0 0 1 3.7-1M7 19l-1 2m11-2 1 2"/></symbol>
+  <symbol id="area" viewBox="0 0 24 24"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5m11-5v5h-5"/></symbol>
+  <symbol id="acre" viewBox="0 0 24 24"><path d="M3 20h18M5 20V10m4 10V10m6 10V10m4 10V10M3 13h18M3 10h18"/></symbol>
+  <symbol id="phone" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2Z"/></symbol>
+  <symbol id="mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></symbol>
+  <symbol id="clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+  <symbol id="globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 2.5 15.3 0 18M12 3c-2.5 2.7-2.5 15.3 0 18"/></symbol>
+  <symbol id="plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+  <symbol id="chat" viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4V5Z"/></symbol>
+  <symbol id="ig" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r=".6" fill="currentColor"/></symbol>
+  <symbol id="fb" viewBox="0 0 24 24"><path d="M14 8h3V4.5h-3A4 4 0 0 0 10 8.5V11H7v3.5h3V21h3.5v-6.5h3l.5-3.5h-3.5V8.8c0-.5.3-.8.5-.8Z"/></symbol>
+  <symbol id="tt" viewBox="0 0 24 24"><path d="M14 3v11.5a3.5 3.5 0 1 1-3.5-3.5M14 3c.4 2.7 2.3 4.6 5 5"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 9h16M4 15h16"/></symbol>
+  <symbol id="close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+  <symbol id="mark" viewBox="0 0 32 32"><rect width="32" height="32" rx="9" fill="currentColor" stroke="none"/><path d="M16 6.5c2.7 2.7 2.7 6.6 0 9.3-2.7-2.7-2.7-6.6 0-9.3Zm0 9.3c2.7-2.7 6.6-2.7 9.3 0-2.7 2.7-6.6 2.7-9.3 0Zm0 0c-2.7 2.7-6.6 2.7-9.3 0 2.7-2.7 6.6-2.7 9.3 0Z" fill="var(--mark-fg,#f6f2eb)" stroke="none"/><path d="M6.5 23c3.2-2.1 6.3 2.1 9.5 0s6.3-2.1 9.5 0" stroke="#d9784f" stroke-width="2" fill="none" stroke-linecap="round"/></symbol>
+</svg>
+
+<header class="nav" id="nav">
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="Brazos &amp; Bloom Realty, home"><svg aria-hidden="true" style="color:var(--green)"><use href="#mark"/></svg>Brazos &amp; Bloom</a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#listings" data-es="Propiedades">Listings</a>
+      <a href="#specialties" data-es="Servicios">Specialties</a>
+      <a href="#team" data-es="Nosotros">About</a>
+      <a href="#faq" data-es="Preguntas">FAQ</a>
+    </nav>
+    <div class="nav-right">
+      <div class="lang" role="group" aria-label="Language">
+        <button type="button" data-lang="en" aria-pressed="true"><span>EN</span></button>
+        <button type="button" data-lang="es" aria-pressed="false"><span>ES</span></button>
+      </div>
+      <a class="nav-cta" href="#contact"><span data-es="Agenda una visita">Book a visit</span><svg class="i"><use href="#arrow"/></svg></a>
+      <button class="burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="menu"><svg class="i"><use href="#i-menu"/></svg></button>
+    </div>
+  </div>
+</header>
+
+<div class="menu" id="menu" aria-hidden="true">
+  <div class="menu-top">
+    <span class="logo"><svg aria-hidden="true" style="color:#f6f2eb;--mark-fg:var(--green)"><use href="#mark"/></svg>Brazos &amp; Bloom</span>
+    <button class="burger" type="button" aria-label="Close menu" style="display:grid"><svg class="i"><use href="#close"/></svg></button>
+  </div>
+  <nav aria-label="Mobile">
+    <a href="#listings" data-es="Propiedades">Listings</a>
+    <a href="#specialties" data-es="Servicios">Specialties</a>
+    <a href="#team" data-es="Nosotros">About</a>
+    <a href="#faq" data-es="Preguntas">FAQ</a>
+    <a href="#contact" data-es="Contacto">Contact</a>
+  </nav>
+  <div class="menu-foot">
+    <div class="lang" role="group" aria-label="Language" style="display:flex;align-self:start;width:max-content;margin-bottom:12px">
+      <button type="button" data-lang="en" aria-pressed="true"><span>EN</span></button>
+      <button type="button" data-lang="es" aria-pressed="false"><span>ES</span></button>
+    </div>
+    <a href="tel:+19565550173">(956) 555-0173</a>
+    <a href="mailto:hola@brazosbloomrealty.example">hola@brazosbloomrealty.example</a>
+  </div>
+</div>
+
+<main id="top">
+  <!-- HERO -->
+  <section class="hero" aria-label="Introduction">
+    <img class="hero-img" src="https://images.unsplash.com/photo-1756435292384-1bf32eff7baf?w=2200&q=80&auto=format&fit=crop" alt="Stone-and-stucco luxury home at sunset" fetchpriority="high">
+    <h1 class="hero-word" aria-label="Brazos &amp; Bloom Realty"><span>Brazos</span> <span>&amp;</span> <span>Bloom</span></h1>
+    <div class="wrap hero-bottom">
+      <div class="hero-copy">
+        <p class="tagline" data-es="Arraigados en el Valle del Río Grande.">Rooted in the Rio Grande Valley.</p>
+        <p class="sub" data-es="Casas de lujo, ranchos y propiedades de inversión en McAllen, Mission y Edinburg — con un equipo que te habla claro, en inglés o en español.">Luxury homes, ranchland and investment property across McAllen, Mission and Edinburg — with a team that gives it to you straight, in English or Spanish.</p>
+        <div class="hero-actions">
+          <a class="btn light" href="#listings"><span data-es="Ver propiedades">Browse listings</span><span class="dot"><svg class="i"><use href="#arrow"/></svg></span></a>
+          <a class="btn ghost" href="tel:+19565550173">(956) 555-0173</a>
+        </div>
+      </div>
+      <article class="feat">
+        <div class="feat-thumbs">
+          <span class="badge clay" data-es="Destacada">Featured</span>
+          <img src="https://images.unsplash.com/photo-1635111300299-e6e677daf7b7?w=500&h=240&q=75&auto=format&fit=crop" alt="Pool framed by palms">
+          <img src="https://images.unsplash.com/photo-1600210491892-03d54c0aaf87?w=340&h=240&q=75&auto=format&fit=crop" alt="Living room with fireplace">
+        </div>
+        <div class="feat-body">
+          <h2>Tres Palmas Residence</h2>
+          <p>Palmhurst, TX · 5 bd · 4.5 ba · 4,950 sq ft</p>
+          <div class="feat-row">
+            <strong>$1,150,000</strong>
+            <a href="#contact" data-home="Tres Palmas Residence"><span data-es="Ver">View home</span><svg class="i"><use href="#arrow"/></svg></a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ABOUT / STATEMENT -->
+  <section class="about wrap" id="about" aria-label="At a glance">
+    <dl class="facts">
+      <div><dt data-es="Fundada">Founded</dt><dd>2018</dd></div>
+      <div><dt data-es="Equipo">Team</dt><dd data-es="6 agentes + 1 coordinadora de cierres">6 agents + 1 transaction coordinator</dd></div>
+      <div><dt data-es="Idiomas">Languages</dt><dd data-es="Inglés y español">English and Spanish</dd></div>
+      <div><dt data-es="Para vendedores">For sellers</dt><dd data-es="Consulta de staging gratis en cada listado">Free staging consultation on every listing</dd></div>
+    </dl>
+  </section>
+
+  <!-- LISTINGS -->
+  <section class="sec wrap" id="listings" aria-labelledby="list-h">
+    <div class="sec-head">
+      <div>
+        <h2 class="h2" id="list-h" data-es="Casas con raíces<br>en el Valle">Homes with roots<br>in the Valley</h2>
+      </div>
+      <p class="lede" data-es="Desde Sharyland Plantation hasta terrenos en el condado rural de Hidalgo — cada propiedad la recorremos nosotros antes de mostrártela.">From Sharyland Plantation to acreage in rural Hidalgo County — we walk every property ourselves before we ever show it to you.</p>
+    </div>
+
+    <div class="filters" role="group" aria-label="Filter listings">
+      <button type="button" data-filter="all" aria-pressed="true" data-es="Todas">All</button>
+      <button type="button" data-filter="luxury" aria-pressed="false" data-es="Lujo">Luxury</button>
+      <button type="button" data-filter="ranch" aria-pressed="false" data-es="Ranchos y terrenos">Ranch &amp; acreage</button>
+      <button type="button" data-filter="invest" aria-pressed="false" data-es="Inversión">Investment</button>
+    </div>
+
+    <div class="grid-list" id="grid">
+      <a class="card" data-type="luxury" href="#contact">
+        <img src="https://images.unsplash.com/photo-1635111300299-e6e677daf7b7?w=900&q=75&auto=format&fit=crop" alt="Resort-style pool with palms" loading="lazy">
+        <span class="badge clay" data-es="Nueva">New</span>
+        <div class="card-info">
+          <div class="top"><div><h3>Tres Palmas Residence</h3><p class="loc"><svg class="i"><use href="#pin"/></svg>Palmhurst</p></div><span class="arrow"><svg class="i"><use href="#arrow"/></svg></span></div>
+          <div class="bot"><div class="specs"><span><svg class="i"><use href="#bed"/></svg>5</span><span><svg class="i"><use href="#bath"/></svg>4.5</span><span><svg class="i"><use href="#area"/></svg>4,950</span></div><span class="price">$1,150,000</span></div>
+        </div>
+      </a>
+      <a class="card" data-type="luxury" href="#contact">
+        <img src="https://images.unsplash.com/photo-1786550860403-4a58f184643e?w=900&q=75&auto=format&fit=crop" alt="Single-story home with palms at dusk" loading="lazy">
+        <span class="badge" data-es="Lujo">Luxury</span>
+        <div class="card-info">
+          <div class="top"><div><h3>Casa Palma</h3><p class="loc"><svg class="i"><use href="#pin"/></svg>Sharyland Plantation, Mission</p></div><span class="arrow"><svg class="i"><use href="#arrow"/></svg></span></div>
+          <div class="bot"><div class="specs"><span><svg class="i"><use href="#bed"/></svg>4</span><span><svg class="i"><use href="#bath"/></svg>3.5</span><span><svg class="i"><use href="#area"/></svg>3,480</span></div><span class="price">$689,000</span></div>
+        </div>
+      </a>
+      <a class="card" data-type="ranch" href="#contact">
+        <img src="https://images.unsplash.com/photo-1778798387913-2e6ce56cda73?w=900&q=75&auto=format&fit=crop" alt="Ranch house with a blue metal roof and porch" loading="lazy">
+        <span class="badge" data-es="Rancho">Ranch</span>
+        <div class="card-info">
+          <div class="top"><div><h3>Rancho Mesquite</h3><p class="loc"><svg class="i"><use href="#pin"/></svg><span data-es="Condado rural de Hidalgo">Rural Hidalgo County</span></p></div><span class="arrow"><svg class="i"><use href="#arrow"/></svg></span></div>
+          <div class="bot"><div class="specs"><span><svg class="i"><use href="#acre"/></svg><span data-es="42 acres">42 acres</span></span><span><svg class="i"><use href="#bed"/></svg>3</span><span><svg class="i"><use href="#bath"/></svg>2</span></div><span class="price">$865,000</span></div>
+        </div>
+      </a>
+      <a class="card" data-type="ranch" href="#contact">
+        <img src="https://images.unsplash.com/photo-1509600110300-21b9d5fedeb7?w=900&q=75&auto=format&fit=crop" alt="Stone pool house on a large lot" loading="lazy">
+        <span class="badge" data-es="Terreno">Acreage</span>
+        <div class="card-info">
+          <div class="top"><div><h3>Santa Cruz Pool House</h3><p class="loc"><svg class="i"><use href="#pin"/></svg>El Rancho Santa Cruz</p></div><span class="arrow"><svg class="i"><use href="#arrow"/></svg></span></div>
+          <div class="bot"><div class="specs"><span><svg class="i"><use href="#acre"/></svg><span data-es="5.2 acres">5.2 acres</span></span><span><svg class="i"><use href="#bed"/></svg>4</span><span><svg class="i"><use href="#bath"/></svg>3</span></div><span class="price">$575,000</span></div>
+        </div>
+      </a>
+      <a class="card" data-type="luxury" href="#contact">
+        <img src="https://images.unsplash.com/photo-1614368168264-0b462344e4ef?w=900&q=75&auto=format&fit=crop" alt="Stucco home with bougainvillea" loading="lazy">
+        <span class="badge" data-es="Residencial">Residential</span>
+        <div class="card-info">
+          <div class="top"><div><h3>Bougainvillea Court</h3><p class="loc"><svg class="i"><use href="#pin"/></svg>North Mission</p></div><span class="arrow"><svg class="i"><use href="#arrow"/></svg></span></div>
+          <div class="bot"><div class="specs"><span><svg class="i"><use href="#bed"/></svg>3</span><span><svg class="i"><use href="#bath"/></svg>2</span><span><svg class="i"><use href="#area"/></svg>2,140</span></div><span class="price">$349,000</span></div>
+        </div>
+      </a>
+      <a class="card" data-type="invest" href="#contact">
+        <img src="https://images.unsplash.com/photo-1786550860372-116b871a1697?w=900&q=75&auto=format&fit=crop" alt="White stucco single-story rental home" loading="lazy">
+        <span class="badge" data-es="Rentada">Leased</span>
+        <div class="card-info">
+          <div class="top"><div><h3>Sugar Road Rental</h3><p class="loc"><svg class="i"><use href="#pin"/></svg>Edinburg</p></div><span class="arrow"><svg class="i"><use href="#arrow"/></svg></span></div>
+          <div class="bot"><div class="specs"><span><svg class="i"><use href="#bed"/></svg>3</span><span><svg class="i"><use href="#bath"/></svg>2</span><span><svg class="i"><use href="#area"/></svg>1,620</span></div><span class="price">$259,000</span></div>
+        </div>
+      </a>
+    </div>
+    <p class="note" data-es="Estas son casas de muestra — <a href='#contact'>pregúntanos qué está disponible hoy</a>.">These are sample homes — <a href="#contact">ask us what's available today</a>.</p>
+  </section>
+
+  <!-- SPECIALTIES -->
+  <section class="sec wrap" id="specialties" aria-labelledby="spec-h">
+    <h2 class="h2" id="spec-h" data-es="Cuatro formas de<br>echar raíces">Four ways to<br>put down roots</h2>
+    <p class="lede spec-intro" data-es="Un equipo pequeño que se enfoca en lo que conoce bien — y en lo que el Valle realmente necesita.">A small team that sticks to what it knows best — and what the Valley actually needs.</p>
+
+    <div class="spec-wrap">
+      <div class="spec-list" role="tablist" aria-label="Specialties">
+        <button class="spec-item" role="tab" aria-selected="true" aria-controls="spec-panel" data-i="0"><span data-es="Casas de lujo">Luxury homes</span></button>
+        <button class="spec-item" role="tab" aria-selected="false" aria-controls="spec-panel" data-i="1"><span data-es="Ranchos y terrenos">Ranch &amp; acreage</span></button>
+        <button class="spec-item" role="tab" aria-selected="false" aria-controls="spec-panel" data-i="2"><span data-es="Rentas de inversión">Investment rentals</span></button>
+        <button class="spec-item" role="tab" aria-selected="false" aria-controls="spec-panel" data-i="3"><span data-es="Reubicación">Relocation</span></button>
+      </div>
+      <div class="spec-panel" id="spec-panel" role="tabpanel" aria-live="polite">
+        <div class="spec-img">
+          <img class="on" src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=1100&q=75&auto=format&fit=crop" alt="Modern luxury home with pool">
+          <img src="https://images.unsplash.com/photo-1791384254283-389889da45ad?w=1100&q=75&auto=format&fit=crop" alt="Longhorn cattle grazing in pasture" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1783125127278-e931d864f23c?w=1100&q=75&auto=format&fit=crop" alt="Single-story home with a green lawn" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?w=1100&q=75&auto=format&fit=crop" alt="Bright living room with large window" loading="lazy">
+        </div>
+        <div class="spec-text" id="spec-text"></div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- TEAM -->
+  <section class="sec wrap" id="team" aria-labelledby="team-h">
+    <div class="team-grid">
+      <div class="team-photo">
+        <img src="img/founders.jpg" alt="Andrés and Lucía Villarreal sitting on stone church steps" width="934" height="1400" loading="lazy">
+        <div class="cap"><b>Andrés &amp; Lucía Villarreal</b><span>REALTORS®</span></div>
+      </div>
+      <div>
+        <h2 class="h2" id="team-h" data-es="Consejo honesto,<br>casas que se venden">Honest advice,<br>homes that sell</h2>
+        <div class="people">
+          <article class="person">
+            <header><h3>Andrés Villarreal</h3><span data-es="Broker · Co-propietario">Broker · Co-owner</span></header>
+            <p data-es="Andrés pasó diez años en la construcción antes de entrar a bienes raíces, así que los compradores confían en él para detectar lo que una inspección podría pasar por alto.">Andrés spent ten years in construction before moving into real estate, so buyers lean on him to spot what an inspection might miss.</p>
+          </article>
+          <article class="person">
+            <header><h3>Lucía Villarreal</h3><span data-es="Especialista en listados · Co-propietaria">Listing Specialist · Co-owner</span></header>
+            <p data-es="Lucía viene del diseño de interiores y se encarga del staging y la fotografía de cada propiedad que listamos.">Lucía brings a background in interior design and handles the staging and photography for every listing.</p>
+          </article>
+        </div>
+        <div class="team-meta">
+          <span><svg class="i"><use href="#globe"/></svg><span data-es="Inglés · Español">English · Español</span></span>
+          <span><svg class="i"><use href="#chat"/></svg><span data-es="6 agentes + 1 coordinadora">6 agents + 1 coordinator</span></span>
+          <span><svg class="i"><use href="#pin"/></svg>McAllen, TX</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STAGING PERK -->
+  <section class="staging wrap" aria-labelledby="stage-h">
+    <div class="stage-card">
+      <div class="stage-pics">
+        <img src="https://images.unsplash.com/photo-1786051376076-9ff627bcdcba?w=1100&q=75&auto=format&fit=crop" alt="Staged living room with white furniture" loading="lazy">
+        <span class="ba" data-es="Incluido en cada listado">Included with every listing</span>
+      </div>
+      <div class="stage-body">
+        <h2 class="h2" id="stage-h" data-es="Consulta de staging gratis, con cada listado">A free staging consultation, with every listing</h2>
+        <p class="lede" data-es="Lucía recorre tu casa con ojo de diseñadora y te dice qué mover, qué guardar y qué vale la pena arreglar antes de las fotos.">Lucía walks your home with a designer's eye and tells you what to move, what to store, and what's worth fixing before the photos.</p>
+        <ol class="steps">
+          <li><i>01</i><div><b data-es="Recorrido">Walkthrough</b><p data-es="Visitamos tu casa y vemos cómo se vive cada espacio.">We tour the house and see how each room actually lives.</p></div></li>
+          <li><i>02</i><div><b data-es="Plan de staging">Staging plan</b><p data-es="Una lista clara por cuarto — nada de remodelaciones innecesarias.">A clear room-by-room list — no unnecessary remodels.</p></div></li>
+          <li><i>03</i><div><b data-es="Fotografía">Photography</b><p data-es="Lucía toma las fotos ella misma, para que el listado se vea como se siente.">Lucía shoots the photos herself, so the listing looks the way the home feels.</p></div></li>
+        </ol>
+        <a class="btn" href="#contact" data-ask="valuation"><span data-es="Valúa mi casa">Get a home valuation</span><span class="dot"><svg class="i"><use href="#arrow"/></svg></span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="sec wrap" id="faq" aria-labelledby="faq-h">
+    <div class="faq-wrap">
+      <div class="faq-side">
+        <h2 class="h2" id="faq-h" data-es="Preguntas que<br>nos hacen seguido">Questions we<br>hear a lot</h2>
+        <p class="lede" data-es="¿No ves la tuya? Llámanos o mándanos un mensaje — contestamos en inglés o en español.">Don't see yours? Call or message us — we answer in English or Spanish.</p>
+        <div class="ask">
+          <span class="ico"><svg class="i"><use href="#phone"/></svg></span>
+          <div><b data-es="Habla con Andrés o Lucía">Talk to Andrés or Lucía</b><a href="tel:+19565550173">(956) 555-0173</a></div>
+        </div>
+      </div>
+      <div class="faq-list">
+        <details open>
+          <summary><span data-es="¿Trabajan en español?">Do you work in Spanish?</span><span class="pm"><svg class="i"><use href="#plus"/></svg></span></summary>
+          <p class="ans" data-es="Sí. Todo nuestro equipo atiende en inglés y en español, desde la primera llamada hasta el cierre. Los documentos legales de Texas están en inglés, pero te los explicamos línea por línea en el idioma que prefieras.">Yes. Our whole team works in English and Spanish, from the first call to closing. Texas contracts are in English, but we'll walk you through every line in whichever language you prefer.</p>
+        </details>
+        <details>
+          <summary><span data-es="¿Qué incluye la consulta de staging gratis?">What's in the free staging consultation?</span><span class="pm"><svg class="i"><use href="#plus"/></svg></span></summary>
+          <p class="ans" data-es="Con cada listado, Lucía hace un recorrido de tu casa y te entrega un plan por cuarto: qué mover, qué guardar y qué arreglos valen la pena. Después ella misma toma las fotos del listado.">With every listing, Lucía tours your home and gives you a room-by-room plan: what to move, what to store and which fixes are worth it. Then she shoots the listing photos herself.</p>
+        </details>
+        <details>
+          <summary><span data-es="¿Pueden ayudarme a comprar un rancho o terreno?">Can you help me buy a ranch or acreage?</span><span class="pm"><svg class="i"><use href="#plus"/></svg></span></summary>
+          <p class="ans" data-es="Es una de nuestras especialidades. Andrés trabajó diez años en construcción, así que revisa cercas, pozos, fosas sépticas, caminos y estructuras con ojo de constructor antes de que hagas una oferta.">It's one of our specialties. Andrés spent ten years in construction, so he looks over fencing, wells, septic, access roads and outbuildings with a builder's eye before you make an offer.</p>
+        </details>
+        <details>
+          <summary><span data-es="Me mudo al Valle por trabajo en salud o educación.">I'm relocating for a medical or teaching job.</span><span class="pm"><svg class="i"><use href="#plus"/></svg></span></summary>
+          <p class="ans" data-es="Ayudamos seguido a médicos, enfermeras, profesores y personal universitario que llegan al Valle. Podemos hacer recorridos por video, armar una lista corta según tu horario y tu trayecto, y coordinar todo antes de que llegues.">We regularly help doctors, nurses, teachers and university staff moving to the Valley. We can tour homes with you by video, build a shortlist around your shifts and commute, and line things up before you arrive.</p>
+        </details>
+        <details>
+          <summary><span data-es="¿Trabajan con inversionistas?">Do you work with investors?</span><span class="pm"><svg class="i"><use href="#plus"/></svg></span></summary>
+          <p class="ans" data-es="Sí. Te ayudamos a encontrar casas y dúplex para renta en McAllen, Mission y Edinburg, y a revisar los números — renta esperada, reparaciones y costos — antes de comprar.">Yes. We help you find single-family rentals and duplexes in McAllen, Mission and Edinburg, and check the numbers — expected rent, repairs and carrying costs — before you buy.</p>
+        </details>
+        <details>
+          <summary><span data-es="¿Cuál es su horario?">What are your office hours?</span><span class="pm"><svg class="i"><use href="#plus"/></svg></span></summary>
+          <p class="ans" data-es="Lunes a sábado de 9 a.m. a 7 p.m. Los domingos atendemos con cita. Estamos en 2900 N Ware Rd, Suite 105, en McAllen.">Monday to Saturday, 9am–7pm. Sundays by appointment. You'll find us at 2900 N Ware Rd, Suite 105, in McAllen.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="sec contact wrap" id="contact" aria-labelledby="contact-h">
+    <div class="contact-card">
+      <img src="https://images.unsplash.com/photo-1752630006121-f99e0e8c8d58?w=1800&q=75&auto=format&fit=crop" alt="" loading="lazy">
+      <div>
+        <h2 class="h2" id="contact-h" data-es="Empecemos por<br>un café">Let's start with<br>a cup of coffee</h2>
+        <p class="lede" data-es="Cuéntanos qué buscas. Te contestamos el mismo día hábil.">Tell us what you're after. We'll get back to you the same business day.</p>
+        <div class="info">
+          <a href="tel:+19565550173"><svg class="i"><use href="#phone"/></svg>(956) 555-0173</a>
+          <a href="mailto:hola@brazosbloomrealty.example"><svg class="i"><use href="#mail"/></svg>hola@brazosbloomrealty.example</a>
+          <a href="https://maps.google.com/?q=2900+N+Ware+Rd+Suite+105+McAllen+TX+78501" target="_blank" rel="noopener"><svg class="i"><use href="#pin"/></svg>2900 N Ware Rd, Suite 105<br>McAllen, TX 78501</a>
+          <div><svg class="i"><use href="#clock"/></svg><span><span data-es="Lun–Sáb 9 a.m.–7 p.m.<br>Domingo con cita">Mon–Sat 9am–7pm<br>Sunday by appointment</span><span class="open-now" id="open-now"></span></span></div>
+        </div>
+      </div>
+      <form class="lead" id="lead" novalidate>
+        <h3 data-es="¿En qué te ayudamos?">How can we help?</h3>
+        <div class="chips" role="group" aria-label="I'm looking to">
+          <label><input type="radio" name="goal" value="Buy" checked><span data-es="Comprar">Buy</span></label>
+          <label><input type="radio" name="goal" value="Sell"><span data-es="Vender">Sell</span></label>
+          <label><input type="radio" name="goal" value="Invest"><span data-es="Invertir">Invest</span></label>
+          <label><input type="radio" name="goal" value="Relocate"><span data-es="Mudarme">Relocate</span></label>
+        </div>
+        <div class="row">
+          <label><span data-es="Nombre">Name</span><input name="name" autocomplete="name" required><span class="hint" data-es="Agrega tu nombre para saber por quién preguntar.">Add your name so we know who to ask for.</span></label>
+          <label><span data-es="Teléfono">Phone</span><input name="phone" type="tel" autocomplete="tel" placeholder="(956) 555-0000"></label>
+        </div>
+        <label><span data-es="Correo">Email</span><input name="email" type="email" autocomplete="email" required><span class="hint" data-es="Agrega un correo como nombre@ejemplo.com para poder responderte.">Add an email like name@example.com so we can reply.</span></label>
+        <label><span data-es="Mensaje">Message</span><textarea name="msg" data-es-ph="Zona, presupuesto, fechas…" placeholder="Area, budget, timing…"></textarea></label>
+        <div class="sent" id="sent" role="status">
+          <svg class="sent-bloom" viewBox="0 0 32 32" aria-hidden="true"><path class="p1" d="M16 6.5c2.7 2.7 2.7 6.6 0 9.3-2.7-2.7-2.7-6.6 0-9.3Z"/><path class="p2" d="M16 15.8c2.7-2.7 6.6-2.7 9.3 0-2.7 2.7-6.6 2.7-9.3 0Z"/><path class="p3" d="M16 15.8c-2.7 2.7-6.6 2.7-9.3 0 2.7-2.7 6.6-2.7 9.3 0Z"/><path class="stem" d="M6.5 23c3.2-2.1 6.3 2.1 9.5 0s6.3-2.1 9.5 0"/></svg>
+          <p><b id="sent-hi"></b> <span data-es="Tu app de correo debería abrirse con el mensaje listo. Si no se abre, escríbenos a <a href='mailto:hola@brazosbloomrealty.example'>hola@brazosbloomrealty.example</a> o llama al <a href='tel:+19565550173'>(956) 555-0173</a> — guardamos lo que escribiste.">Your email app should open with this message ready to send. If it doesn't, write to <a href="mailto:hola@brazosbloomrealty.example">hola@brazosbloomrealty.example</a> or call <a href="tel:+19565550173">(956) 555-0173</a> — we've kept what you typed.</span></p>
+        </div>
+        <button class="btn" type="submit"><span data-es="Enviar mensaje">Send message</span><span class="dot"><svg class="i"><use href="#arrow"/></svg></span></button>
+        <p class="fine" data-es="Preferimos llamarte o escribirte — nunca compartimos tus datos.">We'll call or email you back — we never share your details.</p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div>
+        <span class="logo"><svg aria-hidden="true" style="color:#f6f2eb;--mark-fg:var(--green)"><use href="#mark"/></svg>Brazos &amp; Bloom Realty</span>
+        <p data-es="Arraigados en el Valle del Río Grande. Casas de lujo, ranchos, inversión y reubicación desde 2018.">Rooted in the Rio Grande Valley. Luxury homes, ranchland, investment and relocation since 2018.</p>
+        <div class="socials">
+          <a href="https://instagram.com/brazosbloomrgv" aria-label="Instagram @brazosbloomrgv" target="_blank" rel="noopener"><svg class="i"><use href="#ig"/></svg></a>
+          <a href="https://facebook.com/brazosbloomrgv" aria-label="Facebook @brazosbloomrgv" target="_blank" rel="noopener"><svg class="i"><use href="#fb"/></svg></a>
+          <a href="https://tiktok.com/@brazosbloomrgv" aria-label="TikTok @brazosbloomrgv" target="_blank" rel="noopener"><svg class="i"><use href="#tt"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <h4 data-es="Explora">Explore</h4>
+        <ul>
+          <li><a href="#listings" data-es="Propiedades">Listings</a></li>
+          <li><a href="#specialties" data-es="Especialidades">Specialties</a></li>
+          <li><a href="#team" data-es="Nosotros">About us</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 data-es="Oficina">Office</h4>
+        <ul>
+          <li><a href="https://maps.google.com/?q=2900+N+Ware+Rd+Suite+105+McAllen+TX+78501" target="_blank" rel="noopener">2900 N Ware Rd, Ste 105<br>McAllen, TX 78501</a></li>
+          <li data-es="Lun–Sáb 9–7 · Dom con cita">Mon–Sat 9–7 · Sun by appt.</li>
+        </ul>
+      </div>
+      <div>
+        <h4 data-es="Contacto">Contact</h4>
+        <ul>
+          <li><a href="tel:+19565550173">(956) 555-0173</a></li>
+          <li><a href="mailto:hola@brazosbloomrealty.example">hola@brazosbloomrealty.example</a></li>
+          <li>@brazosbloomrgv</li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-word" aria-hidden="true">Brazos &amp; Bloom</div>
+    <div class="foot-legal">
+      <span>© <span id="yr">2026</span> Brazos &amp; Bloom Realty · TX License #0000000 · <span data-es="Igualdad de oportunidades de vivienda">Equal Housing Opportunity</span></span>
+      <nav aria-label="Legal">
+        <a href="https://www.trec.texas.gov/forms/information-about-brokerage-services" target="_blank" rel="noopener" data-es="Información sobre servicios de corretaje (IABS)">Information About Brokerage Services</a>
+        <a href="https://www.trec.texas.gov/forms/consumer-protection-notice" target="_blank" rel="noopener" data-es="Aviso de protección al consumidor">Consumer Protection Notice</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+<p class="hola" id="hola" role="status" aria-live="polite"></p>
+
+<div class="callbar">
+  <a href="tel:+19565550173"><svg class="i"><use href="#phone"/></svg><span data-es="Llamar">Call</span></a>
+  <a href="#contact"><span data-es="Agenda una visita">Book a visit</span></a>
+</div>
+
+<script>
+(() => {
+  const $ = (s, r = document) => r.querySelector(s);
+  const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  $('#yr').textContent = new Date().getFullYear();
+
+  /* nav: transparent over hero, solid after */
+  const nav = $('#nav'), hero = $('.hero');
+  const setNav = () => nav.classList.toggle('solid', scrollY > 40);
+  addEventListener('scroll', setNav, { passive: true }); setNav();
+
+  /* mobile menu */
+  const menu = $('#menu'), openBtn = $('.nav .burger'), closeBtn = $('.menu .burger');
+  const toggleMenu = open => {
+    menu.classList.toggle('open', open);
+    menu.setAttribute('aria-hidden', !open);
+    openBtn.setAttribute('aria-expanded', open);
+    document.body.style.overflow = open ? 'hidden' : '';
+    (open ? closeBtn : openBtn).focus();
+  };
+  openBtn.addEventListener('click', () => toggleMenu(true));
+  closeBtn.addEventListener('click', () => toggleMenu(false));
+  $$('.menu nav a').forEach(a => a.addEventListener('click', () => toggleMenu(false)));
+  addEventListener('keydown', e => { if (e.key === 'Escape' && menu.classList.contains('open')) toggleMenu(false); });
+
+  let lastY = scrollY;
+  addEventListener('scroll', () => {
+    const y = scrollY;
+    if (y < hero.offsetHeight || y < lastY - 6) nav.classList.remove('tucked');
+    else if (y > lastY + 6 && !menu.classList.contains('open')) nav.classList.add('tucked');
+    lastY = y;
+  }, { passive: true });
+
+  /* specialties */
+  const SPECS = {
+    en: [
+      ['Luxury homes', 'Custom builds and resort-style properties in Sharyland Plantation, Palmhurst and north McAllen. Andrés checks the construction; Lucía knows what finishes hold their value.', ['Custom builds', 'Pools & outdoor living', 'Private showings']],
+      ['Ranch & acreage', 'Working ranches, hobby acreage and homes on land across rural Hidalgo County. We look at fencing, wells, septic, access and flood zones before you fall in love with the view.', ['Wells & septic', 'Ag exemptions', 'Fencing & access']],
+      ['Investment rentals', 'Single-family rentals and duplexes in McAllen, Mission and Edinburg. We run the rent, repair and carrying-cost numbers with you before you make an offer.', ['Duplexes', 'Rent estimates', 'Repair budgets']],
+      ['Relocation', "Moving to the Valley for a hospital, school district or university job? We tour by video, build a shortlist around your shifts and commute, and line things up before you arrive.", ['Video tours', 'Commute planning', 'Medical & education pros']]
+    ],
+    es: [
+      ['Casas de lujo', 'Casas a la medida y propiedades estilo resort en Sharyland Plantation, Palmhurst y el norte de McAllen. Andrés revisa la construcción; Lucía sabe qué acabados conservan su valor.', ['Casas a la medida', 'Albercas y terrazas', 'Visitas privadas']],
+      ['Ranchos y terrenos', 'Ranchos de trabajo, terrenos de recreo y casas con tierra en el condado rural de Hidalgo. Revisamos cercas, pozos, fosas sépticas, accesos y zonas de inundación antes de que te enamores de la vista.', ['Pozos y fosas sépticas', 'Exenciones agrícolas', 'Cercas y accesos']],
+      ['Rentas de inversión', 'Casas y dúplex para renta en McAllen, Mission y Edinburg. Revisamos contigo los números de renta, reparaciones y costos antes de hacer una oferta.', ['Dúplex', 'Estimados de renta', 'Presupuesto de reparaciones']],
+      ['Reubicación', '¿Te mudas al Valle por trabajo en un hospital, distrito escolar o universidad? Hacemos recorridos por video, armamos una lista según tu horario y trayecto, y coordinamos todo antes de que llegues.', ['Recorridos por video', 'Plan de trayecto', 'Profesionales de salud y educación']]
+    ]
+  };
+  let lang = 'en', spec = 0;
+  const specText = $('#spec-text'), specImgs = $$('.spec-img img'), specTabs = $$('.spec-item');
+  // one highlight that travels between tabs, so the eye follows the change instead of hunting for it
+  const specPill = document.createElement('span');
+  specPill.className = 'spec-pill'; specPill.setAttribute('aria-hidden', 'true');
+  $('.spec-list').prepend(specPill);
+  const placePill = () => {
+    const b = specTabs[spec];
+    specPill.style.height = b.offsetHeight + 'px';
+    specPill.style.transform = `translateY(${b.offsetTop}px)`;
+  };
+  let shownSpec = -1;
+  const renderSpec = () => {
+    const [t, d, tags] = SPECS[lang][spec];
+    specText.innerHTML = `<h3>${t}</h3><p>${d}</p><ul>${tags.map(x => `<li>${x}</li>`).join('')}</ul>`;
+    specImgs.forEach((im, i) => im.classList.toggle('on', i === spec));
+    specTabs.forEach((b, i) => { b.setAttribute('aria-selected', i === spec); b.tabIndex = i === spec ? 0 : -1; });
+    placePill();
+    if (shownSpec !== -1 && shownSpec !== spec && !reduce)
+      specText.animate([{ opacity: 0, translate: '0 10px' }, { opacity: 1, translate: '0 0' }], { duration: 420, easing: 'cubic-bezier(.16,1,.3,1)' });
+    shownSpec = spec;
+  };
+  addEventListener('resize', placePill);
+  document.fonts?.ready.then(placePill);
+
+  /* listing specs: icons alone say nothing to a screen reader */
+  const SPEC_WORDS = { en: { bed: 'bedrooms', bath: 'bathrooms', area: 'square feet' }, es: { bed: 'recámaras', bath: 'baños', area: 'pies cuadrados' } };
+  const labelSpecs = () => $$('.specs > span').forEach(sp => {
+    const word = SPEC_WORDS[lang][sp.querySelector('use').getAttribute('href').slice(1)];
+    sp.querySelector('svg').setAttribute('aria-hidden', 'true');
+    if (!word) return;
+    let sr = $('.sr', sp);
+    if (!sr) { sr = document.createElement('span'); sr.className = 'sr'; sp.append(sr); }
+    sr.textContent = ' ' + word;
+  });
+  specTabs.forEach((b, i) => {
+    b.addEventListener('click', () => { spec = i; renderSpec(); });
+    b.addEventListener('keydown', e => {
+      const d = { ArrowDown: 1, ArrowRight: 1, ArrowUp: -1, ArrowLeft: -1 }[e.key];
+      if (!d) return;
+      e.preventDefault(); spec = (spec + d + 4) % 4; renderSpec(); specTabs[spec].focus();
+    });
+  });
+  renderSpec(); labelSpecs();
+
+  /* listing filters — each chip shows how many homes it holds */
+  const filters = $$('.filters button'), cards = $$('#grid .card');
+  filters.forEach(b => b.dataset.count = b.dataset.filter === 'all' ? cards.length : cards.filter(c => c.dataset.type === b.dataset.filter).length);
+  // state changes that rearrange the page glide instead of jumping (View Transitions; instant where unsupported)
+  const morph = fn => {
+    if (!document.startViewTransition || reduce) return fn();
+    // the browser may skip the animation (e.g. a background tab); the update still runs, so the rejection is expected
+    const t = document.startViewTransition(fn);
+    t.ready.catch(() => {}); t.finished.catch(() => {});
+  };
+  cards.forEach((c, i) => { c.style.viewTransitionName = 'home-' + i; c.style.setProperty('--i', i); });
+  // the wanted filter is recorded at click time, so rapid clicks always land on the last one chosen
+  let wantFilter = 'all';
+  filters.forEach(b => b.addEventListener('click', () => {
+    if (b.dataset.filter === wantFilter) return;
+    wantFilter = b.dataset.filter;
+    morph(() => {
+      filters.forEach(x => x.setAttribute('aria-pressed', x.dataset.filter === wantFilter));
+      cards.forEach(c => c.classList.toggle('hide', wantFilter !== 'all' && c.dataset.type !== wantFilter));
+    });
+  }));
+
+  // the listings arrive as a list, once, the first time they come into view
+  const grid = $('#grid');
+  if (!reduce && 'IntersectionObserver' in window) {
+    grid.classList.add('stage');
+    const seen = new IntersectionObserver(([e]) => {
+      if (!e.isIntersecting) return;
+      grid.classList.add('in'); seen.disconnect();
+      setTimeout(() => grid.classList.remove('stage', 'in'), 1600);
+    }, { threshold: .12 });
+    seen.observe(grid);
+  }
+
+  /* EN / ES */
+  const tr = $$('[data-es]');
+  tr.forEach(n => n.dataset.en = n.innerHTML);
+  const setLang = l => {
+    lang = l;
+    tr.forEach(n => n.innerHTML = l === 'es' ? n.dataset.es : n.dataset.en);
+    $$('[data-es-ph]').forEach(n => { n.dataset.enPh ??= n.placeholder; n.placeholder = l === 'es' ? n.dataset.esPh : n.dataset.enPh; });
+    $$('[data-lang]').forEach(b => b.setAttribute('aria-pressed', b.dataset.lang === l));
+    document.documentElement.lang = l;
+    renderSpec(); labelSpecs(); hoursStatus(); renderHi();
+    try { localStorage.setItem('bb-lang', l); } catch (e) {}
+  };
+  let wantLang = lang;
+  $$('[data-lang]').forEach(b => b.addEventListener('click', () => {
+    if (b.dataset.lang === wantLang) return;
+    wantLang = b.dataset.lang;
+    morph(() => { if (wantLang !== lang) setLang(wantLang); });
+    welcome(wantLang);
+  }));
+
+  try { if (localStorage.getItem('bb-lang') === 'es') { setLang('es'); wantLang = 'es'; } } catch (e) {}
+
+  /* nav signpost: underline the section you're reading */
+  const navLinks = $$('.nav-links a');
+  const spy = new IntersectionObserver(es => es.forEach(e => {
+    if (!e.isIntersecting) return;
+    navLinks.forEach(a => a.getAttribute('href') === '#' + e.target.id ? a.setAttribute('aria-current', 'true') : a.removeAttribute('aria-current'));
+  }), { rootMargin: '-45% 0px -50% 0px' });
+  $$('main > section').forEach(sec => spy.observe(sec));
+
+  /* lead form */
+  const lead = $('#lead'), msg = lead.elements.msg;
+  const DRAFT = 'bb-draft';
+  const saveDraft = () => { try { localStorage.setItem(DRAFT, JSON.stringify(Object.fromEntries(new FormData(lead)))); } catch (e) {} };
+  const setGoal = g => { const r = $(`input[name="goal"][value="${g}"]`, lead); if (r) r.checked = true; };
+
+  // a half-written inquiry survives a reload or a trip around the site
+  try {
+    const d = JSON.parse(localStorage.getItem(DRAFT) || 'null');
+    if (d) Object.entries(d).forEach(([k, v]) => k === 'goal' ? setGoal(v) : (lead.elements[k] && !lead.elements[k].value && (lead.elements[k].value = v)));
+  } catch (e) {}
+  lead.addEventListener('input', saveDraft);
+  lead.addEventListener('change', saveDraft);
+
+  // triggers that lead to the form carry their context with them, so nobody retypes which home they meant
+  let lastPrefill = '';
+  const prefill = text => {
+    if (!msg.value.trim() || msg.value === lastPrefill) msg.value = text;
+    else if (!msg.value.includes(text)) msg.value = msg.value.replace(/\s+$/, '') + '\n' + text;
+    lastPrefill = msg.value;
+    msg.classList.remove('flash'); void msg.offsetWidth; msg.classList.add('flash');
+    saveDraft();
+    if (matchMedia('(pointer: fine)').matches) setTimeout(() => {
+      const next = [lead.elements.name, lead.elements.email].find(i => !i.value) || msg;
+      next.focus({ preventScroll: true });
+    }, reduce ? 0 : 700);
+  };
+  const homeLine = card => {
+    const name = $('h3', card).textContent, loc = $('.loc', card).textContent.trim(), price = $('.price', card).textContent;
+    return lang === 'es' ? `Hola, me gustaría ver ${name} (${loc}, ${price}).` : `Hi, I'd like to see ${name} (${loc}, ${price}).`;
+  };
+  const askAbout = card => { setGoal(card.dataset.type === 'invest' ? 'Invest' : 'Buy'); prefill(homeLine(card)); };
+  cards.forEach(c => c.addEventListener('click', () => askAbout(c)));
+  $$('[data-home]').forEach(a => a.addEventListener('click', () => {
+    const card = cards.find(c => $('h3', c).textContent === a.dataset.home);
+    if (card) askAbout(card);
+  }));
+  $$('[data-ask="valuation"]').forEach(a => a.addEventListener('click', () => {
+    setGoal('Sell');
+    prefill(lang === 'es' ? 'Me gustaría una valuación de mi casa y la consulta de staging gratis.' : "I'd like a home valuation and the free staging consultation.");
+  }));
+
+  // no backend yet: hand off to the visitor's email app, and say plainly what to do if it doesn't open
+  lead.addEventListener('submit', e => {
+    e.preventDefault();
+    if (!lead.checkValidity()) { lead.classList.add('tried'); $(':invalid:not(form)', lead).focus(); return; }
+    const d = new FormData(lead);
+    const body = `Goal: ${d.get('goal')}\nName: ${d.get('name')}\nPhone: ${d.get('phone')}\nEmail: ${d.get('email')}\n\n${d.get('msg')}`;
+    location.href = `mailto:hola@brazosbloomrealty.example?subject=${encodeURIComponent('Website inquiry — ' + d.get('goal'))}&body=${encodeURIComponent(body)}`;
+    sentName = String(d.get('name')).trim().split(/\s+/)[0];
+    renderHi();
+    $('#sent').style.display = 'flex';
+  });
+
+  /* delight 1 — the office's real hours, read live in McAllen time */
+  function hoursStatus() {
+    const el = $('#open-now'); if (!el) return;
+    const p = Object.fromEntries(new Intl.DateTimeFormat('en-US', { timeZone: 'America/Chicago', weekday: 'short', hour: 'numeric', hourCycle: 'h23' }).formatToParts(new Date()).map(x => [x.type, x.value]));
+    const day = p.weekday, h = +p.hour, es = lang === 'es';
+    let open = false, txt;
+    if (day === 'Sun') txt = es ? 'Hoy domingo · con cita' : 'Today is Sunday · by appointment';
+    else if (h >= 9 && h < 19) { open = true; txt = es ? 'Abierto ahora · hasta las 7 p.m.' : 'Open now · until 7pm'; }
+    else if (h < 9) txt = es ? 'Cerrado · abrimos hoy a las 9 a.m.' : 'Closed · opens today at 9am';
+    else if (day === 'Sat') txt = es ? 'Cerrado · el domingo atendemos con cita' : 'Closed · Sunday by appointment';
+    else txt = es ? 'Cerrado · abrimos mañana a las 9 a.m.' : 'Closed · opens tomorrow at 9am';
+    el.textContent = txt;
+    el.classList.toggle('closed', !open);
+  }
+  hoursStatus();
+  setInterval(() => { if (document.visibilityState === 'visible') hoursStatus(); }, 60000);
+
+  /* delight 2 — the thank-you uses the visitor's own first name */
+  var sentName = '';
+  function renderHi() {
+    const el = $('#sent-hi'); if (!el) return;
+    el.textContent = sentName ? (lang === 'es' ? `Gracias, ${sentName}.` : `Thanks, ${sentName}.`) : '';
+  }
+
+  /* delight 3 — a short welcome the first time someone switches language this visit */
+  function welcome(l) {
+    const box = $('#hola'); if (!box) return;
+    try { if (sessionStorage.getItem('bb-hola-' + l)) return; sessionStorage.setItem('bb-hola-' + l, '1'); } catch (e) {}
+    box.innerHTML = l === 'es' ? '<b>¡Bienvenidos!</b> Todo el sitio, en español.' : '<b>Welcome!</b> The whole site, in English.';
+    box.classList.add('show');
+    clearTimeout(welcome.t);
+    welcome.t = setTimeout(() => box.classList.remove('show'), 3200);
+  }
+})();
+</script>
+</body>
+</html>
