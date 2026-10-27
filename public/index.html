@@ -313,7 +313,7 @@ input::placeholder, textarea::placeholder { color: var(--soft); opacity: 1; }
 .work-feature { display: flex; flex-direction: column; }
 .work-image { position: relative; aspect-ratio: 16 / 10; overflow: hidden; border-bottom: 2.5px solid var(--blue); background: #fdf6ec; }
 .work-image img, .work-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center top; }
-.work-video { opacity: 0; transition: opacity .3s var(--ease); }
+.work-video { opacity: 0; transition: opacity .15s var(--ease); }
 .work-image.is-playing .work-video { opacity: 1; }
 .live-tag { position: absolute; bottom: 1rem; left: 1rem; padding: .45rem .75rem; border: 2px solid var(--blue); border-radius: 999px; background: var(--yellow); box-shadow: 2px 2px 0 var(--blue); font: 700 .85rem/1 var(--body); transform: rotate(-4deg); }
 .work-copy { display: flex; flex-direction: column; align-items: start; padding: clamp(1.5rem, 3vw, 2.25rem); }
@@ -782,6 +782,12 @@ if (!reduce) document.querySelectorAll(".work-feature .work-image").forEach(work
   const play = () => { workImage.classList.add("is-playing"); workVideo.play().catch(() => workImage.classList.remove("is-playing")); };
   const stop = () => { workImage.classList.remove("is-playing"); workVideo.pause(); workVideo.currentTime = 0; };
   const card = workImage.closest(".work-card");
+  // Start downloading before the card is reached, so a hover plays at once.
+  const warm = () => { if (workVideo.preload !== "auto") { workVideo.preload = "auto"; workVideo.load(); } };
+  if ("IntersectionObserver" in window) {
+    const near = new IntersectionObserver(es => { if (es.some(e => e.isIntersecting)) { warm(); near.disconnect(); } }, { rootMargin: "800px 0px" });
+    near.observe(workImage);
+  } else warm();
   if (matchMedia("(hover: hover) and (pointer: fine)").matches) {
     card.addEventListener("mouseenter", play);
     card.addEventListener("mouseleave", stop);
