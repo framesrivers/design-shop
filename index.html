@@ -329,6 +329,20 @@ input::placeholder, textarea::placeholder { color: var(--soft); opacity: 1; }
 @media (max-width: 960px) { .work-grid { grid-template-columns: 1fr; } }
 @media (prefers-reduced-motion: reduce) { .work-video { display: none; } }
 
+/* ---------- For real estate agents ---------- */
+.agents-lead { display: block; margin-bottom: .35rem; color: var(--blue); font: 800 clamp(1.2rem, 2vw, 1.45rem)/1.25 var(--body); }
+#agents .head p { max-width: 48ch; }
+.agents-card { padding: clamp(1.4rem, 4vw, 3rem); border: 2.5px solid var(--blue); border-radius: 22px; background: var(--blue); color: var(--sheet); box-shadow: 6px 6px 0 var(--pink); }
+.agents-list { list-style: none; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(1.5rem, 3vw, 2.5rem) clamp(1.5rem, 4vw, 3.5rem); margin: 0; padding: 0; }
+.agents-list li { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 1rem; align-items: start; }
+.agents-num { display: grid; place-items: center; width: 2.6rem; height: 2.6rem; border: 2px solid var(--sheet); border-radius: 50%; background: var(--yellow); color: var(--blue); font: 850 1.2rem/1 var(--display); transform: rotate(-6deg); }
+.agents-list h3 { margin: .2rem 0 .5rem; font: 850 clamp(1.25rem, 2.2vw, 1.6rem)/1.05 var(--display); font-variation-settings: "wdth" 105; text-transform: uppercase; text-wrap: balance; }
+.agents-list p { margin: 0; max-width: 44ch; line-height: 1.6; }
+.agents-actions { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: clamp(2rem, 4vw, 3rem); padding-top: clamp(1.5rem, 3vw, 2rem); border-top: 2px dashed rgba(250, 250, 247, .45); }
+.agents-actions .btn { box-shadow: 4px 4px 0 var(--yellow); }
+.agents-actions .btn:hover { box-shadow: 6px 6px 0 var(--yellow); }
+@media (max-width: 760px) { .agents-list { grid-template-columns: 1fr; } }
+
 /* ---------- Contact details + form states ---------- */
 .contact-intro { max-width: 36ch; margin: .8rem 0 0; color: var(--soft); font-weight: 500; line-height: 1.7; }
 .reach { list-style: none; display: grid; gap: 1.25rem; margin: 2rem 0 0; padding: 0; }
@@ -372,6 +386,7 @@ p, summary, li { text-wrap: pretty; }
       <ul id="primary-links">
         <li><a href="#services">Services</a></li>
         <li><a href="#work">Work</a></li>
+        <li><a href="#agents">For agents</a></li>
         <li><a href="#support">Monthly support</a></li>
         <li><a href="#process">How it works</a></li>
         <li><a href="#faq">FAQ</a></li>
@@ -465,6 +480,30 @@ p, summary, li { text-wrap: pretty; }
             <a class="btn small work-link" href="#contact" data-type="A new website">Start a project</a>
           </div>
         </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="agents" aria-labelledby="agents-title">
+    <div class="wrap">
+      <div class="head reveal">
+        <div>
+          <h2 class="elastic-title" id="agents-title" aria-label="For real estate agents"><span data-text="For real estate agents" aria-hidden="true">For real estate agents</span></h2>
+          <svg class="scribble" viewBox="0 0 260 22" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M3 10c45 8 95 9 140 3s80-9 114-1"/></svg>
+          <p><strong class="agents-lead">Your listings, looking their best, every week.</strong> You sell homes. I make sure every one of them looks great online, in English and Spanish.</p>
+        </div>
+      </div>
+      <div class="agents-card reveal">
+        <ul class="agents-list">
+          <li><span class="agents-num" aria-hidden="true">1</span><div><h3>Listing photos that sell</h3><p>I shoot and edit your homes so they look bright, clean and true to the space. Edited photos back in 48 hours.</p></div></li>
+          <li><span class="agents-num" aria-hidden="true">2</span><div><h3>Your site, always up to date</h3><p>New listings go up, prices change, &ldquo;sold&rdquo; goes on. I handle it, plus hosting, backups and fixes.</p></div></li>
+          <li><span class="agents-num" aria-hidden="true">3</span><div><h3>Social posts for every listing</h3><p>Just listed, open house, price drop, just sold. On-brand graphics ready to post, in both languages.</p></div></li>
+          <li><span class="agents-num" aria-hidden="true">4</span><div><h3>A brand that&rsquo;s yours, not your brokerage&rsquo;s</h3><p>A logo, colors and a look people remember, built to work with your brokerage&rsquo;s rules.</p></div></li>
+        </ul>
+        <div class="agents-actions">
+          <a class="btn" href="#contact" data-type="Real estate listings + marketing">Talk to me about your listings</a>
+          <a class="btn plain" href="demos/brazos-bloom/" target="_blank" rel="noopener noreferrer">See a sample agent site<svg class="ext" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5"/></svg><span class="sr-only"> (opens in a new tab)</span></a>
+        </div>
       </div>
     </div>
   </section>
@@ -568,6 +607,7 @@ p, summary, li { text-wrap: pretty; }
             <option>Branding</option>
             <option>UX/UI design</option>
             <option>Monthly support (site, social or hosting)</option>
+            <option>Real estate listings + marketing</option>
             <option>Not sure yet</option>
           </select>
         </label>

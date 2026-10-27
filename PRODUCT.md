@@ -16,6 +16,8 @@ They usually arrive deciding whether to trust one freelancer with their brand an
 
 Hello Rivers is a freelance design practice offering website design and build, branding, UX/UI, monthly creative support, social media maintenance, and hosting and website care. The site exists to turn a visiting business owner into a project inquiry.
 
+A dedicated offer for real estate agents (added 2026-10-27): listing photography with edited photos back in 48 hours, keeping their site's listings up to date plus hosting, social posts for every listing in English and Spanish, and a personal brand that works within brokerage rules. The Brazos & Bloom concept (`public/demos/brazos-bloom/`) is the sample agent site.
+
 Success means a visitor sends a project inquiry through the contact form (which opens a drafted email) or by email.
 
 ## Positioning
