@@ -320,9 +320,8 @@ input::placeholder, textarea::placeholder { color: var(--soft); opacity: 1; }
 .work-copy h3 { margin: 0 0 .85rem; font: 850 clamp(1.7rem, 3.4vw, 2.6rem)/.98 var(--display); font-variation-settings: "wdth" 105; text-transform: uppercase; text-wrap: balance; }
 .work-copy p { margin: 0 0 1.75rem; max-width: 46ch; line-height: 1.65; }
 .work-link { margin-top: auto; }
-.work-next { grid-column: 1 / -1; background: var(--yellow); }
-.work-next .work-copy { flex-flow: row wrap; align-items: center; justify-content: space-between; gap: 1rem 2rem; }
-.work-next .work-copy h3, .work-next .work-copy p { margin-bottom: 0; }
+.work-next { display: flex; background: var(--yellow); }
+.work-next .work-copy { justify-content: center; }
 .work-next .work-link { margin-top: 0; }
 .concept-tag { background: var(--pink-deep); color: var(--sheet); }
 .ext { width: 1em; height: 1em; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
@@ -439,7 +438,7 @@ p, summary, li { text-wrap: pretty; }
         <div>
           <h2 class="elastic-title" id="work-title" aria-label="Recent work"><span data-text="Recent work" aria-hidden="true">Recent work</span></h2>
           <svg class="scribble" viewBox="0 0 260 22" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M3 14c40-9 80-10 120-6s90 5 134-4"/></svg>
-          <p>One live client site, one concept build, and more projects wrapping up.</p>
+          <p>Two live client sites, one concept build, and more projects wrapping up.</p>
         </div>
       </div>
       <div class="work-grid">
@@ -460,6 +459,21 @@ p, summary, li { text-wrap: pretty; }
         </article>
         <article class="work-card work-feature reveal" style="--d:.1s">
           <div class="work-image">
+            <img src="valley-flash.webp" alt="The Valley Flash homepage: 'Pose. Sonríe. ¡Flash!' beside a photobooth strip of party guests" loading="lazy" width="960" height="600">
+            <video class="work-video" muted playsinline loop preload="none" poster="valley-flash.webp" aria-hidden="true" tabindex="-1">
+              <source src="valley-flash-scroll.webm" type="video/webm">
+              <source src="valley-flash-scroll.mp4" type="video/mp4">
+            </video>
+            <span class="live-tag">Live client site</span>
+          </div>
+          <div class="work-copy">
+            <h3>The Valley Flash</h3>
+            <p>A photobooth and photography business for weddings, quinceañeras and parties across the 956. I designed and built it in Spanish with a little Spanglish, with a party-type picker, simple booking steps and quick ways to ask for a quote.</p>
+            <a class="btn small plain work-link" href="https://thevalleyflash.online/" target="_blank" rel="noopener noreferrer">Visit the live site<svg class="ext" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5"/></svg><span class="sr-only"> (opens in a new tab)</span></a>
+          </div>
+        </article>
+        <article class="work-card work-feature reveal" style="--d:.2s">
+          <div class="work-image">
             <img src="brazos-bloom.webp" alt="Brazos &amp; Bloom Realty homepage: the name in large letters over a stone house at dusk, with a featured listing card" loading="lazy" width="960" height="600">
             <video class="work-video" muted playsinline loop preload="none" poster="brazos-bloom.webp" aria-hidden="true" tabindex="-1">
               <source src="brazos-bloom-scroll.webm" type="video/webm">
@@ -473,7 +487,7 @@ p, summary, li { text-wrap: pretty; }
             <a class="btn small plain work-link" href="demos/brazos-bloom/" target="_blank" rel="noopener noreferrer">Explore the concept<svg class="ext" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5"/></svg><span class="sr-only"> (opens in a new tab)</span></a>
           </div>
         </article>
-        <article class="work-card work-next reveal" style="--d:.2s">
+        <article class="work-card work-next reveal" style="--d:.3s">
           <div class="work-copy">
             <h3>Your business could be next</h3>
             <p>New website and brand projects are on the way. Get in early and yours could be the next one on this page.</p>

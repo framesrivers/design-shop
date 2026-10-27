@@ -49,6 +49,8 @@ Ongoing monthly support is the differentiator: Hello Rivers stays on after launc
 ## Evidence on Hand
 
 - Real client: Vanilla Bake by Erika — live site at https://vanillacakesbyerika.com/, built in Spanish (confirmed 2026-10-26) (preview: `public/vanilla-bake-preview.webp`).
+- Real client: The Valley Flash — photobooth and photography for weddings, quinces and parties in the Rio Grande Valley, live at https://thevalleyflash.online/, built in Spanish/Spanglish (added 2026-10-27) (preview: `public/valley-flash.webp`).
+- Concept: Brazos & Bloom Realty, a bilingual real estate site (`public/demos/brazos-bloom/`), shown with a "Concept site" tag.
 - Concept/demo work, not paying clients: Northside (barbershop), Vanity (beauty salon), Luxury real estate (`public/demos/`, preview images in `public/`). Never present these as client work.
 - Sunday Frame product assets in `public/assets/sunday-frame/`.
 - The Selected work section currently shows "Coming soon" while a new collection is prepared.
