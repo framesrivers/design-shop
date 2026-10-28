@@ -26,7 +26,7 @@ Ongoing monthly support is the differentiator: Hello Rivers stays on after launc
 
 ## Operating Context
 
-- Inquiry email: hola@marcosuriel.com (confirmed 2026-10-26). The on-page form opens a draft to it in the visitor's email app, so the address must also be shown visibly as a fallback.
+- Inquiry email: contact@hellorivers.com (changed 2026-10-28 from hola@marcosuriel.com; Microsoft 365 mailbox on the hellorivers.com domain). The on-page form opens a draft to it in the visitor's email app, so the address must also be shown visibly as a fallback.
 - WhatsApp / phone: (956) 738-8487, offered as a second way to reach Hello Rivers.
 - Reply time promise: within one business day (confirmed 2026-10-26).
 - Scope and price are agreed before work begins; larger one-off projects are quoted separately.
