@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hello Rivers email signature</title>
+<style>
+  body { margin: 0; padding: 32px 16px; background: #E5E7EA; color: #1D3FB0; font: 16px/1.5 Arial, Helvetica, sans-serif; }
+  .page { max-width: 640px; margin: 0 auto; }
+  h1 { margin: 0 0 8px; font-size: 24px; }
+  .note { margin: 0 0 24px; color: #4A5A96; }
+  .card { padding: 28px 24px; background: #FAFAF7; border: 2px solid #1D3FB0; border-radius: 14px; box-shadow: 5px 5px 0 #1D3FB0; overflow-x: auto; }
+  .copy { margin: 24px 0 8px; padding: 12px 20px; border: 2px solid #1D3FB0; border-radius: 10px; background: #CC1479; color: #FAFAF7; font: 700 16px Arial, Helvetica, sans-serif; box-shadow: 3px 3px 0 #1D3FB0; cursor: pointer; }
+  .copy:active { transform: translate(3px, 3px); box-shadow: none; }
+  .status { min-height: 1.5em; margin: 0 0 24px; font-weight: 700; }
+  ol { padding-left: 1.25rem; color: #1D3FB0; }
+  li { margin-bottom: 6px; }
+</style>
+</head>
+<body>
+<div class="page">
+  <h1>Your email signature</h1>
+  <p class="note">Click the button, then paste it into Outlook's signature settings.</p>
+
+  <div class="card">
+    <!-- Signature starts: email-safe tables and inline styles only -->
+    <div id="signature">
+      <table cellpadding="0" cellspacing="0" border="0" role="presentation" style="border-collapse:collapse;font-family:Arial,Helvetica,sans-serif;">
+        <tr>
+          <td style="padding:0 16px 0 0;vertical-align:middle;">
+            <a href="https://hellorivers.com/" style="text-decoration:none;"><img src="https://hellorivers.com/email-logo.png" width="120" height="47" alt="Hello Rivers" style="display:block;width:120px;height:47px;border:0;"></a>
+          </td>
+          <td style="padding:0 0 0 16px;border-left:2px solid #FF48B0;vertical-align:middle;">
+            <div style="font-size:16px;line-height:20px;font-weight:bold;color:#1D3FB0;">Marcos Rios</div>
+            <div style="font-size:13px;line-height:18px;color:#4A5A96;padding-bottom:6px;">Websites, branding + photography &middot; Hello Rivers</div>
+            <div style="font-size:13px;line-height:20px;color:#1D3FB0;">
+              <a href="mailto:contact@hellorivers.com" style="color:#1D3FB0;text-decoration:none;">contact@hellorivers.com</a>
+              &nbsp;&middot;&nbsp;
+              <a href="https://wa.me/19567388487" style="color:#1D3FB0;text-decoration:none;">(956) 738-8487</a>
+            </div>
+            <div style="font-size:13px;line-height:20px;">
+              <a href="https://hellorivers.com/" style="color:#1D3FB0;font-weight:bold;text-decoration:none;">hellorivers.com</a>
+              &nbsp;&middot;&nbsp;
+              <span style="color:#C2137A;font-style:italic;">&iexcl;Se habla espa&ntilde;ol!</span>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <!-- Signature ends -->
+  </div>
+
+  <button class="copy" type="button" id="copy">Copy signature</button>
+  <p class="status" id="status" role="status"></p>
+
+  <h1>Add it to Outlook</h1>
+  <ol>
+    <li>Open Outlook on the web (outlook.office.com) and click the gear icon (Settings).</li>
+    <li>Go to <strong>Account &rarr; Signatures</strong>.</li>
+    <li>Name it "Hello Rivers" and paste into the signature box (Cmd+V).</li>
+    <li>Set it as the default for new messages and replies, then click <strong>Save</strong>.</li>
+  </ol>
+  <p class="note">On the Outlook Mac app: Outlook &rarr; Settings &rarr; Signatures &rarr; + &rarr; paste.</p>
+</div>
+<script>
+const sig = document.getElementById("signature");
+const status = document.getElementById("status");
+document.getElementById("copy").addEventListener("click", async () => {
+  try {
+    await navigator.clipboard.write([new ClipboardItem({
+      "text/html": new Blob([sig.innerHTML], { type: "text/html" }),
+      "text/plain": new Blob([sig.innerText], { type: "text/plain" })
+    })]);
+    status.textContent = "Copied. Now paste it into Outlook.";
+  } catch {
+    // Fallback: select the signature so Cmd+C copies it with formatting
+    const range = document.createRange();
+    range.selectNodeContents(sig);
+    const sel = getSelection(); sel.removeAllRanges(); sel.addRange(range);
+    status.textContent = "Selected. Press Cmd+C to copy, then paste it into Outlook.";
+  }
+});
+</script>
+</body>
+</html>

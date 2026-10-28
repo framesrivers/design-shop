@@ -1,0 +1,14 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "overused-font",
+        "value": "arial",
+        "createdAt": "2026-10-28T11:05:50.584Z",
+        "reason": "Claude: email-signature.html must use email-safe system fonts; Outlook and Gmail cannot load the site's web fonts"
+      }
+    ]
+  }
+}
