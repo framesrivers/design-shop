@@ -34,7 +34,7 @@ Ongoing monthly support is the differentiator: Hello Rivers stays on after launc
 
 ## Capabilities and Constraints
 
-- Static single-page site: `public/index.html` is the live file, deployed to Cloudflare Workers from `./public` on every push to `main`. The root `index.html` is a kept-in-sync copy.
+- Static single-page site: `public/index.html` is the live file, deployed to Cloudflare Workers from `./public` on every push to `main`.
 - No Node on the owner's machine; edits are made to the static files directly.
 - This repo (framesrivers/design-shop) is separate from the owner's personal portfolio (framesrivers/portafolio) and must never be combined with it.
 - Projects are offered in Spanish (confirmed); the site may say "Se habla español". A full Spanish version of the site is not built yet; how it will be offered (toggle, separate page, bilingual copy) is undecided.
@@ -42,7 +42,7 @@ Ongoing monthly support is the differentiator: Hello Rivers stays on after launc
 
 ## Brand Commitments
 
-- Name: Hello Rivers, run by Marcos. Logo file: `hello-rivers-logo-blue.png`.
+- Name: Hello Rivers, run by Marcos. Logo file: `public/hello-rivers-logo-blue.png`.
 - Portrait of Marcos: `public/marcos-rivers.webp` (studio photo, white shirt, black chair). No town or location is shown, by choice.
 - Voice: playful and bold — energetic, a bit cheeky, lots of personality, while staying clear for busy small-business owners. Written in first person ("I").
 
