@@ -179,6 +179,8 @@ h2.in { --w: 130; }
 .setup-card h2 { font-size: clamp(2rem, 4.4vw, 3.6rem); line-height: .98; max-width: 12ch; margin: 0 0 1.1rem; }
 .setup-intro { max-width: 43ch; margin: 0 0 1.5rem; font-size: 1.1rem; }
 .setup-card .btn { color: var(--blue); background: var(--sheet); line-height: 1.25; }
+.setup-actions { display: flex; flex-wrap: wrap; gap: .9rem; }
+.setup-card .btn.plain { background: transparent; }
 .setup-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 1rem; }
 .setup-list li { border-bottom: 2px dashed var(--blue); padding-bottom: 1rem; }
 .setup-list strong { display: block; margin-bottom: .3rem; font: 800 1.15rem/1.2 var(--body); }
@@ -421,7 +423,7 @@ p, summary, li { text-wrap: pretty; }
         <li><a href="#services">Services</a></li>
         <li><a href="#work">Work</a></li>
         <li><a href="#agents">For agents</a></li>
-        <li><a href="#support">Monthly support</a></li>
+        <li><a href="/plans/">Plans</a></li>
         <li><a href="#process">How it works</a></li>
         <li><a href="#faq">FAQ</a></li>
       </ul>
@@ -603,7 +605,7 @@ p, summary, li { text-wrap: pretty; }
         <div>
           <h2 id="support-title">Launch day isn't goodbye.</h2>
           <p class="setup-intro">Pick a monthly mix of website, social, brand and design help. We plan it around what your business needs next, and change it as you grow.</p>
-          <a class="btn" href="#contact" data-type="Monthly support (site, social or hosting)">Ask about monthly support</a>
+          <div class="setup-actions"><a class="btn" href="#contact" data-type="Monthly support (site, social or hosting)">Ask about monthly support</a><a class="btn plain" href="/plans/">See the plans</a></div>
         </div>
         <div>
           <ul class="setup-list">
@@ -661,7 +663,7 @@ p, summary, li { text-wrap: pretty; }
         <details class="reveal" style="--d:.06s"><summary>Can you do my branding and website together?</summary><p>Yes, and it's the best way to do it. Your logo, colors and site get designed side by side, so nothing looks stitched together.</p></details>
         <details class="reveal" style="--d:.12s"><summary>What does monthly support include?</summary><p>Whatever your business needs that month: site updates, social graphics, new brand pieces, design fixes or hosting help. We agree on a realistic amount of work up front.</p></details>
         <details class="reveal" style="--d:.18s"><summary>Can you manage hosting and domains?</summary><p>Yes. I set up hosting, connect domains, handle updates and backups, and fix things when they break. You keep ownership of every account and approve any outside costs first.</p></details>
-        <details class="reveal" style="--d:.24s"><summary>What does a project cost?</summary><p>It depends on what you need. Send me a quick note and I'll come back with a clear plan and price before any work starts.</p></details>
+        <details class="reveal" style="--d:.24s"><summary>What does a project cost?</summary><p>It depends on what you need. <a href="/plans/">See my plans</a>, or send me a quick note and I'll come back with a clear plan and price before any work starts.</p></details>
       </div>
     </div>
   </section>
@@ -834,6 +836,12 @@ document.addEventListener("click", event => {
 });
 window.matchMedia("(min-width: 761px)").addEventListener("change", closeMenu);
 
+/* Links from the plans page arrive as /?type=...#contact */
+const typeParam = new URLSearchParams(location.search).get("type");
+if (typeParam) {
+  const type = document.getElementById("type");
+  if (type && [...type.options].some(o => o.value === typeParam)) type.value = typeParam;
+}
 document.querySelectorAll("[data-type]").forEach(a => a.addEventListener("click", () => {
   const type = document.getElementById("type");
   if (type && [...type.options].some(o => o.value === a.dataset.type)) type.value = a.dataset.type;
