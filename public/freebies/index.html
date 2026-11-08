@@ -580,6 +580,12 @@ h1, h2, .elastic-title, .elastic-title .glyph, .elastic-title .ink-b, .elastic-t
   .nav .btn.small { white-space: nowrap; padding-inline: .7rem; font-size: .85rem; }
   .brand-logo { width: 118px; }
 }
+
+/* Polish pass: handwriting at its one loaded weight; bigger tap areas without changing how links look. */
+.se-habla, .try-me, .portrait figcaption, .stay-note, .receipt .thanks, .hand, .flag, .tier .flag, .more, .story .hand, .freebie .hand, .plans-hero .hand, .standing figcaption { font-weight: 300; }
+footer a, .contact-grid .mail { position: relative; }
+footer a::after, .contact-grid .mail::after { content: ""; position: absolute; left: 0; right: 0; top: 50%; height: 44px; transform: translateY(-50%); }
+@media (max-width: 600px) { footer .top { row-gap: 1.25rem; } footer .foot-contact { row-gap: 1rem; } }
 </style>
 </head>
 <body>

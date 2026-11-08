@@ -601,6 +601,19 @@ h1, h2, .elastic-title, .elastic-title .glyph, .elastic-title .ink-b, .elastic-t
   .nav .btn.small { white-space: nowrap; padding-inline: .7rem; font-size: .85rem; }
   .brand-logo { width: 118px; }
 }
+
+/* Polish pass: handwriting at its one loaded weight; bigger tap areas without changing how links look. */
+.se-habla, .try-me, .portrait figcaption, .stay-note, .receipt .thanks, .hand, .flag, .tier .flag, .more, .story .hand, .freebie .hand, .plans-hero .hand, .standing figcaption { font-weight: 300; }
+footer a, .contact-grid .mail { position: relative; }
+footer a::after, .contact-grid .mail::after { content: ""; position: absolute; left: 0; right: 0; top: 50%; height: 44px; transform: translateY(-50%); }
+@media (max-width: 600px) { footer .top { row-gap: 1.25rem; } footer .foot-contact { row-gap: 1rem; } }
+.addons li:last-child { border-bottom: 0; padding-bottom: 0; }
+.plans-cta { margin-top: 0; }
+@media (min-width: 981px) {
+  .tiers { grid-auto-rows: auto; }
+  .tier:not(.tier-wide) { display: grid; grid-row: span 5; grid-template-rows: subgrid; row-gap: 0; }
+  .tier:not(.tier-wide) ul { align-content: start; }
+}
 </style>
 </head>
 <body>

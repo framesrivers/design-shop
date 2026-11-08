@@ -605,6 +605,12 @@ h1, h2, .elastic-title, .elastic-title .glyph, .elastic-title .ink-b, .elastic-t
   .nav .btn.small { white-space: nowrap; padding-inline: .7rem; font-size: .85rem; }
   .brand-logo { width: 118px; }
 }
+
+/* Polish pass: handwriting at its one loaded weight; bigger tap areas without changing how links look. */
+.se-habla, .try-me, .portrait figcaption, .stay-note, .receipt .thanks, .hand, .flag, .tier .flag, .more, .story .hand, .freebie .hand, .plans-hero .hand, .standing figcaption { font-weight: 300; }
+footer a, .contact-grid .mail { position: relative; }
+footer a::after, .contact-grid .mail::after { content: ""; position: absolute; left: 0; right: 0; top: 50%; height: 44px; transform: translateY(-50%); }
+@media (max-width: 600px) { footer .top { row-gap: 1.25rem; } footer .foot-contact { row-gap: 1rem; } }
 </style>
 </head>
 <body>
@@ -656,6 +662,7 @@ h1, h2, .elastic-title, .elastic-title .glyph, .elastic-title .ink-b, .elastic-t
         <img src="/listing-2.webp" alt="Kitchen seen from the living area, with white cabinets and a long island" loading="lazy" width="900" height="600">
       </div>
       <div class="agents-card reveal">
+        <h2 class="sr-only">What I do for realtors</h2>
         <ul class="agents-list">
           <li><span class="agents-num" aria-hidden="true">1</span><div><h3>Bright, honest listing photos</h3><p>I shoot and edit your homes so they look bright, clean and true to the space. Up to 25 edited photos back in 48 hours. Starts at $125 per listing in Hidalgo County, plus a $25 travel fee farther out. Or included on my <a href="/plans/#monthly">Unlimited plan</a>, up to 4 listings a month.</p></div></li>
           <li><span class="agents-num" aria-hidden="true">2</span><div><h3>Your site, always up to date</h3><p>New listings go up, prices change, &ldquo;sold&rdquo; goes on. I handle it, plus hosting, backups and fixes.</p></div></li>
