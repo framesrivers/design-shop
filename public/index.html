@@ -20,9 +20,10 @@
 <meta name="theme-color" content="#F7F3EA">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anybody:wdth,wght@50..150,300..900&family=Onest:wght@400..800&family=Hanken+Grotesk:wght@400;500;700&family=Caveat:wght@600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Anybody:wdth,wght@50..150,300..900&family=Onest:wght@400..800&family=Hanken+Grotesk:wght@300;400;500;700&family=Kalam:wght@300&display=swap" rel="stylesheet">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='13' cy='16' r='10' fill='%23FF48B0'/><circle cx='19' cy='16' r='10' fill='%23FFE800' style='mix-blend-mode:multiply'/></svg>">
 <style>
+html { font-synthesis-weight: none; }
 /* ============================================================
    EDIT YOUR COLORS HERE (riso-print inks)
    ============================================================ */
@@ -41,7 +42,7 @@
 
   --display: "Onest", system-ui, -apple-system, "Segoe UI", sans-serif;
   --body: "Hanken Grotesk", system-ui, -apple-system, "Segoe UI", sans-serif;
-  --hand: "Caveat", "Comic Sans MS", cursive;
+  --hand: "Kalam", "Comic Sans MS", cursive;
   --ease: cubic-bezier(.2, .8, .2, 1);
   --bounce: cubic-bezier(.34, 1.56, .64, 1);
   --section-space: clamp(5rem, 10vw, 8rem);
@@ -331,9 +332,7 @@ input::placeholder, textarea::placeholder { color: var(--soft); opacity: 1; }
 .work-card { overflow: hidden; border: 2.5px solid var(--blue); border-radius: 22px; background: var(--sheet); box-shadow: 6px 6px 0 var(--blue); }
 .work-feature { display: flex; flex-direction: column; }
 .work-image { position: relative; aspect-ratio: 16 / 10; overflow: hidden; border-bottom: 1.5px solid rgba(12, 30, 107, .15); background: #fdf6ec; }
-.work-image img, .work-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center top; }
-.work-video { opacity: 0; transition: opacity .15s var(--ease); }
-.work-image.is-playing .work-video { opacity: 1; }
+.work-image img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center top; }
 .live-tag { position: absolute; bottom: 1rem; left: 1rem; padding: .45rem .75rem; border: 2px solid var(--blue); border-radius: 999px; background: var(--yellow); box-shadow: 2px 2px 0 var(--blue); font: 700 .85rem/1 var(--body); transform: rotate(-4deg); }
 .work-copy { display: flex; flex-direction: column; align-items: start; padding: clamp(1.5rem, 3vw, 2.25rem); }
 .work-copy h3 { margin: 0 0 .85rem; font: 850 clamp(1.7rem, 3.4vw, 2.6rem)/.98 var(--display); font-variation-settings: "wdth" 105; text-transform: uppercase; text-wrap: balance; }
@@ -366,7 +365,6 @@ input::placeholder, textarea::placeholder { color: var(--soft); opacity: 1; }
 .concept-tag { background: var(--pink-deep); color: var(--sheet); }
 .ext { width: 1em; height: 1em; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 @media (max-width: 960px) { .work-grid { grid-template-columns: 1fr; } }
-@media (prefers-reduced-motion: reduce) { .work-video { display: none; } }
 
 /* ---------- For real estate agents ---------- */
 .agents-lead { display: block; margin-bottom: .35rem; color: var(--blue); font: 800 clamp(1.2rem, 2vw, 1.45rem)/1.25 var(--body); }
@@ -472,7 +470,7 @@ summary::after { color: var(--blue); }
 .tier.pick .for, .tier.pick .price span { color: #fff; }
 
 /* Squiggle pattern on solid blue, drawn from the logo's wave */
-.b1, .plans-cta .box, .page-cta .box { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260' viewBox='0 0 260 260'%3E%3Cg fill='none' stroke='rgba%28255%2C255%2C255%2C.14%29' stroke-width='9' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 40c18-18 34-18 50 0s32 18 50 0'/%3E%3Cpath d='M190 30c34-10 54 16 40 38s-44 14-40-10 30-22 36-4'/%3E%3Cpath d='M30 120l18 24 18-24 18 24 18-24'/%3E%3Cpath d='M160 118c8 26 44 26 54 0'/%3E%3Cpath d='M172 96v8M202 96v8'/%3E%3Cpath d='M36 214c-6-26 34-34 40-10s-30 40-44 16'/%3E%3Cpath d='M130 206h76'/%3E%3C/g%3E%3C/svg%3E"); }
+.b1, .setup-card, .plans-cta .box, .page-cta .box { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260' viewBox='0 0 260 260'%3E%3Cg fill='none' stroke='rgba%28255%2C255%2C255%2C.14%29' stroke-width='9' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 40c18-18 34-18 50 0s32 18 50 0'/%3E%3Cpath d='M190 30c34-10 54 16 40 38s-44 14-40-10 30-22 36-4'/%3E%3Cpath d='M30 120l18 24 18-24 18 24 18-24'/%3E%3Cpath d='M160 118c8 26 44 26 54 0'/%3E%3Cpath d='M172 96v8M202 96v8'/%3E%3Cpath d='M36 214c-6-26 34-34 40-10s-30 40-44 16'/%3E%3Cpath d='M130 206h76'/%3E%3C/g%3E%3C/svg%3E"); }
 .b1, .plans-cta .box, .page-cta .box { background-repeat: no-repeat; background-size: 260px; background-position: right -30px center; }
 .plans-cta .box, .page-cta .box { background-position: 68% center; }
 @media (min-width: 1100px) {
@@ -493,6 +491,10 @@ footer { border-top: 1.5px solid rgba(12, 30, 107, .15); }
 .headline .fit:last-child .riso:last-child { background: linear-gradient(transparent 56%, var(--mark-yellow) 56%, var(--mark-yellow) 90%, transparent 90%); }
 .contact-grid .mail { color: var(--navy); background: linear-gradient(transparent 52%, var(--mark-yellow) 52%, var(--mark-yellow) 92%, transparent 92%); }
 .nav ul a::after { background: var(--mark-yellow); }
+/* Bigger tap areas, no visual change */
+.se-habla, footer a, .reach a, .es-note a { position: relative; }
+.se-habla::before, footer a::before, .reach a::before, .es-note a::before { content: ""; position: absolute; inset: -11px -4px; }
+@media (min-width: 761px) { .nav ul a::before { content: ""; position: absolute; inset: -13px -8px; } }
 ::selection { background: var(--mark-yellow); color: var(--navy); }
 .scribble path { stroke: var(--pink); }
 
@@ -568,7 +570,7 @@ form { gap: var(--el-gap); }
 
 /* Hero: headline and intro on the left, a large photo on the right */
 @media (min-width: 900px) {
-  .hero > .wrap { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 480px); column-gap: var(--content-space); align-items: center; }
+  .hero > .wrap { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 380px); column-gap: var(--content-space); align-items: center; }
   .hero .headline { grid-column: 1; grid-row: 1; align-self: end; }
   .hero .under { display: contents; }
   .hero .under > div:first-child { grid-column: 1; grid-row: 2; align-self: start; margin-top: 28px; }
@@ -576,7 +578,7 @@ form { gap: var(--el-gap); }
 }
 @media (min-width: 1100px) {
   .hero { isolation: isolate; }
-  .hero::after { top: 92px; width: 120px; height: 144px; right: calc(max(1.25rem, (100vw - 1240px) / 2) + 480px - 56px); z-index: 0; }
+  .hero::after { top: 92px; width: 120px; height: 144px; right: calc(max(1.25rem, (100vw - 1240px) / 2) + 380px - 56px); z-index: 0; }
 }
 
 /* Polaroid in three layers: backdrop, things Marcos likes, then Marcos.
@@ -586,30 +588,112 @@ form { gap: var(--el-gap); }
 .polaroid-window { position: relative; aspect-ratio: 480 / 500; background: #E6E7EA; }
 .me { position: absolute; inset: 0; z-index: 2; overflow: hidden; clip-path: inset(-20% -20% 0 -20%); }
 .portrait .me img { position: absolute; left: -9%; top: 3%; width: 118%; max-width: none; height: auto; background: none; }
-.hero .portrait figcaption { position: relative; background: var(--sheet); transition: color .18s ease; }
+.hero .portrait figcaption { font-size: 1.5rem; position: relative; background: var(--sheet); transition: color .18s ease; }
 .things { position: absolute; inset: 0; z-index: 1; pointer-events: none; }
 .portrait .things img { position: absolute; height: auto; max-width: none; background: none; opacity: 0; transform: translate(var(--fx), var(--fy)) scale(.3); transition: opacity .18s ease, transform .3s var(--ease); }
 .portrait:hover .things img, .portrait:focus-visible .things img, .portrait-wrap.is-open .portrait .things img { opacity: 1; transform: rotate(var(--rot)); transition: opacity .18s ease var(--delay), transform .5s var(--bounce) var(--delay); }
-.portrait .things .t-rose { width: 46%; left: -17%; top: -9%; --fx: 40%; --fy: 30%; --rot: 0deg; --delay: 0ms; }
-.portrait .things .t-frida { width: 84.7%; left: -1.8%; top: -1.9%; --fx: 15%; --fy: 25%; --rot: 0deg; --delay: 40ms; }
-.portrait .things .t-loteria { width: 40%; left: -15%; top: 57%; --fx: 60%; --fy: -20%; --rot: -7deg; --delay: 80ms; }
+.portrait .things .t-rose { width: 27%; left: 6%; top: -5%; --fx: 40%; --fy: 30%; --rot: 0deg; --delay: 0ms; }
+.portrait .things .t-frida { width: 29%; left: 18%; top: 6%; --fx: 40%; --fy: 25%; --rot: -3deg; --delay: 40ms; }
+.portrait .things .t-frida-2 { width: 29%; left: 57%; top: 4%; --fx: -40%; --fy: 25%; --rot: 3deg; --delay: 60ms; }
+.portrait .things .t-loteria { width: 26%; left: 10%; top: 60%; --fx: 60%; --fy: -20%; --rot: -7deg; --delay: 80ms; }
 @media (max-width: 600px) {
-  .portrait .things .t-loteria { width: 34%; left: -14%; top: 55%; --rot: -2deg; }
-  .hero .portrait figcaption { font-size: 1.5rem; }
+  .hero .portrait figcaption { font-size: 1.25rem; }
 }
-.portrait .things .t-skull { width: 39.8%; left: 63.3%; top: 47.6%; --fx: -60%; --fy: -10%; --rot: 6deg; --delay: 120ms; }
-.portrait .things .t-hand { width: 27.0%; left: 10.2%; top: 45.3%; --fx: 70%; --fy: 10%; --rot: 0deg; --delay: 180ms; }
-.portrait .things .t-smile { width: 29.5%; left: 64.5%; top: 26.2%; --fx: -70%; --fy: 40%; --rot: 0deg; --delay: 220ms; }
-.portrait .things .t-wink { width: 29.5%; left: 64.5%; top: 26.2%; --fx: -70%; --fy: 40%; --rot: 0deg; --delay: 220ms; }
+.portrait .things .t-skull { width: 29%; left: 58%; top: 52%; --fx: -60%; --fy: -10%; --rot: 6deg; --delay: 120ms; }
+.portrait .things .t-hand { width: 27%; left: 9%; top: 36%; --fx: 70%; --fy: 10%; --rot: 0deg; --delay: 180ms; }
 .things-front { z-index: 4; }
 .portrait .things .t-hand { transform-origin: 60% 95%; }
 .portrait:hover .things .t-hand, .portrait:focus-visible .things .t-hand, .portrait-wrap.is-open .things .t-hand { animation: hand-wave 1.5s ease-in-out .7s 2; }
-.portrait:hover .things .t-wink, .portrait:focus-visible .things .t-wink, .portrait-wrap.is-open .things .t-wink { opacity: 0; animation: smile-wink 1.6s linear 1s 3; }
 @keyframes hand-wave { 0%, 100% { rotate: 0deg; } 15%, 45%, 75% { rotate: 16deg; } 30%, 60% { rotate: -8deg; } }
-@keyframes smile-wink { 0%, 55%, 85%, 100% { opacity: 0; } 60%, 80% { opacity: 1; } }
-@media (prefers-reduced-motion: reduce) { .portrait .things .t-hand, .portrait .things .t-wink { animation: none !important; } }
-@media (max-width: 899px) { .portrait-wrap { justify-self: center; width: min(280px, 78%); margin-top: 1rem; } }
+@media (prefers-reduced-motion: reduce) { .portrait .things .t-hand { animation: none !important; } }
+@media (max-width: 899px) { .portrait-wrap { justify-self: center; width: min(240px, 68%); margin-top: 1rem; } }
 @media (prefers-reduced-motion: reduce) { .things img, .portrait:hover .things img, .portrait:focus-visible .things img, .portrait-wrap.is-open .things img { transition: opacity .01s; transform: rotate(var(--rot)); } }
+
+/* ============================================================
+   Hierarchy pass (from the UX audit)
+   ============================================================ */
+/* 1. Hero: the buttons lead, the Spanish line is a quiet note */
+.hero .actions .btn { min-height: 56px; padding: 16px 30px; font-size: 17px; }
+.hero .se-habla { margin-top: 1.25rem; font-size: 1.25rem; }
+/* 2. One solid blue moment per section */
+.b2, .b3 { background: var(--sheet); color: var(--navy); }
+.b2 h3, .b3 h3, .b2 p, .b3 p { color: var(--navy); }
+.b6 { background: var(--sky); color: var(--navy); }
+.b6 h3, .b6 p { color: var(--navy); }
+.setup-card { background-color: var(--blue); color: #fff; background-repeat: no-repeat; background-size: 300px; background-position: left 18% bottom -24px; }
+@media (max-width: 760px) { .setup-card { background-image: none; } }
+.setup-card .btn { background: var(--paper); color: var(--blue); }
+.setup-card .btn:hover { background: #fff; color: var(--blue); }
+.setup-card .btn.plain { background: transparent; color: #fff; box-shadow: inset 0 0 0 1.5px #fff !important; }
+.setup-card .btn.plain:hover { background: rgba(255, 255, 255, .14); color: #fff; }
+.setup-list li { border-bottom-color: rgba(255, 255, 255, .45); }
+.agents-card { background: var(--sheet); background-color: var(--sheet); color: var(--navy); }
+.agents-list h3 { color: var(--navy); }
+.agents-num { background: var(--sky); color: var(--navy); border-color: var(--sky); }
+.agents-actions { border-top-color: rgba(36, 80, 245, .35); }
+.agents-card .btn { background: var(--blue); color: #fff; }
+.agents-card .btn:hover { background: var(--navy); color: #fff; }
+.agents-card .btn.plain { background: transparent; color: var(--blue); box-shadow: inset 0 0 0 1.5px var(--blue) !important; }
+.agents-card .btn.plain:hover { background: var(--sky); color: var(--blue); }
+/* 5. One title pattern: the extra subheading becomes plain intro text */
+.agents-lead { display: inline; margin: 0; color: inherit; font: inherit; }
+/* 5. A real client project outranks the invitation */
+.work-next { align-self: center; background: none; }
+@media (max-width: 760px) { .hero .actions .btn { padding: 14px 24px; } }
+
+/* Thin body text; white text on solid color stays at 400 so it reads */
+body, p, li, .hero .lede, .plans-hero .lede, .page-hero .lede, .about-grid .lede, .head p, .block p, .setup-intro, .setup-list p, .setup-terms, details p, .work-copy p, .agents-list p { font-weight: 300; }
+.b1 p, .setup-card p, .plans-cta p, .page-cta p, .tier.pick p, .tier.pick li, .fact:nth-child(3) p, .fact:nth-child(3) li { font-weight: 400; }
+.receipt .rs, .form-note { font-weight: 400; }
+
+/* ============================================================
+   Button system: solid or outline, one pill shape.
+   On light: solid blue / blue outline. On blue: solid white / white outline.
+   ============================================================ */
+.btn.small { border-radius: 999px; }
+.block .card-cta, .copy-btn { font-size: 14px; }
+.btn:hover, .btn.alt:hover { background: var(--navy); color: #fff; }
+.btn.plain, .b2 .card-cta, .b3 .card-cta, .copy-btn, .nav-toggle, .jump a { background: transparent; color: var(--blue); border: 0; box-shadow: inset 0 0 0 1.5px var(--blue) !important; }
+.btn.plain:hover, .b2 .card-cta:hover, .b3 .card-cta:hover, .copy-btn:hover, .nav-toggle:hover, .jump a:hover { background: var(--sky); color: var(--navy); box-shadow: inset 0 0 0 1.5px var(--navy) !important; }
+.b6 .card-cta { background: var(--blue); color: #fff; border: 0; }
+.b6 .card-cta:hover { background: var(--navy); color: #fff; }
+.b1 .card-cta, .setup-card .btn:not(.plain), .tier.pick .btn, .plans-cta .btn.alt, .page-cta .btn.alt { background: #fff; color: var(--blue); border: 0; }
+.b1 .card-cta:hover, .setup-card .btn:not(.plain):hover, .tier.pick .btn:hover, .plans-cta .btn.alt:hover, .page-cta .btn.alt:hover { background: var(--sky); color: var(--navy); }
+.setup-card .btn.plain, .plans-cta .btn.plain, .page-cta .btn.plain { background: transparent; color: #fff; box-shadow: inset 0 0 0 1.5px #fff !important; }
+.setup-card .btn.plain:hover, .plans-cta .btn.plain:hover, .page-cta .btn.plain:hover { background: rgba(255, 255, 255, .14); color: #fff; box-shadow: inset 0 0 0 1.5px #fff !important; }
+.agents-card .btn:not(.plain) { background: var(--blue); color: #fff; }
+.agents-card .btn:not(.plain):hover { background: var(--navy); color: #fff; }
+.agents-card .btn.plain { background: transparent; color: var(--blue); box-shadow: inset 0 0 0 1.5px var(--blue) !important; }
+.agents-card .btn.plain:hover { background: var(--sky); color: var(--navy); box-shadow: inset 0 0 0 1.5px var(--navy) !important; }
+
+/* ============================================================
+   Recent work: photo grid
+   ============================================================ */
+.tiles { display: grid; grid-template-columns: 2fr 1.1fr 1.1fr; grid-template-rows: 250px 250px; gap: 12px; }
+.tile { position: relative; display: block; overflow: hidden; border-radius: 18px; background: #E6E7EA; color: var(--navy); text-decoration: none; }
+.t-a { grid-row: 1 / 3; }
+.tile img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform .5s var(--ease); }
+.tile:hover img, .tile:focus-visible img { transform: scale(1.03); }
+.tile-label { position: absolute; inset: auto 10px 10px; display: flex; flex-wrap: wrap; align-items: center; gap: 4px 10px; padding: 10px 40px 10px 14px; border-radius: 12px; background: #fff; }
+.tile-label strong { font: 700 15px/1.2 var(--display); }
+.tile-tag { padding: 3px 9px; border-radius: 99px; background: var(--sky); color: var(--navy); font-size: 12px; font-weight: 400; line-height: 1.3; white-space: nowrap; }
+.tile-tag.is-concept { background: var(--navy); color: #fff; }
+.tile-label .ext { position: absolute; top: 50%; right: 12px; width: 18px; height: 18px; margin-top: -9px; fill: none; stroke: var(--blue); stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; transition: transform .25s var(--ease); }
+.tile:hover .ext { transform: translate(2px, -2px); }
+.t-a .tile-label strong { font-size: 18px; }
+@media (max-width: 760px) {
+  .tiles { grid-template-columns: 1fr 1fr; grid-template-rows: 250px; grid-auto-rows: 210px; gap: 10px; }
+  .t-a { grid-column: 1 / -1; grid-row: auto; }
+  .tile-label { inset: auto 6px 6px; flex-direction: column; align-items: flex-start; padding: 8px 28px 8px 10px; }
+  .tile-label strong { font-size: 14px; }
+  .t-a .tile-label { inset: auto 8px 8px; flex-direction: row; flex-wrap: nowrap; align-items: center; gap: 8px; padding: 10px 32px 10px 12px; }
+  .t-a .tile-label strong { font-size: 15px; }
+  .tile-label .ext { right: 8px; }
+}
+@media (prefers-reduced-motion: reduce) { .tile img, .tile-label .ext { transition: none; } .tile:hover img { transform: none; } }
+.panels-next { max-width: 60ch; margin: 40px auto 0; text-align: center; }
+.panels-next strong { font-weight: 700; }
+.panels-next a { color: var(--blue); font-weight: 700; text-underline-offset: .2em; white-space: nowrap; }
 </style>
 </head>
 <body>
@@ -654,9 +738,9 @@ form { gap: var(--el-gap); }
         <div class="portrait-wrap" id="portrait-wrap">
           <figure class="portrait reveal" style="--rr:3deg" tabindex="0" role="button" aria-expanded="false" aria-label="Hi, I'm Marcos. Press to see some things I like.">
             <div class="polaroid-window">
-              <div class="things" aria-hidden="true"><img class="t-rose" src="hero-things/rose.svg" alt="" width="480" loading="lazy"><img class="t-frida" src="hero-things/frida.svg" alt="" width="900" loading="lazy"><img class="t-loteria" src="hero-things/loteria.svg" alt="" width="300" loading="lazy"><img class="t-skull" src="hero-things/skull.svg" alt="" width="410" loading="lazy"></div>
+              <div class="things" aria-hidden="true"><img class="t-rose" src="hero-things/rose.svg" alt="" width="400" loading="lazy"><img class="t-frida" src="hero-things/frida.svg" alt="" width="300" loading="lazy"><img class="t-frida-2" src="hero-things/frida-2.svg" alt="" width="300" loading="lazy"><img class="t-loteria" src="hero-things/loteria.svg" alt="" width="300" loading="lazy"><img class="t-skull" src="hero-things/skull.svg" alt="" width="410" loading="lazy"></div>
               <div class="me"><img src="marcos-cutout.webp" alt="Marcos, the designer behind Hello Rivers, smiling with one hand in his pocket" width="1300" height="1311"></div>
-            <div class="things things-front" aria-hidden="true"><img class="t-hand" src="hero-things/hand.webp" alt="" width="330" loading="lazy"><img class="t-smile" src="hero-things/smile.webp" alt="" width="400" loading="lazy"><img class="t-wink" src="hero-things/smile-wink.webp" alt="" width="400" loading="lazy"></div>
+            <div class="things things-front" aria-hidden="true"><img class="t-hand" src="hero-things/hand.webp" alt="" width="330" loading="lazy"></div>
             </div>
             <figcaption>hi, I'm Marcos</figcaption>
           </figure>
@@ -667,11 +751,15 @@ form { gap: var(--el-gap); }
 
   <section id="services" aria-labelledby="services-title">
     <div class="wrap">
-      <h2 class="sr-only" id="services-title">Services</h2>
+      <div class="head reveal">
+        <div>
+          <h2 class="elastic-title" id="services-title" aria-label="Services"><span data-text="Services" aria-hidden="true">Services</span></h2>
+        </div>
+      </div>
       <div class="bento">
         <a class="block b1 reveal" href="#contact" data-type="A new website"><div><h3>Website design<br>+ build</h3><p>A site that looks like you, works on every phone and gets people to call. I plan it, design it, build it and launch it.</p><span class="card-cta">Ask about a website</span></div></a>
-        <a class="block b2 reveal" style="--d:.08s" href="#contact" data-type="UX/UI design"><div><h3>UX/UI<br>design</h3><p>UX/UI just means how easy your site or app is to use. I find the spots where people get stuck and smooth them out.</p><span class="card-cta">Ask about UX/UI</span></div><div class="art" data-art="icons-small"></div></a>
-        <a class="block b3 reveal" style="--d:.16s" href="#contact" data-type="Branding"><div><h3>Custom<br>branding</h3><p>A logo, colors and type people actually remember, plus a kit so everything you make matches.</p><span class="card-cta">Ask about branding</span></div><div class="art" data-art="logo-small"></div></a>
+        <a class="block b2 reveal" style="--d:.08s" href="#contact" data-type="UX/UI design"><div><h3>UX/UI<br>design</h3><p>UX/UI just means how easy your site or app is to use. I find the spots where people get stuck and smooth them out.</p><span class="card-cta">Ask about UX/UI</span></div></a>
+        <a class="block b3 reveal" style="--d:.16s" href="#contact" data-type="Branding"><div><h3>Custom<br>branding</h3><p>A logo, colors and type people actually remember, plus a kit so everything you make matches.</p><span class="card-cta">Ask about branding</span></div></a>
         <a class="block b6 reveal" style="--d:.08s" href="#support"><div><h3>Monthly creative<br>support</h3><p>Most designers leave after launch. I stay. Site updates, social graphics, hosting and fixes, handled every month.</p><span class="card-cta">See monthly support</span></div></a>
       </div>
     </div>
@@ -682,103 +770,56 @@ form { gap: var(--el-gap); }
       <div class="head reveal">
         <div>
           <h2 class="elastic-title" id="work-title" aria-label="Recent work"><span data-text="Recent work" aria-hidden="true">Recent work</span></h2>
-          <svg class="scribble" viewBox="0 0 260 22" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M3 14c40-9 80-10 120-6s90 5 134-4"/></svg>
           <p>Two live client sites, two photoshoots, one concept build, and more projects wrapping up.</p>
         </div>
       </div>
-      <div class="work-grid">
-        <article class="work-card work-feature reveal">
-          <div class="work-image">
-            <img src="vanilla-bake-2026.webp" alt="Vanilla Bake by Erika homepage: 'Algo rico viene en camino' beside a candlelit cake" loading="lazy" width="960" height="600">
-            <video class="work-video" muted playsinline loop preload="none" poster="vanilla-bake-2026.webp" aria-hidden="true" tabindex="-1">
-              <source src="vanilla-bake-scroll.webm" type="video/webm">
-              <source src="vanilla-bake-scroll.mp4" type="video/mp4">
-            </video>
-            <span class="live-tag">Live client site</span>
-          </div>
-          <div class="work-copy">
-            <h3>Vanilla Bake by Erika</h3>
-            <p>A custom-cake bakery needed a site as sweet as the cakes. I designed and built it in Spanish, with a cake gallery, clear ordering steps and quick ways to ask through WhatsApp or a form.</p>
-            <a class="btn small plain work-link" href="https://vanillacakesbyerika.com/" target="_blank" rel="noopener noreferrer">Visit the live site<svg class="ext" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5"/></svg><span class="sr-only"> (opens in a new tab)</span></a>
-          </div>
-        </article>
-        <article class="work-card work-feature reveal" style="--d:.1s">
-          <div class="work-image">
-            <img src="brazos-bloom.webp" alt="Brazos &amp; Bloom Realty homepage: the name in large letters over a stone house at dusk, with a featured listing card" loading="lazy" width="960" height="600">
-            <video class="work-video" muted playsinline loop preload="none" poster="brazos-bloom.webp" aria-hidden="true" tabindex="-1">
-              <source src="brazos-bloom-scroll.webm" type="video/webm">
-              <source src="brazos-bloom-scroll.mp4" type="video/mp4">
-            </video>
-            <span class="live-tag concept-tag">Concept site</span>
-          </div>
-          <div class="work-copy">
-            <h3>Brazos &amp; Bloom Realty</h3>
-            <p>A concept for a bilingual real estate team in the Rio Grande Valley. Every word switches between English and Spanish, with filterable listings, the team's story and an easy way to book a visit.</p>
-            <a class="btn small plain work-link" href="demos/brazos-bloom/" target="_blank" rel="noopener noreferrer">Explore the concept<svg class="ext" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5"/></svg><span class="sr-only"> (opens in a new tab)</span></a>
-          </div>
-        </article>
-        <article class="work-card work-photos reveal" style="--d:.2s">
-          <div class="work-copy">
-            <h3>Bloom Creative Media</h3>
-            <p>A brand photoshoot for Paola, a social media manager in McAllen. A clean studio set with her camera, laptop and her own signs, shot so she could introduce herself and her business on Instagram.</p>
-            <a class="btn small plain work-link" href="https://www.instagram.com/p/DRlPWdTjtfV/" target="_blank" rel="noopener noreferrer">See the post on Instagram<svg class="ext" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5"/></svg><span class="sr-only"> (opens in a new tab)</span></a>
-          </div>
-          <div class="shoot">
-            <span class="live-tag">Client photoshoot</span>
-            <ul class="shoot-strip" aria-label="Photos from the Bloom Creative Media shoot">
-              <li><img src="bloom-shoot-1.webp" alt="Paola in sunglasses on a director's chair, holding a 'You look like my next client' sign" loading="lazy" width="600" height="800"></li>
-              <li><img src="bloom-shoot-2.webp" alt="Paola crouching in a white studio, holding up her camera, with her signs scattered on the floor" loading="lazy" width="600" height="800"></li>
-              <li><img src="bloom-shoot-3.webp" alt="Paola standing with an open laptop in a black blazer" loading="lazy" width="600" height="800"></li>
-              <li><img src="bloom-shoot-4.webp" alt="Paola throwing her signs in the air with both arms up" loading="lazy" width="600" height="800"></li>
-              <li><img src="bloom-shoot-5.webp" alt="Paola crouching with her camera, picking up a 'Got a special event?' sign" loading="lazy" width="600" height="800"></li>
-              <li><img src="bloom-shoot-6.webp" alt="Close-up of Paola's laptop, coffee cup and camera beside her signs" loading="lazy" width="600" height="800"></li>
-              <li><img src="bloom-shoot-7.webp" alt="Paola walking across the studio with her camera in hand" loading="lazy" width="600" height="800"></li>
-            </ul>
-          </div>
-        </article>
-        <article class="work-card work-photos reveal">
-          <div class="work-copy">
-            <h3>New-build listing photos</h3>
-            <p>A full listing shoot for a newly built home, from the curb to the backyard. Every room shot bright, clean and true to the space, ready for the MLS and social posts.</p>
-            <a class="btn small plain work-link" href="#agents">See what I do for agents</a>
-          </div>
-          <div class="shoot">
-            <span class="live-tag">Listing photos</span>
-            <ul class="shoot-strip is-wide" aria-label="Listing photos of a newly built home">
-              <li><img src="listing-1.webp" alt="Front of a newly built white stucco and stone home with a two-car garage" loading="lazy" width="1400" height="933"></li>
-              <li><img src="listing-2.webp" alt="Open kitchen with a white island, pendant lights and glossy tile floors" loading="lazy" width="900" height="600"></li>
-              <li><img src="listing-3.webp" alt="Primary bathroom with double vessel sinks and a glass walk-in shower" loading="lazy" width="900" height="600"></li>
-              <li><img src="listing-4.webp" alt="Bright bedroom with a tray ceiling and ceiling fan" loading="lazy" width="900" height="600"></li>
-              <li><img src="listing-5.webp" alt="Stone front entry with a black front door and landscaped walkway" loading="lazy" width="900" height="600"></li>
-              <li><img src="listing-6.webp" alt="Close-up of a blue glass vessel sink on a white vanity" loading="lazy" width="900" height="600"></li>
-              <li><img src="listing-7.webp" alt="Kitchen island looking toward the front door" loading="lazy" width="900" height="600"></li>
-              <li><img src="listing-8.webp" alt="Bathroom with a glass shower and blue vessel sinks" loading="lazy" width="900" height="600"></li>
-              <li><img src="listing-9.webp" alt="Back of the home with a fenced, grassy yard" loading="lazy" width="900" height="600"></li>
-            </ul>
-          </div>
-        </article>
-        <article class="work-card work-feature reveal" style="--d:.3s">
-          <div class="work-image">
-            <img src="valley-flash.webp" alt="The Valley Flash homepage: 'Pose. Sonríe. ¡Flash!' beside a photobooth strip of party guests" loading="lazy" width="960" height="600">
-            <video class="work-video" muted playsinline loop preload="none" poster="valley-flash.webp" aria-hidden="true" tabindex="-1">
-              <source src="valley-flash-scroll.webm" type="video/webm">
-              <source src="valley-flash-scroll.mp4" type="video/mp4">
-            </video>
-            <span class="live-tag">Live client site</span>
-          </div>
-          <div class="work-copy">
-            <h3>The Valley Flash</h3>
-            <p>A photobooth and photography business for weddings, quinceañeras and parties across the 956. I designed and built it in Spanish with a little Spanglish, with a party-type picker, simple booking steps and quick ways to ask for a quote.</p>
-            <a class="btn small plain work-link" href="https://thevalleyflash.online/" target="_blank" rel="noopener noreferrer">Visit the live site<svg class="ext" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5"/></svg><span class="sr-only"> (opens in a new tab)</span></a>
-          </div>
-        </article>
-        <article class="work-card work-next reveal" style="--d:.4s">
-          <div class="work-copy">
-            <h3>Your business could be next</h3>
-            <p>New website and brand projects are on the way. Get in early and yours could be the next one on this page.</p>
-            <a class="btn small work-link" href="#contact" data-type="A new website">Start a project</a>
-          </div>
-        </article>
+      <div class="tiles">
+        <a class="tile t-a reveal" href="https://vanillacakesbyerika.com/" target="_blank" rel="noopener noreferrer">
+          <img src="vanilla-bake-2026.webp" alt="Vanilla Bake by Erika homepage: 'Algo rico viene en camino' beside a candlelit cake" loading="lazy" width="960" height="600" style="object-position:left top">
+          <span class="tile-label"><strong>Vanilla Bake by Erika</strong><span class="tile-tag">Live client site</span><svg class="ext" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5"/></svg><span class="sr-only"> (opens in a new tab)</span></span>
+        </a>
+        <a class="tile t-b reveal" href="https://thevalleyflash.online/" target="_blank" rel="noopener noreferrer">
+          <img src="valley-flash.webp" alt="The Valley Flash homepage: 'Pose. Sonríe. ¡Flash!' beside a photobooth strip of party guests" loading="lazy" width="960" height="600" style="object-position:left top">
+          <span class="tile-label"><strong>The Valley Flash</strong><span class="tile-tag">Live client site</span><svg class="ext" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5"/></svg><span class="sr-only"> (opens in a new tab)</span></span>
+        </a>
+        <a class="tile t-c reveal" href="https://www.instagram.com/p/DRlPWdTjtfV/" target="_blank" rel="noopener noreferrer">
+          <img src="bloom-shoot-1.webp" alt="Paola in sunglasses on a director's chair, holding a 'You look like my next client' sign" loading="lazy" width="600" height="800" style="object-position:center 25%">
+          <span class="tile-label"><strong>Bloom Creative Media</strong><span class="tile-tag">Client photoshoot</span><svg class="ext" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5"/></svg><span class="sr-only"> (opens in a new tab)</span></span>
+        </a>
+        <a class="tile t-d reveal" href="demos/brazos-bloom/" target="_blank" rel="noopener noreferrer">
+          <img src="brazos-bloom.webp" alt="Brazos &amp; Bloom Realty homepage: the name in large letters over a stone house at dusk, with a featured listing card" loading="lazy" width="960" height="600" style="object-position:center top">
+          <span class="tile-label"><strong>Brazos &amp; Bloom Realty</strong><span class="tile-tag is-concept">Concept site</span><svg class="ext" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5"/></svg><span class="sr-only"> (opens in a new tab)</span></span>
+        </a>
+        <a class="tile t-e reveal" href="#agents">
+          <img src="listing-1.webp" alt="Front of a newly built white stucco and stone home with a two-car garage" loading="lazy" width="1400" height="933" style="object-position:center">
+          <span class="tile-label"><strong>New-build listing photos</strong><span class="tile-tag">Listing photos</span><svg class="ext" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 3v10M4 9l4 4 4-4"/></svg></span>
+        </a>
+      </div>
+      <p class="panels-next"><strong>Your business could be next.</strong> New website and brand projects are on the way. <a href="#contact" data-type="A new website">Start a project</a></p>
+    </div>
+  </section>
+
+  <section id="support" aria-labelledby="support-title">
+    <div class="wrap">
+      <div class="head reveal">
+        <div>
+          <h2 class="elastic-title" id="support-title" aria-label="I stick around."><span data-text="I stick around." aria-hidden="true">I stick around.</span></h2>
+        </div>
+      </div>
+      <div class="setup-card">
+        <div>
+          <p class="setup-intro">Pick a monthly mix of website, social, brand and design help. We plan it around what your business needs next, and change it as you grow.</p>
+          <div class="setup-actions"><a class="btn" href="#contact" data-type="Monthly support (site, social or hosting)">Ask about monthly support</a><a class="btn plain" href="/plans/">See the plans</a></div>
+        </div>
+        <div>
+          <ul class="setup-list">
+            <li><strong>Website updates</strong><p>New photos, menus, prices, pages, seasonal refreshes and small fixes.</p></li>
+            <li><strong>Social media care</strong><p>On-brand graphics and profile updates, ready to post.</p></li>
+            <li><strong>Brand + design help</strong><p>Flyers, signs, campaign pieces and smoother pages when you need them.</p></li>
+            <li><strong>Hosting + website care</strong><p>Backups, domains, updates, and a real person when something breaks.</p></li>
+          </ul>
+          <p class="setup-terms">We agree on a clear monthly scope before I start. Bigger one-off projects get their own quote, and you always own every account.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -788,7 +829,6 @@ form { gap: var(--el-gap); }
       <div class="head reveal">
         <div>
           <h2 class="elastic-title" id="agents-title" aria-label="For real estate agents"><span data-text="For real estate agents" aria-hidden="true">For real estate agents</span></h2>
-          <svg class="scribble" viewBox="0 0 260 22" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M3 10c45 8 95 9 140 3s80-9 114-1"/></svg>
           <p><strong class="agents-lead">Your listings, looking their best, every week.</strong> You sell homes. I make sure every one of them looks great online, in English and Spanish.</p>
         </div>
       </div>
@@ -807,33 +847,11 @@ form { gap: var(--el-gap); }
     </div>
   </section>
 
-  <section id="support" aria-labelledby="support-title">
-    <div class="wrap">
-      <div class="setup-card">
-        <div>
-          <h2 id="support-title">Launch day isn't goodbye.</h2>
-          <p class="setup-intro">Pick a monthly mix of website, social, brand and design help. We plan it around what your business needs next, and change it as you grow.</p>
-          <div class="setup-actions"><a class="btn" href="#contact" data-type="Monthly support (site, social or hosting)">Ask about monthly support</a><a class="btn plain" href="/plans/">See the plans</a></div>
-        </div>
-        <div>
-          <ul class="setup-list">
-            <li><strong>Website updates</strong><p>New photos, menus, prices, pages, seasonal refreshes and small fixes.</p></li>
-            <li><strong>Social media care</strong><p>On-brand graphics and profile updates, ready to post.</p></li>
-            <li><strong>Brand + design help</strong><p>Flyers, signs, campaign pieces and smoother pages when you need them.</p></li>
-            <li><strong>Hosting + website care</strong><p>Backups, domains, updates, and a real person when something breaks.</p></li>
-          </ul>
-          <p class="setup-terms">We agree on a clear monthly scope before I start. Bigger one-off projects get their own quote, and you always own every account.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <section id="process" aria-labelledby="process-title">
     <div class="wrap">
       <div class="head reveal">
         <div>
           <h2 class="elastic-title" id="process-title" aria-label="How it works"><span data-text="How it works" aria-hidden="true">How it works</span></h2>
-          <svg class="scribble" viewBox="0 0 260 22" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M3 8c50 10 110 12 160 6s70-8 94-2"/></svg>
           <p>From the first hello to launch day, and every month after.</p>
         </div>
       </div>
@@ -880,20 +898,18 @@ form { gap: var(--el-gap); }
     <div class="wrap contact-grid">
       <div class="reveal">
         <h2 class="elastic-title" id="contact-title" aria-label="Say hi"><span data-text="Say hi" aria-hidden="true">Say hi</span></h2>
-        <svg class="scribble" viewBox="0 0 260 22" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M3 12c30-8 60 6 90-2s60-8 90 0 50 4 74-4"/></svg>
         <p class="contact-intro">Tell me about your business and what you need. I reply within one business day with next steps.</p>
         <p class="es-note" lang="es">¿Prefieres español? Escríbeme aquí en español o <a href="https://wa.me/19567388487?text=Hola%20Marcos%2C%20me%20interesa%20un%20proyecto." target="_blank" rel="noopener noreferrer">mándame un WhatsApp<span class="sr-only"> (se abre en una pestaña nueva)</span></a>.</p>
         <ul class="reach">
           <li>
             <span class="reach-label">Email me</span>
-            <span class="reach-row"><a class="mail" href="mailto:contact@hellorivers.com">contact@hellorivers.com</a><button class="copy-btn" type="button" data-copy="contact@hellorivers.com">Copy</button></span>
+            <span class="reach-row"><a class="mail" href="mailto:contact@hellorivers.com">contact@hellorivers.com</a></span>
           </li>
           <li>
             <span class="reach-label">WhatsApp or call</span>
-            <span class="reach-row"><a class="mail" href="https://wa.me/19567388487" target="_blank" rel="noopener noreferrer">(956) 738-8487<span class="sr-only"> on WhatsApp (opens in a new tab)</span></a><a class="copy-btn" href="tel:+19567388487">Call</a></span>
+            <span class="reach-row"><a class="mail" href="https://wa.me/19567388487" target="_blank" rel="noopener noreferrer">(956) 738-8487<span class="sr-only"> on WhatsApp (opens in a new tab)</span></a></span>
           </li>
         </ul>
-        <p class="copy-status" id="copy-status" role="status"></p>
       </div>
       <form id="contact-form" class="reveal" style="--d:.12s" novalidate>
         <div class="row2">
@@ -928,8 +944,6 @@ form { gap: var(--el-gap); }
       <span class="foot-contact"><a href="mailto:contact@hellorivers.com">contact@hellorivers.com</a><a href="https://wa.me/19567388487" target="_blank" rel="noopener noreferrer">WhatsApp (956) 738-8487</a></span>
       <a href="#top">Back to top</a>
     </div>
-    <div class="wordmark" id="wordmark" aria-hidden="true" data-text="Hello Rivers"></div>
-    <p class="hint" aria-hidden="true">drag across the letters</p>
   </div>
 </footer>
 
@@ -1004,8 +1018,8 @@ function onScroll() {
   h1.style.setProperty("--wght", (800 + 100 * p).toFixed(0));
 }
 addEventListener("scroll", onScroll, { passive: true });
-addEventListener("resize", () => { fitHeadline(); fitWordmark(); });
-addEventListener("orientationchange", () => { fitHeadline(); fitWordmark(); });
+addEventListener("resize", () => { fitHeadline(); });
+addEventListener("orientationchange", () => { fitHeadline(); });
 
 /* ---------- Reveal on scroll ---------- */
 const io = "IntersectionObserver" in window ? new IntersectionObserver(es => es.forEach(e => {
@@ -1055,31 +1069,6 @@ document.querySelectorAll("[data-type]").forEach(a => a.addEventListener("click"
   if (type && [...type.options].some(o => o.value === a.dataset.type)) type.value = a.dataset.type;
 }));
 
-/* ---------- Stretchy footer wordmark ---------- */
-const wm = document.getElementById("wordmark");
-wm.innerHTML = [...wm.dataset.text].map(c => `<span>${c === " " ? "&nbsp;" : c}</span>`).join("");
-const wmChars = [...wm.children];
-function fitWordmark() {
-  wmChars.forEach(s => s.style.setProperty("--w", 125));
-  wm.style.fontSize = "100px";
-  wm.style.width = "max-content";
-  const w = wm.getBoundingClientRect().width;
-  wm.style.width = "";
-  wm.style.fontSize = (100 * wm.clientWidth / w * .99) + "px";
-}
-function stretch(x) {
-  if (reduce) return;
-  wmChars.forEach(s => {
-    const r = s.getBoundingClientRect();
-    const d = Math.abs(r.left + r.width / 2 - x);
-    s.style.setProperty("--w", (50 + 75 * Math.exp(-((d / 140) ** 2))).toFixed(1));
-  });
-}
-wm.addEventListener("pointermove", e => stretch(e.clientX));
-wm.addEventListener("touchmove", e => stretch(e.touches[0].clientX), { passive: true });
-const relax = () => wmChars.forEach(s => s.style.setProperty("--w", 125));
-wm.addEventListener("pointerleave", relax);
-wm.addEventListener("touchend", relax);
 
 /* ---------- Contact form ---------- */
 const form = document.getElementById("contact-form"), status = document.getElementById("form-status");
@@ -1099,6 +1088,10 @@ form.querySelectorAll("input, textarea").forEach(f => f.addEventListener("input"
   const left = form.querySelectorAll('[aria-invalid="true"]').length;
   if (!left) { status.textContent = ""; status.classList.remove("is-error"); }
   else status.textContent = left === 1 ? "One field needs a look." : `${left} fields need a look.`;
+}));
+form.querySelectorAll("input, textarea").forEach(f => f.addEventListener("blur", () => {
+  const v = f.value.trim();
+  if (rules[f.name] && v) setError(f, rules[f.name](v));
 }));
 form.addEventListener("submit", e => {
   e.preventDefault();
@@ -1120,47 +1113,12 @@ form.addEventListener("submit", e => {
   status.innerHTML = "Your email app should be opening with your note ready to send. " + fallback;
 });
 
-/* ---------- Project scroll recordings: hover on desktop, in view on touch ---------- */
-if (!reduce) document.querySelectorAll(".work-feature .work-image").forEach(workImage => {
-  const workVideo = workImage.querySelector("video");
-  if (!workVideo) return;
-  const play = () => { workImage.classList.add("is-playing"); workVideo.play().catch(() => workImage.classList.remove("is-playing")); };
-  const stop = () => { workImage.classList.remove("is-playing"); workVideo.pause(); workVideo.currentTime = 0; };
-  const card = workImage.closest(".work-card");
-  // Start downloading before the card is reached, so a hover plays at once.
-  const warm = () => { if (workVideo.preload !== "auto") { workVideo.preload = "auto"; workVideo.load(); } };
-  if ("IntersectionObserver" in window) {
-    const near = new IntersectionObserver(es => { if (es.some(e => e.isIntersecting)) { warm(); near.disconnect(); } }, { rootMargin: "800px 0px" });
-    near.observe(workImage);
-  } else warm();
-  if (matchMedia("(hover: hover) and (pointer: fine)").matches) {
-    card.addEventListener("mouseenter", play);
-    card.addEventListener("mouseleave", stop);
-    card.addEventListener("focusin", play);
-    card.addEventListener("focusout", stop);
-  } else if ("IntersectionObserver" in window) {
-    new IntersectionObserver(es => es.forEach(e => e.isIntersecting ? play() : stop()), { threshold: .6 }).observe(workImage);
-  }
-});
-
-/* ---------- Copy email ---------- */
-const copyStatus = document.getElementById("copy-status");
-document.querySelectorAll("button[data-copy]").forEach(b => b.addEventListener("click", async () => {
-  try {
-    await navigator.clipboard.writeText(b.dataset.copy);
-    b.textContent = "Copied!";
-    copyStatus.textContent = "Email copied. Paste it into any email app.";
-  } catch {
-    copyStatus.textContent = `Copy didn't work here. The address is ${b.dataset.copy}.`;
-  }
-  setTimeout(() => { b.textContent = "Copy"; }, 2000);
-}));
 
 /* ---------- Start ---------- */
 document.getElementById("year").textContent = new Date().getFullYear();
 watch(document);
-fitHeadline(); fitWordmark();
-(document.fonts ? document.fonts.ready : Promise.resolve()).then(() => { fitHeadline(); fitWordmark(); });
+fitHeadline();
+(document.fonts ? document.fonts.ready : Promise.resolve()).then(() => { fitHeadline(); });
 
 /* ---------- Things Marcos likes: tap or press the polaroid to show them ---------- */
 (() => {
