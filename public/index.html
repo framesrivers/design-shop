@@ -451,6 +451,7 @@ summary::after { color: var(--blue); }
 .btn.plain { background: transparent; color: var(--blue); box-shadow: inset 0 0 0 1.5px var(--blue) !important; }
 .btn.plain:hover { background: var(--sky); }
 .agents-card .btn, .tier.pick .btn, .plans-cta .btn.alt, .page-cta .btn.alt { background: var(--paper); color: var(--blue); }
+.agents-card .btn:hover, .tier.pick .btn:hover, .plans-cta .btn.alt:hover, .page-cta .btn.alt:hover { background: #fff; color: var(--blue); }
 .plans-cta .btn.plain, .page-cta .btn.plain, .agents-card .btn.plain { background: transparent; color: #fff; box-shadow: inset 0 0 0 1.5px #fff !important; }
 .block .card-cta, .copy-btn { border-radius: 999px; }
 
@@ -564,6 +565,51 @@ form { gap: var(--el-gap); }
   .headline .fit, .plans-hero h1, .page-hero h1 { font-size: 40px !important; }
   .contact-grid .mail { font-size: 24px; }
 }
+
+/* Hero: headline and intro on the left, a large photo on the right */
+@media (min-width: 900px) {
+  .hero > .wrap { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 480px); column-gap: var(--content-space); align-items: center; }
+  .hero .headline { grid-column: 1; grid-row: 1; align-self: end; }
+  .hero .under { display: contents; }
+  .hero .under > div:first-child { grid-column: 1; grid-row: 2; align-self: start; margin-top: 28px; }
+  .hero .portrait-wrap { grid-column: 2; grid-row: 1 / 3; width: 100%; }
+}
+@media (min-width: 1100px) {
+  .hero { isolation: isolate; }
+  .hero::after { top: 92px; width: 120px; height: 144px; right: calc(max(1.25rem, (100vw - 1240px) / 2) + 480px - 56px); z-index: 0; }
+}
+
+/* Polaroid in three layers: backdrop, things Marcos likes, then Marcos.
+   The things stay hidden until the pointer is on the polaroid. */
+.portrait-wrap { position: relative; z-index: 1; justify-self: end; width: clamp(200px, 21vw, 270px); }
+.hero .portrait { position: relative; width: 100%; margin: 0; }
+.polaroid-window { position: relative; aspect-ratio: 480 / 500; background: #E6E7EA; }
+.me { position: absolute; inset: 0; z-index: 2; overflow: hidden; clip-path: inset(-20% -20% 0 -20%); }
+.portrait .me img { position: absolute; left: -9%; top: 3%; width: 118%; max-width: none; height: auto; background: none; }
+.hero .portrait figcaption { position: relative; background: var(--sheet); transition: color .18s ease; }
+.things { position: absolute; inset: 0; z-index: 1; pointer-events: none; }
+.portrait .things img { position: absolute; height: auto; max-width: none; background: none; opacity: 0; transform: translate(var(--fx), var(--fy)) scale(.3); transition: opacity .18s ease, transform .3s var(--ease); }
+.portrait:hover .things img, .portrait:focus-visible .things img, .portrait-wrap.is-open .portrait .things img { opacity: 1; transform: rotate(var(--rot)); transition: opacity .18s ease var(--delay), transform .5s var(--bounce) var(--delay); }
+.portrait .things .t-rose { width: 46%; left: -17%; top: -9%; --fx: 40%; --fy: 30%; --rot: 0deg; --delay: 0ms; }
+.portrait .things .t-frida { width: 84.7%; left: -1.8%; top: -1.9%; --fx: 15%; --fy: 25%; --rot: 0deg; --delay: 40ms; }
+.portrait .things .t-loteria { width: 40%; left: -15%; top: 57%; --fx: 60%; --fy: -20%; --rot: -7deg; --delay: 80ms; }
+@media (max-width: 600px) {
+  .portrait .things .t-loteria { width: 34%; left: -14%; top: 55%; --rot: -2deg; }
+  .hero .portrait figcaption { font-size: 1.5rem; }
+}
+.portrait .things .t-skull { width: 39.8%; left: 63.3%; top: 47.6%; --fx: -60%; --fy: -10%; --rot: 6deg; --delay: 120ms; }
+.portrait .things .t-hand { width: 27.0%; left: 10.2%; top: 45.3%; --fx: 70%; --fy: 10%; --rot: 0deg; --delay: 180ms; }
+.portrait .things .t-smile { width: 29.5%; left: 64.5%; top: 26.2%; --fx: -70%; --fy: 40%; --rot: 0deg; --delay: 220ms; }
+.portrait .things .t-wink { width: 29.5%; left: 64.5%; top: 26.2%; --fx: -70%; --fy: 40%; --rot: 0deg; --delay: 220ms; }
+.things-front { z-index: 4; }
+.portrait .things .t-hand { transform-origin: 60% 95%; }
+.portrait:hover .things .t-hand, .portrait:focus-visible .things .t-hand, .portrait-wrap.is-open .things .t-hand { animation: hand-wave 1.5s ease-in-out .7s 2; }
+.portrait:hover .things .t-wink, .portrait:focus-visible .things .t-wink, .portrait-wrap.is-open .things .t-wink { opacity: 0; animation: smile-wink 1.6s linear 1s 3; }
+@keyframes hand-wave { 0%, 100% { rotate: 0deg; } 15%, 45%, 75% { rotate: 16deg; } 30%, 60% { rotate: -8deg; } }
+@keyframes smile-wink { 0%, 55%, 85%, 100% { opacity: 0; } 60%, 80% { opacity: 1; } }
+@media (prefers-reduced-motion: reduce) { .portrait .things .t-hand, .portrait .things .t-wink { animation: none !important; } }
+@media (max-width: 899px) { .portrait-wrap { justify-self: center; width: min(280px, 78%); margin-top: 1rem; } }
+@media (prefers-reduced-motion: reduce) { .things img, .portrait:hover .things img, .portrait:focus-visible .things img, .portrait-wrap.is-open .things img { transition: opacity .01s; transform: rotate(var(--rot)); } }
 </style>
 </head>
 <body>
@@ -605,10 +651,16 @@ form { gap: var(--el-gap); }
           </div>
           <a class="se-habla" lang="es" href="https://wa.me/19567388487?text=Hola%20Marcos%2C%20me%20interesa%20un%20proyecto." target="_blank" rel="noopener noreferrer">¡Se habla español!<span class="sr-only"> Escríbeme por WhatsApp (se abre en una pestaña nueva)</span></a>
         </div>
-        <figure class="portrait reveal" style="--rr:3deg">
-          <img src="marcos-rivers.webp" alt="Marcos, the designer behind Hello Rivers, sitting backwards on a black folding chair" width="600" height="644">
-          <figcaption>hi, I'm Marcos</figcaption>
-        </figure>
+        <div class="portrait-wrap" id="portrait-wrap">
+          <figure class="portrait reveal" style="--rr:3deg" tabindex="0" role="button" aria-expanded="false" aria-label="Hi, I'm Marcos. Press to see some things I like.">
+            <div class="polaroid-window">
+              <div class="things" aria-hidden="true"><img class="t-rose" src="hero-things/rose.svg" alt="" width="480" loading="lazy"><img class="t-frida" src="hero-things/frida.svg" alt="" width="900" loading="lazy"><img class="t-loteria" src="hero-things/loteria.svg" alt="" width="300" loading="lazy"><img class="t-skull" src="hero-things/skull.svg" alt="" width="410" loading="lazy"></div>
+              <div class="me"><img src="marcos-cutout.webp" alt="Marcos, the designer behind Hello Rivers, smiling with one hand in his pocket" width="1300" height="1311"></div>
+            <div class="things things-front" aria-hidden="true"><img class="t-hand" src="hero-things/hand.webp" alt="" width="330" loading="lazy"><img class="t-smile" src="hero-things/smile.webp" alt="" width="400" loading="lazy"><img class="t-wink" src="hero-things/smile-wink.webp" alt="" width="400" loading="lazy"></div>
+            </div>
+            <figcaption>hi, I'm Marcos</figcaption>
+          </figure>
+        </div>
       </div>
     </div>
   </section>
@@ -1109,6 +1161,19 @@ document.getElementById("year").textContent = new Date().getFullYear();
 watch(document);
 fitHeadline(); fitWordmark();
 (document.fonts ? document.fonts.ready : Promise.resolve()).then(() => { fitHeadline(); fitWordmark(); });
+
+/* ---------- Things Marcos likes: tap or press the polaroid to show them ---------- */
+(() => {
+  const wrap = document.getElementById("portrait-wrap"), photo = wrap.querySelector(".portrait");
+  const setOpen = open => { wrap.classList.toggle("is-open", open); photo.setAttribute("aria-expanded", String(open)); };
+  const noHover = matchMedia("(hover: none)");
+  photo.addEventListener("click", () => { if (noHover.matches) setOpen(!wrap.classList.contains("is-open")); });
+  photo.addEventListener("keydown", e => {
+    if (e.key === "Enter" || e.key === " ") { e.preventDefault(); setOpen(!wrap.classList.contains("is-open")); }
+    if (e.key === "Escape") setOpen(false);
+  });
+  document.addEventListener("click", e => { if (!wrap.contains(e.target)) setOpen(false); });
+})();
 </script>
 </body>
 </html>
