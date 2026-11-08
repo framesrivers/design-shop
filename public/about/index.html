@@ -26,20 +26,16 @@
    EDIT YOUR COLORS HERE (riso-print inks)
    ============================================================ */
 :root {
-  --paper: #F7F3EA;     /* newsprint background */
-  --sheet: #FFFFFF;     /* cards and paper sheets */
-  --blue: #2450F5;      /* riso blue: text, borders, shadows */
-  --pink: #BFDCFF;      /* fluorescent pink: ink layers and decoration */
-  --pink-deep: #0C1E6B; /* pink behind light text */
-  --pink-ink: #2450F5;  /* pink text on light surfaces */
-  --yellow: #BFDCFF;    /* riso yellow */
-  --soft: #3A4A8C;      /* secondary text */
+  --paper: #E5E7EA;     /* newsprint background */
+  --sheet: #FAFAF7;     /* cards and paper sheets */
+  --blue: #1D3FB0;      /* riso blue: text, borders, shadows */
+  --pink: #FF48B0;      /* fluorescent pink: ink layers and decoration */
+  --pink-deep: #CC1479; /* pink behind light text */
+  --pink-ink: #C2137A;  /* pink text on light surfaces */
+  --yellow: #FFE800;    /* riso yellow */
+  --soft: #4A5A96;      /* secondary text */
 
   --display: "Onest", system-ui, -apple-system, "Segoe UI", sans-serif;
-  --navy: #0C1E6B;
-  --sky: #BFDCFF;
-  --mark-yellow: #FFE800;
-  --mark-pink: #FF48B0;
   --body: "Hanken Grotesk", system-ui, -apple-system, "Segoe UI", sans-serif;
   --hand: "Kalam", "Comic Sans MS", cursive;
   --ease: cubic-bezier(.2, .8, .2, 1);
@@ -88,7 +84,7 @@ a { color: inherit; }
 
 /* ---------- Nav ---------- */
 .nav { position: fixed; inset: 0 0 auto; z-index: 50; padding-top: env(safe-area-inset-top, 0px); transition: background .3s; }
-.nav.scrolled { background: var(--paper); border-bottom: 2.5px solid var(--blue); }
+.nav.scrolled { background: rgba(229, 231, 234, .85); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 2.5px solid var(--blue); }
 .nav .wrap { display: flex; justify-content: space-between; align-items: center; height: 74px; gap: 1rem; }
 .brand { display: flex; align-items: center; text-decoration: none; line-height: 0; }
 .brand-logo { display: block; width: 154px; height: auto; max-height: 52px; object-fit: contain; }
@@ -239,7 +235,7 @@ form {
   position: relative; display: grid; gap: 1rem; background: var(--sheet); padding: clamp(1.4rem, 3vw, 2.2rem);
   border: 2.5px solid var(--blue); box-shadow: 6px 6px 0 var(--blue); border-radius: 6px; transform: rotate(1deg);
 }
-form::before, form::after { content: ""; position: absolute; width: 84px; height: 26px; background: rgba(191, 220, 255, .55); top: -13px; }
+form::before, form::after { content: ""; position: absolute; width: 84px; height: 26px; background: rgba(255, 72, 176, .55); top: -13px; }
 form::before { left: -18px; transform: rotate(-30deg); }
 form::after { right: -18px; transform: rotate(28deg); }
 label { display: grid; gap: .4rem; font-weight: 700; font-size: .93rem; }
@@ -275,7 +271,7 @@ footer .top { display: flex; justify-content: space-between; flex-wrap: wrap; ga
 .block p { margin-top: .85rem; line-height: 1.65; }
 .block .card-cta { margin-top: auto; max-width: 100%; min-height: 44px; align-items: center; line-height: 1.25; }
 .block p { margin-bottom: 1.5rem; }
-.b1 { background: var(--blue); }
+.b1 { background: #CC1479; }
 .b1 h3 { font-size: clamp(1.8rem, 8cqi, 3rem); }
 .b6 h3 { font-size: clamp(1.8rem, 8cqi, 3rem); }
 .block .art { width: 42%; bottom: -.6rem; opacity: .7; pointer-events: none; }
@@ -483,27 +479,21 @@ p, summary, li { text-wrap: pretty; }
 .fact ul { gap: 8px; }
 .fact li { padding-bottom: 8px; }
 
-/* New colors and fonts on the original layout */
-.headline { line-height: 1; letter-spacing: -.025em; font-variation-settings: normal; }
-.headline .fit { font-variation-settings: normal; }
-h1, h2 { line-height: 1.04; letter-spacing: -.02em; font-variation-settings: normal; font-weight: 700; }
-h3, .block h3, .work-copy h3, .agents-list h3, .tier h3, .fact h3, .addons h3 { line-height: 1.1; letter-spacing: -.012em; font-variation-settings: normal; font-weight: 700; }
-html { font-synthesis-weight: none; }
-body { color: var(--navy); font-weight: 300; }
-strong, b { font-weight: 700; }
-.b1 p, .b6 p, .agents-card p, .tier.pick p, .tier.pick li, .plans-cta p, .page-cta p { font-weight: 400; }
-.wordmark { font-family: "Anybody", "Arial Black", system-ui, sans-serif; }
-.scribble path { stroke: var(--mark-pink); }
-::selection { background: var(--mark-yellow); color: var(--navy); }
-.skip-link, .btn.alt, .agents-num, .setup-card .btn.plain, .copy-btn:hover, .nav ul a:hover, .nav ul a:focus-visible { color: var(--navy); }
-.nav ul a::after { background: var(--mark-yellow); }
+/* First version: sentence case instead of all caps */
+.headline { line-height: .98; }
+h2 { line-height: 1.02; }
+.block h3, .work-copy h3, .agents-list h3, .tier h3, .addons h3, .fact h3, .receipt .rt { line-height: 1.08; }
 
-/* Headings are calm; only the hero keeps the printed offset */
-.elastic-title .glyph .ink-p { display: none; }
-/* Bigger tap areas, no visual change */
-.se-habla, footer a, .reach a, .es-note a, .hand { position: relative; }
-.se-habla::before, footer a::before, .reach a::before, .es-note a::before { content: ""; position: absolute; inset: -11px -4px; }
-@media (min-width: 761px) { .nav ul a::before { content: ""; position: absolute; inset: -13px -8px; } }
+/* The other fonts: Onest, thin Hanken, Kalam. The footer wordmark keeps Anybody for its stretch. */
+html { font-synthesis-weight: none; }
+body { font-weight: 300; }
+strong, b { font-weight: 700; }
+.wordmark { font-family: "Anybody", "Arial Black", system-ui, sans-serif; }
+.block p, .head p, .hero .lede, .plans-hero .lede, .page-hero .lede, .about-grid .lede, .contact-intro, .setup-intro, .setup-list p, .setup-terms, .work-copy p, .agents-list p, details p, .story p, .services-line { font-weight: 300; }
+.b1 p, .b6 p, .agents-card p, .tier.pick p, .tier.pick li, .plans-cta p, .page-cta p { font-weight: 400; }
+.headline, .headline .fit { letter-spacing: -.025em; font-variation-settings: normal; }
+h1, h2 { font-variation-settings: normal; font-weight: 700; letter-spacing: -.02em; }
+h3, .block h3, .work-copy h3, .agents-list h3, .tier h3, .addons h3, .fact h3, .receipt .rt { font-variation-settings: normal; font-weight: 700; letter-spacing: -.012em; }
 </style>
 </head>
 <body>
@@ -512,7 +502,7 @@ strong, b { font-weight: 700; }
 
 <header class="nav" id="nav">
   <div class="wrap">
-    <a class="brand" href="/" aria-label="Hello Rivers home"><img class="brand-logo" src="/hello-rivers-logo-2026.webp" alt="Hello Rivers" width="400" height="157"></a>
+    <a class="brand" href="/" aria-label="Hello Rivers home"><img class="brand-logo" src="/hello-rivers-logo.webp" alt="Hello Rivers" width="400" height="157"></a>
     <button class="nav-toggle" type="button" aria-controls="primary-links" aria-expanded="false">Menu</button>
     <nav aria-label="Primary">
       <ul id="primary-links">
@@ -551,7 +541,7 @@ strong, b { font-weight: 700; }
 
   <section aria-labelledby="facts-title">
     <div class="wrap">
-      <div class="head reveal"><div><h2 class="elastic-title" id="facts-title" aria-label="How I work"><span data-text="How I work" aria-hidden="true">How I work</span></h2></div></div>
+      <div class="head reveal"><div><h2 class="elastic-title" id="facts-title" aria-label="How I work"><span data-text="How I work" aria-hidden="true">How I work</span></h2><svg class="scribble" viewBox="0 0 260 22" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M3 8c50 10 110 12 160 6s70-8 94-2"/></svg></div></div>
       <div class="facts">
         <article class="fact reveal">
           <h3>What I do</h3>
@@ -592,6 +582,8 @@ strong, b { font-weight: 700; }
       <span class="foot-contact"><a href="mailto:contact@hellorivers.com">contact@hellorivers.com</a><a href="https://wa.me/19567388487" target="_blank" rel="noopener noreferrer">WhatsApp (956) 738-8487</a></span>
       <a href="#top">Back to top</a>
     </div>
+    <div class="wordmark" id="wordmark" aria-hidden="true" data-text="Hello Rivers"></div>
+    <p class="hint" aria-hidden="true">drag across the letters</p>
   </div>
 </footer>
 
@@ -633,8 +625,35 @@ const io = "IntersectionObserver" in window ? new IntersectionObserver(es => es.
 }), { threshold: .15 }) : null;
 document.querySelectorAll(".reveal").forEach(el => io ? io.observe(el) : el.classList.add("in"));
 
+/* ---------- Stretchy footer wordmark ---------- */
+const wm = document.getElementById("wordmark");
+wm.innerHTML = [...wm.dataset.text].map(c => `<span>${c === " " ? "&nbsp;" : c}</span>`).join("");
+const wmChars = [...wm.children];
+function fitWordmark() {
+  wmChars.forEach(s => s.style.setProperty("--w", 125));
+  wm.style.fontSize = "100px"; wm.style.width = "max-content";
+  const w = wm.getBoundingClientRect().width;
+  wm.style.width = "";
+  wm.style.fontSize = (100 * wm.clientWidth / w * .99) + "px";
+}
+function stretch(x) {
+  if (reduce) return;
+  wmChars.forEach(s => {
+    const r = s.getBoundingClientRect();
+    const d = Math.abs(r.left + r.width / 2 - x);
+    s.style.setProperty("--w", (50 + 75 * Math.exp(-((d / 140) ** 2))).toFixed(1));
+  });
+}
+wm.addEventListener("pointermove", e => stretch(e.clientX));
+wm.addEventListener("touchmove", e => stretch(e.touches[0].clientX), { passive: true });
+const relax = () => wmChars.forEach(s => s.style.setProperty("--w", 125));
+wm.addEventListener("pointerleave", relax);
+wm.addEventListener("touchend", relax);
+addEventListener("resize", fitWordmark);
 
 document.getElementById("year").textContent = new Date().getFullYear();
+fitWordmark();
+(document.fonts ? document.fonts.ready : Promise.resolve()).then(fitWordmark);
 </script>
 </body>
 </html>

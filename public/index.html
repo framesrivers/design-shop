@@ -27,20 +27,16 @@
    EDIT YOUR COLORS HERE (riso-print inks)
    ============================================================ */
 :root {
-  --paper: #F7F3EA;     /* newsprint background */
-  --sheet: #FFFFFF;     /* cards and paper sheets */
-  --blue: #2450F5;      /* riso blue: text, borders, shadows */
-  --pink: #BFDCFF;      /* fluorescent pink: ink layers and decoration */
-  --pink-deep: #0C1E6B; /* pink behind light text */
-  --pink-ink: #2450F5;  /* pink text on light surfaces */
-  --yellow: #BFDCFF;    /* riso yellow */
-  --soft: #3A4A8C;      /* secondary text */
+  --paper: #E5E7EA;     /* newsprint background */
+  --sheet: #FAFAF7;     /* cards and paper sheets */
+  --blue: #1D3FB0;      /* riso blue: text, borders, shadows */
+  --pink: #FF48B0;      /* fluorescent pink: ink layers and decoration */
+  --pink-deep: #CC1479; /* pink behind light text */
+  --pink-ink: #C2137A;  /* pink text on light surfaces */
+  --yellow: #FFE800;    /* riso yellow */
+  --soft: #4A5A96;      /* secondary text */
 
   --display: "Onest", system-ui, -apple-system, "Segoe UI", sans-serif;
-  --navy: #0C1E6B;
-  --sky: #BFDCFF;
-  --mark-yellow: #FFE800;
-  --mark-pink: #FF48B0;
   --body: "Hanken Grotesk", system-ui, -apple-system, "Segoe UI", sans-serif;
   --hand: "Kalam", "Comic Sans MS", cursive;
   --ease: cubic-bezier(.2, .8, .2, 1);
@@ -89,7 +85,7 @@ a { color: inherit; }
 
 /* ---------- Nav ---------- */
 .nav { position: fixed; inset: 0 0 auto; z-index: 50; padding-top: env(safe-area-inset-top, 0px); transition: background .3s; }
-.nav.scrolled { background: var(--paper); border-bottom: 2.5px solid var(--blue); }
+.nav.scrolled { background: rgba(229, 231, 234, .85); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 2.5px solid var(--blue); }
 .nav .wrap { display: flex; justify-content: space-between; align-items: center; height: 74px; gap: 1rem; }
 .brand { display: flex; align-items: center; text-decoration: none; line-height: 0; }
 .brand-logo { display: block; width: 154px; height: auto; max-height: 52px; object-fit: contain; }
@@ -242,7 +238,7 @@ form {
   position: relative; display: grid; gap: 1rem; background: var(--sheet); padding: clamp(1.4rem, 3vw, 2.2rem);
   border: 2.5px solid var(--blue); box-shadow: 6px 6px 0 var(--blue); border-radius: 6px; transform: rotate(1deg);
 }
-form::before, form::after { content: ""; position: absolute; width: 84px; height: 26px; background: rgba(191, 220, 255, .55); top: -13px; }
+form::before, form::after { content: ""; position: absolute; width: 84px; height: 26px; background: rgba(255, 72, 176, .55); top: -13px; }
 form::before { left: -18px; transform: rotate(-30deg); }
 form::after { right: -18px; transform: rotate(28deg); }
 label { display: grid; gap: .4rem; font-weight: 700; font-size: .93rem; }
@@ -278,7 +274,7 @@ footer .top { display: flex; justify-content: space-between; flex-wrap: wrap; ga
 .block p { margin-top: .85rem; line-height: 1.65; }
 .block .card-cta { margin-top: auto; max-width: 100%; min-height: 44px; align-items: center; line-height: 1.25; }
 .block p { margin-bottom: 1.5rem; }
-.b1 { background: var(--blue); }
+.b1 { background: #CC1479; }
 .b1 h3 { font-size: clamp(1.8rem, 8cqi, 3rem); }
 .b6 h3 { font-size: clamp(1.8rem, 8cqi, 3rem); }
 .block .art { width: 42%; bottom: -.6rem; opacity: .7; pointer-events: none; }
@@ -413,55 +409,10 @@ footer a:hover { color: var(--pink-ink); }
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
 p, summary, li { text-wrap: pretty; }
 
-/* New colors and fonts on the original layout */
-.headline { line-height: 1; letter-spacing: -.025em; font-variation-settings: normal; }
-.headline .fit { font-variation-settings: normal; }
-h1, h2 { line-height: 1.04; letter-spacing: -.02em; font-variation-settings: normal; font-weight: 700; }
-h3, .block h3, .work-copy h3, .agents-list h3, .tier h3, .fact h3, .addons h3 { line-height: 1.1; letter-spacing: -.012em; font-variation-settings: normal; font-weight: 700; }
-html { font-synthesis-weight: none; }
-body { color: var(--navy); font-weight: 300; }
-strong, b { font-weight: 700; }
-.b1 p, .b6 p, .agents-card p, .tier.pick p, .tier.pick li, .plans-cta p, .page-cta p { font-weight: 400; }
-.wordmark { font-family: "Anybody", "Arial Black", system-ui, sans-serif; }
-.scribble path { stroke: var(--mark-pink); }
-::selection { background: var(--mark-yellow); color: var(--navy); }
-.skip-link, .btn.alt, .agents-num, .setup-card .btn.plain, .copy-btn:hover, .nav ul a:hover, .nav ul a:focus-visible { color: var(--navy); }
-.nav ul a::after { background: var(--mark-yellow); }
-.headline .fit:last-child .riso:last-child { background: linear-gradient(transparent 56%, var(--mark-yellow) 56%, var(--mark-yellow) 90%, transparent 90%); }
-.contact-grid .mail { background: linear-gradient(transparent 52%, var(--mark-yellow) 52%, var(--mark-yellow) 92%, transparent 92%); color: var(--navy); }
-
-/* Headings are calm; only the hero keeps the printed offset */
-.elastic-title .glyph .ink-p { display: none; }
-/* Bigger tap areas, no visual change */
-.se-habla, footer a, .reach a, .es-note a, .hand { position: relative; }
-.se-habla::before, footer a::before, .reach a::before, .es-note a::before { content: ""; position: absolute; inset: -11px -4px; }
-@media (min-width: 761px) { .nav ul a::before { content: ""; position: absolute; inset: -13px -8px; } }
-
-/* ============================================================
-   Recent work: photo grid
-   ============================================================ */
-.tiles { display: grid; grid-template-columns: 2fr 1.1fr 1.1fr; grid-template-rows: 250px 250px; gap: 12px; }
-.tile { position: relative; display: block; overflow: hidden; border-radius: 18px; background: #E6E7EA; color: var(--navy); text-decoration: none; }
-.t-a { grid-row: 1 / 3; }
-.tile img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform .5s var(--ease); }
-.tile:hover img, .tile:focus-visible img { transform: scale(1.03); }
-.tile-label { position: absolute; inset: auto 10px 10px; display: flex; flex-wrap: wrap; align-items: center; gap: 4px 10px; padding: 10px 40px 10px 14px; border-radius: 12px; background: #fff; }
-.tile-label strong { font: 700 15px/1.2 var(--display); }
-.tile-tag { padding: 3px 9px; border-radius: 99px; background: var(--sky); color: var(--navy); font-size: 12px; font-weight: 400; line-height: 1.3; white-space: nowrap; }
-.tile-tag.is-concept { background: var(--navy); color: #fff; }
-.tile-label .ext { position: absolute; top: 50%; right: 12px; width: 18px; height: 18px; margin-top: -9px; fill: none; stroke: var(--blue); stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; transition: transform .25s var(--ease); }
-.tile:hover .ext { transform: translate(2px, -2px); }
-.t-a .tile-label strong { font-size: 18px; }
-@media (max-width: 760px) {
-  .tiles { grid-template-columns: 1fr 1fr; grid-template-rows: 250px; grid-auto-rows: 210px; gap: 10px; }
-  .t-a { grid-column: 1 / -1; grid-row: auto; }
-  .tile-label { inset: auto 6px 6px; flex-direction: column; align-items: flex-start; padding: 8px 28px 8px 10px; }
-  .tile-label strong { font-size: 14px; }
-  .t-a .tile-label { inset: auto 8px 8px; flex-direction: row; flex-wrap: nowrap; align-items: center; gap: 8px; padding: 10px 32px 10px 12px; }
-  .t-a .tile-label strong { font-size: 15px; }
-  .tile-label .ext { right: 8px; }
-}
-@media (prefers-reduced-motion: reduce) { .tile img, .tile-label .ext { transition: none; } .tile:hover img { transform: none; } }
+/* First version: sentence case instead of all caps */
+.headline { line-height: .98; }
+h2 { line-height: 1.02; }
+.block h3, .work-copy h3, .agents-list h3, .tier h3, .addons h3, .fact h3, .receipt .rt { line-height: 1.08; }
 
 /* Hero collage */
 .portrait-wrap { position: relative; z-index: 1; justify-self: end; width: clamp(200px, 21vw, 270px); }
@@ -489,32 +440,32 @@ strong, b { font-weight: 700; }
 @media (prefers-reduced-motion: reduce) { .portrait .things .t-hand { animation: none !important; } }
 @media (max-width: 899px) { .portrait-wrap { justify-self: center; width: min(240px, 68%); margin-top: 1rem; } }
 @media (prefers-reduced-motion: reduce) { .things img, .portrait:hover .things img, .portrait-wrap.is-open .things img { transition: opacity .01s; transform: rotate(var(--rot)); } }
-/* Fits this layout: polaroid sits beside the intro */
 .portrait-wrap { width: 340px; }
 .hero .portrait { width: 100%; margin: 0; }
 @media (max-width: 899px) { .portrait-wrap { justify-self: center; width: min(280px, 78%); margin-top: 1.5rem; } }
-.try-me { position: absolute; z-index: 3; top: 42%; right: calc(100% + 16px); display: flex; align-items: center; gap: 4px; white-space: nowrap; font: 300 1.5rem/1.15 var(--hand); color: var(--blue); pointer-events: none; transition: opacity .2s ease; }
+.try-me { position: absolute; z-index: 3; top: 42%; right: calc(100% + 16px); display: flex; align-items: center; gap: 4px; white-space: nowrap; font: 600 1.6rem/1.1 var(--hand); color: var(--pink-ink); pointer-events: none; transition: opacity .2s ease; }
 .try-me img { width: 52px; height: auto; transform: rotate(-8deg); }
 .try-me .say-tap { display: none; }
 .portrait-wrap:hover .try-me, .portrait-wrap.is-open .try-me { opacity: 0; }
 @media (hover: none) { .try-me .say-hover { display: none; } .try-me .say-tap { display: inline; } }
 @media (max-width: 1099px) { .try-me { display: none; } }
 @media (max-width: 899px) { .try-me { display: flex; position: static; justify-content: center; margin-bottom: 16px; } .try-me img { display: none; } }
-/* Work tiles in the outlined card style */
-.tile { border: 2.5px solid var(--blue); box-shadow: 5px 5px 0 var(--blue); }
-.tile-tag { padding: 0; border-radius: 0; background: none; color: var(--navy); font-size: 13px; }
-.tile-label { flex-direction: column; align-items: flex-start; gap: 1px; }
-.t-a .tile-label { flex-direction: column; align-items: flex-start; flex-wrap: wrap; gap: 1px; }
-.tile:active { transform: translate(2px, 2px); box-shadow: 2px 2px 0 var(--blue); }
-/* Voice */
-.stay-note { margin: -8px 0 16px; font: 300 1.6rem/1.15 var(--hand); color: var(--blue); transform: rotate(-2deg); transform-origin: left; }
-.foot-story { margin: 0 0 16px; font: 300 1.5rem/1.2 var(--hand); color: var(--blue); }
-/* Jump links land with the title just under the nav */
-section[id] { scroll-margin-top: calc(28px - var(--section-space)); }
-/* A button chose the project type */
-select.is-set { animation: type-set 1.8s ease .5s 1 both; }
-@keyframes type-set { 0%, 55% { background-color: var(--sky); } 100% { background-color: #fff; } }
-@media (prefers-reduced-motion: reduce) { select.is-set { animation: none; } .tile:active { transform: none; } .try-me { transition: none; } }
+/* New information */
+.services-line { max-width: 62ch; margin: 0 0 var(--head-space); font-weight: 500; color: var(--soft); }
+.stay-note { margin: -8px 0 16px; font: 600 1.7rem/1.1 var(--hand); color: var(--pink-ink); transform: rotate(-2deg); transform-origin: left; }
+.foot-story { margin: 0 0 16px; font: 600 1.6rem/1.2 var(--hand); color: var(--pink-ink); }
+@media (prefers-reduced-motion: reduce) { .try-me { transition: none; } }
+
+/* The other fonts: Onest, thin Hanken, Kalam. The footer wordmark keeps Anybody for its stretch. */
+html { font-synthesis-weight: none; }
+body { font-weight: 300; }
+strong, b { font-weight: 700; }
+.wordmark { font-family: "Anybody", "Arial Black", system-ui, sans-serif; }
+.block p, .head p, .hero .lede, .plans-hero .lede, .page-hero .lede, .about-grid .lede, .contact-intro, .setup-intro, .setup-list p, .setup-terms, .work-copy p, .agents-list p, details p, .story p, .services-line { font-weight: 300; }
+.b1 p, .b6 p, .agents-card p, .tier.pick p, .tier.pick li, .plans-cta p, .page-cta p { font-weight: 400; }
+.headline, .headline .fit { letter-spacing: -.025em; font-variation-settings: normal; }
+h1, h2 { font-variation-settings: normal; font-weight: 700; letter-spacing: -.02em; }
+h3, .block h3, .work-copy h3, .agents-list h3, .tier h3, .addons h3, .fact h3, .receipt .rt { font-variation-settings: normal; font-weight: 700; letter-spacing: -.012em; }
 </style>
 </head>
 <body>
@@ -523,7 +474,7 @@ select.is-set { animation: type-set 1.8s ease .5s 1 both; }
 
 <header class="nav" id="nav">
   <div class="wrap">
-    <a class="brand" href="#top" aria-label="Hello Rivers home"><img class="brand-logo" src="hello-rivers-logo-2026.webp" alt="Hello Rivers" width="400" height="157"></a>
+    <a class="brand" href="#top" aria-label="Hello Rivers home"><img class="brand-logo" src="hello-rivers-logo.webp" alt="Hello Rivers" width="400" height="157"></a>
     <button class="nav-toggle" type="button" aria-controls="primary-links" aria-expanded="false">Menu</button>
     <nav aria-label="Primary">
       <ul id="primary-links">
@@ -556,10 +507,10 @@ select.is-set { animation: type-set 1.8s ease .5s 1 both; }
           <a class="se-habla" lang="es" href="https://wa.me/19567388487?text=Hola%20Marcos%2C%20me%20interesa%20un%20proyecto." target="_blank" rel="noopener noreferrer">¡Se habla español!<span class="sr-only"> Escríbeme por WhatsApp (se abre en una pestaña nueva)</span></a>
         </div>
         <div class="portrait-wrap" id="portrait-wrap">
-          <div class="try-me" aria-hidden="true"><span class="say-hover">psst, hover over me</span><span class="say-tap">psst, tap the photo</span><img src="arrows/hook.svg" alt="" width="190" height="150"></div>
+          <div class="try-me" aria-hidden="true"><span class="say-hover">psst, hover over me</span><span class="say-tap">psst, tap the photo</span><img src="hero-things/riso/hook.svg" alt="" width="190" height="150"></div>
           <figure class="portrait reveal" style="--rr:3deg" tabindex="0" role="button" aria-expanded="false" aria-label="Hi, I'm Marcos. Press to see some things I like.">
             <div class="polaroid-window">
-              <div class="things" aria-hidden="true"><img class="t-rose" src="hero-things/rose.svg" alt="" width="400" loading="lazy"><img class="t-frida" src="hero-things/frida.svg" alt="" width="300" loading="lazy"><img class="t-frida-2" src="hero-things/frida-2.svg" alt="" width="300" loading="lazy"><img class="t-loteria" src="hero-things/loteria.svg" alt="" width="300" loading="lazy"><img class="t-skull" src="hero-things/skull.svg" alt="" width="410" loading="lazy"></div>
+              <div class="things" aria-hidden="true"><img class="t-rose" src="hero-things/riso/rose.svg" alt="" width="400" loading="lazy"><img class="t-frida" src="hero-things/riso/frida.svg" alt="" width="300" loading="lazy"><img class="t-frida-2" src="hero-things/riso/frida-2.svg" alt="" width="300" loading="lazy"><img class="t-loteria" src="hero-things/riso/loteria.svg" alt="" width="300" loading="lazy"><img class="t-skull" src="hero-things/riso/skull.svg" alt="" width="410" loading="lazy"></div>
               <div class="me"><img src="marcos-cutout.webp" alt="Marcos, the designer behind Hello Rivers, smiling with one hand in his pocket" width="1300" height="1311"></div>
             <div class="things things-front" aria-hidden="true"><img class="t-hand" src="hero-things/hand.webp" alt="" width="330" loading="lazy"></div>
             </div>
@@ -572,16 +523,12 @@ select.is-set { animation: type-set 1.8s ease .5s 1 both; }
 
   <section id="services" aria-labelledby="services-title">
     <div class="wrap">
-      <div class="head reveal">
-        <div>
-          <h2 class="elastic-title" id="services-title" aria-label="Services"><span data-text="Services" aria-hidden="true">Services</span></h2>
-          <p>Ten years designing for Dell, H-E-B, RoverPass and the City of Hutto. Yes, the whole city. Now it&#39;s just me, for businesses like yours.</p>
-        </div>
-      </div>
+      <h2 class="sr-only" id="services-title">Services</h2>
+      <p class="services-line reveal">Ten years designing for Dell, H-E-B, RoverPass and the City of Hutto. Yes, the whole city. Now it&#39;s just me, for businesses like yours.</p>
       <div class="bento">
         <a class="block b1 reveal" href="#contact" data-type="A new website"><div><h3>Website design<br>+ build</h3><p>A site that looks like you, works on every phone and gets people to call. I plan it, design it, build it and launch it.</p><span class="card-cta">Ask about a website</span></div></a>
-        <a class="block b2 reveal" style="--d:.08s" href="#contact" data-type="UX/UI design"><div><h3>UX/UI<br>design</h3><p>UX/UI just means how easy your site or app is to use. I find the spots where people get stuck and smooth them out.</p><span class="card-cta">Ask about UX/UI</span></div></a>
-        <a class="block b3 reveal" style="--d:.16s" href="#contact" data-type="Branding"><div><h3>Custom<br>branding</h3><p>A logo, colors and type people actually remember, plus a kit so everything you make matches.</p><span class="card-cta">Ask about branding</span></div></a>
+        <a class="block b2 reveal" style="--d:.08s" href="#contact" data-type="UX/UI design"><div><h3>UX/UI<br>design</h3><p>UX/UI just means how easy your site or app is to use. I find the spots where people get stuck and smooth them out.</p><span class="card-cta">Ask about UX/UI</span></div><div class="art" data-art="icons-small"></div></a>
+        <a class="block b3 reveal" style="--d:.16s" href="#contact" data-type="Branding"><div><h3>Custom<br>branding</h3><p>A logo, colors and type people actually remember, plus a kit so everything you make matches.</p><span class="card-cta">Ask about branding</span></div><div class="art" data-art="logo-small"></div></a>
         <a class="block b6 reveal" style="--d:.08s" href="#support"><div><h3>Monthly creative<br>support</h3><p>Most designers leave after launch. I stay. Site updates, social graphics, hosting and fixes, handled every month.</p><span class="card-cta">See monthly support</span></div></a>
       </div>
     </div>
@@ -592,30 +539,103 @@ select.is-set { animation: type-set 1.8s ease .5s 1 both; }
       <div class="head reveal">
         <div>
           <h2 class="elastic-title" id="work-title" aria-label="Recent work"><span data-text="Recent work" aria-hidden="true">Recent work</span></h2>
+          <svg class="scribble" viewBox="0 0 260 22" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M3 14c40-9 80-10 120-6s90 5 134-4"/></svg>
           <p>Two live client sites, two photoshoots, one concept build, and more projects wrapping up.</p>
         </div>
       </div>
-      <div class="tiles">
-        <a class="tile t-a reveal" href="https://vanillacakesbyerika.com/" target="_blank" rel="noopener noreferrer">
-          <img src="vanilla-bake-2026.webp" alt="Vanilla Bake by Erika homepage: 'Algo rico viene en camino' beside a candlelit cake" loading="lazy" width="960" height="600" style="object-position:left top">
-          <span class="tile-label"><strong>Vanilla Bake by Erika</strong><span class="tile-tag">Live client site</span><svg class="ext" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5"/></svg><span class="sr-only"> (opens in a new tab)</span></span>
-        </a>
-        <a class="tile t-b reveal" href="https://thevalleyflash.online/" target="_blank" rel="noopener noreferrer">
-          <img src="valley-flash.webp" alt="The Valley Flash homepage: 'Pose. Sonríe. ¡Flash!' beside a photobooth strip of party guests" loading="lazy" width="960" height="600" style="object-position:left top">
-          <span class="tile-label"><strong>The Valley Flash</strong><span class="tile-tag">Live client site</span><svg class="ext" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5"/></svg><span class="sr-only"> (opens in a new tab)</span></span>
-        </a>
-        <a class="tile t-c reveal" href="https://www.instagram.com/p/DRlPWdTjtfV/" target="_blank" rel="noopener noreferrer">
-          <img src="bloom-shoot-1.webp" alt="Paola in sunglasses on a director's chair, holding a 'You look like my next client' sign" loading="lazy" width="600" height="800" style="object-position:center 25%">
-          <span class="tile-label"><strong>Bloom Creative Media</strong><span class="tile-tag">Client photoshoot</span><svg class="ext" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5"/></svg><span class="sr-only"> (opens in a new tab)</span></span>
-        </a>
-        <a class="tile t-d reveal" href="demos/brazos-bloom/" target="_blank" rel="noopener noreferrer">
-          <img src="brazos-bloom.webp" alt="Brazos &amp; Bloom Realty homepage: the name in large letters over a stone house at dusk, with a featured listing card" loading="lazy" width="960" height="600" style="object-position:center top">
-          <span class="tile-label"><strong>Brazos &amp; Bloom Realty</strong><span class="tile-tag">Concept site</span><svg class="ext" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5"/></svg><span class="sr-only"> (opens in a new tab)</span></span>
-        </a>
-        <a class="tile t-e reveal" href="#agents">
-          <img src="listing-1.webp" alt="Front of a newly built white stucco and stone home with a two-car garage" loading="lazy" width="1400" height="933" style="object-position:center">
-          <span class="tile-label"><strong>New-build listing photos</strong><span class="tile-tag">Listing photos</span><svg class="ext" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 3v10M4 9l4 4 4-4"/></svg></span>
-        </a>
+      <div class="work-grid">
+        <article class="work-card work-feature reveal">
+          <div class="work-image">
+            <img src="vanilla-bake-2026.webp" alt="Vanilla Bake by Erika homepage: 'Algo rico viene en camino' beside a candlelit cake" loading="lazy" width="960" height="600">
+            <video class="work-video" muted playsinline loop preload="none" poster="vanilla-bake-2026.webp" aria-hidden="true" tabindex="-1">
+              <source src="vanilla-bake-scroll.webm" type="video/webm">
+              <source src="vanilla-bake-scroll.mp4" type="video/mp4">
+            </video>
+            <span class="live-tag">Live client site</span>
+          </div>
+          <div class="work-copy">
+            <h3>Vanilla Bake by Erika</h3>
+            <p>A custom-cake bakery needed a site as sweet as the cakes. I designed and built it in Spanish, with a cake gallery, clear ordering steps and quick ways to ask through WhatsApp or a form.</p>
+            <a class="btn small plain work-link" href="https://vanillacakesbyerika.com/" target="_blank" rel="noopener noreferrer">Visit the live site<svg class="ext" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5"/></svg><span class="sr-only"> (opens in a new tab)</span></a>
+          </div>
+        </article>
+        <article class="work-card work-feature reveal" style="--d:.1s">
+          <div class="work-image">
+            <img src="brazos-bloom.webp" alt="Brazos &amp; Bloom Realty homepage: the name in large letters over a stone house at dusk, with a featured listing card" loading="lazy" width="960" height="600">
+            <video class="work-video" muted playsinline loop preload="none" poster="brazos-bloom.webp" aria-hidden="true" tabindex="-1">
+              <source src="brazos-bloom-scroll.webm" type="video/webm">
+              <source src="brazos-bloom-scroll.mp4" type="video/mp4">
+            </video>
+            <span class="live-tag concept-tag">Concept site</span>
+          </div>
+          <div class="work-copy">
+            <h3>Brazos &amp; Bloom Realty</h3>
+            <p>A concept for a bilingual real estate team in the Rio Grande Valley. Every word switches between English and Spanish, with filterable listings, the team's story and an easy way to book a visit.</p>
+            <a class="btn small plain work-link" href="demos/brazos-bloom/" target="_blank" rel="noopener noreferrer">Explore the concept<svg class="ext" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5"/></svg><span class="sr-only"> (opens in a new tab)</span></a>
+          </div>
+        </article>
+        <article class="work-card work-photos reveal" style="--d:.2s">
+          <div class="work-copy">
+            <h3>Bloom Creative Media</h3>
+            <p>A brand photoshoot for Paola, a social media manager in McAllen. A clean studio set with her camera, laptop and her own signs, shot so she could introduce herself and her business on Instagram.</p>
+            <a class="btn small plain work-link" href="https://www.instagram.com/p/DRlPWdTjtfV/" target="_blank" rel="noopener noreferrer">See the post on Instagram<svg class="ext" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5"/></svg><span class="sr-only"> (opens in a new tab)</span></a>
+          </div>
+          <div class="shoot">
+            <span class="live-tag">Client photoshoot</span>
+            <ul class="shoot-strip" aria-label="Photos from the Bloom Creative Media shoot">
+              <li><img src="bloom-shoot-1.webp" alt="Paola in sunglasses on a director's chair, holding a 'You look like my next client' sign" loading="lazy" width="600" height="800"></li>
+              <li><img src="bloom-shoot-2.webp" alt="Paola crouching in a white studio, holding up her camera, with her signs scattered on the floor" loading="lazy" width="600" height="800"></li>
+              <li><img src="bloom-shoot-3.webp" alt="Paola standing with an open laptop in a black blazer" loading="lazy" width="600" height="800"></li>
+              <li><img src="bloom-shoot-4.webp" alt="Paola throwing her signs in the air with both arms up" loading="lazy" width="600" height="800"></li>
+              <li><img src="bloom-shoot-5.webp" alt="Paola crouching with her camera, picking up a 'Got a special event?' sign" loading="lazy" width="600" height="800"></li>
+              <li><img src="bloom-shoot-6.webp" alt="Close-up of Paola's laptop, coffee cup and camera beside her signs" loading="lazy" width="600" height="800"></li>
+              <li><img src="bloom-shoot-7.webp" alt="Paola walking across the studio with her camera in hand" loading="lazy" width="600" height="800"></li>
+            </ul>
+          </div>
+        </article>
+        <article class="work-card work-photos reveal">
+          <div class="work-copy">
+            <h3>New-build listing photos</h3>
+            <p>A full listing shoot for a newly built home, from the curb to the backyard. Every room shot bright, clean and true to the space, ready for the MLS and social posts.</p>
+            <a class="btn small plain work-link" href="#agents">See what I do for agents</a>
+          </div>
+          <div class="shoot">
+            <span class="live-tag">Listing photos</span>
+            <ul class="shoot-strip is-wide" aria-label="Listing photos of a newly built home">
+              <li><img src="listing-1.webp" alt="Front of a newly built white stucco and stone home with a two-car garage" loading="lazy" width="1400" height="933"></li>
+              <li><img src="listing-2.webp" alt="Open kitchen with a white island, pendant lights and glossy tile floors" loading="lazy" width="900" height="600"></li>
+              <li><img src="listing-3.webp" alt="Primary bathroom with double vessel sinks and a glass walk-in shower" loading="lazy" width="900" height="600"></li>
+              <li><img src="listing-4.webp" alt="Bright bedroom with a tray ceiling and ceiling fan" loading="lazy" width="900" height="600"></li>
+              <li><img src="listing-5.webp" alt="Stone front entry with a black front door and landscaped walkway" loading="lazy" width="900" height="600"></li>
+              <li><img src="listing-6.webp" alt="Close-up of a blue glass vessel sink on a white vanity" loading="lazy" width="900" height="600"></li>
+              <li><img src="listing-7.webp" alt="Kitchen island looking toward the front door" loading="lazy" width="900" height="600"></li>
+              <li><img src="listing-8.webp" alt="Bathroom with a glass shower and blue vessel sinks" loading="lazy" width="900" height="600"></li>
+              <li><img src="listing-9.webp" alt="Back of the home with a fenced, grassy yard" loading="lazy" width="900" height="600"></li>
+            </ul>
+          </div>
+        </article>
+        <article class="work-card work-feature reveal" style="--d:.3s">
+          <div class="work-image">
+            <img src="valley-flash.webp" alt="The Valley Flash homepage: 'Pose. Sonríe. ¡Flash!' beside a photobooth strip of party guests" loading="lazy" width="960" height="600">
+            <video class="work-video" muted playsinline loop preload="none" poster="valley-flash.webp" aria-hidden="true" tabindex="-1">
+              <source src="valley-flash-scroll.webm" type="video/webm">
+              <source src="valley-flash-scroll.mp4" type="video/mp4">
+            </video>
+            <span class="live-tag">Live client site</span>
+          </div>
+          <div class="work-copy">
+            <h3>The Valley Flash</h3>
+            <p>A photobooth and photography business for weddings, quinceañeras and parties across the 956. I designed and built it in Spanish with a little Spanglish, with a party-type picker, simple booking steps and quick ways to ask for a quote.</p>
+            <a class="btn small plain work-link" href="https://thevalleyflash.online/" target="_blank" rel="noopener noreferrer">Visit the live site<svg class="ext" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5"/></svg><span class="sr-only"> (opens in a new tab)</span></a>
+          </div>
+        </article>
+        <article class="work-card work-next reveal" style="--d:.4s">
+          <div class="work-copy">
+            <h3>Your business could be next</h3>
+            <p>New website and brand projects are on the way. Get in early and yours could be the next one on this page.</p>
+            <a class="btn small work-link" href="#contact" data-type="A new website">Start a project</a>
+          </div>
+        </article>
       </div>
     </div>
   </section>
@@ -625,6 +645,7 @@ select.is-set { animation: type-set 1.8s ease .5s 1 both; }
       <div class="head reveal">
         <div>
           <h2 class="elastic-title" id="agents-title" aria-label="For real estate agents"><span data-text="For real estate agents" aria-hidden="true">For real estate agents</span></h2>
+          <svg class="scribble" viewBox="0 0 260 22" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M3 10c45 8 95 9 140 3s80-9 114-1"/></svg>
           <p><strong class="agents-lead">Your listings, looking their best, every week.</strong> You sell homes. I make sure every one of them looks great online, in English and Spanish.</p>
         </div>
       </div>
@@ -670,6 +691,7 @@ select.is-set { animation: type-set 1.8s ease .5s 1 both; }
       <div class="head reveal">
         <div>
           <h2 class="elastic-title" id="process-title" aria-label="How it works"><span data-text="How it works" aria-hidden="true">How it works</span></h2>
+          <svg class="scribble" viewBox="0 0 260 22" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M3 8c50 10 110 12 160 6s70-8 94-2"/></svg>
           <p>From the first hello to launch day, and every month after.</p>
         </div>
       </div>
@@ -716,18 +738,20 @@ select.is-set { animation: type-set 1.8s ease .5s 1 both; }
     <div class="wrap contact-grid">
       <div class="reveal">
         <h2 class="elastic-title" id="contact-title" aria-label="Say hi"><span data-text="Say hi" aria-hidden="true">Say hi</span></h2>
+        <svg class="scribble" viewBox="0 0 260 22" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M3 12c30-8 60 6 90-2s60-8 90 0 50 4 74-4"/></svg>
         <p class="contact-intro">Tell me about your business and what you need. I reply within one business day with next steps. No rush, cuando quieras.</p>
         <p class="es-note" lang="es">¿Prefieres español? Escríbeme aquí en español o <a href="https://wa.me/19567388487?text=Hola%20Marcos%2C%20me%20interesa%20un%20proyecto." target="_blank" rel="noopener noreferrer">mándame un WhatsApp<span class="sr-only"> (se abre en una pestaña nueva)</span></a>.</p>
         <ul class="reach">
           <li>
             <span class="reach-label">Email me</span>
-            <span class="reach-row"><a class="mail" href="mailto:contact@hellorivers.com">contact@hellorivers.com</a></span>
+            <span class="reach-row"><a class="mail" href="mailto:contact@hellorivers.com">contact@hellorivers.com</a><button class="copy-btn" type="button" data-copy="contact@hellorivers.com">Copy</button></span>
           </li>
           <li>
-            <span class="reach-label">WhatsApp</span>
-            <span class="reach-row"><a class="mail" href="https://wa.me/19567388487" target="_blank" rel="noopener noreferrer">(956) 738-8487<span class="sr-only"> on WhatsApp (opens in a new tab)</span></a></span>
+            <span class="reach-label">WhatsApp or call</span>
+            <span class="reach-row"><a class="mail" href="https://wa.me/19567388487" target="_blank" rel="noopener noreferrer">(956) 738-8487<span class="sr-only"> on WhatsApp (opens in a new tab)</span></a><a class="copy-btn" href="tel:+19567388487">Call</a></span>
           </li>
         </ul>
+        <p class="copy-status" id="copy-status" role="status"></p>
       </div>
       <form id="contact-form" class="reveal" style="--d:.12s" novalidate>
         <div class="row2">
@@ -763,6 +787,8 @@ select.is-set { animation: type-set 1.8s ease .5s 1 both; }
       <span class="foot-contact"><a href="mailto:contact@hellorivers.com">contact@hellorivers.com</a><a href="https://wa.me/19567388487" target="_blank" rel="noopener noreferrer">WhatsApp (956) 738-8487</a></span>
       <a href="#top">Back to top</a>
     </div>
+    <div class="wordmark" id="wordmark" aria-hidden="true" data-text="Hello Rivers"></div>
+    <p class="hint" aria-hidden="true">drag across the letters</p>
   </div>
 </footer>
 
@@ -772,7 +798,7 @@ const EMAIL = "contact@hellorivers.com";
 
 /* ============================================================ */
 const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
-const B = "#2450F5", P = "#BFDCFF", Y = "#FFE800", W = "#FFFFFF";
+const B = "#1D3FB0", P = "#FF48B0", Y = "#FFE800", W = "#FAFAF7";
 
 /* ---------- Riso-style card art ---------- */
 function glyphs() {
@@ -793,7 +819,7 @@ document.querySelectorAll("[data-art]").forEach(el => el.innerHTML = bentoArt[el
 
 /* ---------- Elastic riso headline ---------- */
 const h1 = document.getElementById("headline");
-/* Phones get shorter lines so the headline stays big */
+/* Phones get shorter lines so "I stick around." stays big */
 const HEADLINE = { wide: ["Launch day", "isn't goodbye."], narrow: ["Launch day", "isn't goodbye."] };
 const narrowHead = matchMedia("(max-width: 560px)");
 let lines = [];
@@ -807,7 +833,7 @@ function renderRisoLetters(t) {
 }
 function renderHeadline() {
   const set = narrowHead.matches ? HEADLINE.narrow : HEADLINE.wide;
-  h1.innerHTML = set.map(t => `<span class="fit" aria-hidden="true">${t.split(" ").map(renderRisoLetters).join(" ")}</span>`).join("");
+  h1.innerHTML = set.map(t => `<span class="fit" aria-hidden="true">${renderRisoLetters(t)}</span>`).join("");
   lines = [...h1.children];
 }
 renderHeadline();
@@ -819,11 +845,10 @@ const MAXW = 125;
 function fitHeadline() {
   const cur = h1.style.cssText;
   h1.style.setProperty("--wdth", MAXW); h1.style.setProperty("--wght", 800);
-  const avail = h1.clientWidth * (innerWidth > 760 ? .8 : 1);
+  const avail = h1.clientWidth;
   lines.forEach(l => {
     l.style.fontSize = "100px";
-    const range = document.createRange(); range.selectNodeContents(l);
-    const w = range.getBoundingClientRect().width;
+    const w = l.firstElementChild.getBoundingClientRect().width;
     l.style.fontSize = Math.min(100 * avail / w, 260) + "px";
   });
   h1.style.cssText = cur;
@@ -838,8 +863,8 @@ function onScroll() {
   h1.style.setProperty("--wght", (800 + 100 * p).toFixed(0));
 }
 addEventListener("scroll", onScroll, { passive: true });
-addEventListener("resize", () => { fitHeadline(); });
-addEventListener("orientationchange", () => { fitHeadline(); });
+addEventListener("resize", () => { fitHeadline(); fitWordmark(); });
+addEventListener("orientationchange", () => { fitHeadline(); fitWordmark(); });
 
 /* ---------- Reveal on scroll ---------- */
 const io = "IntersectionObserver" in window ? new IntersectionObserver(es => es.forEach(e => {
@@ -879,21 +904,41 @@ document.addEventListener("click", event => {
 window.matchMedia("(min-width: 761px)").addEventListener("change", closeMenu);
 
 /* Links from the plans page arrive as /?type=...#contact */
-function flagType(field) {
-  field.classList.remove("is-set");
-  void field.offsetWidth;
-  field.classList.add("is-set");
-}
 const typeParam = new URLSearchParams(location.search).get("type");
 if (typeParam) {
   const type = document.getElementById("type");
-  if (type && [...type.options].some(o => o.value === typeParam)) { type.value = typeParam; flagType(type); }
+  if (type && [...type.options].some(o => o.value === typeParam)) type.value = typeParam;
 }
 document.querySelectorAll("[data-type]").forEach(a => a.addEventListener("click", () => {
   const type = document.getElementById("type");
-  if (type && [...type.options].some(o => o.value === a.dataset.type)) { type.value = a.dataset.type; flagType(type); }
+  if (type && [...type.options].some(o => o.value === a.dataset.type)) type.value = a.dataset.type;
 }));
 
+/* ---------- Stretchy footer wordmark ---------- */
+const wm = document.getElementById("wordmark");
+wm.innerHTML = [...wm.dataset.text].map(c => `<span>${c === " " ? "&nbsp;" : c}</span>`).join("");
+const wmChars = [...wm.children];
+function fitWordmark() {
+  wmChars.forEach(s => s.style.setProperty("--w", 125));
+  wm.style.fontSize = "100px";
+  wm.style.width = "max-content";
+  const w = wm.getBoundingClientRect().width;
+  wm.style.width = "";
+  wm.style.fontSize = (100 * wm.clientWidth / w * .99) + "px";
+}
+function stretch(x) {
+  if (reduce) return;
+  wmChars.forEach(s => {
+    const r = s.getBoundingClientRect();
+    const d = Math.abs(r.left + r.width / 2 - x);
+    s.style.setProperty("--w", (50 + 75 * Math.exp(-((d / 140) ** 2))).toFixed(1));
+  });
+}
+wm.addEventListener("pointermove", e => stretch(e.clientX));
+wm.addEventListener("touchmove", e => stretch(e.touches[0].clientX), { passive: true });
+const relax = () => wmChars.forEach(s => s.style.setProperty("--w", 125));
+wm.addEventListener("pointerleave", relax);
+wm.addEventListener("touchend", relax);
 
 /* ---------- Contact form ---------- */
 const form = document.getElementById("contact-form"), status = document.getElementById("form-status");
@@ -913,10 +958,6 @@ form.querySelectorAll("input, textarea").forEach(f => f.addEventListener("input"
   const left = form.querySelectorAll('[aria-invalid="true"]').length;
   if (!left) { status.textContent = ""; status.classList.remove("is-error"); }
   else status.textContent = left === 1 ? "One field needs a look." : `${left} fields need a look.`;
-}));
-form.querySelectorAll("input, textarea").forEach(f => f.addEventListener("blur", () => {
-  const v = f.value.trim();
-  if (rules[f.name] && v) setError(f, rules[f.name](v));
 }));
 form.addEventListener("submit", e => {
   e.preventDefault();
@@ -938,12 +979,47 @@ form.addEventListener("submit", e => {
   status.innerHTML = "Your email app should be opening with your note ready to send. " + fallback;
 });
 
+/* ---------- Project scroll recordings: hover on desktop, in view on touch ---------- */
+if (!reduce) document.querySelectorAll(".work-feature .work-image").forEach(workImage => {
+  const workVideo = workImage.querySelector("video");
+  if (!workVideo) return;
+  const play = () => { workImage.classList.add("is-playing"); workVideo.play().catch(() => workImage.classList.remove("is-playing")); };
+  const stop = () => { workImage.classList.remove("is-playing"); workVideo.pause(); workVideo.currentTime = 0; };
+  const card = workImage.closest(".work-card");
+  // Start downloading before the card is reached, so a hover plays at once.
+  const warm = () => { if (workVideo.preload !== "auto") { workVideo.preload = "auto"; workVideo.load(); } };
+  if ("IntersectionObserver" in window) {
+    const near = new IntersectionObserver(es => { if (es.some(e => e.isIntersecting)) { warm(); near.disconnect(); } }, { rootMargin: "800px 0px" });
+    near.observe(workImage);
+  } else warm();
+  if (matchMedia("(hover: hover) and (pointer: fine)").matches) {
+    card.addEventListener("mouseenter", play);
+    card.addEventListener("mouseleave", stop);
+    card.addEventListener("focusin", play);
+    card.addEventListener("focusout", stop);
+  } else if ("IntersectionObserver" in window) {
+    new IntersectionObserver(es => es.forEach(e => e.isIntersecting ? play() : stop()), { threshold: .6 }).observe(workImage);
+  }
+});
+
+/* ---------- Copy email ---------- */
+const copyStatus = document.getElementById("copy-status");
+document.querySelectorAll("button[data-copy]").forEach(b => b.addEventListener("click", async () => {
+  try {
+    await navigator.clipboard.writeText(b.dataset.copy);
+    b.textContent = "Copied!";
+    copyStatus.textContent = "Email copied. Paste it into any email app.";
+  } catch {
+    copyStatus.textContent = `Copy didn't work here. The address is ${b.dataset.copy}.`;
+  }
+  setTimeout(() => { b.textContent = "Copy"; }, 2000);
+}));
 
 /* ---------- Start ---------- */
 document.getElementById("year").textContent = new Date().getFullYear();
 watch(document);
-fitHeadline();
-(document.fonts ? document.fonts.ready : Promise.resolve()).then(() => { fitHeadline(); });
+fitHeadline(); fitWordmark();
+(document.fonts ? document.fonts.ready : Promise.resolve()).then(() => { fitHeadline(); fitWordmark(); });
 
 /* ---------- Hero polaroid collage ---------- */
 (() => {
