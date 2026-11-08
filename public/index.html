@@ -609,6 +609,11 @@ footer a::after, .contact-grid .mail::after { content: ""; position: absolute; l
 @media (max-width: 600px) { footer .top { row-gap: 1.25rem; } footer .foot-contact { row-gap: 1rem; } }
 .nav ul a[aria-current="page"]::after { transform: scaleX(1); }
 .block.b6:focus-visible { outline-offset: -10px; }
+@media (min-width: 701px) {
+  .hero { padding-top: 96px; }
+  .hero .under { align-items: start; }
+  .hero .lede { max-width: 62ch; margin-bottom: 1.25rem; }
+}
 </style>
 </head>
 <body>
@@ -887,7 +892,9 @@ function fitHeadline() {
   lines.forEach(l => {
     l.style.fontSize = "100px";
     const w = l.firstElementChild.getBoundingClientRect().width;
-    l.style.fontSize = Math.min(100 * avail / w, 260) + "px";
+    /* On short laptop screens, keep "Start a project" on the first screen. */
+    const tallest = innerWidth > 700 ? Math.max(170, (innerHeight - 308) / 1.96) : 260;
+    l.style.fontSize = Math.min(100 * avail / w, 260, tallest) + "px";
   });
   h1.style.cssText = cur;
   onScroll();
