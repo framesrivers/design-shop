@@ -560,6 +560,12 @@ summary::after { color: #000; }
 .item .dots { border-bottom: 1px solid #000; }
 .receipt .thanks { margin-top: 2.5rem; }
 summary { font-family: var(--display); font-size: 1.3rem; font-weight: 800; font-variation-settings: normal; letter-spacing: normal; line-height: 1.25; }
+
+/* Secondary links: the arrow slides on hover */
+.btn.plain::after, .btn.plain svg { transition: transform .22s var(--ease); }
+.btn.plain:hover::after, .btn.plain:focus-visible::after { transform: translateX(.4em); }
+.btn.plain:hover svg, .btn.plain:focus-visible svg { transform: translate(.2em, -.2em); }
+@media (prefers-reduced-motion: reduce) { .btn.plain::after, .btn.plain svg { transition: none; } .btn.plain:hover::after, .btn.plain:focus-visible::after, .btn.plain:hover svg, .btn.plain:focus-visible svg { transform: none; } }
 </style>
 </head>
 <body>
