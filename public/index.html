@@ -586,6 +586,10 @@ summary { font-family: var(--display); font-size: 1.3rem; font-weight: 800; font
 .btn.plain:hover::after, .btn.plain:focus-visible::after { transform: translateX(.4em); }
 .btn.plain:hover svg, .btn.plain:focus-visible svg { transform: translate(.2em, -.2em); }
 @media (prefers-reduced-motion: reduce) { .btn.plain::after, .btn.plain svg { transition: none; } .btn.plain:hover::after, .btn.plain:focus-visible::after, .btn.plain:hover svg, .btn.plain:focus-visible svg { transform: none; } }
+#work-title, #agents-title, #process-title, #faq-title, #contact-title, #work-title .ink-b, #agents-title .ink-b, #process-title .ink-b, #faq-title .ink-b, #contact-title .ink-b { color: #000; }
+
+/* All titles use the same cut of Bricolage */
+h1, h2, .elastic-title, .elastic-title .glyph, .elastic-title .ink-b, .elastic-title [data-text] { font-variation-settings: "opsz" 96; font-weight: 800; }
 </style>
 </head>
 <body>
