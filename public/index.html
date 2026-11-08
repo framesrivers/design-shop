@@ -947,6 +947,24 @@ if (typeParam) {
   const type = document.getElementById("type");
   if (type && [...type.options].some(o => o.value === typeParam)) type.value = typeParam;
 }
+/* ...and say which plan they asked about, so it reaches the email. */
+const PLANS = {
+  starter: ["Starter site", "I'd like to ask about the Starter site."],
+  business: ["Business site", "I'd like to ask about the Business site."],
+  brand: ["Brand + site", "I'd like to ask about the Brand + site package."],
+  care: ["Care plan", "I'd like to ask about the Care plan."],
+  grow: ["Grow plan", "I'd like to ask about the Grow plan."],
+  studio: ["Studio plan", "I'd like to ask about the Studio plan."],
+  unlimited: ["Unlimited plan", "I'd like to ask about the Unlimited plan."],
+  own: ["Custom plan", "I'd like to build my own plan."],
+};
+const planParam = Object.hasOwn(PLANS, new URLSearchParams(location.search).get("plan") || "") ? new URLSearchParams(location.search).get("plan") : null;
+let planName = planParam ? PLANS[planParam][0] : "";
+if (planParam) {
+  const details = document.getElementById("f-details");
+  if (details && !details.value) details.value = PLANS[planParam][1] + " ";
+  document.getElementById("type")?.addEventListener("change", () => { planName = ""; });
+}
 document.querySelectorAll("[data-type]").forEach(a => a.addEventListener("click", () => {
   const type = document.getElementById("type");
   if (type && [...type.options].some(o => o.value === a.dataset.type)) type.value = a.dataset.type;
@@ -988,7 +1006,7 @@ form.addEventListener("submit", e => {
     return;
   }
   status.classList.remove("is-error");
-  location.href = `mailto:${EMAIL}?subject=${encodeURIComponent("Project request: " + d.type)}&body=${encodeURIComponent(`Name: ${d.name}\nEmail: ${d.email}\nProject: ${d.type}\n\n${d.details}`)}`;
+  location.href = `mailto:${EMAIL}?subject=${encodeURIComponent("Project request: " + (planName || d.type))}&body=${encodeURIComponent(`Name: ${d.name}\nEmail: ${d.email}\nProject: ${d.type}\n\n${d.details}`)}`;
   status.innerHTML = "Your email app should be opening with your note ready to send. " + fallback;
 });
 
