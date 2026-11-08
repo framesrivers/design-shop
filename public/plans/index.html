@@ -591,6 +591,16 @@ h1, h2, .elastic-title, .elastic-title .glyph, .elastic-title .ink-b, .elastic-t
 .build-own { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .75rem 2rem; margin-top: var(--content-space); }
 .build-own p { margin: 0; max-width: 60ch; font-size: clamp(1.1rem, 2vw, 1.3rem); line-height: 1.55; }
 .build-own strong { font-weight: 700; }
+
+/* Keyboard focus stays visible on blue sections */
+.agents-card a:focus-visible, .tier.pick a:focus-visible, .plans-cta .box a:focus-visible, .page-cta .box a:focus-visible, .block.b6:focus-visible, .fact:nth-child(3) a:focus-visible { outline-color: #FFFFFF; }
+/* Keep the menu on one line just above the phone layout */
+@media (min-width: 761px) and (max-width: 960px) {
+  .nav ul { gap: .25rem 1rem; }
+  .nav ul a { white-space: nowrap; font-size: .95rem; }
+  .nav .btn.small { white-space: nowrap; padding-inline: .7rem; font-size: .85rem; }
+  .brand-logo { width: 118px; }
+}
 </style>
 </head>
 <body>
@@ -599,7 +609,7 @@ h1, h2, .elastic-title, .elastic-title .glyph, .elastic-title .ink-b, .elastic-t
 
 <header class="nav" id="nav">
   <div class="wrap">
-    <a class="brand" href="/" aria-label="Hello Rivers home"><img class="brand-logo" src="/hello-rivers-logo.webp" alt="Hello Rivers" width="400" height="157"></a>
+    <a class="brand" href="/" aria-label="Hello Rivers home"><img class="brand-logo" src="/hello-rivers-logo-lime.png" alt="Hello Rivers" width="400" height="157"></a>
     <button class="nav-toggle" type="button" aria-controls="primary-links" aria-expanded="false">Menu</button>
     <nav aria-label="Primary">
       <ul id="primary-links">
@@ -640,14 +650,14 @@ h1, h2, .elastic-title, .elastic-title .glyph, .elastic-title .ink-b, .elastic-t
           <h3>Starter site</h3>
           <p class="for">A clean one-page site so people can find you, trust you and call you.</p>
           <p class="price"><strong>Starts at $300</strong><span>pay once</span></p>
-          <ul><li>One scrolling page: about, services, photos, hours</li><li>Looks great on every phone</li><li>Call, WhatsApp and map buttons</li><li>Domain, hosting and Google Business set up</li><li>Launched and tested</li></ul>
+          <ul><li>One scrolling page: about, services, photos, hours</li><li>Looks great on every phone</li><li>Call, WhatsApp and map buttons</li><li>Spanish version included</li><li>Domain, hosting and Google Business set up</li><li>Launched and tested</li></ul>
           <a class="btn" href="/?type=A%20new%20website#contact">Ask about a starter site</a>
         </article>
         <article class="tier pick reveal"><span class="flag">where I'd start</span>
           <h3>Business site</h3>
           <p class="for">A full custom site for a business that's ready to grow.</p>
           <p class="price"><strong>Starts at $750</strong><span>pay once</span></p>
-          <ul><li>Up to 5 pages, designed around your business</li><li>Contact form and booking or menu links</li><li>Basic Google setup so you show up in search</li><li>Spanish version available</li><li>Two rounds of changes before launch</li><li>A walkthrough so you can update the basics</li></ul>
+          <ul><li>Up to 5 pages, designed around your business</li><li>Contact form and booking or menu links</li><li>Basic Google setup so you show up in search</li><li>Spanish version included</li><li>Two rounds of changes before launch</li><li>A walkthrough so you can update the basics</li></ul>
           <a class="btn alt" href="/?type=A%20new%20website#contact">Ask about a business site</a>
         </article>
         <article class="tier reveal">
@@ -665,7 +675,6 @@ h1, h2, .elastic-title, .elastic-title .glyph, .elastic-title .ink-b, .elastic-t
         </div>
         <ul>
           <li><strong>Photo shoot</strong><span>Your space, products or team, shot by me on location.</span></li>
-          <li><strong>Spanish version</strong><span>The whole site in both languages.</span></li>
           <li><strong>Extra pages</strong><span>More services, a gallery, a menu, a landing page.</span></li>
           <li><strong>Launch posts</strong><span>Social graphics to announce your new site.</span></li>
         </ul>
@@ -694,14 +703,14 @@ h1, h2, .elastic-title, .elastic-title .glyph, .elastic-title .ink-b, .elastic-t
           <h3>Grow</h3>
           <p class="for">Your site and your socials stay fresh every month.</p>
           <p class="price"><strong>Starts at $200</strong><span>a month</span></p>
-          <ul><li class="plus">Everything in Care</li><li>A monthly website refresh with your photos, menus and promos</li><li>Social graphics for the month, ready to post</li><li>Profile updates on Google and social</li></ul>
+          <ul><li class="plus">Everything in Care</li><li>A monthly website refresh with your photos, menus and promos</li><li>Social graphics for the month, planned together around what your business needs</li><li>Profile updates on Google and social</li></ul>
           <a class="btn alt" href="/?type=Monthly%20support%20(site%2C%20social%20or%20hosting)#contact">Ask about Grow</a>
         </article>
         <article class="tier reveal">
           <h3>Studio</h3>
           <p class="for">Like having a designer on the team, without the salary.</p>
           <p class="price"><strong>Starts at $500</strong><span>a month</span></p>
-          <ul><li class="plus">Everything in Grow</li><li>Brand and design help: flyers, signs, promos</li><li>New pages and campaign pieces when you need them</li><li>First in line for changes</li><li>A plan for the month, made together</li></ul>
+          <ul><li class="plus">Everything in Grow</li><li>Brand and design help: flyers, signs, promos</li><li>New pages and campaign pieces when you need them</li><li>Ahead of Care and Grow for changes</li><li>A plan for the month, made together</li></ul>
           <a class="btn" href="/?type=Monthly%20support%20(site%2C%20social%20or%20hosting)#contact">Ask about Studio</a>
         </article>
         <article class="tier tier-wide reveal">
@@ -711,7 +720,7 @@ h1, h2, .elastic-title, .elastic-title .glyph, .elastic-title .ink-b, .elastic-t
             <p class="price"><strong>$2,000</strong><span>a month</span></p>
           </div>
           <div class="tier-wide-list">
-            <ul><li class="plus">Everything in Studio</li><li>Unlimited requests for your website, brand and social</li><li>Photo shoots included</li><li>One request at a time, in the order you choose</li><li>Realtors: this covers your listing photos too, up to 4 listings a month</li></ul>
+            <ul><li class="plus">Everything in Studio</li><li>Unlimited requests for your website, brand and social</li><li>One request at a time, in the order you choose</li><li>Small requests in 2&ndash;3 business days; bigger ones on a timeline we agree on</li><li>First in line, ahead of every other plan</li><li>Up to 2 photo shoots a month, 10 edited photos each</li><li>Realtors: up to 4 listings a month instead, 25 edited photos each</li><li>Month to month, cancel with 30 days&rsquo; notice</li></ul>
             <a class="btn" href="/?type=Monthly%20support%20(site%2C%20social%20or%20hosting)#contact">Ask about Unlimited</a>
           </div>
         </article>

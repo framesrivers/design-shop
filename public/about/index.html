@@ -579,6 +579,16 @@ h2.elastic-title > span { background: linear-gradient(var(--yellow), var(--yello
 
 /* All titles use the same cut of Bricolage */
 h1, h2, .elastic-title, .elastic-title .glyph, .elastic-title .ink-b, .elastic-title [data-text] { font-variation-settings: "opsz" 96; font-weight: 800; }
+
+/* Keyboard focus stays visible on blue sections */
+.agents-card a:focus-visible, .tier.pick a:focus-visible, .plans-cta .box a:focus-visible, .page-cta .box a:focus-visible, .block.b6:focus-visible, .fact:nth-child(3) a:focus-visible { outline-color: #FFFFFF; }
+/* Keep the menu on one line just above the phone layout */
+@media (min-width: 761px) and (max-width: 960px) {
+  .nav ul { gap: .25rem 1rem; }
+  .nav ul a { white-space: nowrap; font-size: .95rem; }
+  .nav .btn.small { white-space: nowrap; padding-inline: .7rem; font-size: .85rem; }
+  .brand-logo { width: 118px; }
+}
 </style>
 </head>
 <body>
@@ -587,7 +597,7 @@ h1, h2, .elastic-title, .elastic-title .glyph, .elastic-title .ink-b, .elastic-t
 
 <header class="nav" id="nav">
   <div class="wrap">
-    <a class="brand" href="/" aria-label="Hello Rivers home"><img class="brand-logo" src="/hello-rivers-logo.webp" alt="Hello Rivers" width="400" height="157"></a>
+    <a class="brand" href="/" aria-label="Hello Rivers home"><img class="brand-logo" src="/hello-rivers-logo-lime.png" alt="Hello Rivers" width="400" height="157"></a>
     <button class="nav-toggle" type="button" aria-controls="primary-links" aria-expanded="false">Menu</button>
     <nav aria-label="Primary">
       <ul id="primary-links">
@@ -612,7 +622,7 @@ h1, h2, .elastic-title, .elastic-title .glyph, .elastic-title .ink-b, .elastic-t
           <p class="lede">I'm the designer behind Hello Rivers. I make websites and brands for small businesses, and I stay around after launch.</p>
           <p>I built Hello Rivers for busy people: bakers, photographers, real estate agents and the folks who run shops like yours. They're great at what they do, but they don't have time to fight with a website. That's where I come in.</p>
           <p>I do the whole thing myself, from the first chat to launch day: the plan, the design, the build, the photos and the setup. You talk to one person the whole way, and I explain everything in plain words, never tech talk.</p>
-          <p>I work in English and Spanish, often a little of both. A lot of my clients serve bilingual neighborhoods across the 956, so I build sites that speak to everyone who walks through the door.</p>
+          <p>I work in English and Spanish, often a little of both. My clients so far serve bilingual neighborhoods across the 956, so I build sites that speak to everyone who walks through the door.</p>
           <p>And launch day isn't goodbye. Every month I can keep your site, socials and hosting fresh, so you can get back to running the place.</p>
           <a class="hand" lang="es" href="https://wa.me/19567388487?text=Hola%20Marcos%2C%20me%20interesa%20un%20proyecto." target="_blank" rel="noopener noreferrer">¡Se habla español!<span class="sr-only"> Escríbeme por WhatsApp (se abre en una pestaña nueva)</span></a>
         </div>

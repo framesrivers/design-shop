@@ -591,6 +591,16 @@ summary { font-family: var(--display); font-size: 1.3rem; font-weight: 800; font
 /* All titles use the same cut of Bricolage */
 h1, h2, .elastic-title, .elastic-title .glyph, .elastic-title .ink-b, .elastic-title [data-text] { font-variation-settings: "opsz" 96; font-weight: 800; }
 
+
+/* Keyboard focus stays visible on blue sections */
+.agents-card a:focus-visible, .tier.pick a:focus-visible, .plans-cta .box a:focus-visible, .page-cta .box a:focus-visible, .block.b6:focus-visible, .fact:nth-child(3) a:focus-visible { outline-color: #FFFFFF; }
+/* Keep the menu on one line just above the phone layout */
+@media (min-width: 761px) and (max-width: 960px) {
+  .nav ul { gap: .25rem 1rem; }
+  .nav ul a { white-space: nowrap; font-size: .95rem; }
+  .nav .btn.small { white-space: nowrap; padding-inline: .7rem; font-size: .85rem; }
+  .brand-logo { width: 118px; }
+}
 </style>
 </head>
 <body>
@@ -599,7 +609,7 @@ h1, h2, .elastic-title, .elastic-title .glyph, .elastic-title .ink-b, .elastic-t
 
 <header class="nav" id="nav">
   <div class="wrap">
-    <a class="brand" href="#top" aria-label="Hello Rivers home"><img class="brand-logo" src="hello-rivers-logo.webp" alt="Hello Rivers" width="400" height="157"></a>
+    <a class="brand" href="#top" aria-label="Hello Rivers home"><img class="brand-logo" src="hello-rivers-logo-lime.png" alt="Hello Rivers" width="400" height="157"></a>
     <button class="nav-toggle" type="button" aria-controls="primary-links" aria-expanded="false">Menu</button>
     <nav aria-label="Primary">
       <ul id="primary-links">

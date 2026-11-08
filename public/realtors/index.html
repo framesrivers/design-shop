@@ -595,6 +595,16 @@ h1, h2, .elastic-title, .elastic-title .glyph, .elastic-title .ink-b, .elastic-t
 .stats-source { grid-column: 1 / -1; margin: 0; font-size: .875rem; color: var(--soft); }
 .stats-source a { color: inherit; }
 @media (max-width: 760px) { .stats { grid-template-columns: minmax(0, 1fr); } }
+
+/* Keyboard focus stays visible on blue sections */
+.agents-card a:focus-visible, .tier.pick a:focus-visible, .plans-cta .box a:focus-visible, .page-cta .box a:focus-visible, .block.b6:focus-visible, .fact:nth-child(3) a:focus-visible { outline-color: #FFFFFF; }
+/* Keep the menu on one line just above the phone layout */
+@media (min-width: 761px) and (max-width: 960px) {
+  .nav ul { gap: .25rem 1rem; }
+  .nav ul a { white-space: nowrap; font-size: .95rem; }
+  .nav .btn.small { white-space: nowrap; padding-inline: .7rem; font-size: .85rem; }
+  .brand-logo { width: 118px; }
+}
 </style>
 </head>
 <body>
@@ -603,7 +613,7 @@ h1, h2, .elastic-title, .elastic-title .glyph, .elastic-title .ink-b, .elastic-t
 
 <header class="nav" id="nav">
   <div class="wrap">
-    <a class="brand" href="/" aria-label="Hello Rivers home"><img class="brand-logo" src="/hello-rivers-logo.webp" alt="Hello Rivers" width="400" height="157"></a>
+    <a class="brand" href="/" aria-label="Hello Rivers home"><img class="brand-logo" src="/hello-rivers-logo-lime.png" alt="Hello Rivers" width="400" height="157"></a>
     <button class="nav-toggle" type="button" aria-controls="primary-links" aria-expanded="false">Menu</button>
     <nav aria-label="Primary">
       <ul id="primary-links">
@@ -647,7 +657,7 @@ h1, h2, .elastic-title, .elastic-title .glyph, .elastic-title .ink-b, .elastic-t
       </div>
       <div class="agents-card reveal">
         <ul class="agents-list">
-          <li><span class="agents-num" aria-hidden="true">1</span><div><h3>Bright, honest listing photos</h3><p>I shoot and edit your homes so they look bright, clean and true to the space. Up to 25 edited photos back in 48 hours. Starts at $125 per listing, or included on my <a href="/plans/#monthly">Unlimited plan</a>, up to 4 listings a month.</p></div></li>
+          <li><span class="agents-num" aria-hidden="true">1</span><div><h3>Bright, honest listing photos</h3><p>I shoot and edit your homes so they look bright, clean and true to the space. Up to 25 edited photos back in 48 hours. Starts at $125 per listing in Hidalgo County, plus a $25 travel fee farther out. Or included on my <a href="/plans/#monthly">Unlimited plan</a>, up to 4 listings a month.</p></div></li>
           <li><span class="agents-num" aria-hidden="true">2</span><div><h3>Your site, always up to date</h3><p>New listings go up, prices change, &ldquo;sold&rdquo; goes on. I handle it, plus hosting, backups and fixes.</p></div></li>
           <li><span class="agents-num" aria-hidden="true">3</span><div><h3>Social posts for every listing</h3><p>Just listed, open house, price drop, just sold. On-brand graphics ready to post, in both languages.</p></div></li>
           <li><span class="agents-num" aria-hidden="true">4</span><div><h3>A brand that&rsquo;s yours, not your brokerage&rsquo;s</h3><p>A logo, colors and a look people remember, built to work with your brokerage&rsquo;s rules.</p></div></li>
