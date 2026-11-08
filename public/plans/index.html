@@ -539,6 +539,9 @@ summary::after { color: var(--blue); }
 .agents-card h2 { color: #fff; }
 .tier.pick h3 { color: #fff; }
 .tier .flag { background: var(--mark-yellow); color: var(--navy); }
+.setup-card .btn.plain { color: var(--navy); box-shadow: inset 0 0 0 1.5px var(--navy) !important; }
+.setup-card .btn.plain:hover { background: var(--paper); }
+.tier.pick .for, .tier.pick .price span { color: #fff; }
 
 /* Squiggle pattern on solid blue, drawn from the logo's wave */
 .b1, .plans-cta .box, .page-cta .box { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260' viewBox='0 0 260 260'%3E%3Cg fill='none' stroke='rgba%28255%2C255%2C255%2C.14%29' stroke-width='9' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 40c18-18 34-18 50 0s32 18 50 0'/%3E%3Cpath d='M190 30c34-10 54 16 40 38s-44 14-40-10 30-22 36-4'/%3E%3Cpath d='M30 120l18 24 18-24 18 24 18-24'/%3E%3Cpath d='M160 118c8 26 44 26 54 0'/%3E%3Cpath d='M172 96v8M202 96v8'/%3E%3Cpath d='M36 214c-6-26 34-34 40-10s-30 40-44 16'/%3E%3Cpath d='M130 206h76'/%3E%3C/g%3E%3C/svg%3E"); }
@@ -563,6 +566,76 @@ footer { border-top: 1.5px solid rgba(12, 30, 107, .15); }
 .nav ul a::after { background: var(--mark-yellow); }
 ::selection { background: var(--mark-yellow); color: var(--navy); }
 .scribble path { stroke: var(--pink); }
+
+/* ============================================================
+   SPACING, SIZES AND MARGINS from the gallery system: 4px base,
+   90px between sections, 28px inside cards, 20px between elements.
+   Colors, fonts and corner shapes stay Hello Rivers.
+   ============================================================ */
+:root { --section-space: 90px; --head-space: 40px; --content-space: 48px; --card-pad: 28px; --el-gap: 20px; }
+body { font-size: 17px; line-height: 1.47; }
+
+/* Page margins and top spacing */
+.hero, .plans-hero, .page-hero { padding-top: 120px; }
+.hero .under, .plans-hero .under, .about-grid { margin-top: 40px; }
+.page-cta, .plans-cta { margin: 0 0 var(--section-space); padding-top: var(--section-space); }
+
+/* Type sizes */
+.headline .fit, .plans-hero h1, .page-hero h1 { font-size: 80px !important; line-height: 1.05; letter-spacing: -.015em; }
+h2 { font-size: 48px; line-height: 1.08; letter-spacing: -.01em; }
+.setup-card h2, .plans-cta h2, .page-cta h2, .freebie h2 { font-size: 40px; line-height: 1; max-width: none; }
+.block h3, .tier h3, .addons h3, .fact h3, .work-copy h3 { font-size: 24px; line-height: 1.17; letter-spacing: -.01em; }
+.agents-list h3, .steps strong { font-size: 19px; line-height: 1.21; letter-spacing: -.005em; }
+summary { font-size: 17px; line-height: 1.24; }
+.contact-grid .mail { font-size: 28px; line-height: 1.17; }
+.hero .lede, .plans-hero .lede, .page-hero .lede, .about-grid .lede { font-size: 20px; line-height: 1.4; max-width: 44ch; margin: 0 0 var(--el-gap); }
+p, li, .block p, .work-copy p, details p, .faq-list details p, .story p, .fact p, .tier li, .addons li span { font-size: 17px; line-height: 1.47; }
+.nav ul a, .tier .for, .form-note, .card-cta, .live-tag { font-size: 14px; line-height: 1.29; }
+.tier .for { font-size: 17px; line-height: 1.47; }
+.btn { font-size: 14px; font-weight: 700; padding: 12px 24px; min-height: 44px; justify-content: center; }
+.btn.small { padding: 8px 16px; font-size: 14px; }
+
+/* Space inside cards */
+.block, .setup-card, .agents-card, .tier, .addons, .fact, .freebie, form, .work-copy, .plans-cta .box, .page-cta .box { padding: var(--card-pad); }
+summary { padding: var(--el-gap) var(--card-pad); }
+details p { padding: 0 var(--card-pad) var(--el-gap); }
+.block { gap: var(--el-gap); }
+.block p { margin: 12px 0 var(--el-gap); }
+.work-copy h3 { margin: 0 0 12px; }
+.work-copy p { margin: 0 0 var(--el-gap); }
+
+/* Space between things */
+.bento, .work-grid, .tiers, .facts, .faq-list { gap: var(--el-gap); }
+.setup-card, .contact-grid, .custom-grid, .freebie, .about-grid, .plans-cta .box, .page-cta .box, .addons { gap: var(--content-space); }
+.agents-list { gap: 28px; }
+form { gap: var(--el-gap); }
+.head { margin-bottom: var(--head-space); gap: var(--el-gap); }
+.head p { margin-top: 12px; }
+.story p { margin-top: var(--el-gap); }
+.tier ul { margin: var(--el-gap) 0 28px; gap: 12px; }
+.price { margin-top: var(--el-gap); padding: 16px 0; }
+.addons { margin-top: var(--el-gap); }
+.jump { margin-top: 28px; gap: 12px; }
+.page-hero > .wrap > .lede { margin-top: var(--el-gap); }
+
+@media (min-width: 1100px) {
+  .hero::after { top: 124px; width: 150px; height: 180px; }
+}
+@media (max-width: 1024px) {
+  .headline .fit, .plans-hero h1, .page-hero h1 { font-size: 48px !important; }
+  h2 { font-size: 40px; }
+}
+@media (max-width: 760px) {
+  :root { --section-space: 64px; --head-space: 28px; --content-space: 32px; --card-pad: 24px; }
+  .wrap { width: calc(100% - 32px); }
+  .hero, .plans-hero, .page-hero { padding-top: 104px; }
+  h2 { font-size: 28px; line-height: 1.14; }
+  .setup-card h2, .plans-cta h2, .page-cta h2, .freebie h2 { font-size: 28px; line-height: 1.14; }
+}
+@media (max-width: 560px) {
+  .headline .fit, .plans-hero h1, .page-hero h1 { font-size: 40px !important; }
+  .contact-grid .mail { font-size: 24px; }
+}
 </style>
 </head>
 <body>
