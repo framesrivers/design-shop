@@ -474,6 +474,9 @@ summary::after { color: var(--blue); }
 .b1, .plans-cta .box, .page-cta .box { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260' viewBox='0 0 260 260'%3E%3Cg fill='none' stroke='rgba%28255%2C255%2C255%2C.14%29' stroke-width='9' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 40c18-18 34-18 50 0s32 18 50 0'/%3E%3Cpath d='M190 30c34-10 54 16 40 38s-44 14-40-10 30-22 36-4'/%3E%3Cpath d='M30 120l18 24 18-24 18 24 18-24'/%3E%3Cpath d='M160 118c8 26 44 26 54 0'/%3E%3Cpath d='M172 96v8M202 96v8'/%3E%3Cpath d='M36 214c-6-26 34-34 40-10s-30 40-44 16'/%3E%3Cpath d='M130 206h76'/%3E%3C/g%3E%3C/svg%3E"); }
 .b1, .plans-cta .box, .page-cta .box { background-repeat: no-repeat; background-size: 260px; background-position: right -30px center; }
 .plans-cta .box, .page-cta .box { background-position: 68% center; }
+@media (min-width: 1100px) {
+  .hero::after { content: ""; position: absolute; top: 128px; right: max(2rem, calc((100vw - 1240px) / 2)); width: 270px; height: 324px; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='360' viewBox='0 0 300 360'%3E%3Cg fill='none' stroke='%232450F5' stroke-width='10' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M30 60c22-24 42-24 62 0s40 24 62 0'/%3E%3Cpath d='M210 60c40-14 68 20 50 48s-58 18-52-14 40-28 48-6'/%3E%3Cpath d='M40 190l22 30 22-30 22 30 22-30'/%3E%3Cpath d='M190 200c10 32 58 32 70 0'/%3E%3Cpath d='M206 172v10M244 172v10'/%3E%3Cpath d='M50 310c-8-34 44-44 52-14s-40 52-58 20'/%3E%3Cpath d='M180 320h90'/%3E%3C/g%3E%3C/svg%3E") center / contain no-repeat; }
+}
 
 /* Small badges and tape stay in the blue family */
 .steps li:nth-child(2)::before, .jump a:nth-child(2) b, #monthly .plan-step b, .rules li:nth-child(2)::before, .freebie .tags li:first-child, .tier li.plus::before { background-color: var(--sky); }
@@ -543,6 +546,9 @@ form { gap: var(--el-gap); }
 .jump { margin-top: 28px; gap: 12px; }
 .page-hero > .wrap > .lede { margin-top: var(--el-gap); }
 
+@media (min-width: 1100px) {
+  .hero::after { top: 124px; width: 150px; height: 180px; }
+}
 @media (max-width: 1024px) {
   .headline .fit, .plans-hero h1, .page-hero h1 { font-size: 48px !important; }
   h2 { font-size: 40px; }
@@ -557,29 +563,6 @@ form { gap: var(--el-gap); }
 @media (max-width: 560px) {
   .headline .fit, .plans-hero h1, .page-hero h1 { font-size: 40px !important; }
   .contact-grid .mail { font-size: 24px; }
-}
-
-/* ============================================================
-   MOTION: letters rise, the marker draws, squiggles draw themselves,
-   a curved reel of real work, and a portrait that follows the pointer.
-   ============================================================ */
-.headline .fit:last-child .riso:last-child { background: linear-gradient(var(--mark-yellow), var(--mark-yellow)) 0 85% / 100% 34% no-repeat; }
-.hero-squiggles { display: none; position: absolute; top: 124px; right: max(2rem, calc((100vw - 1240px) / 2)); width: 150px; height: 180px; overflow: visible; }
-.hero-squiggles path { fill: none; stroke: var(--blue); stroke-width: 10; stroke-linecap: round; stroke-linejoin: round; }
-@media (min-width: 1100px) { .hero-squiggles { display: block; } }
-.reel { position: relative; height: 340px; margin-top: var(--content-space); overflow: hidden; }
-.reel img { position: absolute; left: 0; top: 16px; width: 300px; height: 200px; object-fit: cover; object-position: center 20%; border-radius: 20px; will-change: transform; }
-@media (max-width: 760px) { .reel { height: 240px; } .reel img { width: 190px; height: 130px; border-radius: 14px; } }
-@media (prefers-reduced-motion: no-preference) {
-  .headline .glyph { animation: glyph-rise .7s var(--ease) backwards; animation-delay: calc(var(--i, 0) * 28ms + .1s); }
-  .headline .fit:last-child .riso:last-child { animation: marker-draw .7s cubic-bezier(.65, 0, .35, 1) 1s backwards; }
-  .hero-squiggles { animation: squiggle-bob 5s ease-in-out 2.4s infinite alternate; }
-  .hero-squiggles path { stroke-dasharray: 1; animation: squiggle-draw .7s ease-out backwards; animation-delay: calc(var(--i) * 110ms + .9s); }
-  .hero .portrait.in { transform: perspective(900px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)); transition: opacity .8s var(--ease), transform .25s ease-out; }
-  @keyframes glyph-rise { from { opacity: 0; transform: translateY(.5em) rotate(var(--r)); } }
-  @keyframes marker-draw { from { background-size: 0% 34%; } }
-  @keyframes squiggle-draw { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
-  @keyframes squiggle-bob { to { transform: translateY(-8px) rotate(2deg); } }
 }
 </style>
 </head>
@@ -628,11 +611,7 @@ form { gap: var(--el-gap); }
         </figure>
       </div>
     </div>
-    <svg class="hero-squiggles" viewBox="0 0 300 360" aria-hidden="true"><path pathLength="1" style="--i:0" d="M30 60c22-24 42-24 62 0s40 24 62 0"/><path pathLength="1" style="--i:1" d="M210 60c40-14 68 20 50 48s-58 18-52-14 40-28 48-6"/><path pathLength="1" style="--i:2" d="M40 190l22 30 22-30 22 30 22-30"/><path pathLength="1" style="--i:3" d="M190 200c10 32 58 32 70 0"/><path pathLength="1" style="--i:4" d="M206 172v10"/><path pathLength="1" style="--i:5" d="M244 172v10"/><path pathLength="1" style="--i:6" d="M50 310c-8-34 44-44 52-14s-40 52-58 20"/><path pathLength="1" style="--i:7" d="M180 320h90"/></svg>
   </section>
-
-  <div class="reel" id="reel" aria-hidden="true"><img src="vanilla-bake-2026.webp" alt="" decoding="async"><img src="bloom-shoot-1.webp" alt="" decoding="async"><img src="valley-flash.webp" alt="" decoding="async"><img src="listing-1.webp" alt="" decoding="async"><img src="bloom-shoot-3.webp" alt="" decoding="async"><img src="listing-4.webp" alt="" decoding="async"><img src="bloom-shoot-5.webp" alt="" decoding="async"><img src="vanilla-bake-2026.webp" alt="" decoding="async"><img src="bloom-shoot-1.webp" alt="" decoding="async"><img src="valley-flash.webp" alt="" decoding="async"><img src="listing-1.webp" alt="" decoding="async"><img src="bloom-shoot-3.webp" alt="" decoding="async"><img src="listing-4.webp" alt="" decoding="async"><img src="bloom-shoot-5.webp" alt="" decoding="async"></div>
-
 
   <section id="services" aria-labelledby="services-title">
     <div class="wrap">
@@ -945,7 +924,6 @@ function renderHeadline() {
   const set = narrowHead.matches ? HEADLINE.narrow : HEADLINE.wide;
   h1.innerHTML = set.map(t => `<span class="fit" aria-hidden="true"><span class="line">${t.split(" ").map(renderRisoLetters).join(" ")}</span></span>`).join("");
   lines = [...h1.children];
-  h1.querySelectorAll(".glyph").forEach((g, i) => g.style.setProperty("--i", i));
 }
 renderHeadline();
 narrowHead.addEventListener("change", () => { renderHeadline(); fitHeadline(); });
@@ -1131,52 +1109,6 @@ document.getElementById("year").textContent = new Date().getFullYear();
 watch(document);
 fitHeadline(); fitWordmark();
 (document.fonts ? document.fonts.ready : Promise.resolve()).then(() => { fitHeadline(); fitWordmark(); });
-
-/* ---------- Curved reel of real work ---------- */
-(() => {
-  const reel = document.getElementById("reel"), cards = [...reel.children];
-  let offset = 0, boost = 0, hovering = false, visible = true, last = performance.now(), lastY = scrollY;
-  function place() {
-    const W = reel.clientWidth, cw = cards[0].offsetWidth, step = cw + (W < 760 ? 16 : 24), total = step * cards.length;
-    cards.forEach((c, i) => {
-      const x = ((i * step - offset) % total + total) % total - step;
-      const d = (x + cw / 2 - W / 2) / (W / 2);
-      const y = Math.min(d * d, 2.2) * (W < 760 ? 34 : 62);
-      c.style.transform = `translate3d(${x.toFixed(1)}px, ${y.toFixed(1)}px, 0) rotate(${(d * 6).toFixed(2)}deg)`;
-    });
-  }
-  function frame(now) {
-    const dt = Math.min(now - last, 60) / 1000; last = now;
-    boost += (Math.abs(scrollY - lastY) * 6 - boost) * .08; lastY = scrollY;
-    offset += ((hovering ? 12 : 42) + boost) * dt;
-    place();
-    if (visible) requestAnimationFrame(frame);
-  }
-  place();
-  addEventListener("resize", place);
-  if (reduce) return;
-  reel.addEventListener("pointerenter", () => hovering = true);
-  reel.addEventListener("pointerleave", () => hovering = false);
-  new IntersectionObserver(([e]) => {
-    const was = visible; visible = e.isIntersecting;
-    if (visible && !was) { last = performance.now(); requestAnimationFrame(frame); }
-  }).observe(reel);
-  requestAnimationFrame(frame);
-})();
-
-/* ---------- Portrait leans toward the pointer ---------- */
-(() => {
-  const hero = document.querySelector(".hero"), photo = hero.querySelector(".portrait");
-  if (reduce || !matchMedia("(hover: hover) and (pointer: fine)").matches) return;
-  hero.addEventListener("pointermove", e => {
-    const r = photo.getBoundingClientRect();
-    const dx = Math.max(-1, Math.min(1, (e.clientX - r.left - r.width / 2) / 500));
-    const dy = Math.max(-1, Math.min(1, (e.clientY - r.top - r.height / 2) / 400));
-    photo.style.setProperty("--ry", (dx * 12).toFixed(2) + "deg");
-    photo.style.setProperty("--rx", (-dy * 9).toFixed(2) + "deg");
-  });
-  hero.addEventListener("pointerleave", () => { photo.style.setProperty("--ry", "0deg"); photo.style.setProperty("--rx", "0deg"); });
-})();
 </script>
 </body>
 </html>
