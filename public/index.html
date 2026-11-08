@@ -17,30 +17,30 @@
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Hello Rivers: Websites + branding + I stick around.">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="theme-color" content="#F7F3EA">
+<meta name="theme-color" content="#E5E7EA">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anybody:wdth,wght@50..150,300..900&family=Onest:wght@400..800&family=Hanken+Grotesk:wght@300;400;500;700&family=Kalam:wght@300&display=swap" rel="stylesheet">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='13' cy='16' r='10' fill='%23FF48B0'/><circle cx='19' cy='16' r='10' fill='%23FFE800' style='mix-blend-mode:multiply'/></svg>">
 <style>
-html { font-synthesis-weight: none; }
 /* ============================================================
    EDIT YOUR COLORS HERE (riso-print inks)
    ============================================================ */
 :root {
-  --paper: #F7F3EA;     /* warm off-white page background */
-  --navy: #0C1E6B;      /* body text and dark blocks */
-  --sky: #BFDCFF;       /* pale blue blocks */
-  --mark-yellow: #FFE800; /* yellow highlighter, marks only */
+  --paper: #F7F3EA;     /* newsprint background */
   --sheet: #FFFFFF;     /* cards and paper sheets */
-  --blue: #2450F5;      /* main color: headlines, buttons, big blocks */
-  --pink: #FF48B0;      /* pink highlighter, wavy underlines only */
-  --pink-deep: #0C1E6B; /* tags behind light text (name kept from the old look) */
-  --pink-ink: #2450F5;  /* handwritten notes (name kept from the old look) */
-  --yellow: #BFDCFF;    /* pale sky fills (name kept from the old look) */
+  --blue: #2450F5;      /* riso blue: text, borders, shadows */
+  --pink: #BFDCFF;      /* fluorescent pink: ink layers and decoration */
+  --pink-deep: #0C1E6B; /* pink behind light text */
+  --pink-ink: #2450F5;  /* pink text on light surfaces */
+  --yellow: #BFDCFF;    /* riso yellow */
   --soft: #3A4A8C;      /* secondary text */
 
   --display: "Onest", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --navy: #0C1E6B;
+  --sky: #BFDCFF;
+  --mark-yellow: #FFE800;
+  --mark-pink: #FF48B0;
   --body: "Hanken Grotesk", system-ui, -apple-system, "Segoe UI", sans-serif;
   --hand: "Kalam", "Comic Sans MS", cursive;
   --ease: cubic-bezier(.2, .8, .2, 1);
@@ -89,7 +89,7 @@ a { color: inherit; }
 
 /* ---------- Nav ---------- */
 .nav { position: fixed; inset: 0 0 auto; z-index: 50; padding-top: env(safe-area-inset-top, 0px); transition: background .3s; }
-.nav.scrolled { background: rgba(247, 243, 234, .92); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1.5px solid rgba(12, 30, 107, .15); }
+.nav.scrolled { background: var(--paper); border-bottom: 2.5px solid var(--blue); }
 .nav .wrap { display: flex; justify-content: space-between; align-items: center; height: 74px; gap: 1rem; }
 .brand { display: flex; align-items: center; text-decoration: none; line-height: 0; }
 .brand-logo { display: block; width: 154px; height: auto; max-height: 52px; object-fit: contain; }
@@ -102,7 +102,7 @@ a { color: inherit; }
 
 /* ---------- Hero with elastic riso type ---------- */
 .hero { padding: 118px 0 0; position: relative; }
-.headline { margin: 0; --wdth: 125; --wght: 800; font-family: var(--display); text-transform: uppercase; line-height: .84; letter-spacing: -.01em; }
+.headline { margin: 0; --wdth: 125; --wght: 800; font-family: var(--display); line-height: .84; letter-spacing: -.01em; }
 .headline .fit { display: block; white-space: nowrap; font-variation-settings: "wdth" var(--wdth), "wght" var(--wght); }
 .riso { display: inline-grid; }
 .riso > span { grid-area: 1 / 1; }
@@ -134,7 +134,7 @@ section { padding: var(--section-space) 0 0; }
 #contact { padding-bottom: var(--section-space); }
 .head { display: flex; justify-content: space-between; align-items: end; flex-wrap: wrap; gap: 1.5rem; margin-bottom: var(--head-space); }
 h2 {
-  margin: 0; font-family: var(--display); font-weight: 850; text-transform: uppercase; line-height: .9;
+  margin: 0; font-family: var(--display); font-weight: 850; line-height: .9;
   font-size: clamp(2.6rem, 6.5vw, 4.75rem); font-variation-settings: "wdth" var(--w, 60);
   transition: font-variation-settings .9s var(--ease);
 }
@@ -161,7 +161,7 @@ h2.in { --w: 130; }
 }
 .block:hover { transform: translate(-3px, -3px) rotate(-.6deg); box-shadow: 8px 8px 0 var(--blue); }
 .block:active { transform: translate(3px, 3px); box-shadow: 2px 2px 0 var(--blue); }
-.block h3 { margin: 0; font: 850 clamp(1.6rem, 3vw, 2.4rem)/.95 var(--display); font-variation-settings: "wdth" 110; text-transform: uppercase; position: relative; z-index: 1; }
+.block h3 { margin: 0; font: 850 clamp(1.6rem, 3vw, 2.4rem)/.95 var(--display); font-variation-settings: "wdth" 110; position: relative; z-index: 1; }
 .block p { margin: .4rem 0 0; font-weight: 500; position: relative; z-index: 1; max-width: 28ch; }
 .block .card-cta { display: inline-flex; width: max-content; margin-top: 1rem; padding: .55rem .8rem; border: 2px solid var(--blue); border-radius: 999px; background: var(--sheet); box-shadow: 3px 3px 0 var(--blue); color: var(--blue); font: 700 .88rem/1 var(--body); position: relative; z-index: 1; }
 .block .card-cta:hover { transform: translate(-1px, -1px); box-shadow: 4px 4px 0 var(--blue); }
@@ -202,13 +202,13 @@ h2.in { --w: 130; }
 }
 .receipt-rot { transform: rotate(-2deg); filter: drop-shadow(5px 5px 0 var(--blue)); transition: transform .5s var(--bounce); }
 .receipt-rot:hover { transform: rotate(0deg); }
-.receipt .rt { font: 850 1.8rem/1 var(--display); font-variation-settings: "wdth" 130; text-transform: uppercase; text-align: center; margin: 0 0 .25rem; }
+.receipt .rt { font: 850 1.8rem/1 var(--display); font-variation-settings: "wdth" 130; text-align: center; margin: 0 0 .25rem; }
 .receipt .rs { text-align: center; color: var(--soft); font-size: .9rem; margin: 0 0 1.25rem; }
 .receipt hr { border: 0; border-top: 2.5px dashed var(--blue); margin: 1rem 0; }
 .item { display: flex; align-items: baseline; gap: .5rem; padding: .55rem 0; font-weight: 700; }
 .item .dots { flex: 1; border-bottom: 2.5px dotted var(--blue); transform: translateY(-4px); }
 .item small { display: block; font-weight: 500; color: var(--soft); font-size: .88rem; }
-.receipt .total { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; text-align: right; font: 850 1.3rem/1 var(--display); text-transform: uppercase; }
+.receipt .total { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; text-align: right; font: 850 1.3rem/1 var(--display); }
 .receipt .thanks { font: 600 1.7rem/1 var(--hand); color: var(--pink-ink); text-align: center; margin: 1.25rem 0 0; transform: rotate(-3deg); }
 .steps { list-style: none; padding: 0; margin: 0; display: grid; gap: 1.25rem; counter-reset: s; }
 .steps li { counter-increment: s; display: grid; grid-template-columns: 64px 1fr; gap: 1rem; align-items: start; }
@@ -242,7 +242,7 @@ form {
   position: relative; display: grid; gap: 1rem; background: var(--sheet); padding: clamp(1.4rem, 3vw, 2.2rem);
   border: 2.5px solid var(--blue); box-shadow: 6px 6px 0 var(--blue); border-radius: 6px; transform: rotate(1deg);
 }
-form::before, form::after { content: ""; position: absolute; width: 84px; height: 26px; background: rgba(255, 72, 176, .55); top: -13px; }
+form::before, form::after { content: ""; position: absolute; width: 84px; height: 26px; background: rgba(191, 220, 255, .55); top: -13px; }
 form::before { left: -18px; transform: rotate(-30deg); }
 form::after { right: -18px; transform: rotate(28deg); }
 label { display: grid; gap: .4rem; font-weight: 700; font-size: .93rem; }
@@ -278,7 +278,7 @@ footer .top { display: flex; justify-content: space-between; flex-wrap: wrap; ga
 .block p { margin-top: .85rem; line-height: 1.65; }
 .block .card-cta { margin-top: auto; max-width: 100%; min-height: 44px; align-items: center; line-height: 1.25; }
 .block p { margin-bottom: 1.5rem; }
-.b1 { background: #CC1479; }
+.b1 { background: var(--blue); }
 .b1 h3 { font-size: clamp(1.8rem, 8cqi, 3rem); }
 .b6 h3 { font-size: clamp(1.8rem, 8cqi, 3rem); }
 .block .art { width: 42%; bottom: -.6rem; opacity: .7; pointer-events: none; }
@@ -331,11 +331,13 @@ input::placeholder, textarea::placeholder { color: var(--soft); opacity: 1; }
 .work-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(1.25rem, 3vw, 2.25rem); align-items: stretch; }
 .work-card { overflow: hidden; border: 2.5px solid var(--blue); border-radius: 22px; background: var(--sheet); box-shadow: 6px 6px 0 var(--blue); }
 .work-feature { display: flex; flex-direction: column; }
-.work-image { position: relative; aspect-ratio: 16 / 10; overflow: hidden; border-bottom: 1.5px solid rgba(12, 30, 107, .15); background: #fdf6ec; }
-.work-image img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+.work-image { position: relative; aspect-ratio: 16 / 10; overflow: hidden; border-bottom: 2.5px solid var(--blue); background: #fdf6ec; }
+.work-image img, .work-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+.work-video { opacity: 0; transition: opacity .15s var(--ease); }
+.work-image.is-playing .work-video { opacity: 1; }
 .live-tag { position: absolute; bottom: 1rem; left: 1rem; padding: .45rem .75rem; border: 2px solid var(--blue); border-radius: 999px; background: var(--yellow); box-shadow: 2px 2px 0 var(--blue); font: 700 .85rem/1 var(--body); transform: rotate(-4deg); }
 .work-copy { display: flex; flex-direction: column; align-items: start; padding: clamp(1.5rem, 3vw, 2.25rem); }
-.work-copy h3 { margin: 0 0 .85rem; font: 850 clamp(1.7rem, 3.4vw, 2.6rem)/.98 var(--display); font-variation-settings: "wdth" 105; text-transform: uppercase; text-wrap: balance; }
+.work-copy h3 { margin: 0 0 .85rem; font: 850 clamp(1.7rem, 3.4vw, 2.6rem)/.98 var(--display); font-variation-settings: "wdth" 105; text-wrap: balance; }
 .work-copy p { margin: 0 0 1.75rem; max-width: 46ch; line-height: 1.65; }
 .work-link { margin-top: auto; }
 .work-photos { grid-column: 1 / -1; display: grid; grid-template-columns: minmax(260px, .8fr) minmax(0, 2fr); }
@@ -355,7 +357,7 @@ input::placeholder, textarea::placeholder { color: var(--soft); opacity: 1; }
 }
 @media (max-width: 760px) {
   .work-photos { grid-template-columns: 1fr; }
-  .work-photos .work-copy { border-right: 0; border-bottom: 1.5px solid rgba(12, 30, 107, .15); }
+  .work-photos .work-copy { border-right: 0; border-bottom: 2.5px solid var(--blue); }
   .shoot-strip img { height: 340px; }
   .shoot-strip.is-wide img { height: 180px; aspect-ratio: 3 / 2; }
 }
@@ -365,6 +367,7 @@ input::placeholder, textarea::placeholder { color: var(--soft); opacity: 1; }
 .concept-tag { background: var(--pink-deep); color: var(--sheet); }
 .ext { width: 1em; height: 1em; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 @media (max-width: 960px) { .work-grid { grid-template-columns: 1fr; } }
+@media (prefers-reduced-motion: reduce) { .work-video { display: none; } }
 
 /* ---------- For real estate agents ---------- */
 .agents-lead { display: block; margin-bottom: .35rem; color: var(--blue); font: 800 clamp(1.2rem, 2vw, 1.45rem)/1.25 var(--body); }
@@ -373,7 +376,7 @@ input::placeholder, textarea::placeholder { color: var(--soft); opacity: 1; }
 .agents-list { list-style: none; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(1.5rem, 3vw, 2.5rem) clamp(1.5rem, 4vw, 3.5rem); margin: 0; padding: 0; }
 .agents-list li { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 1rem; align-items: start; }
 .agents-num { display: grid; place-items: center; width: 2.6rem; height: 2.6rem; border: 2px solid var(--sheet); border-radius: 50%; background: var(--yellow); color: var(--blue); font: 850 1.2rem/1 var(--display); transform: rotate(-6deg); }
-.agents-list h3 { margin: .2rem 0 .5rem; font: 850 clamp(1.25rem, 2.2vw, 1.6rem)/1.05 var(--display); font-variation-settings: "wdth" 105; text-transform: uppercase; text-wrap: balance; }
+.agents-list h3 { margin: .2rem 0 .5rem; font: 850 clamp(1.25rem, 2.2vw, 1.6rem)/1.05 var(--display); font-variation-settings: "wdth" 105; text-wrap: balance; }
 .agents-list p { margin: 0; max-width: 44ch; line-height: 1.6; }
 .agents-actions { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: clamp(2rem, 4vw, 3rem); padding-top: clamp(1.5rem, 3vw, 2rem); border-top: 2px dashed rgba(250, 250, 247, .45); }
 .agents-actions .btn { box-shadow: 4px 4px 0 var(--yellow); }
@@ -410,261 +413,29 @@ footer a:hover { color: var(--pink-ink); }
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
 p, summary, li { text-wrap: pretty; }
 
-/* ============================================================
-   BLUE FAMILY LOOK: one color family (blue, off-white, sky, navy),
-   flat shapes, squiggles from the logo's wave. Yellow and pink are
-   highlighter marks only. Footer wordmark stays Anybody for its stretch.
-   ============================================================ */
-.paper, .riso .ink-p, .headline .glyph .ink-p, .elastic-title .glyph .ink-p { display: none; }
-body { color: var(--navy); }
+/* New colors and fonts on the original layout */
+.headline { line-height: 1; letter-spacing: -.025em; font-variation-settings: normal; }
+.headline .fit { font-variation-settings: normal; }
+h1, h2 { line-height: 1.04; letter-spacing: -.02em; font-variation-settings: normal; font-weight: 700; }
+h3, .block h3, .work-copy h3, .agents-list h3, .tier h3, .fact h3, .addons h3 { line-height: 1.1; letter-spacing: -.012em; font-variation-settings: normal; font-weight: 700; }
+html { font-synthesis-weight: none; }
+body { color: var(--navy); font-weight: 300; }
+strong, b { font-weight: 700; }
+.b1 p, .b6 p, .agents-card p, .tier.pick p, .tier.pick li, .plans-cta p, .page-cta p { font-weight: 400; }
 .wordmark { font-family: "Anybody", "Arial Black", system-ui, sans-serif; }
-.wordmark span:nth-child(3n+1) { color: inherit; }
-.wordmark { color: var(--blue); }
-h1, h2, .headline { color: var(--blue); }
-
-/* Headlines: quiet and friendly, sentence case, no width stretching */
-h1, h2, h3, .headline, .block h3, .work-copy h3, .agents-list h3, .receipt .rt, .receipt .total, .tier h3, .addons h3, .price strong, .fact h3, .steps strong, summary, .contact-grid .mail {
-  text-transform: none; font-weight: 700; font-variation-settings: normal; letter-spacing: -.025em;
-}
-.headline { line-height: 1.04; max-width: 900px; }
-.headline .fit { font-variation-settings: normal; font-weight: 700; }
-h2 { line-height: 1.05; }
-.plans-hero h1, .page-hero h1 { font-weight: 700; line-height: 1.02; font-variation-settings: normal; text-transform: none; letter-spacing: -.025em; }
-.block h3, .work-copy h3, .agents-list h3, .tier h3, .addons h3, .fact h3 { line-height: 1.08; font-variation-settings: normal; }
-summary { font-weight: 600; letter-spacing: -.01em; }
-
-/* Flat: no hard shadows or heavy outlines */
-body * { box-shadow: none !important; }
-.btn, .block, .block .card-cta, .setup-card, details, form, .portrait, .standing, .work-card, .agents-card, .agents-num, .tier, .addons, .fact, .freebie, .frame, .cover img, .plans-cta .box, .page-cta .box, .live-tag, .copy-btn, .jump a, .jump b, .plan-step b, .tier .flag, .receipt, .shoot-strip img, .steps li::before, .rules li::before, .freebie .tags li, .steps-list li::before { border: 0; }
-.block, .work-card, details, .tier, .addons, .setup-card, .agents-card, .fact, .freebie, form { border-radius: 22px; }
-.block:hover { transform: translateY(-3px); }
-input, select, textarea { border: 1.5px solid rgba(12, 30, 107, .35); background: var(--sheet); }
-input:focus, select:focus, textarea:focus { border-color: var(--blue); outline: 2px solid var(--blue); outline-offset: 1px; }
-:focus-visible { outline: 3px solid var(--blue); }
-summary::after { color: var(--blue); }
-
-/* Buttons: blue pills, off-white on blue */
-.btn, .btn.alt { background: var(--blue); color: #fff; border-radius: 999px; }
-.btn:hover, .btn.alt:hover { background: var(--navy); }
-.btn.plain { background: transparent; color: var(--blue); box-shadow: inset 0 0 0 1.5px var(--blue) !important; }
-.btn.plain:hover { background: var(--sky); }
-.agents-card .btn, .tier.pick .btn, .plans-cta .btn.alt, .page-cta .btn.alt { background: var(--paper); color: var(--blue); }
-.agents-card .btn:hover, .tier.pick .btn:hover, .plans-cta .btn.alt:hover, .page-cta .btn.alt:hover { background: #fff; color: var(--blue); }
-.plans-cta .btn.plain, .page-cta .btn.plain, .agents-card .btn.plain { background: transparent; color: #fff; box-shadow: inset 0 0 0 1.5px #fff !important; }
-.block .card-cta, .copy-btn { border-radius: 999px; }
-
-/* Color blocks */
-.b1 { background: var(--blue); color: #fff; }
-.b2 { background: var(--sky); color: var(--navy); }
-.b3 { background: var(--navy); color: #fff; }
-.b3 p { color: #fff; }
-.b2 h3, .setup-card h2, .addons h3, .fact:nth-child(2) h3 { color: var(--navy); }
-.setup-card, .addons, .fact:nth-child(2), .work-next { color: var(--navy); }
-.plans-cta .box, .page-cta .box, .agents-card { background-color: var(--blue); }
-.plans-cta h2, .page-cta h2 { color: #fff; }
-.agents-card h2 { color: #fff; }
-.tier.pick h3 { color: #fff; }
-.tier .flag { background: var(--mark-yellow); color: var(--navy); }
-.setup-card .btn.plain { color: var(--navy); box-shadow: inset 0 0 0 1.5px var(--navy) !important; }
-.setup-card .btn.plain:hover { background: var(--paper); }
-.tier.pick .for, .tier.pick .price span { color: #fff; }
-
-/* Squiggle pattern on solid blue, drawn from the logo's wave */
-.b1, .setup-card, .plans-cta .box, .page-cta .box { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260' viewBox='0 0 260 260'%3E%3Cg fill='none' stroke='rgba%28255%2C255%2C255%2C.14%29' stroke-width='9' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 40c18-18 34-18 50 0s32 18 50 0'/%3E%3Cpath d='M190 30c34-10 54 16 40 38s-44 14-40-10 30-22 36-4'/%3E%3Cpath d='M30 120l18 24 18-24 18 24 18-24'/%3E%3Cpath d='M160 118c8 26 44 26 54 0'/%3E%3Cpath d='M172 96v8M202 96v8'/%3E%3Cpath d='M36 214c-6-26 34-34 40-10s-30 40-44 16'/%3E%3Cpath d='M130 206h76'/%3E%3C/g%3E%3C/svg%3E"); }
-.b1, .plans-cta .box, .page-cta .box { background-repeat: no-repeat; background-size: 260px; background-position: right -30px center; }
-.plans-cta .box, .page-cta .box { background-position: 68% center; }
-@media (min-width: 1100px) {
-  .hero::after { content: ""; position: absolute; top: 128px; right: max(2rem, calc((100vw - 1240px) / 2)); width: 270px; height: 324px; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='360' viewBox='0 0 300 360'%3E%3Cg fill='none' stroke='%232450F5' stroke-width='10' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M30 60c22-24 42-24 62 0s40 24 62 0'/%3E%3Cpath d='M210 60c40-14 68 20 50 48s-58 18-52-14 40-28 48-6'/%3E%3Cpath d='M40 190l22 30 22-30 22 30 22-30'/%3E%3Cpath d='M190 200c10 32 58 32 70 0'/%3E%3Cpath d='M206 172v10M244 172v10'/%3E%3Cpath d='M50 310c-8-34 44-44 52-14s-40 52-58 20'/%3E%3Cpath d='M180 320h90'/%3E%3C/g%3E%3C/svg%3E") center / contain no-repeat; }
-}
-
-/* Small badges and tape stay in the blue family */
-.steps li:nth-child(2)::before, .jump a:nth-child(2) b, #monthly .plan-step b, .rules li:nth-child(2)::before, .freebie .tags li:first-child, .tier li.plus::before { background-color: var(--sky); }
-.portrait::before, .standing::before, .cover::before, form::before, form::after { background: rgba(191, 220, 255, .9); }
-.work-photos .work-copy { border: 0; }
-footer { border-top: 1.5px solid rgba(12, 30, 107, .15); }
-.shoot-strip:focus-visible { outline-color: var(--blue); }
-@media (max-width: 760px) { .nav { border-bottom: 1.5px solid rgba(12, 30, 107, .15); } }
-@media (max-width: 560px) { .headline .fit { font-size: 16vw !important; } }
-
-/* Highlighters: yellow marks words, pink is the wavy underline */
-.headline .line { display: inline-block; }
-.headline .fit:last-child .riso:last-child { background: linear-gradient(transparent 56%, var(--mark-yellow) 56%, var(--mark-yellow) 90%, transparent 90%); }
-.contact-grid .mail { color: var(--navy); background: linear-gradient(transparent 52%, var(--mark-yellow) 52%, var(--mark-yellow) 92%, transparent 92%); }
+.scribble path { stroke: var(--mark-pink); }
+::selection { background: var(--mark-yellow); color: var(--navy); }
+.skip-link, .btn.alt, .agents-num, .setup-card .btn.plain, .copy-btn:hover, .nav ul a:hover, .nav ul a:focus-visible { color: var(--navy); }
 .nav ul a::after { background: var(--mark-yellow); }
+.headline .fit:last-child .riso:last-child { background: linear-gradient(transparent 56%, var(--mark-yellow) 56%, var(--mark-yellow) 90%, transparent 90%); }
+.contact-grid .mail { background: linear-gradient(transparent 52%, var(--mark-yellow) 52%, var(--mark-yellow) 92%, transparent 92%); color: var(--navy); }
+
+/* Headings are calm; only the hero keeps the printed offset */
+.elastic-title .glyph .ink-p { display: none; }
 /* Bigger tap areas, no visual change */
-.se-habla, footer a, .reach a, .es-note a { position: relative; }
+.se-habla, footer a, .reach a, .es-note a, .hand { position: relative; }
 .se-habla::before, footer a::before, .reach a::before, .es-note a::before { content: ""; position: absolute; inset: -11px -4px; }
 @media (min-width: 761px) { .nav ul a::before { content: ""; position: absolute; inset: -13px -8px; } }
-::selection { background: var(--mark-yellow); color: var(--navy); }
-.scribble path { stroke: var(--pink); }
-
-/* ============================================================
-   SPACING, SIZES AND MARGINS from the gallery system: 4px base,
-   90px between sections, 28px inside cards, 20px between elements.
-   Colors, fonts and corner shapes stay Hello Rivers.
-   ============================================================ */
-:root { --section-space: 90px; --head-space: 40px; --content-space: 48px; --card-pad: 28px; --el-gap: 20px; }
-body { font-size: 17px; line-height: 1.47; }
-
-/* Page margins and top spacing */
-.hero, .plans-hero, .page-hero { padding-top: 120px; }
-.hero .under, .plans-hero .under, .about-grid { margin-top: 40px; }
-.page-cta, .plans-cta { margin: 0 0 var(--section-space); padding-top: var(--section-space); }
-
-/* Type sizes */
-.headline .fit, .plans-hero h1, .page-hero h1 { font-size: 80px !important; line-height: 1.05; letter-spacing: -.015em; }
-h2 { font-size: 48px; line-height: 1.08; letter-spacing: -.01em; }
-.setup-card h2, .plans-cta h2, .page-cta h2, .freebie h2 { font-size: 40px; line-height: 1; max-width: none; }
-.block h3, .tier h3, .addons h3, .fact h3, .work-copy h3 { font-size: 24px; line-height: 1.17; letter-spacing: -.01em; }
-.agents-list h3, .steps strong { font-size: 19px; line-height: 1.21; letter-spacing: -.005em; }
-summary { font-size: 17px; line-height: 1.24; }
-.contact-grid .mail { font-size: 28px; line-height: 1.17; }
-.hero .lede, .plans-hero .lede, .page-hero .lede, .about-grid .lede { font-size: 20px; line-height: 1.4; max-width: 44ch; margin: 0 0 var(--el-gap); }
-p, li, .block p, .work-copy p, details p, .faq-list details p, .story p, .fact p, .tier li, .addons li span { font-size: 17px; line-height: 1.47; }
-.nav ul a, .tier .for, .form-note, .card-cta, .live-tag { font-size: 14px; line-height: 1.29; }
-.tier .for { font-size: 17px; line-height: 1.47; }
-.btn { font-size: 14px; font-weight: 700; padding: 12px 24px; min-height: 44px; justify-content: center; }
-.btn.small { padding: 8px 16px; font-size: 14px; }
-
-/* Space inside cards */
-.block, .setup-card, .agents-card, .tier, .addons, .fact, .freebie, form, .work-copy, .plans-cta .box, .page-cta .box { padding: var(--card-pad); }
-summary { padding: var(--el-gap) var(--card-pad); }
-details p { padding: 0 var(--card-pad) var(--el-gap); }
-.block { gap: var(--el-gap); }
-.block p { margin: 12px 0 var(--el-gap); }
-.work-copy h3 { margin: 0 0 12px; }
-.work-copy p { margin: 0 0 var(--el-gap); }
-
-/* Space between things */
-.bento, .work-grid, .tiers, .facts, .faq-list { gap: var(--el-gap); }
-.setup-card, .contact-grid, .custom-grid, .freebie, .about-grid, .plans-cta .box, .page-cta .box, .addons { gap: var(--content-space); }
-.agents-list { gap: 28px; }
-form { gap: var(--el-gap); }
-.head { margin-bottom: var(--head-space); gap: var(--el-gap); }
-.head p { margin-top: 12px; }
-.story p { margin-top: var(--el-gap); }
-.tier ul { margin: var(--el-gap) 0 28px; gap: 12px; }
-.price { margin-top: var(--el-gap); padding: 16px 0; }
-.addons { margin-top: var(--el-gap); }
-.jump { margin-top: 28px; gap: 12px; }
-.page-hero > .wrap > .lede { margin-top: var(--el-gap); }
-
-@media (min-width: 1100px) {
-  .hero::after { top: 124px; width: 150px; height: 180px; }
-}
-@media (max-width: 1024px) {
-  .headline .fit, .plans-hero h1, .page-hero h1 { font-size: 48px !important; }
-  h2 { font-size: 40px; }
-}
-@media (max-width: 760px) {
-  :root { --section-space: 64px; --head-space: 28px; --content-space: 32px; --card-pad: 24px; }
-  .wrap { width: calc(100% - 32px); }
-  .hero, .plans-hero, .page-hero { padding-top: 104px; }
-  h2 { font-size: 28px; line-height: 1.14; }
-  .setup-card h2, .plans-cta h2, .page-cta h2, .freebie h2 { font-size: 28px; line-height: 1.14; }
-}
-@media (max-width: 560px) {
-  .headline .fit, .plans-hero h1, .page-hero h1 { font-size: 40px !important; }
-  .contact-grid .mail { font-size: 24px; }
-}
-
-/* Hero: headline and intro on the left, a large photo on the right */
-@media (min-width: 900px) {
-  .hero > .wrap { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 380px); column-gap: var(--content-space); align-items: center; }
-  .hero .headline { grid-column: 1; grid-row: 1; align-self: end; }
-  .hero .under { display: contents; }
-  .hero .under > div:first-child { grid-column: 1; grid-row: 2; align-self: start; margin-top: 28px; }
-  .hero .portrait-wrap { grid-column: 2; grid-row: 1 / 3; width: 100%; }
-}
-@media (min-width: 1100px) {
-  .hero { isolation: isolate; }
-  .hero::after { top: 92px; width: 120px; height: 144px; right: calc(max(1.25rem, (100vw - 1240px) / 2) + 380px - 56px); z-index: 0; }
-}
-
-/* Polaroid in three layers: backdrop, things Marcos likes, then Marcos.
-   The things stay hidden until the pointer is on the polaroid. */
-.portrait-wrap { position: relative; z-index: 1; justify-self: end; width: clamp(200px, 21vw, 270px); }
-.hero .portrait { position: relative; width: 100%; margin: 0; }
-.polaroid-window { position: relative; aspect-ratio: 480 / 500; background: #E6E7EA; }
-.me { position: absolute; inset: 0; z-index: 2; overflow: hidden; clip-path: inset(-20% -20% 0 -20%); }
-.portrait .me img { position: absolute; left: -9%; top: 3%; width: 118%; max-width: none; height: auto; background: none; }
-.hero .portrait figcaption { font-size: 1.5rem; position: relative; background: var(--sheet); transition: color .18s ease; }
-.things { position: absolute; inset: 0; z-index: 1; pointer-events: none; }
-.portrait .things img { position: absolute; height: auto; max-width: none; background: none; opacity: 0; transform: translate(var(--fx), var(--fy)) scale(.3); transition: opacity .18s ease, transform .3s var(--ease); }
-.portrait:hover .things img, .portrait:focus-visible .things img, .portrait-wrap.is-open .portrait .things img { opacity: 1; transform: rotate(var(--rot)); transition: opacity .18s ease var(--delay), transform .5s var(--bounce) var(--delay); }
-.portrait .things .t-rose { width: 27%; left: 6%; top: -5%; --fx: 40%; --fy: 30%; --rot: 0deg; --delay: 0ms; }
-.portrait .things .t-frida { width: 29%; left: 18%; top: 6%; --fx: 40%; --fy: 25%; --rot: -3deg; --delay: 40ms; }
-.portrait .things .t-frida-2 { width: 29%; left: 57%; top: 4%; --fx: -40%; --fy: 25%; --rot: 3deg; --delay: 60ms; }
-.portrait .things .t-loteria { width: 26%; left: 10%; top: 60%; --fx: 60%; --fy: -20%; --rot: -7deg; --delay: 80ms; }
-@media (max-width: 600px) {
-  .hero .portrait figcaption { font-size: 1.25rem; }
-}
-.portrait .things .t-skull { width: 29%; left: 58%; top: 52%; --fx: -60%; --fy: -10%; --rot: 6deg; --delay: 120ms; }
-.portrait .things .t-hand { width: 27%; left: 9%; top: 36%; --fx: 70%; --fy: 10%; --rot: 0deg; --delay: 180ms; }
-.things-front { z-index: 4; }
-.portrait .things .t-hand { transform-origin: 60% 95%; }
-.portrait:hover .things .t-hand, .portrait:focus-visible .things .t-hand, .portrait-wrap.is-open .things .t-hand { animation: hand-wave 1.5s ease-in-out .7s 2; }
-@keyframes hand-wave { 0%, 100% { rotate: 0deg; } 15%, 45%, 75% { rotate: 16deg; } 30%, 60% { rotate: -8deg; } }
-@media (prefers-reduced-motion: reduce) { .portrait .things .t-hand { animation: none !important; } }
-@media (max-width: 899px) { .portrait-wrap { justify-self: center; width: min(240px, 68%); margin-top: 1rem; } }
-@media (prefers-reduced-motion: reduce) { .things img, .portrait:hover .things img, .portrait:focus-visible .things img, .portrait-wrap.is-open .things img { transition: opacity .01s; transform: rotate(var(--rot)); } }
-
-/* ============================================================
-   Hierarchy pass (from the UX audit)
-   ============================================================ */
-/* 1. Hero: the buttons lead, the Spanish line is a quiet note */
-.hero .actions .btn { min-height: 56px; padding: 16px 30px; font-size: 17px; }
-.hero .se-habla { margin-top: 1.25rem; font-size: 1.25rem; }
-/* 2. One solid blue moment per section */
-.b2, .b3 { background: var(--sheet); color: var(--navy); }
-.b2 h3, .b3 h3, .b2 p, .b3 p { color: var(--navy); }
-.b6 { background: var(--sky); color: var(--navy); }
-.b6 h3, .b6 p { color: var(--navy); }
-.setup-card { background-color: var(--blue); color: #fff; background-repeat: no-repeat; background-size: 300px; background-position: left 18% bottom -24px; }
-@media (max-width: 760px) { .setup-card { background-image: none; } }
-.setup-card .btn { background: var(--paper); color: var(--blue); }
-.setup-card .btn:hover { background: #fff; color: var(--blue); }
-.setup-card .btn.plain { background: transparent; color: #fff; box-shadow: inset 0 0 0 1.5px #fff !important; }
-.setup-card .btn.plain:hover { background: rgba(255, 255, 255, .14); color: #fff; }
-.setup-list li { border-bottom-color: rgba(255, 255, 255, .45); }
-.agents-card { background: var(--sheet); background-color: var(--sheet); color: var(--navy); }
-.agents-list h3 { color: var(--navy); }
-.agents-num { background: var(--sky); color: var(--navy); border-color: var(--sky); }
-.agents-actions { border-top-color: rgba(36, 80, 245, .35); }
-.agents-card .btn { background: var(--blue); color: #fff; }
-.agents-card .btn:hover { background: var(--navy); color: #fff; }
-.agents-card .btn.plain { background: transparent; color: var(--blue); box-shadow: inset 0 0 0 1.5px var(--blue) !important; }
-.agents-card .btn.plain:hover { background: var(--sky); color: var(--blue); }
-/* 5. One title pattern: the extra subheading becomes plain intro text */
-.agents-lead { display: inline; margin: 0; color: inherit; font: inherit; }
-/* 5. A real client project outranks the invitation */
-.work-next { align-self: center; background: none; }
-@media (max-width: 760px) { .hero .actions .btn { padding: 14px 24px; } }
-
-/* Thin body text; white text on solid color stays at 400 so it reads */
-body, p, li, .hero .lede, .plans-hero .lede, .page-hero .lede, .about-grid .lede, .head p, .block p, .setup-intro, .setup-list p, .setup-terms, details p, .work-copy p, .agents-list p { font-weight: 300; }
-.b1 p, .setup-card p, .plans-cta p, .page-cta p, .tier.pick p, .tier.pick li, .fact:nth-child(3) p, .fact:nth-child(3) li { font-weight: 400; }
-.receipt .rs, .form-note { font-weight: 400; }
-
-/* ============================================================
-   Button system: solid or outline, one pill shape.
-   On light: solid blue / blue outline. On blue: solid white / white outline.
-   ============================================================ */
-.btn.small { border-radius: 999px; }
-.block .card-cta, .copy-btn { font-size: 14px; }
-.btn:hover, .btn.alt:hover { background: var(--navy); color: #fff; }
-.btn.plain, .b2 .card-cta, .b3 .card-cta, .copy-btn, .nav-toggle, .jump a { background: transparent; color: var(--blue); border: 0; box-shadow: inset 0 0 0 1.5px var(--blue) !important; }
-.btn.plain:hover, .b2 .card-cta:hover, .b3 .card-cta:hover, .copy-btn:hover, .nav-toggle:hover, .jump a:hover { background: var(--sky); color: var(--navy); box-shadow: inset 0 0 0 1.5px var(--navy) !important; }
-.b6 .card-cta { background: var(--blue); color: #fff; border: 0; }
-.b6 .card-cta:hover { background: var(--navy); color: #fff; }
-.b1 .card-cta, .setup-card .btn:not(.plain), .tier.pick .btn, .plans-cta .btn.alt, .page-cta .btn.alt { background: #fff; color: var(--blue); border: 0; }
-.b1 .card-cta:hover, .setup-card .btn:not(.plain):hover, .tier.pick .btn:hover, .plans-cta .btn.alt:hover, .page-cta .btn.alt:hover { background: var(--sky); color: var(--navy); }
-.setup-card .btn.plain, .plans-cta .btn.plain, .page-cta .btn.plain { background: transparent; color: #fff; box-shadow: inset 0 0 0 1.5px #fff !important; }
-.setup-card .btn.plain:hover, .plans-cta .btn.plain:hover, .page-cta .btn.plain:hover { background: rgba(255, 255, 255, .14); color: #fff; box-shadow: inset 0 0 0 1.5px #fff !important; }
-.agents-card .btn:not(.plain) { background: var(--blue); color: #fff; }
-.agents-card .btn:not(.plain):hover { background: var(--navy); color: #fff; }
-.agents-card .btn.plain { background: transparent; color: var(--blue); box-shadow: inset 0 0 0 1.5px var(--blue) !important; }
-.agents-card .btn.plain:hover { background: var(--sky); color: var(--navy); box-shadow: inset 0 0 0 1.5px var(--navy) !important; }
 
 /* ============================================================
    Recent work: photo grid
@@ -691,9 +462,59 @@ body, p, li, .hero .lede, .plans-hero .lede, .page-hero .lede, .about-grid .lede
   .tile-label .ext { right: 8px; }
 }
 @media (prefers-reduced-motion: reduce) { .tile img, .tile-label .ext { transition: none; } .tile:hover img { transform: none; } }
-.panels-next { max-width: 60ch; margin: 40px auto 0; text-align: center; }
-.panels-next strong { font-weight: 700; }
-.panels-next a { color: var(--blue); font-weight: 700; text-underline-offset: .2em; white-space: nowrap; }
+
+/* Hero collage */
+.portrait-wrap { position: relative; z-index: 1; justify-self: end; width: clamp(200px, 21vw, 270px); }
+.hero .portrait { position: relative; width: 100%; margin: 0; }
+.polaroid-window { position: relative; aspect-ratio: 480 / 500; background: #E6E7EA; }
+.me { position: absolute; inset: 0; z-index: 2; overflow: hidden; clip-path: inset(-20% -20% 0 -20%); }
+.portrait .me img { position: absolute; left: -9%; top: 3%; width: 118%; max-width: none; height: auto; background: none; }
+.hero .portrait figcaption { font-size: 1.5rem; position: relative; background: var(--sheet); transition: color .18s ease; }
+.things { position: absolute; inset: 0; z-index: 1; pointer-events: none; }
+.portrait .things img { position: absolute; height: auto; max-width: none; background: none; opacity: 0; transform: translate(var(--fx), var(--fy)) scale(.3); transition: opacity .18s ease, transform .3s var(--ease); }
+.portrait:hover .things img, .portrait-wrap.is-open .portrait .things img { opacity: 1; transform: rotate(var(--rot)); transition: opacity .18s ease var(--delay), transform .5s var(--bounce) var(--delay); }
+.portrait .things .t-rose { width: 27%; left: 6%; top: -5%; --fx: 40%; --fy: 30%; --rot: 0deg; --delay: 0ms; }
+.portrait .things .t-frida { width: 29%; left: 18%; top: 6%; --fx: 40%; --fy: 25%; --rot: -3deg; --delay: 40ms; }
+.portrait .things .t-frida-2 { width: 29%; left: 57%; top: 4%; --fx: -40%; --fy: 25%; --rot: 3deg; --delay: 60ms; }
+.portrait .things .t-loteria { width: 26%; left: 10%; top: 60%; --fx: 60%; --fy: -20%; --rot: -7deg; --delay: 80ms; }
+@media (max-width: 600px) {
+  .hero .portrait figcaption { font-size: 1.25rem; }
+}
+.portrait .things .t-skull { width: 29%; left: 58%; top: 52%; --fx: -60%; --fy: -10%; --rot: 6deg; --delay: 120ms; }
+.portrait .things .t-hand { width: 27%; left: 9%; top: 36%; --fx: 70%; --fy: 10%; --rot: 0deg; --delay: 180ms; }
+.things-front { z-index: 4; }
+.portrait .things .t-hand { transform-origin: 60% 95%; }
+.portrait:hover .things .t-hand, .portrait-wrap.is-open .things .t-hand { animation: hand-wave 1.5s ease-in-out .7s 2; }
+@keyframes hand-wave { 0%, 100% { rotate: 0deg; } 15%, 45%, 75% { rotate: 16deg; } 30%, 60% { rotate: -8deg; } }
+@media (prefers-reduced-motion: reduce) { .portrait .things .t-hand { animation: none !important; } }
+@media (max-width: 899px) { .portrait-wrap { justify-self: center; width: min(240px, 68%); margin-top: 1rem; } }
+@media (prefers-reduced-motion: reduce) { .things img, .portrait:hover .things img, .portrait-wrap.is-open .things img { transition: opacity .01s; transform: rotate(var(--rot)); } }
+/* Fits this layout: polaroid sits beside the intro */
+.portrait-wrap { width: 340px; }
+.hero .portrait { width: 100%; margin: 0; }
+@media (max-width: 899px) { .portrait-wrap { justify-self: center; width: min(280px, 78%); margin-top: 1.5rem; } }
+.try-me { position: absolute; z-index: 3; top: 42%; right: calc(100% + 16px); display: flex; align-items: center; gap: 4px; white-space: nowrap; font: 300 1.5rem/1.15 var(--hand); color: var(--blue); pointer-events: none; transition: opacity .2s ease; }
+.try-me img { width: 52px; height: auto; transform: rotate(-8deg); }
+.try-me .say-tap { display: none; }
+.portrait-wrap:hover .try-me, .portrait-wrap.is-open .try-me { opacity: 0; }
+@media (hover: none) { .try-me .say-hover { display: none; } .try-me .say-tap { display: inline; } }
+@media (max-width: 1099px) { .try-me { display: none; } }
+@media (max-width: 899px) { .try-me { display: flex; position: static; justify-content: center; margin-bottom: 16px; } .try-me img { display: none; } }
+/* Work tiles in the outlined card style */
+.tile { border: 2.5px solid var(--blue); box-shadow: 5px 5px 0 var(--blue); }
+.tile-tag { padding: 0; border-radius: 0; background: none; color: var(--navy); font-size: 13px; }
+.tile-label { flex-direction: column; align-items: flex-start; gap: 1px; }
+.t-a .tile-label { flex-direction: column; align-items: flex-start; flex-wrap: wrap; gap: 1px; }
+.tile:active { transform: translate(2px, 2px); box-shadow: 2px 2px 0 var(--blue); }
+/* Voice */
+.stay-note { margin: -8px 0 16px; font: 300 1.6rem/1.15 var(--hand); color: var(--blue); transform: rotate(-2deg); transform-origin: left; }
+.foot-story { margin: 0 0 16px; font: 300 1.5rem/1.2 var(--hand); color: var(--blue); }
+/* Jump links land with the title just under the nav */
+section[id] { scroll-margin-top: calc(28px - var(--section-space)); }
+/* A button chose the project type */
+select.is-set { animation: type-set 1.8s ease .5s 1 both; }
+@keyframes type-set { 0%, 55% { background-color: var(--sky); } 100% { background-color: #fff; } }
+@media (prefers-reduced-motion: reduce) { select.is-set { animation: none; } .tile:active { transform: none; } .try-me { transition: none; } }
 </style>
 </head>
 <body>
@@ -721,14 +542,13 @@ body, p, li, .hero .lede, .plans-hero .lede, .page-hero .lede, .about-grid .lede
 <main id="top" tabindex="-1">
   <section class="hero">
     <div class="wrap">
-      <h1 class="headline" id="headline" aria-label="Launch day isn't goodbye.">
-        <span class="fit" data-text="Websites +"></span>
-        <span class="fit" data-text="branding +"></span>
-        <span class="fit" data-text="I stick around."></span>
+      <h1 class="headline" id="headline" aria-label="Launch day isn&#39;t goodbye.">
+        <span class="fit" data-text="Launch day"></span>
+        <span class="fit" data-text="isn&#39;t goodbye."></span>
       </h1>
       <div class="under">
         <div>
-          <p class="lede">I'm Marcos. I design and build websites and brands for small businesses, then I don't vanish. Every month I keep your site, socials and hosting fresh, so you can get back to running the place.</p>
+          <p class="lede">Hola, soy Marcos, and Hello Rivers es solo yo. I design and build websites and brands for small businesses. Then I stay, keeping your site, socials and hosting fresh every month, so you can get back to running the place.</p>
           <div class="actions">
             <a class="btn" href="#contact">Start a project</a>
             <a class="btn plain" href="#services">See what I do</a>
@@ -736,6 +556,7 @@ body, p, li, .hero .lede, .plans-hero .lede, .page-hero .lede, .about-grid .lede
           <a class="se-habla" lang="es" href="https://wa.me/19567388487?text=Hola%20Marcos%2C%20me%20interesa%20un%20proyecto." target="_blank" rel="noopener noreferrer">¡Se habla español!<span class="sr-only"> Escríbeme por WhatsApp (se abre en una pestaña nueva)</span></a>
         </div>
         <div class="portrait-wrap" id="portrait-wrap">
+          <div class="try-me" aria-hidden="true"><span class="say-hover">psst, hover over me</span><span class="say-tap">psst, tap the photo</span><img src="arrows/hook.svg" alt="" width="190" height="150"></div>
           <figure class="portrait reveal" style="--rr:3deg" tabindex="0" role="button" aria-expanded="false" aria-label="Hi, I'm Marcos. Press to see some things I like.">
             <div class="polaroid-window">
               <div class="things" aria-hidden="true"><img class="t-rose" src="hero-things/rose.svg" alt="" width="400" loading="lazy"><img class="t-frida" src="hero-things/frida.svg" alt="" width="300" loading="lazy"><img class="t-frida-2" src="hero-things/frida-2.svg" alt="" width="300" loading="lazy"><img class="t-loteria" src="hero-things/loteria.svg" alt="" width="300" loading="lazy"><img class="t-skull" src="hero-things/skull.svg" alt="" width="410" loading="lazy"></div>
@@ -754,6 +575,7 @@ body, p, li, .hero .lede, .plans-hero .lede, .page-hero .lede, .about-grid .lede
       <div class="head reveal">
         <div>
           <h2 class="elastic-title" id="services-title" aria-label="Services"><span data-text="Services" aria-hidden="true">Services</span></h2>
+          <p>Ten years designing for Dell, H-E-B, RoverPass and the City of Hutto. Yes, the whole city. Now it&#39;s just me, for businesses like yours.</p>
         </div>
       </div>
       <div class="bento">
@@ -788,38 +610,12 @@ body, p, li, .hero .lede, .plans-hero .lede, .page-hero .lede, .about-grid .lede
         </a>
         <a class="tile t-d reveal" href="demos/brazos-bloom/" target="_blank" rel="noopener noreferrer">
           <img src="brazos-bloom.webp" alt="Brazos &amp; Bloom Realty homepage: the name in large letters over a stone house at dusk, with a featured listing card" loading="lazy" width="960" height="600" style="object-position:center top">
-          <span class="tile-label"><strong>Brazos &amp; Bloom Realty</strong><span class="tile-tag is-concept">Concept site</span><svg class="ext" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5"/></svg><span class="sr-only"> (opens in a new tab)</span></span>
+          <span class="tile-label"><strong>Brazos &amp; Bloom Realty</strong><span class="tile-tag">Concept site</span><svg class="ext" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5"/></svg><span class="sr-only"> (opens in a new tab)</span></span>
         </a>
         <a class="tile t-e reveal" href="#agents">
           <img src="listing-1.webp" alt="Front of a newly built white stucco and stone home with a two-car garage" loading="lazy" width="1400" height="933" style="object-position:center">
           <span class="tile-label"><strong>New-build listing photos</strong><span class="tile-tag">Listing photos</span><svg class="ext" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 3v10M4 9l4 4 4-4"/></svg></span>
         </a>
-      </div>
-      <p class="panels-next"><strong>Your business could be next.</strong> New website and brand projects are on the way. <a href="#contact" data-type="A new website">Start a project</a></p>
-    </div>
-  </section>
-
-  <section id="support" aria-labelledby="support-title">
-    <div class="wrap">
-      <div class="head reveal">
-        <div>
-          <h2 class="elastic-title" id="support-title" aria-label="I stick around."><span data-text="I stick around." aria-hidden="true">I stick around.</span></h2>
-        </div>
-      </div>
-      <div class="setup-card">
-        <div>
-          <p class="setup-intro">Pick a monthly mix of website, social, brand and design help. We plan it around what your business needs next, and change it as you grow.</p>
-          <div class="setup-actions"><a class="btn" href="#contact" data-type="Monthly support (site, social or hosting)">Ask about monthly support</a><a class="btn plain" href="/plans/">See the plans</a></div>
-        </div>
-        <div>
-          <ul class="setup-list">
-            <li><strong>Website updates</strong><p>New photos, menus, prices, pages, seasonal refreshes and small fixes.</p></li>
-            <li><strong>Social media care</strong><p>On-brand graphics and profile updates, ready to post.</p></li>
-            <li><strong>Brand + design help</strong><p>Flyers, signs, campaign pieces and smoother pages when you need them.</p></li>
-            <li><strong>Hosting + website care</strong><p>Backups, domains, updates, and a real person when something breaks.</p></li>
-          </ul>
-          <p class="setup-terms">We agree on a clear monthly scope before I start. Bigger one-off projects get their own quote, and you always own every account.</p>
-        </div>
       </div>
     </div>
   </section>
@@ -842,6 +638,28 @@ body, p, li, .hero .lede, .plans-hero .lede, .page-hero .lede, .about-grid .lede
         <div class="agents-actions">
           <a class="btn" href="#contact" data-type="Real estate listings + marketing">Talk to me about your listings</a>
           <a class="btn plain" href="demos/brazos-bloom/" target="_blank" rel="noopener noreferrer">See a sample agent site<svg class="ext" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5"/></svg><span class="sr-only"> (opens in a new tab)</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="support" aria-labelledby="support-title">
+    <div class="wrap">
+      <div class="setup-card">
+        <div>
+          <h2 id="support-title">I stick around.</h2>
+          <p class="stay-note" lang="es">entrego el sitio y me quedo</p>
+          <p class="setup-intro">Pick a monthly mix of website, social, brand and design help. We plan it around what your business needs next, and change it as you grow.</p>
+          <div class="setup-actions"><a class="btn" href="#contact" data-type="Monthly support (site, social or hosting)">Ask about monthly support</a><a class="btn plain" href="/plans/">See the plans</a></div>
+        </div>
+        <div>
+          <ul class="setup-list">
+            <li><strong>Website updates</strong><p>New photos, menus, prices, pages, seasonal refreshes and small fixes.</p></li>
+            <li><strong>Social media care</strong><p>On-brand graphics and profile updates, ready to post.</p></li>
+            <li><strong>Brand + design help</strong><p>Flyers, signs, campaign pieces and smoother pages when you need them.</p></li>
+            <li><strong>Hosting + website care</strong><p>Backups, domains, updates, and a real person when something breaks.</p></li>
+          </ul>
+          <p class="setup-terms">We agree on a clear monthly scope before I start. Bigger one-off projects get their own quote, and you always own every account.</p>
         </div>
       </div>
     </div>
@@ -898,7 +716,7 @@ body, p, li, .hero .lede, .plans-hero .lede, .page-hero .lede, .about-grid .lede
     <div class="wrap contact-grid">
       <div class="reveal">
         <h2 class="elastic-title" id="contact-title" aria-label="Say hi"><span data-text="Say hi" aria-hidden="true">Say hi</span></h2>
-        <p class="contact-intro">Tell me about your business and what you need. I reply within one business day with next steps.</p>
+        <p class="contact-intro">Tell me about your business and what you need. I reply within one business day with next steps. No rush, cuando quieras.</p>
         <p class="es-note" lang="es">¿Prefieres español? Escríbeme aquí en español o <a href="https://wa.me/19567388487?text=Hola%20Marcos%2C%20me%20interesa%20un%20proyecto." target="_blank" rel="noopener noreferrer">mándame un WhatsApp<span class="sr-only"> (se abre en una pestaña nueva)</span></a>.</p>
         <ul class="reach">
           <li>
@@ -906,7 +724,7 @@ body, p, li, .hero .lede, .plans-hero .lede, .page-hero .lede, .about-grid .lede
             <span class="reach-row"><a class="mail" href="mailto:contact@hellorivers.com">contact@hellorivers.com</a></span>
           </li>
           <li>
-            <span class="reach-label">WhatsApp or call</span>
+            <span class="reach-label">WhatsApp</span>
             <span class="reach-row"><a class="mail" href="https://wa.me/19567388487" target="_blank" rel="noopener noreferrer">(956) 738-8487<span class="sr-only"> on WhatsApp (opens in a new tab)</span></a></span>
           </li>
         </ul>
@@ -939,6 +757,7 @@ body, p, li, .hero .lede, .plans-hero .lede, .page-hero .lede, .about-grid .lede
 
 <footer>
   <div class="wrap">
+    <p class="foot-story">Rios means rivers. From Roma, TX, on the Rio Grande.</p>
     <div class="top">
       <span>© <span id="year"></span> Hello Rivers</span>
       <span class="foot-contact"><a href="mailto:contact@hellorivers.com">contact@hellorivers.com</a><a href="https://wa.me/19567388487" target="_blank" rel="noopener noreferrer">WhatsApp (956) 738-8487</a></span>
@@ -953,7 +772,7 @@ const EMAIL = "contact@hellorivers.com";
 
 /* ============================================================ */
 const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
-const B = "#2450F5", P = "#BFDCFF", Y = "#F7F3EA", W = "#FFFFFF";
+const B = "#2450F5", P = "#BFDCFF", Y = "#FFE800", W = "#FFFFFF";
 
 /* ---------- Riso-style card art ---------- */
 function glyphs() {
@@ -974,8 +793,8 @@ document.querySelectorAll("[data-art]").forEach(el => el.innerHTML = bentoArt[el
 
 /* ---------- Elastic riso headline ---------- */
 const h1 = document.getElementById("headline");
-/* Phones get shorter lines so "I stick around." stays big */
-const HEADLINE = { wide: ["Launch day", "isn't goodbye."], narrow: ["Launch day", "isn't", "goodbye."] };
+/* Phones get shorter lines so the headline stays big */
+const HEADLINE = { wide: ["Launch day", "isn't goodbye."], narrow: ["Launch day", "isn't goodbye."] };
 const narrowHead = matchMedia("(max-width: 560px)");
 let lines = [];
 function renderRisoLetters(t) {
@@ -988,7 +807,7 @@ function renderRisoLetters(t) {
 }
 function renderHeadline() {
   const set = narrowHead.matches ? HEADLINE.narrow : HEADLINE.wide;
-  h1.innerHTML = set.map(t => `<span class="fit" aria-hidden="true"><span class="line">${t.split(" ").map(renderRisoLetters).join(" ")}</span></span>`).join("");
+  h1.innerHTML = set.map(t => `<span class="fit" aria-hidden="true">${t.split(" ").map(renderRisoLetters).join(" ")}</span>`).join("");
   lines = [...h1.children];
 }
 renderHeadline();
@@ -1000,10 +819,11 @@ const MAXW = 125;
 function fitHeadline() {
   const cur = h1.style.cssText;
   h1.style.setProperty("--wdth", MAXW); h1.style.setProperty("--wght", 800);
-  const avail = h1.clientWidth;
+  const avail = h1.clientWidth * (innerWidth > 760 ? .8 : 1);
   lines.forEach(l => {
     l.style.fontSize = "100px";
-    const w = l.firstElementChild.getBoundingClientRect().width;
+    const range = document.createRange(); range.selectNodeContents(l);
+    const w = range.getBoundingClientRect().width;
     l.style.fontSize = Math.min(100 * avail / w, 260) + "px";
   });
   h1.style.cssText = cur;
@@ -1059,14 +879,19 @@ document.addEventListener("click", event => {
 window.matchMedia("(min-width: 761px)").addEventListener("change", closeMenu);
 
 /* Links from the plans page arrive as /?type=...#contact */
+function flagType(field) {
+  field.classList.remove("is-set");
+  void field.offsetWidth;
+  field.classList.add("is-set");
+}
 const typeParam = new URLSearchParams(location.search).get("type");
 if (typeParam) {
   const type = document.getElementById("type");
-  if (type && [...type.options].some(o => o.value === typeParam)) type.value = typeParam;
+  if (type && [...type.options].some(o => o.value === typeParam)) { type.value = typeParam; flagType(type); }
 }
 document.querySelectorAll("[data-type]").forEach(a => a.addEventListener("click", () => {
   const type = document.getElementById("type");
-  if (type && [...type.options].some(o => o.value === a.dataset.type)) type.value = a.dataset.type;
+  if (type && [...type.options].some(o => o.value === a.dataset.type)) { type.value = a.dataset.type; flagType(type); }
 }));
 
 
@@ -1120,7 +945,7 @@ watch(document);
 fitHeadline();
 (document.fonts ? document.fonts.ready : Promise.resolve()).then(() => { fitHeadline(); });
 
-/* ---------- Things Marcos likes: tap or press the polaroid to show them ---------- */
+/* ---------- Hero polaroid collage ---------- */
 (() => {
   const wrap = document.getElementById("portrait-wrap"), photo = wrap.querySelector(".portrait");
   const setOpen = open => { wrap.classList.toggle("is-open", open); photo.setAttribute("aria-expanded", String(open)); };
