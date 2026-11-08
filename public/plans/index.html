@@ -586,6 +586,11 @@ h1, h2, .elastic-title, .elastic-title .glyph, .elastic-title .ink-b, .elastic-t
 .tier-wide .price { margin-bottom: 0; }
 .tier-wide .btn { margin-top: 1.5rem; width: 100%; }
 @media (max-width: 900px) { .tier-wide { grid-template-columns: minmax(0, 1fr); gap: 1.25rem; } }
+
+/* Build your own plan */
+.build-own { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .75rem 2rem; margin-top: var(--content-space); }
+.build-own p { margin: 0; max-width: 60ch; font-size: clamp(1.1rem, 2vw, 1.3rem); line-height: 1.55; }
+.build-own strong { font-weight: 700; }
 </style>
 </head>
 <body>
@@ -706,10 +711,14 @@ h1, h2, .elastic-title, .elastic-title .glyph, .elastic-title .ink-b, .elastic-t
             <p class="price"><strong>$2,000</strong><span>a month</span></p>
           </div>
           <div class="tier-wide-list">
-            <ul><li class="plus">Everything in Studio</li><li>Unlimited requests for your website, brand and social</li><li>One request at a time, in the order you choose</li><li>Photo shoots stay separate</li></ul>
+            <ul><li class="plus">Everything in Studio</li><li>Unlimited requests for your website, brand and social</li><li>Photo shoots included</li><li>One request at a time, in the order you choose</li><li>Realtors: this covers your listing photos too, up to 4 listings a month</li></ul>
             <a class="btn" href="/?type=Monthly%20support%20(site%2C%20social%20or%20hosting)#contact">Ask about Unlimited</a>
           </div>
         </article>
+      </div>
+      <div class="build-own reveal">
+        <p><strong>Want something in between?</strong> Mix and match and build your own plan. Tell me what you need and I'll price it with you.</p>
+        <a class="btn plain" href="/?type=Not%20sure%20yet#contact">Build your own plan</a>
       </div>
     </div>
   </section>
