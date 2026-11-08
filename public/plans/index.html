@@ -580,6 +580,12 @@ h2.elastic-title > span { background: linear-gradient(var(--yellow), var(--yello
 
 /* All titles use the same cut of Bricolage */
 h1, h2, .elastic-title, .elastic-title .glyph, .elastic-title .ink-b, .elastic-title [data-text] { font-variation-settings: "opsz" 96; font-weight: 800; }
+
+/* Unlimited monthly plan: full-width card under the three monthly tiers */
+.tier-wide { grid-column: 1 / -1; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--content-space); align-items: start; }
+.tier-wide .price { margin-bottom: 0; }
+.tier-wide .btn { margin-top: 1.5rem; width: 100%; }
+@media (max-width: 900px) { .tier-wide { grid-template-columns: minmax(0, 1fr); gap: 1.25rem; } }
 </style>
 </head>
 <body>
@@ -653,7 +659,7 @@ h1, h2, .elastic-title, .elastic-title .glyph, .elastic-title .ink-b, .elastic-t
           <p>Priced with your quote.</p>
         </div>
         <ul>
-          <li><strong>Photo shoot</strong><span>Your space, products, team or listings, shot by me.</span></li>
+          <li><strong>Photo shoot</strong><span>Your space, products or team, shot by me on location.</span></li>
           <li><strong>Spanish version</strong><span>The whole site in both languages.</span></li>
           <li><strong>Extra pages</strong><span>More services, a gallery, a menu, a landing page.</span></li>
           <li><strong>Launch posts</strong><span>Social graphics to announce your new site.</span></li>
@@ -683,7 +689,7 @@ h1, h2, .elastic-title, .elastic-title .glyph, .elastic-title .ink-b, .elastic-t
           <h3>Grow</h3>
           <p class="for">Your site and your socials stay fresh every month.</p>
           <p class="price"><strong>Starts at $200</strong><span>a month</span></p>
-          <ul><li class="plus">Everything in Care</li><li>A monthly website refresh: photos, menus, promos</li><li>Social graphics for the month, ready to post</li><li>Profile updates on Google and social</li></ul>
+          <ul><li class="plus">Everything in Care</li><li>A monthly website refresh with your photos, menus and promos</li><li>Social graphics for the month, ready to post</li><li>Profile updates on Google and social</li></ul>
           <a class="btn alt" href="/?type=Monthly%20support%20(site%2C%20social%20or%20hosting)#contact">Ask about Grow</a>
         </article>
         <article class="tier reveal">
@@ -692,6 +698,17 @@ h1, h2, .elastic-title, .elastic-title .glyph, .elastic-title .ink-b, .elastic-t
           <p class="price"><strong>Starts at $500</strong><span>a month</span></p>
           <ul><li class="plus">Everything in Grow</li><li>Brand and design help: flyers, signs, promos</li><li>New pages and campaign pieces when you need them</li><li>First in line for changes</li><li>A plan for the month, made together</li></ul>
           <a class="btn" href="/?type=Monthly%20support%20(site%2C%20social%20or%20hosting)#contact">Ask about Studio</a>
+        </article>
+        <article class="tier tier-wide reveal">
+          <div class="tier-wide-copy">
+            <h3>Unlimited</h3>
+            <p class="for">Ask for as much as you need. I work on one request at a time.</p>
+            <p class="price"><strong>$2,000</strong><span>a month</span></p>
+          </div>
+          <div class="tier-wide-list">
+            <ul><li class="plus">Everything in Studio</li><li>Unlimited requests for your website, brand and social</li><li>One request at a time, in the order you choose</li><li>Photo shoots stay separate</li></ul>
+            <a class="btn" href="/?type=Monthly%20support%20(site%2C%20social%20or%20hosting)#contact">Ask about Unlimited</a>
+          </div>
         </article>
       </div>
     </div>
