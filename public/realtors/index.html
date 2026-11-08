@@ -4,13 +4,13 @@
 <meta charset="UTF-8">
 <script>document.documentElement.classList.add("js")</script>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>For real estate agents - Hello Rivers</title>
+<title>For realtors - Hello Rivers</title>
 <meta name="description" content="Listing photos, an up-to-date site, social posts for every listing in English and Spanish, and a brand that's yours, from one person at Hello Rivers.">
-<link rel="canonical" href="https://hellorivers.com/agents/">
+<link rel="canonical" href="https://hellorivers.com/realtors/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Hello Rivers">
-<meta property="og:url" content="https://hellorivers.com/agents/">
-<meta property="og:title" content="For real estate agents: Hello Rivers">
+<meta property="og:url" content="https://hellorivers.com/realtors/">
+<meta property="og:title" content="For realtors: Hello Rivers">
 <meta property="og:description" content="Listing photos, an up-to-date site and social posts for every listing, in English and Spanish.">
 <meta property="og:image" content="https://hellorivers.com/og-image.jpg">
 <meta property="og:image:width" content="1200">
@@ -587,6 +587,14 @@ h1, h2, .elastic-title, .elastic-title .glyph, .elastic-title .ink-b, .elastic-t
 .listing-grid img:first-child { grid-column: span 6; grid-row: span 2; }
 @media (max-width: 760px) { .listing-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; } .listing-grid img, .listing-grid img:nth-child(n+6) { grid-column: span 1; border-radius: 12px; } .listing-grid img:first-child, .listing-grid img:last-child { grid-column: span 2; grid-row: auto; } }
 .agents-hero { padding-bottom: 0; }
+
+/* Statistics above the photos */
+.stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.5rem clamp(1.5rem, 4vw, 3rem); margin-bottom: var(--content-space); }
+.stat strong { display: block; font: 800 clamp(3rem, 6.5vw, 4.75rem)/1 var(--display); font-variation-settings: "opsz" 96; letter-spacing: -.035em; color: var(--blue); }
+.stat p { margin: .5rem 0 0; max-width: 28ch; font-size: clamp(1.1rem, 2vw, 1.3rem); line-height: 1.45; }
+.stats-source { grid-column: 1 / -1; margin: 0; font-size: .875rem; color: var(--soft); }
+.stats-source a { color: inherit; }
+@media (max-width: 760px) { .stats { grid-template-columns: minmax(0, 1fr); } }
 </style>
 </head>
 <body>
@@ -602,7 +610,7 @@ h1, h2, .elastic-title, .elastic-title .glyph, .elastic-title .ink-b, .elastic-t
         <li><a href="/">Home</a></li>
         <li><a href="/#services">Services</a></li>
         <li><a href="/#work">Work</a></li>
-        <li><a href="/agents/" aria-current="page">For agents</a></li>
+        <li><a href="/realtors/" aria-current="page">For realtors</a></li>
         <li><a href="/plans/">Plans</a></li>
         <li><a href="/about/">About</a></li>
       </ul>
@@ -614,12 +622,19 @@ h1, h2, .elastic-title, .elastic-title .glyph, .elastic-title .ink-b, .elastic-t
 <main id="top" tabindex="-1">
   <section class="page-hero agents-hero" aria-labelledby="agents-title">
     <div class="wrap">
-      <h1 class="elastic-title reveal" id="agents-title" aria-label="For real estate agents"><span data-text="For real estate agents" aria-hidden="true">For real estate agents</span></h1>
+      <h1 class="elastic-title reveal" id="agents-title" aria-label="For realtors"><span data-text="For realtors" aria-hidden="true">For realtors</span></h1>
+      <p class="lede reveal">You sell homes. I handle how they look online: the photos, your site and the posts, in English and Spanish, so you can get back to your clients.</p>
     </div>
   </section>
 
-  <section id="agents" aria-label="What I do for agents">
+  <section id="agents" aria-label="What I do for realtors">
     <div class="wrap">
+      <div class="stats reveal">
+        <div class="stat"><strong>81%</strong><p>of buyers who searched online called photos very useful.</p></div>
+        <div class="stat"><strong>46%</strong><p>of buyers started by looking online for homes for sale.</p></div>
+        <div class="stat"><strong>80%</strong><p>of people in Hidalgo County speak a language other than English at home.</p></div>
+        <p class="stats-source">Sources: <a href="https://www.nar.realtor/research-and-statistics/research-reports/highlights-from-the-profile-of-home-buyers-and-sellers" target="_blank" rel="noopener noreferrer">National Association of Realtors, 2025 Profile of Home Buyers and Sellers<span class="sr-only"> (opens in a new tab)</span></a>; <a href="https://www.census.gov/quickfacts/hidalgocountytexas" target="_blank" rel="noopener noreferrer">U.S. Census Bureau QuickFacts, 2020&ndash;2024<span class="sr-only"> (opens in a new tab)</span></a>.</p>
+      </div>
       <div class="listing-grid reveal" aria-label="Photos from a new-build listing shoot" role="group">
         <img src="/listing-1.webp" alt="Front of a newly built white stucco and stone home with a two-car garage" loading="lazy" width="1400" height="933">
         <img src="/listing-7.webp" alt="Bright open kitchen with a large white island and pendant lights" loading="lazy" width="900" height="600">

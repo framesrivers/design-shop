@@ -38,7 +38,7 @@ Ongoing monthly support is the differentiator: Hello Rivers stays on after launc
 - No Node on the owner's machine; edits are made to the static files directly.
 - This repo (framesrivers/design-shop) is separate from the owner's personal portfolio (framesrivers/portafolio) and must never be combined with it.
 - Projects are offered in Spanish (confirmed); the site may say "Se habla español". A full Spanish version of the site is not built yet; how it will be offered (toggle, separate page, bilingual copy) is undecided.
-- Starting prices are published on the Plans page (added 2026-11-08): Starter $300, Business $750, Brand + site $1,000, Care $50/month, Grow $200/month, Studio $500/month, Unlimited $2,000/month (unlimited requests, one at a time; photo shoots included; realtors up to 4 listings a month). Realtor listing photos start at $125 per listing, up to 25 edited photos, on the agents page. Final prices are quoted per project.
+- Starting prices are published on the Plans page (added 2026-11-08): Starter $300, Business $750, Brand + site $1,000, Care $50/month, Grow $200/month, Studio $500/month, Unlimited $2,000/month (unlimited requests, one at a time; photo shoots included; realtors up to 4 listings a month). Realtor listing photos start at $125 per listing, up to 25 edited photos, on the realtors page (/realtors/). Final prices are quoted per project.
 
 ## Brand Commitments
 
