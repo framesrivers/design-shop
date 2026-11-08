@@ -16,26 +16,29 @@
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="theme-color" content="#E5E7EA">
+<meta name="theme-color" content="#F7F3EA">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anybody:wdth,wght@50..150,300..900&family=Hanken+Grotesk:wght@400;500;700&family=Caveat:wght@600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Anybody:wdth,wght@50..150,300..900&family=Onest:wght@400..800&family=Hanken+Grotesk:wght@400;500;700&family=Caveat:wght@600&display=swap" rel="stylesheet">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='13' cy='16' r='10' fill='%23FF48B0'/><circle cx='19' cy='16' r='10' fill='%23FFE800' style='mix-blend-mode:multiply'/></svg>">
 <style>
 /* ============================================================
    EDIT YOUR COLORS HERE (riso-print inks)
    ============================================================ */
 :root {
-  --paper: #E5E7EA;     /* newsprint background */
-  --sheet: #FAFAF7;     /* cards and paper sheets */
-  --blue: #1D3FB0;      /* riso blue: text, borders, shadows */
-  --pink: #FF48B0;      /* fluorescent pink: ink layers and decoration */
-  --pink-deep: #CC1479; /* pink behind light text */
-  --pink-ink: #C2137A;  /* pink text on light surfaces */
-  --yellow: #FFE800;    /* riso yellow */
-  --soft: #4A5A96;      /* secondary text */
+  --paper: #F7F3EA;     /* warm off-white page background */
+  --navy: #0C1E6B;      /* body text and dark blocks */
+  --sky: #BFDCFF;       /* pale blue blocks */
+  --mark-yellow: #FFE800; /* yellow highlighter, marks only */
+  --sheet: #FFFFFF;     /* cards and paper sheets */
+  --blue: #2450F5;      /* main color: headlines, buttons, big blocks */
+  --pink: #FF48B0;      /* pink highlighter, wavy underlines only */
+  --pink-deep: #0C1E6B; /* tags behind light text (name kept from the old look) */
+  --pink-ink: #2450F5;  /* handwritten notes (name kept from the old look) */
+  --yellow: #BFDCFF;    /* pale sky fills (name kept from the old look) */
+  --soft: #3A4A8C;      /* secondary text */
 
-  --display: "Anybody", "Arial Black", system-ui, sans-serif;
+  --display: "Onest", system-ui, -apple-system, "Segoe UI", sans-serif;
   --body: "Hanken Grotesk", system-ui, -apple-system, "Segoe UI", sans-serif;
   --hand: "Caveat", "Comic Sans MS", cursive;
   --ease: cubic-bezier(.2, .8, .2, 1);
@@ -84,7 +87,7 @@ a { color: inherit; }
 
 /* ---------- Nav ---------- */
 .nav { position: fixed; inset: 0 0 auto; z-index: 50; padding-top: env(safe-area-inset-top, 0px); transition: background .3s; }
-.nav.scrolled { background: rgba(229, 231, 234, .85); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 2.5px solid var(--blue); }
+.nav.scrolled { background: rgba(247, 243, 234, .92); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1.5px solid rgba(12, 30, 107, .15); }
 .nav .wrap { display: flex; justify-content: space-between; align-items: center; height: 74px; gap: 1rem; }
 .brand { display: flex; align-items: center; text-decoration: none; line-height: 0; }
 .brand-logo { display: block; width: 154px; height: auto; max-height: 52px; object-fit: contain; }
@@ -324,7 +327,7 @@ input::placeholder, textarea::placeholder { color: var(--soft); opacity: 1; }
 .work-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(1.25rem, 3vw, 2.25rem); align-items: stretch; }
 .work-card { overflow: hidden; border: 2.5px solid var(--blue); border-radius: 22px; background: var(--sheet); box-shadow: 6px 6px 0 var(--blue); }
 .work-feature { display: flex; flex-direction: column; }
-.work-image { position: relative; aspect-ratio: 16 / 10; overflow: hidden; border-bottom: 2.5px solid var(--blue); background: #fdf6ec; }
+.work-image { position: relative; aspect-ratio: 16 / 10; overflow: hidden; border-bottom: 1.5px solid rgba(12, 30, 107, .15); background: #fdf6ec; }
 .work-image img, .work-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center top; }
 .work-video { opacity: 0; transition: opacity .15s var(--ease); }
 .work-image.is-playing .work-video { opacity: 1; }
@@ -350,7 +353,7 @@ input::placeholder, textarea::placeholder { color: var(--soft); opacity: 1; }
 }
 @media (max-width: 760px) {
   .work-photos { grid-template-columns: 1fr; }
-  .work-photos .work-copy { border-right: 0; border-bottom: 2.5px solid var(--blue); }
+  .work-photos .work-copy { border-right: 0; border-bottom: 1.5px solid rgba(12, 30, 107, .15); }
   .shoot-strip img { height: 340px; }
   .shoot-strip.is-wide img { height: 180px; aspect-ratio: 3 / 2; }
 }
@@ -472,6 +475,85 @@ p, summary, li { text-wrap: pretty; }
 .steps li { gap: 12px; padding-bottom: 12px; }
 .freebie .actions { margin-top: 28px; gap: 12px var(--el-gap); }
 .more { margin-top: var(--content-space); }
+
+/* ============================================================
+   BLUE FAMILY LOOK: one color family (blue, off-white, sky, navy),
+   flat shapes, squiggles from the logo's wave. Yellow and pink are
+   highlighter marks only. Footer wordmark stays Anybody for its stretch.
+   ============================================================ */
+.paper, .riso .ink-p, .headline .glyph .ink-p, .elastic-title .glyph .ink-p { display: none; }
+body { color: var(--navy); }
+.wordmark { font-family: "Anybody", "Arial Black", system-ui, sans-serif; }
+.wordmark span:nth-child(3n+1) { color: inherit; }
+.wordmark { color: var(--blue); }
+h1, h2, .headline { color: var(--blue); }
+
+/* Headlines: quiet and friendly, sentence case, no width stretching */
+h1, h2, h3, .headline, .block h3, .work-copy h3, .agents-list h3, .receipt .rt, .receipt .total, .tier h3, .addons h3, .price strong, .fact h3, .steps strong, summary, .contact-grid .mail {
+  text-transform: none; font-weight: 700; font-variation-settings: normal; letter-spacing: -.025em;
+}
+.headline { line-height: 1.04; max-width: 900px; }
+.headline .fit { font-variation-settings: normal; font-weight: 700; }
+h2 { line-height: 1.05; }
+.plans-hero h1, .page-hero h1 { font-weight: 700; line-height: 1.02; font-variation-settings: normal; text-transform: none; letter-spacing: -.025em; }
+.block h3, .work-copy h3, .agents-list h3, .tier h3, .addons h3, .fact h3 { line-height: 1.08; font-variation-settings: normal; }
+summary { font-weight: 600; letter-spacing: -.01em; }
+
+/* Flat: no hard shadows or heavy outlines */
+body * { box-shadow: none !important; }
+.btn, .block, .block .card-cta, .setup-card, details, form, .portrait, .standing, .work-card, .agents-card, .agents-num, .tier, .addons, .fact, .freebie, .frame, .cover img, .plans-cta .box, .page-cta .box, .live-tag, .copy-btn, .jump a, .jump b, .plan-step b, .tier .flag, .receipt, .shoot-strip img, .steps li::before, .rules li::before, .freebie .tags li, .steps-list li::before { border: 0; }
+.block, .work-card, details, .tier, .addons, .setup-card, .agents-card, .fact, .freebie, form { border-radius: 22px; }
+.block:hover { transform: translateY(-3px); }
+input, select, textarea { border: 1.5px solid rgba(12, 30, 107, .35); background: var(--sheet); }
+input:focus, select:focus, textarea:focus { border-color: var(--blue); outline: 2px solid var(--blue); outline-offset: 1px; }
+:focus-visible { outline: 3px solid var(--blue); }
+summary::after { color: var(--blue); }
+
+/* Buttons: blue pills, off-white on blue */
+.btn, .btn.alt { background: var(--blue); color: #fff; border-radius: 999px; }
+.btn:hover, .btn.alt:hover { background: var(--navy); }
+.btn.plain { background: transparent; color: var(--blue); box-shadow: inset 0 0 0 1.5px var(--blue) !important; }
+.btn.plain:hover { background: var(--sky); }
+.agents-card .btn, .tier.pick .btn, .plans-cta .btn.alt, .page-cta .btn.alt { background: var(--paper); color: var(--blue); }
+.plans-cta .btn.plain, .page-cta .btn.plain, .agents-card .btn.plain { background: transparent; color: #fff; box-shadow: inset 0 0 0 1.5px #fff !important; }
+.block .card-cta, .copy-btn { border-radius: 999px; }
+
+/* Color blocks */
+.b1 { background: var(--blue); color: #fff; }
+.b2 { background: var(--sky); color: var(--navy); }
+.b3 { background: var(--navy); color: #fff; }
+.b3 p { color: #fff; }
+.b2 h3, .setup-card h2, .addons h3, .fact:nth-child(2) h3 { color: var(--navy); }
+.setup-card, .addons, .fact:nth-child(2), .work-next { color: var(--navy); }
+.plans-cta .box, .page-cta .box, .agents-card { background-color: var(--blue); }
+.plans-cta h2, .page-cta h2 { color: #fff; }
+.agents-card h2 { color: #fff; }
+.tier.pick h3 { color: #fff; }
+.tier .flag { background: var(--mark-yellow); color: var(--navy); }
+
+/* Squiggle pattern on solid blue, drawn from the logo's wave */
+.b1, .plans-cta .box, .page-cta .box { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260' viewBox='0 0 260 260'%3E%3Cg fill='none' stroke='rgba%28255%2C255%2C255%2C.14%29' stroke-width='9' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 40c18-18 34-18 50 0s32 18 50 0'/%3E%3Cpath d='M190 30c34-10 54 16 40 38s-44 14-40-10 30-22 36-4'/%3E%3Cpath d='M30 120l18 24 18-24 18 24 18-24'/%3E%3Cpath d='M160 118c8 26 44 26 54 0'/%3E%3Cpath d='M172 96v8M202 96v8'/%3E%3Cpath d='M36 214c-6-26 34-34 40-10s-30 40-44 16'/%3E%3Cpath d='M130 206h76'/%3E%3C/g%3E%3C/svg%3E"); }
+.b1, .plans-cta .box, .page-cta .box { background-repeat: no-repeat; background-size: 260px; background-position: right -30px center; }
+.plans-cta .box, .page-cta .box { background-position: 68% center; }
+@media (min-width: 1100px) {
+  .hero::after { content: ""; position: absolute; top: 128px; right: max(2rem, calc((100vw - 1240px) / 2)); width: 270px; height: 324px; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='360' viewBox='0 0 300 360'%3E%3Cg fill='none' stroke='%232450F5' stroke-width='10' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M30 60c22-24 42-24 62 0s40 24 62 0'/%3E%3Cpath d='M210 60c40-14 68 20 50 48s-58 18-52-14 40-28 48-6'/%3E%3Cpath d='M40 190l22 30 22-30 22 30 22-30'/%3E%3Cpath d='M190 200c10 32 58 32 70 0'/%3E%3Cpath d='M206 172v10M244 172v10'/%3E%3Cpath d='M50 310c-8-34 44-44 52-14s-40 52-58 20'/%3E%3Cpath d='M180 320h90'/%3E%3C/g%3E%3C/svg%3E") center / contain no-repeat; }
+}
+
+/* Small badges and tape stay in the blue family */
+.steps li:nth-child(2)::before, .jump a:nth-child(2) b, #monthly .plan-step b, .rules li:nth-child(2)::before, .freebie .tags li:first-child, .tier li.plus::before { background-color: var(--sky); }
+.portrait::before, .standing::before, .cover::before, form::before, form::after { background: rgba(191, 220, 255, .9); }
+.work-photos .work-copy { border: 0; }
+footer { border-top: 1.5px solid rgba(12, 30, 107, .15); }
+.shoot-strip:focus-visible { outline-color: var(--blue); }
+@media (max-width: 760px) { .nav { border-bottom: 1.5px solid rgba(12, 30, 107, .15); } }
+@media (max-width: 560px) { .headline .fit { font-size: 17vw !important; } }
+
+/* Highlighters: yellow marks words, pink is the wavy underline */
+.headline .fit:last-child .riso { background: linear-gradient(transparent 56%, var(--mark-yellow) 56%, var(--mark-yellow) 90%, transparent 90%); }
+.contact-grid .mail { color: var(--navy); background: linear-gradient(transparent 52%, var(--mark-yellow) 52%, var(--mark-yellow) 92%, transparent 92%); }
+.nav ul a::after { background: var(--mark-yellow); }
+::selection { background: var(--mark-yellow); color: var(--navy); }
+.scribble path { stroke: var(--pink); }
 </style>
 </head>
 <body>
@@ -480,7 +562,7 @@ p, summary, li { text-wrap: pretty; }
 
 <header class="nav" id="nav">
   <div class="wrap">
-    <a class="brand" href="/" aria-label="Hello Rivers home"><img class="brand-logo" src="/hello-rivers-logo.webp" alt="Hello Rivers" width="400" height="157"></a>
+    <a class="brand" href="/" aria-label="Hello Rivers home"><img class="brand-logo" src="/hello-rivers-logo-2026.webp" alt="Hello Rivers" width="400" height="157"></a>
     <button class="nav-toggle" type="button" aria-controls="primary-links" aria-expanded="false">Menu</button>
     <nav aria-label="Primary">
       <ul id="primary-links">
